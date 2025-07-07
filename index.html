@@ -844,31 +844,23 @@
         .video-showcase {
             position: relative;
             background: var(--gray-950);
+            padding: 180px 0 0;
+        }
+        
+        .video-scroll-wrapper {
+            position: relative;
             overflow: hidden;
         }
         
-        .video-scroll-container {
-            height: 400vh;
-        }
-        
-        .video-sticky {
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .video-track {
+        .video-horizontal-scroll {
             display: flex;
             gap: 48px;
-            transition: transform 1s var(--ease-out-expo);
-            padding: 0 48px;
+            padding: 96px 48px;
+            transition: transform 0.3s var(--ease-out-expo);
         }
         
         .video-card {
-            width: 70vw;
+            min-width: 70vw;
             max-width: 1000px;
             height: 70vh;
             background: var(--black);
@@ -878,9 +870,13 @@
             position: relative;
             flex-shrink: 0;
             transition: all 0.5s var(--ease-out-expo);
+            opacity: 0.5;
+            transform: scale(0.95);
         }
         
         .video-card.active {
+            opacity: 1;
+            transform: scale(1);
             border-color: var(--accent);
             box-shadow: 0 40px 80px rgba(255, 0, 128, 0.2);
         }
@@ -949,6 +945,71 @@
         .video-title {
             font-size: 36px;
             font-weight: 600;
+        }
+        
+        /* Services Marquee */
+        .services-marquee {
+            padding: 96px 0;
+            overflow: hidden;
+            position: relative;
+            background: var(--black);
+        }
+        
+        .services-marquee-container {
+            display: flex;
+        }
+        
+        .services-marquee-track {
+            display: flex;
+            gap: 40px;
+            animation: servicesMarquee 30s linear infinite;
+        }
+        
+        @keyframes servicesMarquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .services-marquee-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 32px;
+            background: var(--gray-950);
+            border: 1px solid var(--gray-900);
+            border-radius: var(--radius-full);
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+        
+        .services-marquee-item:hover {
+            background: var(--gray-900);
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+        
+        .services-marquee-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .services-marquee-icon svg {
+            width: 12px;
+            height: 12px;
+            stroke: var(--white);
+            fill: none;
+            stroke-width: 2;
+        }
+        
+        .services-marquee-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--white);
         }
         
         /* Portfolio Section */
@@ -1074,150 +1135,294 @@
             gap: 12px;
         }
         
-        /* Testimonials */
+        /* Testimonials - Ultra Modern */
         .testimonials {
             padding: 180px 0;
             position: relative;
             background: var(--gray-950);
+            overflow: hidden;
         }
         
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
+        .testimonials-wrapper {
+            position: relative;
+            height: 600px;
             margin-top: 96px;
         }
         
-        .testimonial-card {
-            background: var(--black);
-            border: 1px solid var(--gray-900);
+        .testimonial-card-modern {
+            position: absolute;
+            width: 400px;
+            height: auto;
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--black) 100%);
+            border: 1px solid var(--gray-800);
             border-radius: var(--radius-2xl);
             padding: 48px;
-            transition: all 0.3s var(--ease-out-expo);
+            transition: all 0.5s var(--ease-out-expo);
+            cursor: pointer;
             opacity: 0;
-            transform: translateY(30px);
         }
         
-        .testimonial-card:hover {
-            background: var(--gray-900);
-            border-color: var(--gray-800);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        .testimonial-card-modern:nth-child(1) {
+            top: 0;
+            left: 10%;
+            transform: rotate(-5deg);
         }
         
-        .testimonial-text {
-            font-size: 18px;
-            line-height: 1.7;
-            color: var(--gray-300);
+        .testimonial-card-modern:nth-child(2) {
+            top: 100px;
+            left: 35%;
+            transform: rotate(3deg);
+            z-index: 2;
+        }
+        
+        .testimonial-card-modern:nth-child(3) {
+            top: 50px;
+            right: 10%;
+            transform: rotate(-3deg);
+        }
+        
+        .testimonial-card-modern:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            box-shadow: 0 50px 100px rgba(255, 0, 128, 0.3);
+            z-index: 10;
+        }
+        
+        .testimonial-card-modern::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 120px;
+            font-weight: 700;
+            color: var(--accent);
+            opacity: 0.1;
+            line-height: 1;
+        }
+        
+        .testimonial-rating {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 24px;
+        }
+        
+        .star {
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+        
+        .testimonial-text-modern {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--white);
             margin-bottom: 32px;
+            position: relative;
+            z-index: 1;
         }
         
-        .testimonial-author {
+        .testimonial-author-modern {
             display: flex;
             align-items: center;
             gap: 16px;
         }
         
-        .author-avatar {
-            width: 48px;
-            height: 48px;
+        .author-avatar-modern {
+            width: 56px;
+            height: 56px;
             background: var(--gradient-premium);
             border-radius: var(--radius-full);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 600;
+            font-size: 20px;
             color: var(--white);
         }
         
-        .author-info {
+        .author-info-modern {
             flex: 1;
         }
         
-        .author-name {
-            font-size: 16px;
+        .author-name-modern {
+            font-size: 18px;
             font-weight: 600;
             margin-bottom: 4px;
         }
         
-        .author-role {
+        .author-role-modern {
             font-size: 14px;
-            color: var(--gray-500);
+            color: var(--gray-400);
         }
         
-        /* Contact Section - Fixed */
+        /* Contact Section - Ultra Modern */
         .contact {
             padding: 180px 0;
             position: relative;
             background: var(--black);
+            overflow: hidden;
+        }
+        
+        .contact-wrapper {
+            position: relative;
+            z-index: 1;
         }
         
         .contact-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             text-align: center;
         }
         
         .contact-heading {
-            font-size: clamp(48px, 6vw, 80px);
+            font-size: clamp(60px, 8vw, 120px);
             font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            margin-bottom: 32px;
+            line-height: 0.9;
+            letter-spacing: -0.04em;
+            margin-bottom: 48px;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(50px);
         }
         
         .contact-description {
-            font-size: 20px;
-            line-height: 1.7;
-            color: var(--gray-400);
-            margin-bottom: 80px;
+            font-size: 24px;
+            line-height: 1.6;
+            color: var(--gray-300);
+            margin-bottom: 96px;
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(30px);
         }
         
-        .contact-cards {
+        .contact-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            max-width: 900px;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
-        .contact-card {
+        .contact-form {
             background: var(--gray-950);
             border: 1px solid var(--gray-900);
             border-radius: var(--radius-2xl);
-            padding: 48px 32px;
-            text-align: center;
-            transition: all 0.3s var(--ease-out-expo);
+            padding: 64px;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateX(-50px);
+        }
+        
+        .form-group {
+            margin-bottom: 32px;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gray-400);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 16px 24px;
+            background: var(--black);
+            border: 1px solid var(--gray-800);
+            border-radius: var(--radius-md);
+            font-size: 16px;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+        
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-button {
+            width: 100%;
+            padding: 20px;
+            background: var(--gradient-premium);
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--white);
+            cursor: pointer;
+            transition: all 0.3s var(--ease-out-expo);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
+        }
+        
+        .form-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px var(--accent-glow);
+        }
+        
+        .form-button:hover::before {
+            left: 100%;
+        }
+        
+        .contact-info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        
+        .contact-info-card {
+            background: linear-gradient(135deg, var(--gray-950) 0%, var(--gray-900) 100%);
+            border: 1px solid var(--gray-800);
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            transition: all 0.3s var(--ease-out-expo);
+            cursor: pointer;
             text-decoration: none;
             color: inherit;
         }
         
-        .contact-card:hover {
-            background: var(--gray-900);
+        .contact-info-card:hover {
+            transform: translateX(8px);
             border-color: var(--accent);
-            transform: translateY(-8px);
-            box-shadow: 0 30px 60px rgba(255, 0, 128, 0.1);
+            box-shadow: -20px 20px 40px rgba(255, 0, 128, 0.2);
         }
         
-        .contact-icon {
+        .contact-info-icon {
             width: 64px;
             height: 64px;
-            background: var(--gradient-premium);
+            background: var(--accent);
             border-radius: var(--radius-lg);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 24px;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
         
-        .contact-icon svg {
+        .contact-info-icon svg {
             width: 28px;
             height: 28px;
             stroke: var(--white);
@@ -1225,11 +1430,15 @@
             stroke-width: 2;
         }
         
-        .contact-card:hover .contact-icon {
-            transform: scale(1.1) rotate(5deg);
+        .contact-info-card:hover .contact-info-icon {
+            transform: rotate(10deg) scale(1.1);
         }
         
-        .contact-label {
+        .contact-info-content {
+            flex: 1;
+        }
+        
+        .contact-info-label {
             font-size: 14px;
             color: var(--gray-500);
             text-transform: uppercase;
@@ -1237,10 +1446,61 @@
             margin-bottom: 8px;
         }
         
-        .contact-value {
-            font-size: 18px;
+        .contact-info-value {
+            font-size: 20px;
             font-weight: 600;
             color: var(--white);
+        }
+        
+        /* Contact Background Animation */
+        .contact-bg-animation {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            opacity: 0.1;
+        }
+        
+        .contact-circle {
+            position: absolute;
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            animation: contactPulse 4s ease-in-out infinite;
+        }
+        
+        .contact-circle:nth-child(1) {
+            width: 100%;
+            height: 100%;
+            animation-delay: 0s;
+        }
+        
+        .contact-circle:nth-child(2) {
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0.5s;
+        }
+        
+        .contact-circle:nth-child(3) {
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+            animation-delay: 1s;
+        }
+        
+        @keyframes contactPulse {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 0.3;
+                transform: scale(1.2);
+            }
         }
         
         /* Footer */
@@ -1286,8 +1546,7 @@
             }
             
             .services-grid,
-            .portfolio-grid,
-            .testimonials-grid {
+            .portfolio-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -1295,12 +1554,23 @@
                 grid-column: span 1;
             }
             
-            .contact-cards {
+            .contact-grid {
                 grid-template-columns: 1fr;
             }
             
             .video-card {
-                width: 85vw;
+                min-width: 85vw;
+            }
+            
+            .testimonial-card-modern {
+                position: relative !important;
+                width: 100%;
+                transform: none !important;
+                margin-bottom: 24px;
+            }
+            
+            .testimonials-wrapper {
+                height: auto;
             }
         }
         
@@ -1332,6 +1602,14 @@
             
             .marquee-item {
                 font-size: 40px;
+            }
+            
+            .contact-form {
+                padding: 32px;
+            }
+            
+            .contact-heading {
+                font-size: clamp(40px, 10vw, 80px);
             }
         }
     </style>
@@ -1609,68 +1887,171 @@
             </div>
         </div>
         
-        <div class="video-scroll-container">
-            <div class="video-sticky">
-                <div class="video-track" id="videoTrack">
-                    <div class="video-card active">
-                        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1200&h=800&fit=crop&auto=format&q=80" alt="Fashion Week Praha" class="video-thumbnail">
-                        <div class="video-overlay">
-                            <div class="play-button">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="video-info">
-                            <div class="video-number">01</div>
-                            <h3 class="video-title">Fashion Week Praha 2024</h3>
+        <div class="video-scroll-wrapper">
+            <div class="video-horizontal-scroll" id="videoScroll">
+                <div class="video-card active">
+                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1200&h=800&fit=crop&auto=format&q=80" alt="Fashion Week Praha" class="video-thumbnail">
+                    <div class="video-overlay">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
                         </div>
                     </div>
-                    
-                    <div class="video-card">
-                        <img src="https://images.unsplash.com/photo-1524634126442-357e0eac3c14?w=1200&h=800&fit=crop&auto=format&q=80" alt="Red Bull Sports" class="video-thumbnail">
-                        <div class="video-overlay">
-                            <div class="play-button">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="video-info">
-                            <div class="video-number">02</div>
-                            <h3 class="video-title">Red Bull Extreme Sports</h3>
+                    <div class="video-info">
+                        <div class="video-number">01</div>
+                        <h3 class="video-title">Fashion Week Praha 2024</h3>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <img src="https://images.unsplash.com/photo-1524634126442-357e0eac3c14?w=1200&h=800&fit=crop&auto=format&q=80" alt="Red Bull Sports" class="video-thumbnail">
+                    <div class="video-overlay">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
                         </div>
                     </div>
-                    
-                    <div class="video-card">
-                        <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=1200&h=800&fit=crop&auto=format&q=80" alt="Tary Music Video" class="video-thumbnail">
-                        <div class="video-overlay">
-                            <div class="play-button">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="video-info">
-                            <div class="video-number">03</div>
-                            <h3 class="video-title">Tary Music Video</h3>
+                    <div class="video-info">
+                        <div class="video-number">02</div>
+                        <h3 class="video-title">Red Bull Extreme Sports</h3>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=1200&h=800&fit=crop&auto=format&q=80" alt="Tary Music Video" class="video-thumbnail">
+                    <div class="video-overlay">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
                         </div>
                     </div>
-                    
-                    <div class="video-card">
-                        <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=1200&h=800&fit=crop&auto=format&q=80" alt="Comic Con Aftermovie" class="video-thumbnail">
-                        <div class="video-overlay">
-                            <div class="play-button">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="video-info">
-                            <div class="video-number">04</div>
-                            <h3 class="video-title">Comic Con Prague Aftermovie</h3>
+                    <div class="video-info">
+                        <div class="video-number">03</div>
+                        <h3 class="video-title">Tary Music Video</h3>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=1200&h=800&fit=crop&auto=format&q=80" alt="Comic Con Aftermovie" class="video-thumbnail">
+                    <div class="video-overlay">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
                         </div>
                     </div>
+                    <div class="video-info">
+                        <div class="video-number">04</div>
+                        <h3 class="video-title">Comic Con Prague Aftermovie</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Marquee -->
+    <section class="services-marquee">
+        <div class="services-marquee-container">
+            <div class="services-marquee-track">
+                <div class="services-marquee-item">
+                    <div class="services-marquee-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                    </div>
+                    <span class="services-marquee-text">Kinematografie</span>
+                </div>
+                <div class="services-marquee-item">
+                    <div class="services-marquee-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                    </div>
+                    <span class="services-marquee-text">Dronové záběry</span>
+                </div>
+                <div class="services-marquee-item">
+                    <div class="services-marquee-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                    </div>
+                    <span class="services-marquee-text">Color grading</span>
+                </div>
+                <div class="services-marquee-item">
+                    <div class="services-marquee-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                    </div>
+                    <span class="services-marquee-text">3D animace</span>
+                </div>
+                <div class="services-marquee-item">
+                    <div class="services-marquee-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                    </div>
+                    <span class="services-marquee-text">Live streaming</span>
+                </div>
+                <div class="services-marquee-item">
+                    <div class="services-marquee-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                    </div>
+                    <span class="services-marquee-text">Motion design</span>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="services-marquee-item">
+                    <div class="services-marquee-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                    </div>
+                    <span class="services-marquee-text">Kinematografie</span>
+                </div>
+                <div class="services-marquee-item">
+                    <div class="services-marquee-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                    </div>
+                    <span class="services-marquee-text">Dronové záběry</span>
+                </div>
+                <div class="services-marquee-item">
+                    <div class="services-marquee-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                    </div>
+                    <span class="services-marquee-text">Color grading</span>
+                </div>
+                <div class="services-marquee-item">
+                    <div class="services-marquee-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                    </div>
+                    <span class="services-marquee-text">3D animace</span>
+                </div>
+                <div class="services-marquee-item">
+                    <div class="services-marquee-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                    </div>
+                    <span class="services-marquee-text">Live streaming</span>
+                </div>
+                <div class="services-marquee-item">
+                    <div class="services-marquee-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                    </div>
+                    <span class="services-marquee-text">Motion design</span>
                 </div>
             </div>
         </div>
@@ -1747,7 +2128,7 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Testimonials Section - Ultra Modern -->
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-header">
@@ -1755,45 +2136,66 @@
                 <h2 class="section-title">Spolupracujeme s <span class="text-gradient">nejlepšími</span></h2>
             </div>
             
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">
+            <div class="testimonials-wrapper">
+                <div class="testimonial-card-modern">
+                    <div class="testimonial-rating">
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                    </div>
+                    <p class="testimonial-text-modern">
                         "Zanda Visuals dokázali perfektně pochopit naši vizi a přeměnit ji v obsah, 
                         který překonal všechna očekávání. Jejich rychlost a kreativita je neuvěřitelná."
                     </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">T</div>
-                        <div class="author-info">
-                            <div class="author-name">Tary</div>
-                            <div class="author-role">Content Creator</div>
+                    <div class="testimonial-author-modern">
+                        <div class="author-avatar-modern">T</div>
+                        <div class="author-info-modern">
+                            <div class="author-name-modern">Tary</div>
+                            <div class="author-role-modern">Content Creator</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="testimonial-card">
-                    <p class="testimonial-text">
+                <div class="testimonial-card-modern">
+                    <div class="testimonial-rating">
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                    </div>
+                    <p class="testimonial-text-modern">
                         "Když potřebujeme video, které zaujme a funguje na sociálních sítích, 
                         Zanda Visuals je naše první volba. Vždy dodají přesně to, co potřebujeme."
                     </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">K</div>
-                        <div class="author-info">
-                            <div class="author-name">Kuba English</div>
-                            <div class="author-role">Educator & Influencer</div>
+                    <div class="testimonial-author-modern">
+                        <div class="author-avatar-modern">K</div>
+                        <div class="author-info-modern">
+                            <div class="author-name-modern">Kuba English</div>
+                            <div class="author-role-modern">Educator & Influencer</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="testimonial-card">
-                    <p class="testimonial-text">
+                <div class="testimonial-card-modern">
+                    <div class="testimonial-rating">
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                    </div>
+                    <p class="testimonial-text-modern">
                         "Profesionální přístup, kreativní řešení a hlavně výsledky, 
                         které mluví samy za sebe. S Zanda Visuals je radost spolupracovat."
                     </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">V</div>
-                        <div class="author-info">
-                            <div class="author-name">Vino od Bodláku</div>
-                            <div class="author-role">Wine Brand</div>
+                    <div class="testimonial-author-modern">
+                        <div class="author-avatar-modern">V</div>
+                        <div class="author-info-modern">
+                            <div class="author-name-modern">Vino od Bodláku</div>
+                            <div class="author-role-modern">Wine Brand</div>
                         </div>
                     </div>
                 </div>
@@ -1801,47 +2203,85 @@
         </div>
     </section>
 
-    <!-- Contact Section - Fixed -->
+    <!-- Contact Section - Ultra Modern -->
     <section class="contact" id="contact">
+        <div class="contact-bg-animation">
+            <div class="contact-circle"></div>
+            <div class="contact-circle"></div>
+            <div class="contact-circle"></div>
+        </div>
+        
         <div class="container">
-            <div class="contact-content">
-                <h2 class="contact-heading">Připraveni na <span class="text-gradient">další level</span>?</h2>
-                <p class="contact-description">
-                    Máte projekt, který potřebuje naši kreativitu? Ozvěte se a uděláme z něj hit.
-                </p>
+            <div class="contact-wrapper">
+                <div class="contact-content">
+                    <h2 class="contact-heading">
+                        Připraveni na <br>
+                        <span class="text-gradient">další level</span>?
+                    </h2>
+                    <p class="contact-description">
+                        Máte projekt, který potřebuje naši kreativitu? <br>
+                        Ozvěte se a uděláme z něj hit.
+                    </p>
+                </div>
                 
-                <div class="contact-cards">
-                    <a href="mailto:hello@zandavisuals.cz" class="contact-card">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
+                <div class="contact-grid">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label class="form-label">Vaše jméno</label>
+                            <input type="text" class="form-input" placeholder="Jan Novák">
                         </div>
-                        <div class="contact-label">Email</div>
-                        <div class="contact-value">hello@zandavisuals.cz</div>
-                    </a>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-input" placeholder="jan@novak.cz">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">O jaký projekt jde?</label>
+                            <textarea class="form-textarea" placeholder="Popište nám váš projekt..."></textarea>
+                        </div>
+                        <button type="submit" class="form-button">
+                            Odeslat zprávu
+                        </button>
+                    </form>
                     
-                    <a href="tel:+420123456789" class="contact-card">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                            </svg>
-                        </div>
-                        <div class="contact-label">Telefon</div>
-                        <div class="contact-value">+420 123 456 789</div>
-                    </a>
-                    
-                    <a href="https://instagram.com/zandavisuals" target="_blank" class="contact-card">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"/>
-                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke-width="2"/>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <div class="contact-label">Instagram</div>
-                        <div class="contact-value">@zandavisuals</div>
-                    </a>
+                    <div class="contact-info-cards">
+                        <a href="mailto:hello@zandavisuals.cz" class="contact-info-card">
+                            <div class="contact-info-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div class="contact-info-content">
+                                <div class="contact-info-label">Email</div>
+                                <div class="contact-info-value">hello@zandavisuals.cz</div>
+                            </div>
+                        </a>
+                        
+                        <a href="tel:+420123456789" class="contact-info-card">
+                            <div class="contact-info-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                </svg>
+                            </div>
+                            <div class="contact-info-content">
+                                <div class="contact-info-label">Telefon</div>
+                                <div class="contact-info-value">+420 123 456 789</div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://instagram.com/zandavisuals" target="_blank" class="contact-info-card">
+                            <div class="contact-info-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"/>
+                                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke-width="2"/>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div class="contact-info-content">
+                                <div class="contact-info-label">Instagram</div>
+                                <div class="contact-info-value">@zandavisuals</div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2024,39 +2464,52 @@
             });
         }
         
-        // Video Showcase - Fixed Scroll
-        const videoTrack = document.getElementById('videoTrack');
+        // Video Showcase - Horizontal Scroll
+        const videoScroll = document.getElementById('videoScroll');
         const videoCards = document.querySelectorAll('.video-card');
-        let currentVideoIndex = 0;
+        let isScrolling = false;
+        let currentIndex = 0;
         
-        ScrollTrigger.create({
-            trigger: '.video-scroll-container',
-            start: 'top top',
-            end: 'bottom bottom',
-            pin: '.video-sticky',
-            scrub: 1,
-            onUpdate: (self) => {
-                const progress = self.progress;
-                const totalVideos = videoCards.length;
-                const index = Math.min(Math.floor(progress * totalVideos), totalVideos - 1);
+        // Mouse wheel event for horizontal scroll
+        videoScroll.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            
+            if (!isScrolling) {
+                isScrolling = true;
                 
-                if (index !== currentVideoIndex) {
-                    // Update active state
-                    videoCards.forEach(card => card.classList.remove('active'));
-                    videoCards[index].classList.add('active');
-                    
-                    // Move track
-                    const offset = index * (videoCards[0].offsetWidth + 48);
-                    gsap.to(videoTrack, {
-                        x: -offset,
-                        duration: 1,
-                        ease: 'power3.inOut'
-                    });
-                    
-                    currentVideoIndex = index;
+                if (e.deltaY > 0 && currentIndex < videoCards.length - 1) {
+                    currentIndex++;
+                } else if (e.deltaY < 0 && currentIndex > 0) {
+                    currentIndex--;
                 }
+                
+                updateVideoScroll();
+                
+                setTimeout(() => {
+                    isScrolling = false;
+                }, 500);
             }
         });
+        
+        function updateVideoScroll() {
+            const cardWidth = videoCards[0].offsetWidth;
+            const gap = 48;
+            const offset = currentIndex * (cardWidth + gap);
+            
+            gsap.to(videoScroll, {
+                x: -offset,
+                duration: 0.5,
+                ease: 'power3.inOut'
+            });
+            
+            videoCards.forEach((card, index) => {
+                if (index === currentIndex) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+        }
         
         // Initialize animations
         function initAnimations() {
@@ -2101,7 +2554,7 @@
                 const label = section.querySelector('.section-label');
                 const title = section.querySelector('.section-title');
                 const description = section.querySelector('.section-description');
-                const elements = section.querySelectorAll('.stat-card, .timeline-item, .service-card, .portfolio-item, .testimonial-card, .contact-card');
+                const elements = section.querySelectorAll('.stat-card, .timeline-item, .service-card, .portfolio-item, .contact-info-card');
                 
                 const tl = gsap.timeline({
                     scrollTrigger: {
@@ -2146,6 +2599,65 @@
                         ease: 'power3.out'
                     }, '-=0.4');
                 }
+            });
+            
+            // Testimonials animation
+            gsap.to('.testimonial-card-modern', {
+                opacity: 1,
+                duration: 1,
+                stagger: 0.2,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.testimonials-wrapper',
+                    start: 'top 80%'
+                }
+            });
+            
+            // Contact animations
+            gsap.to('.contact-heading', {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.contact',
+                    start: 'top 80%'
+                }
+            });
+            
+            gsap.to('.contact-description', {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.contact',
+                    start: 'top 80%'
+                },
+                delay: 0.2
+            });
+            
+            gsap.to('.contact-form', {
+                opacity: 1,
+                x: 0,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.contact-grid',
+                    start: 'top 80%'
+                }
+            });
+            
+            gsap.to('.contact-info-cards', {
+                opacity: 1,
+                x: 0,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.contact-grid',
+                    start: 'top 80%'
+                },
+                delay: 0.2
             });
             
             // About section specific animations
@@ -2199,37 +2711,22 @@
                 });
             });
             
-            // Contact heading animation
-            gsap.to('.contact-heading', {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.contact',
-                    start: 'top 80%'
-                }
-            });
-            
-            gsap.to('.contact-description', {
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.contact',
-                    start: 'top 80%'
-                },
-                delay: 0.2
-            });
-            
             // Marquee pause on hover
             const marqueeTrack = document.querySelector('.marquee-track');
+            const servicesMarqueeTrack = document.querySelector('.services-marquee-track');
+            
             marqueeTrack.addEventListener('mouseenter', () => {
                 marqueeTrack.style.animationPlayState = 'paused';
             });
             marqueeTrack.addEventListener('mouseleave', () => {
                 marqueeTrack.style.animationPlayState = 'running';
+            });
+            
+            servicesMarqueeTrack.addEventListener('mouseenter', () => {
+                servicesMarqueeTrack.style.animationPlayState = 'paused';
+            });
+            servicesMarqueeTrack.addEventListener('mouseleave', () => {
+                servicesMarqueeTrack.style.animationPlayState = 'running';
             });
             
             // Portfolio filter
