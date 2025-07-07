@@ -29,6 +29,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Observer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js"></script>
     
     <style>
         * {
@@ -165,7 +166,7 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            padding: 30px 0;
+            padding: 25px 0;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             will-change: transform, background-color, backdrop-filter;
         }
@@ -176,13 +177,13 @@
             width: auto;
             left: 50%;
             transform: translateX(-50%);
-            padding: 15px 30px;
-            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 20px;
+            background: rgba(20, 20, 20, 0.6);
             backdrop-filter: blur(20px) saturate(180%);
-            border-radius: 60px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.06);
         }
         
         .nav-container {
@@ -198,11 +199,11 @@
         nav.floating .nav-container {
             max-width: none;
             padding: 0;
-            gap: 50px;
+            gap: 40px;
         }
         
         .logo {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 900;
             letter-spacing: -1px;
             background: var(--gradient-1);
@@ -214,7 +215,7 @@
         }
         
         nav.floating .logo {
-            font-size: 24px;
+            font-size: 20px;
         }
         
         .logo:hover {
@@ -223,12 +224,12 @@
         
         .nav-links {
             display: flex;
-            gap: 50px;
+            gap: 40px;
             list-style: none;
         }
         
         nav.floating .nav-links {
-            gap: 30px;
+            gap: 25px;
         }
         
         .nav-links a {
@@ -237,8 +238,12 @@
             transition: all 0.3s ease;
             position: relative;
             font-weight: 500;
-            font-size: 16px;
-            padding: 10px 0;
+            font-size: 15px;
+            padding: 8px 0;
+        }
+        
+        nav.floating .nav-links a {
+            font-size: 14px;
         }
         
         .nav-links a::after {
@@ -265,6 +270,144 @@
             position: relative;
             display: inline-block;
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Ultra Cool Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-dark);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .preloader-content {
+            position: relative;
+            text-align: center;
+        }
+        
+        /* Morphing shapes */
+        .preloader-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        
+        .morph-shape {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.5;
+        }
+        
+        .morph-shape-1 {
+            background: var(--accent-pink);
+            top: -100px;
+            left: -100px;
+            animation: morphShape1 3s ease-in-out infinite;
+        }
+        
+        .morph-shape-2 {
+            background: var(--accent-purple);
+            bottom: -100px;
+            right: -100px;
+            animation: morphShape2 3s ease-in-out infinite;
+        }
+        
+        .morph-shape-3 {
+            background: var(--accent-cyan);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: morphShape3 3s ease-in-out infinite;
+        }
+        
+        @keyframes morphShape1 {
+            0%, 100% {
+                transform: scale(1) rotate(0deg);
+                border-radius: 50%;
+            }
+            50% {
+                transform: scale(1.5) rotate(180deg);
+                border-radius: 30%;
+            }
+        }
+        
+        @keyframes morphShape2 {
+            0%, 100% {
+                transform: scale(1) rotate(0deg);
+                border-radius: 50%;
+            }
+            50% {
+                transform: scale(1.3) rotate(-180deg);
+                border-radius: 40%;
+            }
+        }
+        
+        @keyframes morphShape3 {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+                border-radius: 50%;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.4) rotate(90deg);
+                border-radius: 35%;
+            }
+        }
+        
+        /* Preloader text */
+        .preloader-text {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .preloader-title {
+            font-size: 60px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .preloader-title span {
+            display: inline-block;
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        
+        /* Progress bar */
+        .preloader-progress {
+            width: 300px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 0 auto 20px;
+        }
+        
+        .preloader-bar {
+            height: 100%;
+            width: 0;
+            background: var(--gradient-1);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        
+        .preloader-percentage {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent-pink);
+            letter-spacing: 2px;
         }
         
         /* Hero Section */
@@ -497,57 +640,95 @@
             }
         }
         
-        /* Marquee Section */
+        /* Cool 3D Marquee Section */
         .marquee-section {
-            padding: 80px 0;
+            padding: 100px 0;
             background: linear-gradient(180deg, var(--primary-dark) 0%, rgba(255, 0, 110, 0.02) 50%, var(--primary-dark) 100%);
             overflow: hidden;
             position: relative;
+            perspective: 1000px;
         }
         
         .marquee-container {
-            display: flex;
-            align-items: center;
             position: relative;
+            display: flex;
+            transform: rotateX(20deg) rotateY(-5deg);
+            transform-style: preserve-3d;
         }
         
         .marquee-track {
             display: flex;
-            align-items: center;
-            gap: 80px;
-            animation: marquee 30s linear infinite;
+            gap: 120px;
+            animation: marquee3D 40s linear infinite;
+            transform-style: preserve-3d;
         }
         
-        @keyframes marquee {
+        @keyframes marquee3D {
             0% {
-                transform: translateX(0);
+                transform: translateX(0) translateZ(0);
             }
             100% {
-                transform: translateX(-50%);
+                transform: translateX(-50%) translateZ(0);
             }
         }
         
         .marquee-item {
-            font-size: 48px;
+            font-size: 60px;
             font-weight: 900;
             text-transform: uppercase;
             white-space: nowrap;
-            color: var(--text-secondary);
-            transition: all 0.3s ease;
+            background: linear-gradient(135deg, var(--text-secondary) 0%, var(--text-primary) 50%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+        
+        .marquee-item::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0;
+            transform: translateZ(20px) rotateX(10deg);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .marquee-item:hover {
-            color: var(--accent-pink);
-            transform: scale(1.1);
+            transform: translateZ(50px) scale(1.1);
+        }
+        
+        .marquee-item:hover::before {
+            opacity: 1;
         }
         
         .marquee-separator {
-            width: 20px;
-            height: 20px;
+            width: 30px;
+            height: 30px;
             background: var(--gradient-1);
             border-radius: 50%;
             flex-shrink: 0;
+            align-self: center;
+            box-shadow: 0 0 30px rgba(255, 0, 110, 0.5);
+            animation: pulseSeparator 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulseSeparator {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 30px rgba(255, 0, 110, 0.5);
+            }
+            50% {
+                transform: scale(1.2);
+                box-shadow: 0 0 50px rgba(255, 0, 110, 0.8);
+            }
         }
         
         /* About Section */
@@ -1036,11 +1217,12 @@
             margin-left: 5px;
         }
         
-        /* Portfolio Section */
+        /* Ultra Cool Portfolio Section */
         .portfolio {
             padding: 150px 0;
             position: relative;
             overflow: hidden;
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 0, 110, 0.02) 50%, transparent 100%);
         }
         
         .filter-buttons {
@@ -1090,10 +1272,12 @@
             width: 100%;
         }
         
+        /* 3D Portfolio Grid */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
+            gap: 50px;
+            perspective: 1000px;
         }
         
         .portfolio-item {
@@ -1102,26 +1286,44 @@
             overflow: hidden;
             height: 400px;
             cursor: pointer;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             background: var(--secondary-dark);
             opacity: 0;
-            transform: translateY(50px) scale(0.95);
+            transform: translateY(50px) rotateX(-5deg);
+            transform-style: preserve-3d;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .portfolio-item:hover {
-            transform: translateY(-10px) scale(1);
-            box-shadow: 0 30px 60px rgba(255, 0, 110, 0.3);
+            transform: translateY(-20px) rotateX(5deg) scale(1.02);
+            box-shadow: 0 40px 80px rgba(255, 0, 110, 0.3);
+        }
+        
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 0, 110, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            z-index: 1;
+        }
+        
+        .portfolio-item:hover::before {
+            opacity: 1;
         }
         
         .portfolio-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .portfolio-item:hover .portfolio-image {
-            transform: scale(1.1);
+            transform: scale(1.15) translateZ(50px);
         }
         
         .portfolio-overlay {
@@ -1130,13 +1332,14 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.95) 100%);
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.95) 100%);
             opacity: 0;
             transition: opacity 0.4s ease;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             padding: 40px;
+            z-index: 2;
         }
         
         .portfolio-item:hover .portfolio-overlay {
@@ -1144,15 +1347,15 @@
         }
         
         .portfolio-title {
-            font-size: 28px;
+            font-size: 32px;
             margin-bottom: 10px;
             font-weight: 700;
-            transform: translateY(30px);
+            transform: translateY(30px) translateZ(30px);
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .portfolio-item:hover .portfolio-title {
-            transform: translateY(0);
+            transform: translateY(0) translateZ(50px);
         }
         
         .portfolio-category {
@@ -1160,12 +1363,48 @@
             font-size: 16px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            transform: translateY(30px);
+            transform: translateY(30px) translateZ(20px);
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
         }
         
         .portfolio-item:hover .portfolio-category {
-            transform: translateY(0);
+            transform: translateY(0) translateZ(40px);
+        }
+        
+        /* Portfolio hover particle effect */
+        .portfolio-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent-pink);
+            border-radius: 50%;
+            opacity: 0;
+            animation: floatParticle 2s ease-out forwards;
+        }
+        
+        @keyframes floatParticle {
+            0% {
+                opacity: 0;
+                transform: translate(0, 0) scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(var(--x), var(--y)) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(calc(var(--x) * 2), calc(var(--y) * 2)) scale(0);
+            }
         }
         
         /* Testimonials Section */
@@ -1247,7 +1486,7 @@
             font-size: 16px;
         }
         
-        /* Contact Section */
+        /* Contact Section with Glow Cards */
         .contact {
             padding: 150px 0;
             position: relative;
@@ -1300,13 +1539,33 @@
             display: block;
             opacity: 0;
             transform: translateY(50px) scale(0.95);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 0, 110, 0.3) 0%, transparent 70%);
+            transition: all 0.5s ease;
+            transform: translate(-50%, -50%);
         }
         
         .social-card:hover {
             transform: translateY(-10px) scale(1);
             border-color: var(--accent-pink);
             background: rgba(255, 0, 110, 0.05);
-            box-shadow: 0 20px 50px rgba(255, 0, 110, 0.2);
+            box-shadow: 0 20px 50px rgba(255, 0, 110, 0.2),
+                        inset 0 0 50px rgba(255, 0, 110, 0.1);
+        }
+        
+        .social-card:hover::before {
+            width: 300px;
+            height: 300px;
         }
         
         .social-icon {
@@ -1319,11 +1578,14 @@
             align-items: center;
             justify-content: center;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
         }
         
         .social-card:hover .social-icon {
             transform: rotateY(360deg);
             border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255, 0, 110, 0.5);
         }
         
         .social-icon svg {
@@ -1336,11 +1598,15 @@
             font-size: 22px;
             font-weight: 700;
             margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
         }
         
         .social-handle {
             color: var(--text-secondary);
             font-size: 16px;
+            position: relative;
+            z-index: 1;
         }
         
         /* Footer */
@@ -1363,7 +1629,7 @@
             }
             
             nav.floating {
-                padding: 15px 20px;
+                padding: 10px 15px;
             }
             
             .hero-title {
@@ -1371,7 +1637,7 @@
             }
             
             .marquee-item {
-                font-size: 32px;
+                font-size: 40px;
             }
             
             .about-content {
@@ -1411,56 +1677,6 @@
                 padding: 80px 0;
             }
         }
-        
-        /* Loading Animation */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--primary-dark);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .loader-content {
-            text-align: center;
-        }
-        
-        .loader-text {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .loader-bar {
-            width: 300px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 2px;
-            overflow: hidden;
-            margin: 0 auto;
-        }
-        
-        .loader-progress {
-            height: 100%;
-            background: var(--gradient-1);
-            width: 0;
-            animation: loadProgress 2s ease-out forwards;
-        }
-        
-        @keyframes loadProgress {
-            to {
-                width: 100%;
-            }
-        }
     </style>
 </head>
 <body>
@@ -1472,13 +1688,25 @@
     <div class="mesh-gradient"></div>
     <div class="noise-overlay"></div>
 
-    <!-- Loader -->
-    <div class="loader" id="loader">
-        <div class="loader-content">
-            <div class="loader-text">Načítáme kreativitu...</div>
-            <div class="loader-bar">
-                <div class="loader-progress"></div>
+    <!-- Ultra Cool Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-shapes">
+            <div class="morph-shape morph-shape-1"></div>
+            <div class="morph-shape morph-shape-2"></div>
+            <div class="morph-shape morph-shape-3"></div>
+        </div>
+        <div class="preloader-content">
+            <div class="preloader-text">
+                <h1 class="preloader-title">
+                    <span>Z</span><span>A</span><span>N</span><span>D</span><span>A</span>
+                    <span> </span>
+                    <span>V</span><span>I</span><span>S</span><span>U</span><span>A</span><span>L</span><span>S</span>
+                </h1>
             </div>
+            <div class="preloader-progress">
+                <div class="preloader-bar"></div>
+            </div>
+            <div class="preloader-percentage">0%</div>
         </div>
     </div>
 
@@ -1535,34 +1763,34 @@
         </div>
     </section>
 
-    <!-- Marquee Section -->
+    <!-- Cool 3D Marquee Section -->
     <section class="marquee-section">
         <div class="marquee-container">
             <div class="marquee-track">
-                <span class="marquee-item">TARY</span>
+                <span class="marquee-item" data-text="TARY">TARY</span>
                 <span class="marquee-separator"></span>
-                <span class="marquee-item">KUBA ENGLISH</span>
+                <span class="marquee-item" data-text="KUBA ENGLISH">KUBA ENGLISH</span>
                 <span class="marquee-separator"></span>
-                <span class="marquee-item">COMIC CON</span>
+                <span class="marquee-item" data-text="COMIC CON">COMIC CON</span>
                 <span class="marquee-separator"></span>
-                <span class="marquee-item">VINO OD BODLÁKU</span>
+                <span class="marquee-item" data-text="VINO OD BODLÁKU">VINO OD BODLÁKU</span>
                 <span class="marquee-separator"></span>
-                <span class="marquee-item">FASHION WEEK</span>
+                <span class="marquee-item" data-text="FASHION WEEK">FASHION WEEK</span>
                 <span class="marquee-separator"></span>
-                <span class="marquee-item">RED BULL</span>
+                <span class="marquee-item" data-text="RED BULL">RED BULL</span>
                 <span class="marquee-separator"></span>
                 <!-- Duplicate for seamless loop -->
-                <span class="marquee-item">TARY</span>
+                <span class="marquee-item" data-text="TARY">TARY</span>
                 <span class="marquee-separator"></span>
-                <span class="marquee-item">KUBA ENGLISH</span>
+                <span class="marquee-item" data-text="KUBA ENGLISH">KUBA ENGLISH</span>
                 <span class="marquee-separator"></span>
-                <span class="marquee-item">COMIC CON</span>
+                <span class="marquee-item" data-text="COMIC CON">COMIC CON</span>
                 <span class="marquee-separator"></span>
-                <span class="marquee-item">VINO OD BODLÁKU</span>
+                <span class="marquee-item" data-text="VINO OD BODLÁKU">VINO OD BODLÁKU</span>
                 <span class="marquee-separator"></span>
-                <span class="marquee-item">FASHION WEEK</span>
+                <span class="marquee-item" data-text="FASHION WEEK">FASHION WEEK</span>
                 <span class="marquee-separator"></span>
-                <span class="marquee-item">RED BULL</span>
+                <span class="marquee-item" data-text="RED BULL">RED BULL</span>
                 <span class="marquee-separator"></span>
             </div>
         </div>
@@ -1833,7 +2061,7 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
+    <!-- Ultra Cool Portfolio Section -->
     <section class="portfolio" id="portfolio">
         <div class="container">
             <div class="section-header">
@@ -1859,6 +2087,7 @@
             
             <div class="portfolio-grid">
                 <div class="portfolio-item" data-category="commercial">
+                    <div class="portfolio-particles"></div>
                     <img src="https://images.unsplash.com/photo-1606924620016-29046419c3f7?w=600&h=400&fit=crop" alt="Luxusní reklama" class="portfolio-image">
                     <div class="portfolio-overlay">
                         <h3 class="portfolio-title">Prémiová kampaň</h3>
@@ -1867,6 +2096,7 @@
                 </div>
                 
                 <div class="portfolio-item" data-category="social">
+                    <div class="portfolio-particles"></div>
                     <img src="https://images.unsplash.com/photo-1609904959072-c9572c0c5b92?w=600&h=400&fit=crop" alt="Instagram Reels" class="portfolio-image">
                     <div class="portfolio-overlay">
                         <h3 class="portfolio-title">Virální Reels</h3>
@@ -1875,6 +2105,7 @@
                 </div>
                 
                 <div class="portfolio-item" data-category="events">
+                    <div class="portfolio-particles"></div>
                     <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=600&h=400&fit=crop" alt="Comic Con" class="portfolio-image">
                     <div class="portfolio-overlay">
                         <h3 class="portfolio-title">Comic Con Prague</h3>
@@ -1883,6 +2114,7 @@
                 </div>
                 
                 <div class="portfolio-item" data-category="youtube">
+                    <div class="portfolio-particles"></div>
                     <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop" alt="YouTube video" class="portfolio-image">
                     <div class="portfolio-overlay">
                         <h3 class="portfolio-title">YouTube kampaň</h3>
@@ -1891,6 +2123,7 @@
                 </div>
                 
                 <div class="portfolio-item" data-category="commercial">
+                    <div class="portfolio-particles"></div>
                     <img src="https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=600&h=400&fit=crop" alt="Product video" class="portfolio-image">
                     <div class="portfolio-overlay">
                         <h3 class="portfolio-title">Product Launch</h3>
@@ -1899,6 +2132,7 @@
                 </div>
                 
                 <div class="portfolio-item" data-category="social">
+                    <div class="portfolio-particles"></div>
                     <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&h=400&fit=crop" alt="TikTok content" class="portfolio-image">
                     <div class="portfolio-overlay">
                         <h3 class="portfolio-title">TikTok série</h3>
@@ -1967,7 +2201,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section with Glow Cards -->
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header">
@@ -2049,6 +2283,48 @@
         // GSAP Registration
         gsap.registerPlugin(ScrollTrigger, TextPlugin, Observer);
         
+        // Ultra Cool Preloader
+        const preloader = document.getElementById('preloader');
+        const preloaderBar = document.querySelector('.preloader-bar');
+        const preloaderPercentage = document.querySelector('.preloader-percentage');
+        let loadProgress = 0;
+        
+        // Simulate loading
+        const loadInterval = setInterval(() => {
+            loadProgress += Math.random() * 15;
+            if (loadProgress > 100) loadProgress = 100;
+            
+            preloaderBar.style.width = loadProgress + '%';
+            preloaderPercentage.textContent = Math.floor(loadProgress) + '%';
+            
+            if (loadProgress >= 100) {
+                clearInterval(loadInterval);
+                
+                // Animate preloader text
+                gsap.to('.preloader-title span', {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.5,
+                    stagger: 0.05,
+                    ease: 'power3.out',
+                    onComplete: () => {
+                        setTimeout(() => {
+                            gsap.to(preloader, {
+                                scale: 1.2,
+                                opacity: 0,
+                                duration: 0.8,
+                                ease: 'power2.inOut',
+                                onComplete: () => {
+                                    preloader.style.display = 'none';
+                                    initAnimations();
+                                }
+                            });
+                        }, 500);
+                    }
+                });
+            }
+        }, 50);
+        
         // Custom Cursor
         const cursor = document.querySelector('.cursor');
         const cursorFollower = document.querySelector('.cursor-follower');
@@ -2079,33 +2355,32 @@
             cursorFollower.style.display = 'none';
         }
         
-        // Loader Animation
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            
-            gsap.to('.loader-progress', {
-                width: '100%',
-                duration: 2,
-                ease: 'power2.out',
-                onComplete: () => {
-                    gsap.to(loader, {
-                        opacity: 0,
-                        duration: 0.5,
-                        onComplete: () => {
-                            loader.style.display = 'none';
-                            initAnimations();
-                        }
-                    });
-                }
-            });
-        });
-        
         // Service Category Toggle
         function toggleService(btn) {
             const category = btn.closest('.service-category');
             category.classList.toggle('expanded');
             btn.textContent = category.classList.contains('expanded') ? 'Zobrazit méně' : 'Zjistit více';
         }
+        
+        // Portfolio hover particles
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            const particlesContainer = item.querySelector('.portfolio-particles');
+            
+            item.addEventListener('mouseenter', (e) => {
+                for (let i = 0; i < 10; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = Math.random() * 100 + '%';
+                    particle.style.setProperty('--x', (Math.random() - 0.5) * 100 + 'px');
+                    particle.style.setProperty('--y', (Math.random() - 0.5) * 100 + 'px');
+                    particle.style.animationDelay = i * 0.1 + 's';
+                    particlesContainer.appendChild(particle);
+                    
+                    setTimeout(() => particle.remove(), 2000);
+                }
+            });
+        });
         
         // Initialize all animations
         function initAnimations() {
@@ -2177,6 +2452,15 @@
                         ease: 'power2.out'
                     });
                 });
+            });
+            
+            // Enhanced marquee hover pause
+            const marqueeTrack = document.querySelector('.marquee-track');
+            marqueeTrack.addEventListener('mouseenter', () => {
+                marqueeTrack.style.animationPlayState = 'paused';
+            });
+            marqueeTrack.addEventListener('mouseleave', () => {
+                marqueeTrack.style.animationPlayState = 'running';
             });
             
             // Video showcase scroll animation
@@ -2408,9 +2692,9 @@
                     gsap.to('.portfolio-item', {
                         opacity: 1,
                         y: 0,
-                        scale: 1,
-                        duration: 0.8,
-                        stagger: 0.1,
+                        rotateX: 0,
+                        duration: 1,
+                        stagger: 0.15,
                         ease: 'power3.out',
                         delay: 0.6
                     });
