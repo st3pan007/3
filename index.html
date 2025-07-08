@@ -168,57 +168,72 @@
             background: var(--gray-700);
         }
         
-        /* Navigation - Frosted Glass */
+        /* Navigation - Updated Rounded Square Style */
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto;
+            max-width: 90%;
             z-index: 1000;
-            padding: 24px 0;
             transition: all 0.5s var(--ease-out-expo);
         }
         
-        nav.scrolled {
-            padding: 16px 0;
-            background: rgba(0, 0, 0, 0.6);
+        .nav-wrapper {
+            background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 48px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            padding: 5px 20px 5px 20px;
+            max-height: 60px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
         }
         
+        nav.scrolled .nav-wrapper {
+            background: rgba(0, 0, 0, 0.85);
+            border-color: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+        
         .logo {
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            color: var(--white);
-            text-decoration: none;
-            transition: opacity 0.3s ease;
+            height: 50px;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
         }
         
         .logo:hover {
-            opacity: 0.8;
+            transform: scale(1.05);
+        }
+        
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
         }
         
         .nav-links {
             display: flex;
-            gap: 48px;
+            gap: 32px;
             list-style: none;
+            margin: 0;
         }
         
         .nav-links a {
             color: var(--gray-400);
             text-decoration: none;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
@@ -858,7 +873,7 @@
             gap: 12px;
         }
         
-        /* Video Showcase - Fixed */
+        /* Video Showcase - Updated Smaller Cards */
         .video-showcase {
             position: relative;
             background: var(--gray-950);
@@ -872,23 +887,23 @@
         
         .video-horizontal-scroll {
             display: flex;
-            gap: 48px;
-            padding: 96px 48px;
+            gap: 24px;
+            padding: 48px 48px;
             transition: transform 0.3s var(--ease-out-expo);
         }
         
         .video-card {
-            min-width: 70vw;
-            max-width: 1000px;
-            height: 70vh;
+            min-width: 300px;
+            max-width: 300px;
+            height: 400px;
             background: var(--black);
             border: 1px solid var(--gray-900);
-            border-radius: var(--radius-2xl);
+            border-radius: var(--radius-xl);
             overflow: hidden;
             position: relative;
             flex-shrink: 0;
             transition: all 0.5s var(--ease-out-expo);
-            opacity: 0.5;
+            opacity: 0.7;
             transform: scale(0.95);
         }
         
@@ -896,7 +911,7 @@
             opacity: 1;
             transform: scale(1);
             border-color: var(--accent);
-            box-shadow: 0 40px 80px rgba(255, 0, 128, 0.2);
+            box-shadow: 0 20px 40px rgba(255, 0, 128, 0.2);
         }
         
         .video-thumbnail {
@@ -924,8 +939,8 @@
         }
         
         .play-button {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             background: var(--white);
             border-radius: 50%;
             display: flex;
@@ -940,31 +955,31 @@
         }
         
         .play-button svg {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             fill: var(--black);
             margin-left: 4px;
         }
         
         .video-info {
             position: absolute;
-            bottom: 48px;
-            left: 48px;
-            right: 48px;
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
         }
         
         .video-number {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 600;
             background: var(--gradient-pink-white);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
         
         .video-title {
-            font-size: 36px;
+            font-size: 20px;
             font-weight: 600;
         }
         
@@ -1283,7 +1298,7 @@
             color: var(--gray-400);
         }
         
-        /* Contact Section - Ultra Modern */
+        /* Contact Section - Updated with Collapsible Form */
         .contact {
             padding: 180px 0;
             position: relative;
@@ -1321,21 +1336,76 @@
             transform: translateY(30px);
         }
         
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            max-width: 1200px;
+        .contact-main {
+            max-width: 600px;
             margin: 0 auto;
+        }
+        
+        /* Collapsible Form Container */
+        .form-container {
+            margin-bottom: 48px;
+        }
+        
+        .form-trigger {
+            width: 100%;
+            padding: 24px 32px;
+            background: var(--gray-950);
+            border: 1px solid var(--gray-900);
+            border-radius: var(--radius-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-out-expo);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .form-trigger:hover {
+            background: var(--gray-900);
+            border-color: var(--gray-800);
+        }
+        
+        .form-trigger-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--white);
+        }
+        
+        .form-trigger-icon {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s var(--ease-out-expo);
+        }
+        
+        .form-trigger-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 2;
+        }
+        
+        .form-trigger.active .form-trigger-icon {
+            transform: rotate(180deg);
+        }
+        
+        .contact-form-wrapper {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s var(--ease-out-expo);
+        }
+        
+        .contact-form-wrapper.expanded {
+            max-height: 600px;
         }
         
         .contact-form {
             background: var(--gray-950);
             border: 1px solid var(--gray-900);
-            border-radius: var(--radius-2xl);
-            padding: 64px;
-            opacity: 0;
-            transform: translateX(-50px);
+            border-radius: var(--radius-xl);
+            padding: 48px;
+            margin-top: 16px;
         }
         
         .form-group {
@@ -1411,19 +1481,20 @@
             left: 100%;
         }
         
+        /* Contact Info Cards */
         .contact-info-cards {
             display: flex;
             flex-direction: column;
-            gap: 32px;
+            gap: 24px;
             opacity: 0;
-            transform: translateX(50px);
+            transform: translateY(30px);
         }
         
         .contact-info-card {
             background: linear-gradient(135deg, var(--gray-950) 0%, var(--gray-900) 100%);
             border: 1px solid var(--gray-800);
             border-radius: var(--radius-xl);
-            padding: 32px;
+            padding: 24px 32px;
             display: flex;
             align-items: center;
             gap: 24px;
@@ -1440,8 +1511,8 @@
         }
         
         .contact-info-icon {
-            width: 64px;
-            height: 64px;
+            width: 56px;
+            height: 56px;
             background: var(--gradient-pink-white);
             border-radius: var(--radius-lg);
             display: flex;
@@ -1451,8 +1522,8 @@
         }
         
         .contact-info-icon svg {
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
             stroke: var(--black);
             fill: none;
             stroke-width: 2;
@@ -1467,15 +1538,15 @@
         }
         
         .contact-info-label {
-            font-size: 14px;
+            font-size: 12px;
             color: var(--gray-500);
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
         
         .contact-info-value {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
             color: var(--white);
         }
@@ -1568,6 +1639,22 @@
         
         /* Responsive */
         @media (max-width: 1024px) {
+            nav {
+                max-width: 95%;
+            }
+            
+            .nav-container {
+                gap: 40px;
+            }
+            
+            .nav-links {
+                gap: 24px;
+            }
+            
+            .nav-links a {
+                font-size: 14px;
+            }
+            
             .about-grid {
                 grid-template-columns: 1fr;
                 gap: 64px;
@@ -1580,14 +1667,6 @@
             
             .portfolio-item.large {
                 grid-column: span 1;
-            }
-            
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .video-card {
-                min-width: 85vw;
             }
             
             .testimonial-card-modern {
@@ -1603,6 +1682,24 @@
         }
         
         @media (max-width: 768px) {
+            nav {
+                top: 10px;
+                max-width: 95%;
+            }
+            
+            .nav-wrapper {
+                padding: 5px 15px;
+                max-height: 50px;
+            }
+            
+            .nav-container {
+                gap: 20px;
+            }
+            
+            .logo {
+                height: 40px;
+            }
+            
             .nav-links {
                 display: none;
             }
@@ -1639,6 +1736,12 @@
             .contact-heading {
                 font-size: clamp(40px, 10vw, 80px);
             }
+            
+            .video-card {
+                min-width: 250px;
+                max-width: 250px;
+                height: 350px;
+            }
         }
     </style>
 </head>
@@ -1664,17 +1767,21 @@
         </div>
     </div>
 
-    <!-- Navigation -->
+    <!-- Navigation - Updated with Logo -->
     <nav id="navbar">
-        <div class="nav-container">
-            <a href="#home" class="logo">Zanda Visuals</a>
-            <ul class="nav-links">
-                <li><a href="#home">Domů</a></li>
-                <li><a href="#about">O nás</a></li>
-                <li><a href="#services">Služby</a></li>
-                <li><a href="#work">Portfolio</a></li>
-                <li><a href="#contact">Kontakt</a></li>
-            </ul>
+        <div class="nav-wrapper">
+            <div class="nav-container">
+                <a href="#home" class="logo">
+                    <img src="https://raw.githubusercontent.com/st3pan007/3/main/images/logo.webp" alt="Zanda Visuals">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Domů</a></li>
+                    <li><a href="#about">O nás</a></li>
+                    <li><a href="#services">Služby</a></li>
+                    <li><a href="#work">Portfolio</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -1906,7 +2013,7 @@
         </div>
     </section>
 
-    <!-- Video Showcase - Fixed -->
+    <!-- Video Showcase - Updated with Smaller Cards -->
     <section class="video-showcase">
         <div class="container">
             <div class="section-header">
@@ -1918,7 +2025,7 @@
         <div class="video-scroll-wrapper">
             <div class="video-horizontal-scroll" id="videoScroll">
                 <div class="video-card active">
-                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1200&h=800&fit=crop&auto=format&q=80" alt="Fashion Week Praha" class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&h=800&fit=crop&auto=format&q=80" alt="Fashion Week Praha" class="video-thumbnail">
                     <div class="video-overlay">
                         <div class="play-button">
                             <svg viewBox="0 0 24 24">
@@ -1933,7 +2040,7 @@
                 </div>
                 
                 <div class="video-card">
-                    <img src="https://images.unsplash.com/photo-1524634126442-357e0eac3c14?w=1200&h=800&fit=crop&auto=format&q=80" alt="Red Bull Sports" class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1524634126442-357e0eac3c14?w=600&h=800&fit=crop&auto=format&q=80" alt="Red Bull Sports" class="video-thumbnail">
                     <div class="video-overlay">
                         <div class="play-button">
                             <svg viewBox="0 0 24 24">
@@ -1948,7 +2055,7 @@
                 </div>
                 
                 <div class="video-card">
-                    <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=1200&h=800&fit=crop&auto=format&q=80" alt="Tary Music Video" class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=800&fit=crop&auto=format&q=80" alt="Tary Music Video" class="video-thumbnail">
                     <div class="video-overlay">
                         <div class="play-button">
                             <svg viewBox="0 0 24 24">
@@ -1963,7 +2070,7 @@
                 </div>
                 
                 <div class="video-card">
-                    <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=1200&h=800&fit=crop&auto=format&q=80" alt="Comic Con Aftermovie" class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=600&h=800&fit=crop&auto=format&q=80" alt="Comic Con Aftermovie" class="video-thumbnail">
                     <div class="video-overlay">
                         <div class="play-button">
                             <svg viewBox="0 0 24 24">
@@ -2231,7 +2338,7 @@
         </div>
     </section>
 
-    <!-- Contact Section - Ultra Modern -->
+    <!-- Contact Section - Updated with Collapsible Form -->
     <section class="contact" id="contact">
         <div class="contact-bg-animation">
             <div class="contact-circle"></div>
@@ -2252,25 +2359,40 @@
                     </p>
                 </div>
                 
-                <div class="contact-grid">
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <label class="form-label">Vaše jméno</label>
-                            <input type="text" class="form-input" placeholder="Jan Novák">
+                <div class="contact-main">
+                    <!-- Collapsible Form -->
+                    <div class="form-container">
+                        <div class="form-trigger" onclick="toggleContactForm()">
+                            <span class="form-trigger-text">Napište nám zprávu</span>
+                            <div class="form-trigger-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-input" placeholder="jan@novak.cz">
+                        
+                        <div class="contact-form-wrapper" id="contactFormWrapper">
+                            <form class="contact-form">
+                                <div class="form-group">
+                                    <label class="form-label">Vaše jméno</label>
+                                    <input type="text" class="form-input" placeholder="Jan Novák">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-input" placeholder="jan@novak.cz">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">O jaký projekt jde?</label>
+                                    <textarea class="form-textarea" placeholder="Popište nám váš projekt..."></textarea>
+                                </div>
+                                <button type="submit" class="form-button">
+                                    Odeslat zprávu
+                                </button>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">O jaký projekt jde?</label>
-                            <textarea class="form-textarea" placeholder="Popište nám váš projekt..."></textarea>
-                        </div>
-                        <button type="submit" class="form-button">
-                            Odeslat zprávu
-                        </button>
-                    </form>
+                    </div>
                     
+                    <!-- Contact Info Cards -->
                     <div class="contact-info-cards">
                         <a href="mailto:hello@zandavisuals.cz" class="contact-info-card">
                             <div class="contact-info-icon">
@@ -2492,6 +2614,15 @@
             });
         }
         
+        // Contact Form Toggle
+        function toggleContactForm() {
+            const trigger = document.querySelector('.form-trigger');
+            const wrapper = document.getElementById('contactFormWrapper');
+            
+            trigger.classList.toggle('active');
+            wrapper.classList.toggle('expanded');
+        }
+        
         // Video Showcase - Horizontal Scroll
         const videoScroll = document.getElementById('videoScroll');
         const videoCards = document.querySelectorAll('.video-card');
@@ -2521,7 +2652,7 @@
         
         function updateVideoScroll() {
             const cardWidth = videoCards[0].offsetWidth;
-            const gap = 48;
+            const gap = 24;
             const offset = currentIndex * (cardWidth + gap);
             
             gsap.to(videoScroll, {
@@ -2665,24 +2796,24 @@
                 delay: 0.2
             });
             
-            gsap.to('.contact-form', {
+            gsap.to('.form-trigger', {
                 opacity: 1,
-                x: 0,
+                y: 0,
                 duration: 1,
                 ease: 'power3.out',
                 scrollTrigger: {
-                    trigger: '.contact-grid',
+                    trigger: '.contact-main',
                     start: 'top 80%'
                 }
             });
             
             gsap.to('.contact-info-cards', {
                 opacity: 1,
-                x: 0,
+                y: 0,
                 duration: 1,
                 ease: 'power3.out',
                 scrollTrigger: {
-                    trigger: '.contact-grid',
+                    trigger: '.contact-main',
                     start: 'top 80%'
                 },
                 delay: 0.2
