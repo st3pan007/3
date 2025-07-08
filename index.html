@@ -53,7 +53,8 @@
             --accent-dark: #CC0066;
             --accent-glow: rgba(255, 0, 128, 0.3);
             
-            --gradient-premium: linear-gradient(135deg, #FF0080 0%, #FF33A0 100%);
+            --gradient-premium: linear-gradient(135deg, #FFFFFF 0%, #FF0080 100%);
+            --gradient-pink-white: linear-gradient(135deg, #FFFFFF 0%, #FF0080 100%);
             --gradient-dark: linear-gradient(180deg, #000000 0%, #09090b 100%);
             
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -359,7 +360,7 @@
         }
         
         .text-gradient {
-            background: var(--gradient-premium);
+            background: var(--gradient-pink-white);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -400,14 +401,15 @@
         }
         
         .btn-primary {
-            background: var(--accent);
-            color: var(--white);
-            border: 1px solid var(--accent);
+            background: var(--gradient-pink-white);
+            color: var(--black);
+            border: 1px solid transparent;
+            font-weight: 600;
         }
         
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px var(--accent-glow);
+            box-shadow: 0 10px 30px rgba(255, 0, 128, 0.2), 0 5px 15px rgba(255, 255, 255, 0.1);
         }
         
         .btn-secondary {
@@ -467,22 +469,28 @@
         
         /* Premium Marquee */
         .marquee-section {
-            padding: 120px 0;
+            padding: 16px 0;
             overflow: hidden;
             position: relative;
             border-top: 1px solid var(--gray-900);
             border-bottom: 1px solid var(--gray-900);
+            height: 48px;
+            display: flex;
+            align-items: center;
         }
         
         .marquee-container {
             display: flex;
             position: relative;
+            height: 100%;
+            align-items: center;
         }
         
         .marquee-track {
             display: flex;
-            gap: 80px;
+            gap: 60px;
             animation: marquee 40s linear infinite;
+            align-items: center;
         }
         
         @keyframes marquee {
@@ -491,19 +499,21 @@
         }
         
         .marquee-item {
-            font-size: 64px;
-            font-weight: 700;
+            font-size: 14px;
+            font-weight: 600;
             text-transform: uppercase;
             white-space: nowrap;
-            color: var(--gray-900);
-            -webkit-text-stroke: 1px var(--gray-800);
+            color: var(--gray-600);
+            letter-spacing: 0.1em;
             transition: all 0.3s ease;
             cursor: default;
         }
         
         .marquee-item:hover {
-            color: var(--accent);
-            -webkit-text-stroke: 1px var(--accent);
+            background: var(--gradient-pink-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             transform: scale(1.05);
         }
         
@@ -531,7 +541,10 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--accent);
+            background: var(--gradient-pink-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 24px;
             opacity: 0;
             transform: translateY(20px);
@@ -570,7 +583,7 @@
         .about-content h3 {
             font-size: 36px;
             margin-bottom: 32px;
-            background: var(--gradient-premium);
+            background: var(--gradient-pink-white);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -612,7 +625,7 @@
         .stat-number {
             font-size: 48px;
             font-weight: 700;
-            background: var(--gradient-premium);
+            background: var(--gradient-pink-white);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -650,7 +663,7 @@
             left: 0;
             width: 100%;
             height: 0;
-            background: var(--accent);
+            background: var(--gradient-pink-white);
             transition: height 1s ease;
         }
         
@@ -679,15 +692,18 @@
         }
         
         .timeline-item.active .timeline-dot {
-            background: var(--accent);
-            border-color: var(--accent);
-            box-shadow: 0 0 20px var(--accent-glow);
+            background: var(--gradient-pink-white);
+            border-color: var(--white);
+            box-shadow: 0 0 20px rgba(255, 0, 128, 0.3);
         }
         
         .timeline-year {
             font-size: 14px;
             font-weight: 600;
-            color: var(--accent);
+            background: var(--gradient-pink-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 8px;
         }
         
@@ -736,7 +752,7 @@
             left: 0;
             right: 0;
             height: 200px;
-            background: var(--gradient-premium);
+            background: var(--gradient-pink-white);
             opacity: 0.1;
             transform: translateY(-100%);
             transition: transform 0.5s var(--ease-out-expo);
@@ -773,7 +789,7 @@
         }
         
         .service-card:hover .service-icon {
-            background: var(--accent);
+            background: var(--gradient-pink-white);
             transform: scale(1.1);
         }
         
@@ -829,8 +845,10 @@
             gap: 8px;
             font-size: 14px;
             font-weight: 500;
-            color: var(--accent);
-            background: none;
+            background: var(--gradient-pink-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -938,7 +956,10 @@
         .video-number {
             font-size: 14px;
             font-weight: 600;
-            color: var(--accent);
+            background: var(--gradient-pink-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 12px;
         }
         
@@ -991,7 +1012,7 @@
         .services-marquee-icon {
             width: 24px;
             height: 24px;
-            background: var(--accent);
+            background: var(--gradient-pink-white);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1001,7 +1022,7 @@
         .services-marquee-icon svg {
             width: 12px;
             height: 12px;
-            stroke: var(--white);
+            stroke: var(--black);
             fill: none;
             stroke-width: 2;
         }
@@ -1040,9 +1061,10 @@
         
         .filter-pill.active,
         .filter-pill:hover {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: var(--white);
+            background: var(--gradient-pink-white);
+            border-color: transparent;
+            color: var(--black);
+            font-weight: 600;
         }
         
         .portfolio-grid {
@@ -1110,7 +1132,10 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--accent);
+            background: var(--gradient-pink-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 12px;
         }
         
@@ -1194,7 +1219,10 @@
             left: 20px;
             font-size: 120px;
             font-weight: 700;
-            color: var(--accent);
+            background: var(--gradient-pink-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             opacity: 0.1;
             line-height: 1;
         }
@@ -1208,7 +1236,7 @@
         .star {
             width: 20px;
             height: 20px;
-            background: var(--accent);
+            background: var(--gradient-pink-white);
             clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
         }
         
@@ -1230,14 +1258,14 @@
         .author-avatar-modern {
             width: 56px;
             height: 56px;
-            background: var(--gradient-premium);
+            background: var(--gradient-pink-white);
             border-radius: var(--radius-full);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 600;
             font-size: 20px;
-            color: var(--white);
+            color: var(--black);
         }
         
         .author-info-modern {
@@ -1351,12 +1379,12 @@
         .form-button {
             width: 100%;
             padding: 20px;
-            background: var(--gradient-premium);
+            background: var(--gradient-pink-white);
             border: none;
             border-radius: var(--radius-md);
             font-size: 16px;
             font-weight: 600;
-            color: var(--white);
+            color: var(--black);
             cursor: pointer;
             transition: all 0.3s var(--ease-out-expo);
             position: relative;
@@ -1414,7 +1442,7 @@
         .contact-info-icon {
             width: 64px;
             height: 64px;
-            background: var(--accent);
+            background: var(--gradient-pink-white);
             border-radius: var(--radius-lg);
             display: flex;
             align-items: center;
@@ -1425,7 +1453,7 @@
         .contact-info-icon svg {
             width: 28px;
             height: 28px;
-            stroke: var(--white);
+            stroke: var(--black);
             fill: none;
             stroke-width: 2;
         }
@@ -1601,7 +1629,7 @@
             }
             
             .marquee-item {
-                font-size: 40px;
+                font-size: 12px;
             }
             
             .contact-form {
