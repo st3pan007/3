@@ -14,55 +14,20 @@
     <meta property="og:description" content="Nauč se editovat videa, která vydělávají. Za cenu jednoho jídla ve Woltu si rozjedeš měsíční income 50K+">
     <meta property="og:image" content="https://academy.zandavisuals.cz/og-image.jpg">
     
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://academy.zandavisuals.cz/">
-    <meta property="twitter:title" content="Zanda Editor Academy - Staň se placeným video editorem">
-    <meta property="twitter:description" content="Nauč se editovat videa, která vydělávají. První zakázka do 7 dní!">
-    <meta property="twitter:image" content="https://academy.zandavisuals.cz/twitter-image.jpg">
-    
-    <!-- Schema.org structured data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Course",
-        "name": "Zanda Editor Academy",
-        "description": "Kompletní online kurz video editingu pro začátečníky i pokročilé",
-        "provider": {
-            "@type": "Organization",
-            "name": "Zanda Visuals",
-            "sameAs": "https://zandavisuals.cz"
-        },
-        "offers": {
-            "@type": "Offer",
-            "price": "500",
-            "priceCurrency": "CZK",
-            "availability": "https://schema.org/InStock"
-        },
-        "courseMode": "online",
-        "duration": "P3M"
-    }
-    </script>
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@700&display=swap" as="style">
+    <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
     
     <!-- Three.js for 3D effects -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     
-    <!-- GSAP for premium animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-    
     <style>
-        /* Critical CSS - Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -70,205 +35,195 @@
         }
         
         :root {
-            /* Premium Color Palette */
-            --primary-dark: #0a0a0a;
-            --primary-black: #000000;
-            --secondary-dark: #1a1a1a;
-            --accent-pink: #FF0080;
-            --accent-pink-light: #FF33A0;
-            --accent-purple: #B026FF;
-            --accent-cyan: #00D4FF;
-            --gray-900: #111111;
-            --gray-800: #1f1f1f;
-            --gray-700: #2a2a2a;
-            --gray-600: #404040;
-            --gray-500: #666666;
-            --gray-400: #999999;
-            --gray-300: #cccccc;
-            --gray-200: #e6e6e6;
-            --gray-100: #f5f5f5;
+            /* Matching index.html color scheme */
+            --black: #000000;
             --white: #ffffff;
+            --gray-50: #fafafa;
+            --gray-100: #f4f4f5;
+            --gray-200: #e4e4e7;
+            --gray-300: #d4d4d8;
+            --gray-400: #a1a1aa;
+            --gray-500: #71717a;
+            --gray-600: #52525b;
+            --gray-700: #3f3f46;
+            --gray-800: #27272a;
+            --gray-900: #18181b;
+            --gray-950: #09090b;
             
-            /* Gradients */
-            --gradient-primary: linear-gradient(135deg, #FF0080 0%, #B026FF 100%);
+            --accent: #FF0080;
+            --accent-light: #FF33A0;
+            --accent-dark: #CC0066;
+            --accent-glow: rgba(255, 0, 128, 0.3);
+            
+            --gradient-premium: linear-gradient(135deg, #FFFFFF 0%, #FF0080 100%);
+            --gradient-pink-white: linear-gradient(135deg, #FFFFFF 0%, #FF0080 100%);
             --gradient-pink-purple: linear-gradient(135deg, #FF0080 0%, #B026FF 100%);
-            --gradient-dark: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
-            --gradient-glow: radial-gradient(circle at center, rgba(255, 0, 128, 0.15) 0%, transparent 70%);
+            --gradient-dark: linear-gradient(180deg, #000000 0%, #09090b 100%);
             
-            /* Typography */
-            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-display: 'Space Grotesk', var(--font-primary);
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --font-display: 'Space Grotesk', var(--font-sans);
             
-            /* Shadows */
-            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
-            --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);
-            --shadow-glow-pink: 0 0 30px rgba(255, 0, 128, 0.5);
-            --shadow-glow-purple: 0 0 30px rgba(176, 38, 255, 0.5);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-2xl: 32px;
+            --radius-full: 9999px;
             
-            /* Animations */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-glow: 0 0 50px var(--accent-glow);
+            
             --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
             --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
-            --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
-        }
-        
-        /* Dark theme optimized */
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
         }
         
         body {
-            font-family: var(--font-primary);
-            background-color: var(--primary-black);
+            font-family: var(--font-sans);
+            background-color: var(--black);
             color: var(--white);
-            line-height: 1.6;
             overflow-x: hidden;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
         
-        /* Premium Scrollbar */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: var(--gray-900);
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: var(--gradient-primary);
-            border-radius: 6px;
-            background-size: 100% 200%;
-            animation: scrollbar-gradient 3s ease infinite;
-        }
-        
-        @keyframes scrollbar-gradient {
-            0%, 100% { background-position: 0% 0%; }
-            50% { background-position: 0% 100%; }
-        }
-        
-        /* Selection */
-        ::selection {
-            background: var(--accent-pink);
-            color: var(--white);
-        }
-        
-        /* Preloader Styles */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--primary-black);
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 1s var(--ease-out-expo);
-        }
-        
-        .preloader.loaded {
-            opacity: 0;
-            pointer-events: none;
-        }
-        
-        .preloader-content {
-            text-align: center;
-        }
-        
-        .preloader-logo {
-            font-size: 4rem;
-            font-weight: 900;
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
             font-family: var(--font-display);
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: pulse-scale 2s ease-in-out infinite;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
         }
         
-        @keyframes pulse-scale {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.8; }
-        }
-        
-        .preloader-progress {
-            width: 200px;
-            height: 2px;
-            background: var(--gray-800);
-            margin: 2rem auto 0;
-            border-radius: 2px;
-            overflow: hidden;
-        }
-        
-        .preloader-progress-bar {
-            height: 100%;
-            background: var(--gradient-primary);
-            width: 0;
-            transition: width 0.3s ease;
-            animation: progress-glow 1.5s ease-in-out infinite;
-        }
-        
-        @keyframes progress-glow {
-            0%, 100% { box-shadow: 0 0 10px rgba(255, 0, 128, 0.5); }
-            50% { box-shadow: 0 0 20px rgba(255, 0, 128, 0.8); }
-        }
-        
-        /* Three.js Canvas Background */
-        #canvas-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            opacity: 0.7;
-        }
-        
-        /* Custom Cursor */
+        /* Custom Cursor - Same as index.html */
         .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--accent-pink);
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
             z-index: 9999;
-            transition: all 0.1s ease;
+            transition: transform 0.1s ease, opacity 0.1s ease;
             transform: translate(-50%, -50%);
             mix-blend-mode: difference;
         }
         
-        .cursor.clicking {
-            transform: translate(-50%, -50%) scale(0.8);
-            background: var(--accent-pink);
-        }
-        
         .cursor-follower {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 0, 128, 0.1);
+            width: 30px;
+            height: 30px;
+            border: 1px solid var(--accent);
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
             z-index: 9998;
             transition: all 0.15s ease;
             transform: translate(-50%, -50%);
+            opacity: 0.5;
         }
         
-        /* Hide cursor on touch devices */
-        @media (hover: none) {
-            .cursor, .cursor-follower {
-                display: none;
-            }
+        .cursor.active {
+            transform: translate(-50%, -50%) scale(0.5);
+            opacity: 0.8;
         }
         
-        /* Navigation Styles - Updated to match index.html */
+        .cursor-follower.active {
+            transform: translate(-50%, -50%) scale(1.5);
+            opacity: 0.3;
+        }
+        
+        /* Three.js Canvas Background - Same as index.html */
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 1;
+            background: radial-gradient(ellipse at center, rgba(255, 0, 128, 0.05) 0%, transparent 70%);
+        }
+        
+        /* Ultra Premium Preloader - Same as index.html */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--black);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .preloader-inner {
+            text-align: center;
+        }
+        
+        .preloader-logo {
+            font-size: 72px;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            margin-bottom: 48px;
+            overflow: hidden;
+        }
+        
+        .preloader-logo span {
+            display: inline-block;
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        
+        .preloader-progress {
+            width: 200px;
+            height: 1px;
+            background: var(--gray-900);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .preloader-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: var(--accent);
+            width: 0;
+            transition: width 0.3s ease;
+        }
+        
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Premium Scrollbar - Same as index.html */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--gray-950);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--gray-800);
+            border-radius: var(--radius-full);
+            transition: background 0.3s ease;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gray-700);
+        }
+        
+        /* Navigation - Exact same as index.html */
         nav {
             position: fixed;
             top: 20px;
@@ -277,7 +232,11 @@
             width: auto;
             max-width: 90%;
             z-index: 1000;
-            transition: all 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+            transition: all 0.5s var(--ease-out-expo);
+        }
+        
+        nav.hidden {
+            transform: translateX(-50%) translateY(-150%);
         }
         
         .nav-wrapper {
@@ -285,10 +244,10 @@
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
+            border-radius: var(--radius-xl);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            padding: 5px 15px;
-            max-height: 60px;
+            padding: 2px 15px;
+            max-height: 50px;
             display: flex;
             align-items: center;
         }
@@ -297,17 +256,18 @@
             background: rgba(0, 0, 0, 0.85);
             border-color: rgba(255, 255, 255, 0.05);
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+            max-height: 45px;
         }
         
         .nav-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 40px;
+            gap: 30px;
         }
         
         .logo {
-            height: 80px;
+            height: 60px;
             transition: transform 0.3s ease;
             display: flex;
             align-items: center;
@@ -325,16 +285,15 @@
         
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 28px;
             list-style: none;
             margin: 0;
-            padding: 0;
         }
         
         .nav-links a {
             color: var(--gray-400);
             text-decoration: none;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
@@ -348,11 +307,11 @@
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -4px;
+            bottom: -2px;
             left: 0;
             width: 0;
             height: 1px;
-            background: var(--accent-pink);
+            background: var(--accent);
             transition: width 0.3s var(--ease-out-expo);
         }
         
@@ -361,20 +320,22 @@
             width: 100%;
         }
         
-        .btn-cta {
-            background: linear-gradient(135deg, #FF0080 0%, #B026FF 100%);
-            color: var(--white);
-            padding: 0.75rem 2rem;
-            border-radius: 12px;
+        /* CTA Button in Navigation - Same as index.html */
+        .btn-nav-cta {
+            background: var(--gradient-pink-white);
+            color: var(--black);
+            padding: 0.6rem 1.8rem;
+            border-radius: var(--radius-full);
             text-decoration: none;
             font-weight: 600;
-            font-size: 15px;
-            transition: all 0.3s var(--ease-out-expo);
+            font-size: 14px;
+            transition: all 0.4s var(--ease-out-expo);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 15px rgba(255, 0, 128, 0.3);
         }
         
-        .btn-cta::before {
+        .btn-nav-cta::before {
             content: '';
             position: absolute;
             top: 50%;
@@ -387,88 +348,41 @@
             transition: width 0.6s, height 0.6s;
         }
         
-        .btn-cta:hover {
-            transform: translateY(-2px);
+        .btn-nav-cta:hover {
+            transform: translateY(-3px);
             box-shadow: 0 15px 35px rgba(255, 0, 128, 0.4), 0 5px 15px rgba(255, 255, 255, 0.1);
         }
         
-        .btn-cta:hover::before {
+        .btn-nav-cta:hover::before {
             width: 300px;
             height: 300px;
         }
         
-        .mobile-menu .nav-link {
-            font-size: 1.25rem;
-        }
-        
-        /* Hero Section */
+        /* Hero Section - Updated to match index.html style */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            padding: 6rem 2rem 4rem;
+            padding: 100px 48px;
             overflow: hidden;
-            z-index: 2;
         }
         
-        .hero-bg-video {
+        .hero::before {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.15;
-            z-index: -2;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 0, 128, 0.1) 0%, transparent 50%);
+            animation: heroGradient 20s ease-in-out infinite alternate;
         }
         
-        .hero-gradient-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
-            z-index: -1;
-        }
-        
-        .hero-particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-        }
-        
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--accent-pink);
-            border-radius: 50%;
-            animation: float-particle 20s infinite linear;
-            opacity: 0.5;
-        }
-        
-        @keyframes float-particle {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.5;
-            }
-            90% {
-                opacity: 0.5;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(720deg);
-                opacity: 0;
-            }
+        @keyframes heroGradient {
+            0% { transform: rotate(0deg) scale(1); }
+            100% { transform: rotate(180deg) scale(1.2); }
         }
         
         .hero-content {
@@ -476,114 +390,120 @@
             margin: 0 auto;
             text-align: center;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
         
-        .hero-badge {
+        .hero-label {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 0, 128, 0.1);
-            border: 1px solid rgba(255, 0, 128, 0.3);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            margin-bottom: 2rem;
-            animation: fade-in-up 0.8s ease-out;
-        }
-        
-        .hero-badge-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--accent-pink);
-            border-radius: 50%;
-            animation: pulse-dot 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulse-dot {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.5);
-                opacity: 0.7;
-            }
-        }
-        
-        .hero-badge-text {
-            font-size: 0.875rem;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+            font-size: 12px;
             font-weight: 500;
-            color: var(--accent-pink);
+            color: var(--gray-300);
+            margin-bottom: 32px;
+            opacity: 0;
+            transform: translateY(20px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-label::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 128, 0.3), transparent);
+            animation: labelShine 3s ease-in-out infinite;
+        }
+        
+        @keyframes labelShine {
+            0% { left: -100%; }
+            50%, 100% { left: 200%; }
+        }
+        
+        .hero-label .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
         }
         
         .hero-title {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 900;
-            font-family: var(--font-display);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            animation: fade-in-up 0.8s ease-out 0.2s both;
+            font-size: clamp(48px, 8vw, 120px);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: -0.04em;
+            margin-bottom: 32px;
         }
         
-        .hero-title-gradient {
-            background: var(--gradient-primary);
+        .hero-title .line {
+            display: block;
+            overflow: hidden;
+            margin: 8px 0;
+        }
+        
+        .hero-title .line span {
+            display: inline-block;
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        
+        .text-gradient {
+            background: var(--gradient-pink-white);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            display: inline-block;
-            animation: gradient-shift 3s ease-in-out infinite;
         }
         
-        @keyframes gradient-shift {
-            0%, 100% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
+        .hero-description {
+            max-width: 600px;
+            margin: 0 auto 48px;
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--gray-400);
+            opacity: 0;
+            transform: translateY(20px);
         }
         
-        .hero-subtitle {
-            font-size: clamp(1.25rem, 3vw, 1.75rem);
-            color: var(--gray-300);
-            margin-bottom: 3rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fade-in-up 0.8s ease-out 0.4s both;
-        }
-        
-        .hero-cta-container {
+        .hero-actions {
             display: flex;
-            gap: 1.5rem;
+            gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 3rem;
-            animation: fade-in-up 0.8s ease-out 0.6s both;
+            opacity: 0;
+            transform: translateY(20px);
         }
         
+        /* Premium Buttons - Same as index.html */
         .btn {
-            padding: 1rem 2.5rem;
-            border-radius: 12px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s var(--ease-out-expo);
-            position: relative;
-            overflow: hidden;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            border: none;
+            justify-content: center;
+            padding: 16px 32px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            transition: all 0.4s var(--ease-out-expo);
+            position: relative;
+            overflow: hidden;
             cursor: pointer;
         }
         
-        .btn-primary {
-            background: linear-gradient(135deg, #FF0080 0%, #B026FF 100%);
-            color: var(--white);
-            box-shadow: 0 4px 15px rgba(255, 0, 128, 0.3);
-        }
-        
-        .btn-primary::before {
+        .btn::before {
             content: '';
             position: absolute;
             top: 50%;
@@ -596,69 +516,108 @@
             transition: width 0.6s, height 0.6s;
         }
         
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-pink-white);
+            color: var(--black);
+            border: 1px solid transparent;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(255, 0, 128, 0.3);
+        }
+        
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 35px rgba(255, 0, 128, 0.4), 0 5px 15px rgba(255, 255, 255, 0.1);
         }
         
-        .btn-primary:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-        
         .btn-secondary {
             background: transparent;
             color: var(--white);
-            border: 1px solid var(--gray-700);
+            border: 1px solid var(--gray-800);
             backdrop-filter: blur(10px);
         }
         
+        .btn-secondary::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: var(--gradient-pink-white);
+            border-radius: inherit;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.4s ease;
+        }
+        
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--gray-600);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
-        }
-        
-        .btn-icon {
-            width: 20px;
-            height: 20px;
-            transition: transform 0.3s ease;
-        }
-        
-        .btn:hover .btn-icon {
-            transform: translateX(5px);
-        }
-        
-        .hero-countdown {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 0.875rem;
-            color: var(--gray-400);
-            animation: fade-in-up 0.8s ease-out 0.8s both;
-        }
-        
-        .countdown-item {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 10px;
-            font-family: monospace;
-            font-size: 1.125rem;
-            font-weight: 600;
             color: var(--white);
+            border-color: transparent;
+        }
+        
+        .btn-secondary:hover::after {
+            opacity: 1;
+        }
+        
+        /* Sections */
+        section {
+            padding: 120px 0;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+        
+        .section-header {
+            max-width: 800px;
+            margin: 0 auto 96px;
+            text-align: center;
+        }
+        
+        .section-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: var(--gradient-pink-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .section-title {
+            font-size: clamp(40px, 5vw, 64px);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .section-description {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--gray-400);
+            opacity: 0;
+            transform: translateY(20px);
         }
         
         /* Social Proof Bar */
-        .social-proof-bar {
-            background: rgba(255, 0, 128, 0.05);
-            border-top: 1px solid rgba(255, 0, 128, 0.2);
-            border-bottom: 1px solid rgba(255, 0, 128, 0.2);
-            padding: 1.5rem;
-            position: relative;
-            z-index: 2;
-            overflow: hidden;
+        .social-proof {
+            background: var(--gray-950);
+            padding: 48px 0;
+            border-top: 1px solid var(--gray-900);
+            border-bottom: 1px solid var(--gray-900);
         }
         
         .social-proof-container {
@@ -668,170 +627,131 @@
             justify-content: space-around;
             align-items: center;
             flex-wrap: wrap;
-            gap: 3rem;
+            gap: 48px;
         }
         
         .social-proof-item {
             text-align: center;
             opacity: 0;
-            animation: fade-in 0.8s ease-out forwards;
+            transform: translateY(20px);
         }
         
         .social-proof-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: var(--gradient-primary);
+            font-size: 48px;
+            font-weight: 700;
+            background: var(--gradient-pink-white);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             display: block;
+            margin-bottom: 8px;
         }
         
         .social-proof-label {
-            font-size: 0.875rem;
-            color: var(--gray-400);
+            font-size: 14px;
+            color: var(--gray-500);
             text-transform: uppercase;
             letter-spacing: 0.1em;
         }
         
-        /* Problem/Solution Section */
-        .problem-solution {
-            padding: 6rem 2rem;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
-        .section-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            font-family: var(--font-display);
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        
-        .section-subtitle {
-            font-size: 1.25rem;
-            color: var(--gray-400);
-            max-width: 600px;
-            margin: 0 auto;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        
-        .problem-solution-grid {
+        /* Problem/Solution Cards */
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-bottom: 5rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-top: 64px;
         }
         
-        .problem-card, .solution-card {
-            background: var(--gray-900);
-            border: 1px solid var(--gray-800);
-            border-radius: 20px;
-            padding: 2.5rem;
+        .card {
+            background: var(--gray-950);
+            border: 1px solid var(--gray-900);
+            border-radius: var(--radius-2xl);
+            padding: 48px;
+            transition: all 0.5s var(--ease-out-expo);
+            opacity: 0;
+            transform: translateY(30px);
             position: relative;
             overflow: hidden;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.3s var(--ease-out-expo);
         }
         
-        .problem-card:hover, .solution-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: var(--accent-pink);
-        }
-        
-        .problem-card::before, .solution-card::before {
+        .card::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: var(--gradient-glow);
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: var(--gradient-pink-white);
             opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
+            transform: translateY(-100%);
+            transition: all 0.7s var(--ease-out-expo);
         }
         
-        .problem-card:hover::before, .solution-card:hover::before {
-            opacity: 1;
+        .card:hover {
+            border-color: rgba(255, 0, 128, 0.3);
+            transform: translateY(-12px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 0, 128, 0.1);
+        }
+        
+        .card:hover::before {
+            opacity: 0.05;
+            transform: translateY(0);
         }
         
         .card-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-primary);
-            border-radius: 15px;
+            width: 64px;
+            height: 64px;
+            background: var(--gray-900);
+            border-radius: var(--radius-lg);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
-            position: relative;
+            margin-bottom: 32px;
+            transition: all 0.3s ease;
         }
         
         .card-icon svg {
-            width: 30px;
-            height: 30px;
-            color: var(--white);
+            width: 32px;
+            height: 32px;
+            stroke: var(--white);
+            fill: none;
+            stroke-width: 1.5;
+        }
+        
+        .card:hover .card-icon {
+            background: var(--gradient-pink-white);
+            transform: scale(1.1);
         }
         
         .card-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
         }
         
         .card-description {
+            font-size: 16px;
             color: var(--gray-400);
-            line-height: 1.8;
+            line-height: 1.6;
         }
         
-        /* Value Proposition Section */
-        .value-section {
-            padding: 6rem 2rem;
-            background: linear-gradient(180deg, transparent 0%, rgba(255, 0, 128, 0.02) 50%, transparent 100%);
-            position: relative;
-            z-index: 2;
-        }
-        
-        .value-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-        
+        /* Value Section */
         .value-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
+            background: var(--black);
+            border: 1px solid var(--gray-900);
+            border-radius: var(--radius-2xl);
+            padding: 48px;
             position: relative;
             overflow: hidden;
             opacity: 0;
-            transform: translateY(30px) scale(0.95);
-            transition: all 0.4s var(--ease-out-expo);
+            transform: translateY(30px) scale(0.98);
+            transition: all 0.5s var(--ease-out-expo);
         }
         
-        .value-card.premium {
-            background: linear-gradient(135deg, rgba(255, 0, 128, 0.1) 0%, rgba(176, 38, 255, 0.1) 100%);
-            border-color: var(--accent-pink);
+        .value-card.featured {
+            background: linear-gradient(135deg, rgba(255, 0, 128, 0.05) 0%, rgba(176, 38, 255, 0.05) 100%);
+            border-color: var(--accent);
             transform: scale(1.05);
-            grid-column: span 2;
         }
         
         .value-card:hover {
@@ -839,121 +759,57 @@
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
         }
         
-        .value-card-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 24px 24px 0 0;
-        }
-        
-        .value-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .value-card-image-small {
-            width: 100%;
-            height: 180px;
-            overflow: hidden;
-            border-radius: 16px;
-            margin: -30px -30px 20px -30px;
-        }
-        
-        .value-card-image-small img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .value-card:hover .value-card-image-small img {
-            transform: scale(1.1);
-        }
-        
-        .value-card-content {
-            padding: 3rem;
-        }
-        
-        .value-card:not(.premium) {
-            padding: 3rem;
-        }
-        
-        .value-card-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 2rem;
-        }
-        
-        .value-card-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-primary);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-        
-        .value-card-badge {
-            background: var(--accent-pink);
+        .value-badge {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: var(--accent);
             color: var(--white);
-            padding: 0.25rem 1rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            font-size: 12px;
             font-weight: 600;
             text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
         
-        .value-card-title {
-            font-size: 1.75rem;
+        .value-price {
+            font-size: 56px;
             font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        
-        .value-card-price {
-            font-size: 3rem;
-            font-weight: 800;
-            background: var(--gradient-primary);
+            background: var(--gradient-pink-white);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 1.5rem;
+            margin-bottom: 16px;
         }
         
-        .value-card-features {
+        .value-price span {
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--gray-500);
+        }
+        
+        .value-features {
             list-style: none;
-            margin-bottom: 2rem;
+            margin: 32px 0;
         }
         
-        .value-card-features li {
-            padding: 0.75rem 0;
+        .value-features li {
+            padding: 16px 0;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            color: var(--gray-300);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            gap: 16px;
+            border-bottom: 1px solid var(--gray-900);
         }
         
-        .value-card-features li:last-child {
+        .value-features li:last-child {
             border-bottom: none;
         }
         
-        .feature-check {
-            width: 20px;
-            height: 20px;
-            background: var(--gradient-primary);
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--gradient-pink-white);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -961,152 +817,85 @@
             flex-shrink: 0;
         }
         
-        .feature-check svg {
-            width: 12px;
-            height: 12px;
-            color: var(--white);
+        .feature-icon svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--black);
+            stroke-width: 3;
         }
         
-        /* Value Showcase */
-        .value-showcase {
-            margin-top: 6rem;
-            text-align: center;
-        }
-        
-        .showcase-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 3rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .showcase-images {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-        
-        .showcase-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s var(--ease-out-expo);
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        
-        .showcase-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(255, 0, 128, 0.2);
-        }
-        
-        .showcase-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .showcase-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .showcase-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1.5rem;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-            color: var(--white);
-            font-weight: 600;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .showcase-item:hover .showcase-caption {
-            transform: translateY(0);
-        }
-        
-        /* Testimonials Section */
+        /* Testimonials */
         .testimonials {
-            padding: 6rem 2rem;
-            position: relative;
-            z-index: 2;
-            overflow: hidden;
+            background: var(--gray-950);
+            padding: 120px 0;
         }
         
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 32px;
+            margin-top: 64px;
         }
         
         .testimonial-card {
-            background: var(--gray-900);
-            border: 1px solid var(--gray-800);
-            border-radius: 20px;
-            padding: 2.5rem;
+            background: var(--black);
+            border: 1px solid var(--gray-900);
+            border-radius: var(--radius-2xl);
+            padding: 48px;
             position: relative;
             opacity: 0;
-            transform: translateY(30px) rotate(0deg);
-            transition: all 0.3s var(--ease-out-expo);
-        }
-        
-        .testimonial-card:nth-child(1) {
             transform: translateY(30px) rotate(-2deg);
+            transition: all 0.5s var(--ease-out-expo);
         }
         
-        .testimonial-card:nth-child(2) {
-            transform: translateY(30px) rotate(1deg);
-        }
-        
-        .testimonial-card:nth-child(3) {
-            transform: translateY(30px) rotate(-1deg);
+        .testimonial-card:nth-child(even) {
+            transform: translateY(30px) rotate(2deg);
         }
         
         .testimonial-card:hover {
-            transform: translateY(-10px) rotate(0deg) scale(1.05);
-            box-shadow: 0 30px 60px rgba(255, 0, 128, 0.2);
-            border-color: var(--accent-pink);
+            transform: translateY(-10px) rotate(0deg) scale(1.02);
+            box-shadow: 0 30px 60px rgba(255, 0, 128, 0.1);
+            border-color: var(--accent);
         }
         
         .testimonial-stars {
             display: flex;
-            gap: 0.25rem;
-            margin-bottom: 1.5rem;
+            gap: 4px;
+            margin-bottom: 24px;
         }
         
         .star {
             width: 20px;
             height: 20px;
-            fill: var(--accent-pink);
+            background: var(--gradient-pink-white);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
         }
         
         .testimonial-text {
-            font-size: 1.125rem;
+            font-size: 18px;
             line-height: 1.8;
             color: var(--gray-200);
-            margin-bottom: 2rem;
+            margin-bottom: 32px;
             font-style: italic;
         }
         
         .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 16px;
         }
         
         .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
+            width: 56px;
+            height: 56px;
+            background: var(--gradient-pink-white);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 20px;
+            color: var(--black);
         }
         
         .author-info {
@@ -1114,731 +903,171 @@
         }
         
         .author-name {
+            font-size: 18px;
             font-weight: 600;
-            font-size: 1.125rem;
-            margin-bottom: 0.25rem;
+            margin-bottom: 4px;
         }
         
         .author-role {
-            font-size: 0.875rem;
+            font-size: 14px;
             color: var(--gray-500);
-        }
-        
-        /* Before/After Showcase */
-        .showcase-container {
-            margin-top: 4rem;
-            position: relative;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .showcase-slider {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            border-radius: 20px;
-            overflow: hidden;
-            opacity: 0;
-            transform: scale(0.95);
-        }
-        
-        .showcase-slide {
-            position: absolute;
-            width: 50%;
-            height: 100%;
-            overflow: hidden;
-        }
-        
-        .showcase-slide.before {
-            left: 0;
-            border-right: 2px solid var(--accent-pink);
-        }
-        
-        .showcase-slide.after {
-            right: 0;
-        }
-        
-        .showcase-image {
-            width: 200%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .showcase-slide.after .showcase-image {
-            transform: translateX(-50%);
-        }
-        
-        .showcase-label {
-            position: absolute;
-            top: 2rem;
-            padding: 0.5rem 1.5rem;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-        
-        .showcase-slide.before .showcase-label {
-            left: 2rem;
-            color: var(--gray-400);
-        }
-        
-        .showcase-slide.after .showcase-label {
-            right: 2rem;
-            background: var(--gradient-primary);
-            color: var(--white);
-        }
-        
-        .showcase-handle {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-primary);
-            border: 3px solid var(--white);
-            border-radius: 50%;
-            cursor: grab;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s ease;
-        }
-        
-        .showcase-handle:active {
-            cursor: grabbing;
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-        
-        .showcase-handle svg {
-            width: 20px;
-            height: 20px;
-            color: var(--white);
         }
         
         /* CTA Section */
-        .cta-section {
-            padding: 6rem 2rem;
-            position: relative;
-            z-index: 2;
+        .cta {
+            padding: 120px 0;
             text-align: center;
-        }
-        
-        .cta-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, rgba(255, 0, 128, 0.1) 0%, rgba(176, 38, 255, 0.1) 100%);
-            border: 1px solid rgba(255, 0, 128, 0.3);
-            border-radius: 30px;
-            padding: 4rem 3rem;
             position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(30px);
         }
         
-        .cta-container::before {
+        .cta::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
+            top: 50%;
+            left: 50%;
+            width: 800px;
+            height: 800px;
             background: radial-gradient(circle, rgba(255, 0, 128, 0.1) 0%, transparent 70%);
-            animation: rotate-glow 10s linear infinite;
+            transform: translate(-50%, -50%);
+            animation: pulse-scale 4s ease-in-out infinite;
         }
         
-        @keyframes rotate-glow {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
+        @keyframes pulse-scale {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.3; }
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .cta-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .cta-description {
-            font-size: 1.25rem;
-            color: var(--gray-300);
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .cta-form {
-            display: flex;
-            gap: 1rem;
-            max-width: 500px;
-            margin: 0 auto 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .cta-input {
-            flex: 1;
-            padding: 1rem 1.5rem;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            color: var(--white);
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .cta-input:focus {
-            outline: none;
-            border-color: var(--accent-pink);
-            box-shadow: 0 0 20px rgba(255, 0, 128, 0.3);
-        }
-        
-        .cta-input::placeholder {
-            color: var(--gray-500);
-        }
-        
-        .cta-privacy {
-            font-size: 0.875rem;
-            color: var(--gray-500);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .cta-privacy svg {
-            width: 16px;
-            height: 16px;
-            display: inline-block;
-            margin-right: 0.5rem;
-            vertical-align: middle;
-        }
-        
-        /* How It Works Section */
-        .how-it-works {
-            padding: 6rem 2rem;
-            background: var(--gray-950);
-            position: relative;
-            z-index: 2;
-        }
-        
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-        
-        /* Info cards - updated colors */
-        .info-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 2.5rem;
-            transition: all 0.3s var(--ease-out-expo);
+            font-size: clamp(48px, 6vw, 80px);
+            font-weight: 700;
+            margin-bottom: 24px;
             opacity: 0;
             transform: translateY(30px);
         }
         
-        .info-card:hover {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(255, 0, 128, 0.3);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(255, 0, 128, 0.1);
-        }
-        
-        .info-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, rgba(255, 0, 128, 0.2) 0%, rgba(176, 38, 255, 0.2) 100%);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .info-icon svg {
-            width: 30px;
-            height: 30px;
-            stroke: var(--accent-pink);
-        }
-        
-        .info-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--white);
-        }
-        
-        .info-text {
-            color: var(--gray-300);
-            line-height: 1.8;
-            font-size: 1rem;
-        }
-        
-        /* Success Timeline */
-        .success-timeline {
-            margin-top: 6rem;
-            padding: 4rem;
-            background: linear-gradient(135deg, rgba(255, 0, 128, 0.05) 0%, rgba(176, 38, 255, 0.05) 100%);
-            border-radius: 30px;
-            border: 1px solid rgba(255, 0, 128, 0.2);
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        
-        .timeline-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 4rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .timeline-wrapper {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .timeline-track {
-            position: absolute;
-            top: 35px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.1);
-            z-index: 0;
-        }
-        
-        .timeline-step {
-            position: relative;
-            display: flex;
-            align-items: flex-start;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            opacity: 0;
-            transform: translateX(-30px);
-        }
-        
-        .timeline-step:nth-child(even) {
-            flex-direction: row-reverse;
-            transform: translateX(30px);
-        }
-        
-        .step-marker {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--white);
-            flex-shrink: 0;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 10px 30px rgba(255, 0, 128, 0.3);
-        }
-        
-        .step-content {
-            flex: 1;
-            padding-top: 15px;
-        }
-        
-        .step-content h4 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--white);
-        }
-        
-        .step-content p {
+        .cta-subtitle {
+            font-size: 20px;
             color: var(--gray-400);
-            font-size: 1rem;
-        }
-        
-        /* Final CTA */
-        .final-cta {
-            padding: 8rem 2rem;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            background: radial-gradient(ellipse at center, rgba(255, 0, 128, 0.1) 0%, transparent 50%);
-        }
-        
-        .final-cta-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .final-cta-title {
-            font-size: clamp(3rem, 6vw, 5rem);
-            font-weight: 900;
-            margin-bottom: 2rem;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        
-        .price-comparison {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            font-weight: 800;
-            opacity: 0;
-            transform: scale(0.8);
-        }
-        
-        .price-old {
-            color: var(--gray-600);
-            text-decoration: line-through;
-            opacity: 0.5;
-        }
-        
-        .price-arrow {
-            font-size: 2rem;
-        }
-        
-        .price-new {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: pulse-scale 2s ease-in-out infinite;
-        }
-        
-        .final-cta-features {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
+            margin-bottom: 48px;
             opacity: 0;
             transform: translateY(20px);
         }
         
-        .final-cta-feature {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--gray-400);
-            font-size: 0.875rem;
+        .cta-price {
+            font-size: 96px;
+            font-weight: 900;
+            background: var(--gradient-pink-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 48px;
+            opacity: 0;
+            transform: scale(0.8);
         }
         
-        .final-cta-feature svg {
-            width: 20px;
-            height: 20px;
-            color: var(--accent-pink);
+        .cta-price span {
+            font-size: 32px;
+            font-weight: 400;
         }
         
-        /* Footer */
+        /* Footer - Same as index.html */
         footer {
-            background: var(--gray-900);
-            padding: 3rem 2rem 2rem;
-            border-top: 1px solid var(--gray-800);
-            position: relative;
-            z-index: 2;
+            padding: 48px;
+            border-top: 1px solid var(--gray-900);
         }
         
-        .footer-container {
+        .footer-content {
             max-width: 1400px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        .footer-column h4 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: var(--white);
+        .copyright {
+            font-size: 14px;
+            color: var(--gray-600);
         }
         
         .footer-links {
-            list-style: none;
+            display: flex;
+            gap: 32px;
         }
         
-        .footer-links li {
-            margin-bottom: 0.75rem;
-        }
-        
-        .footer-links a {
-            color: var(--gray-400);
+        .footer-link {
+            font-size: 14px;
+            color: var(--gray-600);
             text-decoration: none;
             transition: color 0.3s ease;
         }
         
-        .footer-links a:hover {
-            color: var(--accent-pink);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid var(--gray-800);
-            color: var(--gray-500);
-            font-size: 0.875rem;
-        }
-        
-        /* Floating Elements */
-        .floating-chat {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(255, 0, 128, 0.3);
-            transition: all 0.3s ease;
-            z-index: 100;
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        .floating-chat:hover {
-            transform: scale(1.1);
-            box-shadow: var(--shadow-glow-pink);
-        }
-        
-        .floating-chat svg {
-            width: 30px;
-            height: 30px;
+        .footer-link:hover {
             color: var(--white);
         }
         
-        /* Live Notifications */
-        .notification-container {
-            position: fixed;
-            bottom: 2rem;
-            left: 2rem;
-            z-index: 100;
-            max-width: 350px;
-        }
-        
-        .notification {
-            background: var(--gray-900);
-            border: 1px solid var(--gray-800);
-            border-left: 3px solid var(--accent-pink);
-            border-radius: 10px;
-            padding: 1rem 1.5rem;
-            margin-bottom: 1rem;
+        /* Countdown Timer */
+        .countdown {
             display: flex;
-            align-items: center;
-            gap: 1rem;
-            animation: slide-in-left 0.5s ease-out;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        @keyframes slide-in-left {
-            0% {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        
-        .notification-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
+            gap: 24px;
             justify-content: center;
-            flex-shrink: 0;
-        }
-        
-        .notification-icon svg {
-            width: 20px;
-            height: 20px;
-            color: var(--white);
-        }
-        
-        .notification-content {
-            flex: 1;
-        }
-        
-        .notification-text {
-            font-size: 0.875rem;
-            color: var(--gray-300);
-            line-height: 1.4;
-        }
-        
-        .notification-text strong {
-            color: var(--white);
-            font-weight: 600;
-        }
-        
-        /* Exit Intent Popup */
-        .exit-popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
+            margin-bottom: 48px;
             opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
+            transform: translateY(20px);
         }
         
-        .exit-popup.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        
-        .exit-popup-content {
-            background: var(--gray-900);
-            border: 1px solid var(--gray-800);
-            border-radius: 20px;
-            padding: 3rem;
-            max-width: 500px;
-            width: 90%;
+        .countdown-item {
+            background: var(--gray-950);
+            border: 1px solid var(--gray-900);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            min-width: 100px;
             text-align: center;
-            position: relative;
-            transform: scale(0.8);
-            transition: transform 0.3s ease;
         }
         
-        .exit-popup.active .exit-popup-content {
-            transform: scale(1);
-        }
-        
-        .exit-popup-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .exit-popup-close:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: rotate(90deg);
-        }
-        
-        .exit-popup-close svg {
-            width: 20px;
-            height: 20px;
-            color: var(--white);
-        }
-        
-        .exit-popup-title {
-            font-size: 2rem;
+        .countdown-number {
+            font-size: 48px;
             font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        
-        .exit-popup-offer {
-            font-size: 3rem;
-            font-weight: 900;
-            background: var(--gradient-primary);
+            background: var(--gradient-pink-white);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 1rem;
+            display: block;
         }
         
-        .exit-popup-code {
-            background: rgba(255, 0, 128, 0.1);
-            border: 1px solid rgba(255, 0, 128, 0.3);
-            border-radius: 10px;
-            padding: 1rem 2rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            font-family: monospace;
-            color: var(--accent-pink);
-            margin: 2rem 0;
+        .countdown-label {
+            font-size: 12px;
+            color: var(--gray-500);
+            text-transform: uppercase;
             letter-spacing: 0.1em;
+            margin-top: 8px;
         }
         
-        /* Animations */
-        @keyframes fade-in {
-            0% {
-                opacity: 0;
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .cards-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
             }
-            100% {
-                opacity: 1;
-            }
-        }
-        
-        @keyframes fade-in-up {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
+            
+            .value-card.featured {
+                transform: scale(1);
             }
         }
         
-        .animate-fade-in {
-            animation: fade-in 0.8s ease-out forwards;
-        }
-        
-        .animate-fade-in-up {
-            animation: fade-in-up 0.8s ease-out forwards;
-        }
-        
-        /* Utility Classes */
-        .text-gradient {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        /* Responsive Design */
         @media (max-width: 768px) {
             nav {
                 max-width: 95%;
             }
             
             .nav-container {
-                gap: 20px;
+                gap: 15px;
             }
             
             .nav-links {
@@ -1846,255 +1075,179 @@
             }
             
             .logo {
-                height: 70px;
+                height: 50px;
             }
             
-            .btn-cta {
-                padding: 0.5rem 1.5rem;
-                font-size: 14px;
+            .btn-nav-cta {
+                padding: 0.4rem 1.2rem;
+                font-size: 13px;
             }
             
             .hero-title {
-                font-size: clamp(2.5rem, 10vw, 4rem);
+                font-size: clamp(40px, 10vw, 80px);
             }
             
-            .hero-cta-container {
-                flex-direction: column;
-                width: 100%;
-            }
-            
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .social-proof-container {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            
-            .value-grid,
-            .testimonials-grid,
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .value-card.premium {
-                transform: scale(1);
-                grid-column: span 1;
-            }
-            
-            .cta-form {
-                flex-direction: column;
-            }
-            
-            .notification-container {
-                left: 1rem;
-                right: 1rem;
-                max-width: none;
-            }
-            
-            .floating-chat {
-                width: 50px;
-                height: 50px;
-                bottom: 1rem;
-                right: 1rem;
-            }
-            
-            .floating-chat svg {
-                width: 24px;
-                height: 24px;
-            }
-            
-            .showcase-images {
-                grid-template-columns: 1fr;
-            }
-            
-            .timeline-wrapper {
-                padding: 0 1rem;
-            }
-            
-            .timeline-step {
-                flex-direction: column !important;
-                transform: translateX(0) !important;
-                text-align: center;
-            }
-            
-            .step-marker {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
+            .container {
+                padding: 0 24px;
             }
             
             section {
-                padding: 4rem 1rem;
+                padding: 96px 0;
             }
             
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2rem;
+            .countdown {
+                flex-wrap: wrap;
             }
             
-            .hero-subtitle {
-                font-size: 1.125rem;
+            .countdown-item {
+                min-width: 80px;
+                padding: 16px;
             }
             
-            .nav-wrapper {
-                padding: 5px 10px;
-            }
-        }
-        
-        /* Print Styles */
-        @media print {
-            body {
-                background: white;
-                color: black;
+            .countdown-number {
+                font-size: 32px;
             }
             
-            nav,
-            .floating-chat,
-            .notification-container,
-            .exit-popup,
-            .hero-bg-video,
-            #canvas-background {
-                display: none;
+            .cta-price {
+                font-size: 64px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 24px;
+            }
+            
+            .social-proof-container {
+                gap: 32px;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .testimonial-card {
+                padding: 32px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Premium Preloader -->
-    <div class="preloader" id="preloader">
-        <div class="preloader-content">
-            <div class="preloader-logo">ZANDA</div>
-            <div class="preloader-progress">
-                <div class="preloader-progress-bar"></div>
-            </div>
-        </div>
-    </div>
-    
     <!-- Three.js Canvas Background -->
-    <canvas id="canvas-background"></canvas>
+    <div id="canvas-container"></div>
     
     <!-- Custom Cursor -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
-    
-    <!-- Navigation -->
+
+    <!-- Ultra Premium Preloader - Same as index.html -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-logo">
+                <span>Z</span><span>A</span><span>N</span><span>D</span><span>A</span>
+                <span>&nbsp;</span>
+                <span>V</span><span>I</span><span>S</span><span>U</span><span>A</span><span>L</span><span>S</span>
+            </div>
+            <div class="preloader-progress">
+                <div class="preloader-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation - Same as index.html -->
     <nav id="navbar">
         <div class="nav-wrapper">
             <div class="nav-container">
                 <a href="index.html" class="logo">
                     <img src="https://raw.githubusercontent.com/st3pan007/3/main/images/logo.webp" alt="Zanda Visuals">
                 </a>
-                
                 <ul class="nav-links">
                     <li><a href="index.html">O nás</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="kurz.html" class="active">Náš kurz</a></li>
                 </ul>
-                
-                <a href="#start" class="btn-cta">Chci začít</a>
+                <a href="#start" class="btn-nav-cta">Začít teď</a>
             </div>
         </div>
     </nav>
-    
+
     <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <video class="hero-bg-video" autoplay muted loop playsinline>
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-39881-large.mp4" type="video/mp4">
-        </video>
-        
-        <div class="hero-gradient-overlay"></div>
-        
-        <div class="hero-particles" id="heroParticles"></div>
-        
+    <section class="hero" id="home">
         <div class="hero-content">
-            <div class="hero-badge">
-                <div class="hero-badge-dot"></div>
-                <span class="hero-badge-text">Přidej se k 127+ editorům</span>
+            <div class="hero-label">
+                <span class="dot"></span>
+                <span>Připoj se k 127+ úspěšným editorům</span>
             </div>
-            
             <h1 class="hero-title">
-                Nauč se editovat<br>
-                <span class="hero-title-gradient">videa, která vydělávají</span>
+                <div class="line">
+                    <span>Nauč se editovat</span>
+                </div>
+                <div class="line">
+                    <span class="text-gradient">videa která vydělávají</span>
+                </div>
             </h1>
-            
-            <p class="hero-subtitle">
-                Za cenu jednoho jídla ve Woltu si rozjedeš měsíční income 50K+
+            <p class="hero-description">
+                Za cenu jednoho oběda měsíčně získáš skill, který ti bude vydělávat roky. 
+                První zakázka do 30 dní nebo vrátíme peníze.
             </p>
-            
-            <div class="hero-cta-container">
-                <a href="#start" class="btn btn-primary">
-                    Začni vydělávat teď
-                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-                <a href="#checklist" class="btn btn-secondary">
-                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                    </svg>
-                    Stáhni checklist zdarma
-                </a>
-            </div>
-            
-            <div class="hero-countdown">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="M12 6v6l4 2"/>
-                </svg>
-                <span>Prvních 30 členů dostane 1:1 feedback:</span>
-                <span class="countdown-item" id="hours">23</span>
-                <span>:</span>
-                <span class="countdown-item" id="minutes">59</span>
-                <span>:</span>
-                <span class="countdown-item" id="seconds">59</span>
+            <div class="hero-actions">
+                <a href="#pricing" class="btn btn-primary">Chci začít vydělávat</a>
+                <a href="#testimonials" class="btn btn-secondary">Ukázat výsledky</a>
             </div>
         </div>
     </section>
-    
+
     <!-- Social Proof Bar -->
-    <section class="social-proof-bar">
+    <section class="social-proof">
         <div class="social-proof-container">
-            <div class="social-proof-item" style="animation-delay: 0.1s">
+            <div class="social-proof-item">
                 <span class="social-proof-number">127+</span>
                 <span class="social-proof-label">Aktivních členů</span>
             </div>
-            <div class="social-proof-item" style="animation-delay: 0.2s">
+            <div class="social-proof-item">
+                <span class="social-proof-number">98%</span>
+                <span class="social-proof-label">Úspěšnost</span>
+            </div>
+            <div class="social-proof-item">
+                <span class="social-proof-number">30 dní</span>
+                <span class="social-proof-label">Garance</span>
+            </div>
+            <div class="social-proof-item">
                 <span class="social-proof-number">50K+</span>
                 <span class="social-proof-label">Průměrný výdělek</span>
             </div>
-            <div class="social-proof-item" style="animation-delay: 0.3s">
-                <span class="social-proof-number">7 dní</span>
-                <span class="social-proof-label">Do první zakázky</span>
-            </div>
-            <div class="social-proof-item" style="animation-delay: 0.4s">
-                <span class="social-proof-number">98%</span>
-                <span class="social-proof-label">Spokojených členů</span>
-            </div>
         </div>
     </section>
-    
-    <!-- Problem/Solution Section -->
-    <section class="problem-solution">
-        <div class="section-container">
+
+    <!-- Problem Section -->
+    <section class="problems">
+        <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Znáš to?</h2>
-                <p class="section-subtitle">Tyto problémy řešíme každý den</p>
+                <span class="section-label">Problémy</span>
+                <h2 class="section-title">Znáš to? <span class="text-gradient">Tyto problémy řešíme</span></h2>
+                <p class="section-description">
+                    Každý začínající editor narazí na stejné překážky. My je za tebe vyřešíme.
+                </p>
             </div>
             
-            <div class="problem-solution-grid">
-                <!-- Problem Cards -->
-                <div class="problem-card">
+            <div class="cards-grid">
+                <div class="card">
                     <div class="card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Nevíš, kolik si účtovat</h3>
+                    <p class="card-description">
+                        Bojíš se říct si o peníze nebo naopak přestřelíš a klient uteče. 
+                        Ukážeme ti přesné ceníky podle typu videa.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                         </svg>
                     </div>
                     <h3 class="card-title">Nemáš klienty</h3>
@@ -2103,254 +1256,138 @@
                     </p>
                 </div>
                 
-                <div class="problem-card">
+                <div class="card">
                     <div class="card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 6v6l4 2" />
                         </svg>
                     </div>
-                    <h3 class="card-title">Nevíš, jak se prodávat</h3>
+                    <h3 class="card-title">Editování ti trvá věčnost</h3>
                     <p class="card-description">
-                        Posíláš DMs, ale nikdo neodpovídá. Nevíš, kolik si účtovat a jak vypadat profesionálně.
-                    </p>
-                </div>
-                
-                <div class="problem-card">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
-                    </div>
-                    <h3 class="card-title">Trvá ti věčnost editovat</h3>
-                    <p class="card-description">
-                        Jedno video děláš celý den. Nemáš workflow, šablony ani systém. Vyhoříš dřív, než vyděláš.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="section-header" style="margin-top: 6rem">
-                <h2 class="section-title">
-                    <span class="text-gradient">My to vyřešíme</span>
-                </h2>
-                <p class="section-subtitle">Systém, který funguje od prvního dne</p>
-            </div>
-            
-            <div class="problem-solution-grid">
-                <!-- Solution Cards -->
-                <div class="solution-card">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-                        </svg>
-                    </div>
-                    <h3 class="card-title">Zakázky přímo od nás</h3>
-                    <p class="card-description">
-                        Máme databázi klientů, kteří hledají editory. Pošleme ti první zakázku hned první týden.
-                    </p>
-                </div>
-                
-                <div class="solution-card">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="card-title">Mentoring každý týden</h3>
-                    <p class="card-description">
-                        Ukážeme ti, jak se prodávat, kolik si účtovat a jak jednat s klienty. Žádné hádání.
-                    </p>
-                </div>
-                
-                <div class="solution-card">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                    </div>
-                    <h3 class="card-title">Šablony co zrychlí práci 3×</h3>
-                    <p class="card-description">
-                        50+ premium šablon, presetů a workflow. Video, co ti trvalo 8 hodin, uděláš za 2.
+                        Jedno video děláš celý den. Nemáš workflow, šablony ani systém. 
+                        Vyhoříš dřív, než vyděláš.
                     </p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Value Proposition Section -->
-    <section class="value-section" id="features">
-        <div class="section-container">
+
+    <!-- Value Section -->
+    <section class="value" id="features">
+        <div class="container">
             <div class="section-header">
-                <h2 class="section-title">
-                    Co všechno <span class="text-gradient">získáš</span>
-                </h2>
-                <p class="section-subtitle">
-                    Kompletní systém pro rozjetí kariéry video editora
+                <span class="section-label">Co získáš</span>
+                <h2 class="section-title">Všechno, co potřebuješ <span class="text-gradient">k úspěchu</span></h2>
+                <p class="section-description">
+                    Kompletní systém pro rozjetí kariéry video editora. Od prvního videa po stabilní příjem.
                 </p>
             </div>
             
-            <div class="value-grid">
-                <!-- Premium Value Card with Image -->
-                <div class="value-card premium">
-                    <div class="value-card-image">
-                        <img src="https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?w=800&h=400&fit=crop" alt="Premium členství">
-                    </div>
-                    <div class="value-card-content">
-                        <div class="value-card-header">
-                            <div class="value-card-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            <div class="cards-grid">
+                <div class="value-card featured">
+                    <span class="value-badge">NEJPOPULÁRNĚJŠÍ</span>
+                    <h3 class="card-title">Premium členství</h3>
+                    <div class="value-price">500 <span>Kč/měsíc</span></div>
+                    <ul class="value-features">
+                        <li>
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </div>
-                            <span class="value-card-badge">NEJVÝHODNĚJŠÍ</span>
-                        </div>
-                        <h3 class="value-card-title">Premium členství</h3>
-                        <div class="value-card-price">500 Kč<span style="font-size: 0.5em; font-weight: 400">/měsíc</span></div>
-                        <ul class="value-card-features">
-                            <li>
-                                <div class="feature-check">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                </div>
-                                Přístup k reálným zakázkám (10K+ za video)
-                            </li>
-                            <li>
-                                <div class="feature-check">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                </div>
-                                Týdenní mentoring calls každé úterý
-                            </li>
-                            <li>
-                                <div class="feature-check">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                </div>
-                                50+ premium šablon a presetů
-                            </li>
-                            <li>
-                                <div class="feature-check">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                </div>
-                                Privátní Discord komunita 24/7
-                            </li>
-                            <li>
-                                <div class="feature-check">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                </div>
-                                Certifikát Zanda Certified Editor
-                            </li>
-                            <li>
-                                <div class="feature-check">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                </div>
-                                Měsíční bonusy a nové tutoriály
-                            </li>
-                        </ul>
-                        <a href="#start" class="btn btn-primary" style="width: 100%">
-                            Začít vydělávat
-                        </a>
-                    </div>
+                            <span>Přístup k reálným zakázkám (10K+ za video)</span>
+                        </li>
+                        <li>
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span>Týdenní mentoring calls každé úterý</span>
+                        </li>
+                        <li>
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span>50+ premium šablon a presetů</span>
+                        </li>
+                        <li>
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span>Privátní Discord komunita 24/7</span>
+                        </li>
+                        <li>
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span>Certifikát Zanda Certified Editor</span>
+                        </li>
+                    </ul>
+                    <a href="#start" class="btn btn-primary" style="width: 100%">Začít vydělávat teď</a>
                 </div>
                 
-                <!-- Additional Value Cards with Images -->
                 <div class="value-card">
-                    <div class="value-card-image-small">
-                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=300&fit=crop" alt="Garance">
-                    </div>
-                    <div class="value-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
                     </div>
-                    <h3 class="value-card-title">Garance první zakázky</h3>
+                    <h3 class="card-title">Krok za krokem</h3>
                     <p class="card-description">
-                        Pokud nezískáš první placenou zakázku do 30 dní, vrátíme ti peníze. Bez otázek.
+                        50+ video tutoriálů které tě provedou od úplných základů až po pokročilé techniky. 
+                        Učíš se vlastním tempem.
                     </p>
                 </div>
                 
                 <div class="value-card">
-                    <div class="value-card-image-small">
-                        <img src="https://images.pexels.com/photos/7562313/pexels-photo-7562313.jpeg?w=600&h=300&fit=crop" alt="Learning">
-                    </div>
-                    <div class="value-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
                     </div>
-                    <h3 class="value-card-title">Learning by doing</h3>
+                    <h3 class="card-title">Komunita co pomáhá</h3>
                     <p class="card-description">
-                        Žádná nudná teorie. Učíš se na reálných projektech a výsledky vidíš hned.
+                        Nikdy nebudeš sám. Discord plný editorů, kteří si pomáhají, sdílí tipy a motivují se navzájem.
                     </p>
-                </div>
-            </div>
-            
-            <!-- Visual Showcase -->
-            <div class="value-showcase">
-                <h3 class="showcase-title">Náš systém v praxi</h3>
-                <div class="showcase-images">
-                    <div class="showcase-item">
-                        <img src="https://images.pexels.com/photos/4050315/pexels-photo-4050315.jpeg?w=400&h=600&fit=crop" alt="Editor workspace">
-                        <div class="showcase-caption">Moderní workspace</div>
-                    </div>
-                    <div class="showcase-item">
-                        <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&h=600&fit=crop" alt="Video editing">
-                        <div class="showcase-caption">Profesionální nástroje</div>
-                    </div>
-                    <div class="showcase-item">
-                        <img src="https://images.pexels.com/photos/6953870/pexels-photo-6953870.jpeg?w=400&h=600&fit=crop" alt="Community">
-                        <div class="showcase-caption">Aktivní komunita</div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
-        <div class="section-container">
+        <div class="container">
             <div class="section-header">
-                <h2 class="section-title">
-                    Výsledky mluví za <span class="text-gradient">vše</span>
-                </h2>
-                <p class="section-subtitle">
-                    Podívej se, co dokázali naši členové
+                <span class="section-label">Výsledky</span>
+                <h2 class="section-title">Co říkají <span class="text-gradient">naši členové</span></h2>
+                <p class="section-description">
+                    Reálné příběhy lidí, kteří změnili svůj život díky video editingu
                 </p>
             </div>
             
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-stars">
-                        <svg class="star" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
                     </div>
                     <p class="testimonial-text">
-                        "Za první měsíc jsem vydělal 35K. Zakázky chodí furt, už si vybírám jen ty nejlepší. Díky Academy jsem dal výpověď v práci."
+                        "Za první měsíc jsem vydělal 35K. Zakázky chodí furt, už si vybírám jen ty nejlepší. 
+                        Díky Academy jsem dal výpověď v práci."
                     </p>
                     <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&auto=format&q=80" alt="Martin K." class="author-avatar">
+                        <div class="author-avatar">MK</div>
                         <div class="author-info">
                             <div class="author-name">Martin K.</div>
                             <div class="author-role">Freelance editor</div>
@@ -2360,27 +1397,18 @@
                 
                 <div class="testimonial-card">
                     <div class="testimonial-stars">
-                        <svg class="star" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
                     </div>
                     <p class="testimonial-text">
-                        "Šablony jsou game changer. Co mi dřív trvalo 6 hodin, teď stíhám za 2. Mám víc času a vydělávám 3x víc."
+                        "Šablony jsou game changer. Co mi dřív trvalo 6 hodin, teď stíhám za 2. 
+                        Mám víc času a vydělávám 3x víc."
                     </p>
                     <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&auto=format&q=80" alt="Tereza P." class="author-avatar">
+                        <div class="author-avatar">TP</div>
                         <div class="author-info">
                             <div class="author-name">Tereza P.</div>
                             <div class="author-role">Content creator</div>
@@ -2390,27 +1418,18 @@
                 
                 <div class="testimonial-card">
                     <div class="testimonial-stars">
-                        <svg class="star" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                        <svg class="star" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
+                        <div class="star"></div>
                     </div>
                     <p class="testimonial-text">
-                        "Nejlepší investice ever. Za 500 Kč měsíčně mám mentoring, zakázky a komunitu. ROI první týden."
+                        "Nejlepší investice ever. Za 500 Kč měsíčně mám mentoring, zakázky a komunitu. 
+                        ROI první týden."
                     </p>
                     <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=100&h=100&fit=crop&auto=format&q=80" alt="Jan N." class="author-avatar">
+                        <div class="author-avatar">JN</div>
                         <div class="author-info">
                             <div class="author-name">Jan N.</div>
                             <div class="author-role">Video editor</div>
@@ -2418,413 +1437,159 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Before/After Showcase -->
-            <div class="showcase-container">
-                <div class="showcase-slider" id="showcaseSlider">
-                    <div class="showcase-slide before">
-                        <img src="https://images.pexels.com/photos/257904/pexels-photo-257904.jpeg?w=1200&h=600&fit=crop" alt="Before" class="showcase-image">
-                        <span class="showcase-label">Před kurzem</span>
-                    </div>
-                    <div class="showcase-slide after">
-                        <img src="https://images.pexels.com/photos/7562139/pexels-photo-7562139.jpeg?w=1200&h=600&fit=crop" alt="After" class="showcase-image">
-                        <span class="showcase-label">Po Academy</span>
-                    </div>
-                    <div class="showcase-handle" id="showcaseHandle">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M8 9l4-4 4 4M16 15l-4 4-4-4"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
-    
+
     <!-- CTA Section -->
-    <section class="cta-section" id="checklist">
-        <div class="section-container">
-            <div class="cta-container">
+    <section class="cta" id="pricing">
+        <div class="container">
+            <div class="cta-content">
                 <h2 class="cta-title">
-                    5 hooků pro virální Reels
+                    Připraven změnit <span class="text-gradient">svůj život</span>?
                 </h2>
-                <p class="cta-description">
-                    Checklist, který používají top creators. Zdarma pro tebe.
+                <p class="cta-subtitle">
+                    Přidej se k 127+ editorům, kteří už žijou z videí
                 </p>
                 
-                <div class="cta-form">
-                    <input type="email" class="cta-input" placeholder="tvuj@email.cz" id="emailInput">
-                    <button class="btn btn-primary" onclick="submitEmail()">
-                        Získat checklist
-                    </button>
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">23</span>
+                        <span class="countdown-label">Hodin</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">59</span>
+                        <span class="countdown-label">Minut</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">59</span>
+                        <span class="countdown-label">Sekund</span>
+                    </div>
                 </div>
                 
-                <p class="cta-privacy">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                    </svg>
-                    100% zdarma. Žádný spam. Kdykoliv se můžeš odhlásit.
+                <div class="cta-price">500 Kč <span>/měsíc</span></div>
+                
+                <a href="#start" class="btn btn-primary" style="font-size: 18px; padding: 20px 48px;">
+                    Začít vydělávat teď
+                </a>
+                
+                <p style="margin-top: 24px; color: var(--gray-500); font-size: 14px;">
+                    🔒 30denní garance vrácení peněz • Zrušit kdykoliv
                 </p>
             </div>
         </div>
     </section>
-    
-    <!-- How It Works Section -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">
-                    Jak to celé <span class="text-gradient">funguje</span>
-                </h2>
-                <p class="section-subtitle">
-                    Všechno, co potřebuješ vědět o Academy
-                </p>
-            </div>
-            
-            <div class="info-grid">
-                <div class="info-card">
-                    <div class="info-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
-                    </div>
-                    <h3 class="info-title">Flexibilní učení</h3>
-                    <p class="info-text">
-                        Stačí ti pouhé 1-2 hodiny denně. Kurz jsme navrhli tak, aby ses učil/a prakticky při práci na reálných projektech. 
-                        Všechny lekce jsou krátké, jdou rovnou k věci a můžeš se k nim kdykoliv vrátit. Učíš se svým tempem, 
-                        bez stresu a tlaku.
-                    </p>
-                </div>
-                
-                <div class="info-card">
-                    <div class="info-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="info-title">Minimální vybavení</h3>
-                    <p class="info-text">
-                        Nepotřebuješ žádné drahé vybavení - pouze počítač nebo laptop. Software CapCut je kompletně zdarma 
-                        a pokročilejší nástroje ti ukážeme postupně. Nemusíš mít ani kameru nebo mikrofon, protože tě naučíme 
-                        editovat cizí videa, které už existují.
-                    </p>
-                </div>
-                
-                <div class="info-card">
-                    <div class="info-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                        </svg>
-                    </div>
-                    <h3 class="info-title">Bez závazků</h3>
-                    <p class="info-text">
-                        Členství můžeš zrušit úplně kdykoliv, bez jakýchkoliv závazků. Platba se automaticky zastaví, 
-                        žádné skryté poplatky, žádné otázky. Věříme si natolik, že víme - nebudeš chtít odejít, 
-                        až uvidíš první výsledky.
-                    </p>
-                </div>
-                
-                <div class="info-card">
-                    <div class="info-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="info-title">Skutečné zakázky</h3>
-                    <p class="info-text">
-                        Ano, opravdu dostaneš zakázky! Máme rozsáhlou databázi klientů a projektů. Podle tvých dovedností 
-                        ti budeme posílat relevantní zakázky. První placenou zakázku můžeš získat už během prvního týdne - 
-                        záleží jen na tvém nasazení.
-                    </p>
-                </div>
-                
-                <div class="info-card">
-                    <div class="info-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                        </svg>
-                    </div>
-                    <h3 class="info-title">Pro všechny úrovně</h3>
-                    <p class="info-text">
-                        Academy je ideální pro úplné začátečníky! Začínáme od naprostých základů a postupně se propracujeme 
-                        k pokročilým technikám. 80% našich členů začínalo bez jakýchkoliv předchozích zkušeností 
-                        s editováním videa.
-                    </p>
-                </div>
-                
-                <div class="info-card">
-                    <div class="info-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="info-title">Rychlé výsledky</h3>
-                    <p class="info-text">
-                        Naši členové v průměru získají první placenou zakázku do 30 dní. Někteří šikovní už během 
-                        prvního týdne! Rychlost tvého úspěchu záleží hlavně na tvém nasazení - čím víc se věnuješ 
-                        praktickým úkolům, tím rychleji začneš vydělávat.
-                    </p>
-                </div>
-            </div>
-            
-            <!-- Success Timeline -->
-            <div class="success-timeline">
-                <h3 class="timeline-title">Tvoje cesta k úspěchu</h3>
-                
-                <div class="timeline-wrapper">
-                    <div class="timeline-track"></div>
-                    
-                    <div class="timeline-step">
-                        <div class="step-marker">1</div>
-                        <div class="step-content">
-                            <h4>První týden</h4>
-                            <p>Ovládneš základy CapCutu a vytvoříš první video</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-step">
-                        <div class="step-marker">2</div>
-                        <div class="step-content">
-                            <h4>Druhý týden</h4>
-                            <p>Dostaneš první zakázku z naší databáze</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-step">
-                        <div class="step-marker">3</div>
-                        <div class="step-content">
-                            <h4>První měsíc</h4>
-                            <p>Vyděláš prvních 10-30K na editování</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-step">
-                        <div class="step-marker">4</div>
-                        <div class="step-content">
-                            <h4>Třetí měsíc</h4>
-                            <p>Stabilní příjem 50K+ měsíčně</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Final CTA -->
-    <section class="final-cta" id="pricing">
-        <div class="final-cta-container">
-            <h2 class="final-cta-title">
-                Připraven/a změnit svůj život?
-            </h2>
-            
-            <div class="price-comparison">
-                <span class="price-old">2999 Kč</span>
-                <span class="price-arrow">→</span>
-                <span class="price-new">500 Kč<span style="font-size: 0.5em; font-weight: 400">/měsíc</span></span>
-            </div>
-            
-            <p class="section-subtitle" style="margin-bottom: 3rem">
-                Za cenu jednoho oběda investuješ do skillů, které ti budou vydělávat roky.<br>
-                Přidej se k <span id="memberCount">127</span>+ editorům, kteří už žijou z videí.
-            </p>
-            
-            <a href="#start" class="btn btn-primary" style="font-size: 1.25rem; padding: 1.25rem 3rem">
-                Začnu teď vydělávat
-                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
-            
-            <div class="final-cta-features">
-                <div class="final-cta-feature">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 13l4 4L19 7"/>
-                    </svg>
-                    Zrušit kdykoliv
-                </div>
-                <div class="final-cta-feature">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 13l4 4L19 7"/>
-                    </svg>
-                    První zakázka do 7 dní
-                </div>
-                <div class="final-cta-feature">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 13l4 4L19 7"/>
-                    </svg>
-                    30denní garance
-                </div>
-            </div>
-        </div>
-    </section>
-    
+
     <!-- Footer -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-column">
-                <h4>ZANDA ACADEMY</h4>
-                <p style="color: var(--gray-400); margin-top: 1rem">
-                    Nauč se editovat videa, která vydělávají. Systém, který funguje od prvního dne.
-                </p>
+        <div class="footer-content">
+            <p class="copyright">© 2024 Zanda Visuals. Všechna práva vyhrazena.</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Ochrana osobních údajů</a>
+                <a href="#" class="footer-link">Obchodní podmínky</a>
             </div>
-            
-            <div class="footer-column">
-                <h4>Rychlé odkazy</h4>
-                <ul class="footer-links">
-                    <li><a href="index.html">O nás</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="#features">Co získáš</a></li>
-                    <li><a href="#testimonials">Výsledky</a></li>
-                    <li><a href="#pricing">Cena</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h4>Právní</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Obchodní podmínky</a></li>
-                    <li><a href="#">Ochrana osobních údajů</a></li>
-                    <li><a href="#">Cookies</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h4>Kontakt</h4>
-                <ul class="footer-links">
-                    <li><a href="mailto:academy@zandavisuals.cz">academy@zandavisuals.cz</a></li>
-                    <li><a href="https://instagram.com/zandavisuals">@zandavisuals</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2024 Zanda Academy. Všechna práva vyhrazena. Vytvořeno s ❤️ pro budoucí video editory.</p>
         </div>
     </footer>
-    
-    <!-- Floating Chat Button -->
-    <div class="floating-chat" onclick="openChat()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-        </svg>
-    </div>
-    
-    <!-- Live Notifications Container -->
-    <div class="notification-container" id="notificationContainer"></div>
-    
-    <!-- Exit Intent Popup -->
-    <div class="exit-popup" id="exitPopup">
-        <div class="exit-popup-content">
-            <button class="exit-popup-close" onclick="closeExitPopup()">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M6 18L18 6M6 6l12 12"/>
-                </svg>
-            </button>
-            
-            <h3 class="exit-popup-title">Počkej! Mám pro tebe slevu 🎁</h3>
-            <div class="exit-popup-offer">20% SLEVA</div>
-            <p style="margin-bottom: 2rem">Prvních 10 lidí dnes dostane 20% slevu na první měsíc.</p>
-            <div class="exit-popup-code">ACADEMY20</div>
-            <a href="#start" class="btn btn-primary" style="width: 100%" onclick="closeExitPopup()">
-                Použít slevu
-            </a>
-        </div>
-    </div>
-    
+
     <script>
-        // Initialize GSAP
-        gsap.registerPlugin(ScrollTrigger);
+        // GSAP Registration
+        gsap.registerPlugin(ScrollTrigger, TextPlugin);
         
-        // Preloader
-        window.addEventListener('load', () => {
-            const preloader = document.getElementById('preloader');
-            const progressBar = document.querySelector('.preloader-progress-bar');
-            
-            // Simulate loading
-            let progress = 0;
-            const loadingInterval = setInterval(() => {
-                progress += Math.random() * 30;
-                if (progress > 100) progress = 100;
-                
-                progressBar.style.width = progress + '%';
-                
-                if (progress === 100) {
-                    clearInterval(loadingInterval);
-                    setTimeout(() => {
-                        preloader.classList.add('loaded');
-                        initializeAnimations();
-                        initializeThreeJS();
-                    }, 500);
-                }
-            }, 100);
-        });
+        // Three.js Premium Background - Same as index.html
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
         
-        // Three.js Background
-        function initializeThreeJS() {
-            const canvas = document.getElementById('canvas-background');
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+        
+        // Create multiple particle systems
+        const particleGroups = [];
+        const particleCounts = [1000, 500, 300];
+        const particleSizes = [0.015, 0.01, 0.005];
+        const particleColors = ['#FF0080', '#FF33A0', '#CC0066'];
+        
+        particleCounts.forEach((count, index) => {
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(count * 3);
             
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(window.devicePixelRatio);
-            
-            // Create particle system
-            const particlesGeometry = new THREE.BufferGeometry();
-            const particlesCount = 1000;
-            const posArray = new Float32Array(particlesCount * 3);
-            
-            for (let i = 0; i < particlesCount * 3; i++) {
-                posArray[i] = (Math.random() - 0.5) * 10;
+            for (let i = 0; i < count * 3; i++) {
+                positions[i] = (Math.random() - 0.5) * 10;
             }
             
-            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
             
-            const particlesMaterial = new THREE.PointsMaterial({
-                size: 0.005,
-                color: '#FF0080',
+            const material = new THREE.PointsMaterial({
+                size: particleSizes[index],
+                color: particleColors[index],
                 transparent: true,
-                opacity: 0.8,
+                opacity: 0.6,
                 blending: THREE.AdditiveBlending
             });
             
-            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-            scene.add(particlesMesh);
+            const particles = new THREE.Points(geometry, material);
+            particleGroups.push(particles);
+            scene.add(particles);
+        });
+        
+        // Add floating geometry
+        const floatingGeometry = new THREE.IcosahedronGeometry(0.5, 1);
+        const floatingMaterial = new THREE.MeshBasicMaterial({
+            color: '#FF0080',
+            wireframe: true,
+            transparent: true,
+            opacity: 0.1
+        });
+        const floatingMesh = new THREE.Mesh(floatingGeometry, floatingMaterial);
+        floatingMesh.position.z = -2;
+        scene.add(floatingMesh);
+        
+        camera.position.z = 3;
+        
+        // Mouse movement
+        let mouseX = 0;
+        let mouseY = 0;
+        let targetX = 0;
+        let targetY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+        });
+        
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
             
-            camera.position.z = 3;
+            // Smooth mouse following
+            targetX += (mouseX - targetX) * 0.05;
+            targetY += (mouseY - targetY) * 0.05;
             
-            // Mouse movement
-            let mouseX = 0;
-            let mouseY = 0;
-            
-            document.addEventListener('mousemove', (e) => {
-                mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-                mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+            // Animate particle groups
+            particleGroups.forEach((group, index) => {
+                group.rotation.y += 0.001 * (index + 1);
+                group.rotation.x += 0.0005 * (index + 1);
+                group.position.x = targetX * 0.1 * (index + 1);
+                group.position.y = targetY * 0.1 * (index + 1);
             });
             
-            // Animation loop
-            function animate() {
-                requestAnimationFrame(animate);
-                
-                particlesMesh.rotation.y += 0.001;
-                particlesMesh.rotation.x += 0.0005;
-                
-                // Mouse parallax
-                particlesMesh.position.x = mouseX * 0.1;
-                particlesMesh.position.y = mouseY * 0.1;
-                
-                renderer.render(scene, camera);
-            }
+            // Animate floating mesh
+            floatingMesh.rotation.x += 0.01;
+            floatingMesh.rotation.y += 0.005;
+            floatingMesh.position.x = Math.sin(Date.now() * 0.001) * 0.5;
+            floatingMesh.position.y = Math.cos(Date.now() * 0.001) * 0.5;
             
-            animate();
-            
-            // Resize handler
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
+            renderer.render(scene, camera);
         }
+        
+        animate();
+        
+        // Resize handler
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
         
         // Custom Cursor
         const cursor = document.querySelector('.cursor');
@@ -2837,18 +1602,64 @@
             setTimeout(() => {
                 cursorFollower.style.left = e.clientX + 'px';
                 cursorFollower.style.top = e.clientY + 'px';
-            }, 100);
+            }, 50);
         });
         
         document.addEventListener('mousedown', () => {
-            cursor.classList.add('clicking');
+            cursor.classList.add('active');
+            cursorFollower.classList.add('active');
         });
         
         document.addEventListener('mouseup', () => {
-            cursor.classList.remove('clicking');
+            cursor.classList.remove('active');
+            cursorFollower.classList.remove('active');
         });
         
-        // Navigation
+        // Hide cursor on mobile
+        if ('ontouchstart' in window) {
+            cursor.style.display = 'none';
+            cursorFollower.style.display = 'none';
+        }
+        
+        // Preloader
+        const preloader = document.getElementById('preloader');
+        const preloaderBar = document.querySelector('.preloader-bar');
+        let loadProgress = 0;
+        
+        const loadInterval = setInterval(() => {
+            loadProgress += Math.random() * 15;
+            if (loadProgress > 100) loadProgress = 100;
+            
+            preloaderBar.style.width = loadProgress + '%';
+            
+            if (loadProgress >= 100) {
+                clearInterval(loadInterval);
+                
+                // Animate preloader text
+                gsap.to('.preloader-logo span', {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.5,
+                    stagger: 0.03,
+                    ease: 'power3.out',
+                    onComplete: () => {
+                        setTimeout(() => {
+                            gsap.to(preloader, {
+                                opacity: 0,
+                                duration: 0.5,
+                                ease: 'power2.inOut',
+                                onComplete: () => {
+                                    preloader.style.display = 'none';
+                                    initAnimations();
+                                }
+                            });
+                        }, 300);
+                    }
+                });
+            }
+        }, 50);
+        
+        // Navigation - Intelligent Hide/Show
         const navbar = document.getElementById('navbar');
         let lastScrollY = 0;
         let ticking = false;
@@ -2863,10 +1674,10 @@
             }
             
             // Hide navbar when scrolling down, show when scrolling up
-            if (currentScrollY > lastScrollY && currentScrollY > 500) {
-                navbar.style.transform = 'translate(-50%, -150%)';
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                navbar.classList.add('hidden');
             } else {
-                navbar.style.transform = 'translate(-50%, 0)';
+                navbar.classList.remove('hidden');
             }
             
             lastScrollY = currentScrollY;
@@ -2879,33 +1690,6 @@
                 ticking = true;
             }
         });
-        
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-        
-        // Hero particles
-        function createHeroParticles() {
-            const particlesContainer = document.getElementById('heroParticles');
-            const particleCount = 50;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 20 + 's';
-                particle.style.animationDuration = 20 + Math.random() * 20 + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
-        createHeroParticles();
         
         // Countdown Timer
         function updateCountdown() {
@@ -2936,459 +1720,154 @@
                     }
                 }
                 
-                countdownElements.hours.textContent = String(hours).padStart(2, '0');
-                countdownElements.minutes.textContent = String(minutes).padStart(2, '0');
-                countdownElements.seconds.textContent = String(seconds).padStart(2, '0');
+                if (countdownElements.hours) countdownElements.hours.textContent = String(hours).padStart(2, '0');
+                if (countdownElements.minutes) countdownElements.minutes.textContent = String(minutes).padStart(2, '0');
+                if (countdownElements.seconds) countdownElements.seconds.textContent = String(seconds).padStart(2, '0');
             }, 1000);
         }
         updateCountdown();
         
-        // Initialize Animations
-        function initializeAnimations() {
+        // Initialize animations
+        function initAnimations() {
             // Hero animations
-            gsap.timeline()
-                .to('.hero-badge', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
-                .to('.hero-title', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, '-=0.4')
-                .to('.hero-subtitle', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.6')
-                .to('.hero-cta-container', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4')
-                .to('.hero-countdown', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4');
+            const heroTimeline = gsap.timeline();
             
-            // Social proof animations
-            gsap.utils.toArray('.social-proof-item').forEach((item, index) => {
-                gsap.to(item, {
+            heroTimeline
+                .to('.hero-label', {
                     opacity: 1,
                     y: 0,
                     duration: 0.8,
-                    delay: index * 0.1,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: '.social-proof-bar',
-                        start: 'top 80%'
-                    }
-                });
-            });
-            
-            // Section title animations
-            gsap.utils.toArray('.section-title').forEach(title => {
-                gsap.to(title, {
-                    opacity: 1,
+                    ease: 'power3.out'
+                })
+                .to('.hero-title .line span', {
                     y: 0,
+                    opacity: 1,
                     duration: 1,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: title,
-                        start: 'top 80%'
-                    }
-                });
-            });
-            
-            gsap.utils.toArray('.section-subtitle').forEach(subtitle => {
-                gsap.to(subtitle, {
+                    stagger: 0.1,
+                    ease: 'power3.out'
+                }, '-=0.4')
+                .to('.hero-description', {
                     opacity: 1,
                     y: 0,
                     duration: 0.8,
-                    delay: 0.2,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: subtitle,
-                        start: 'top 80%'
-                    }
-                });
-            });
-            
-            // Card animations
-            gsap.utils.toArray('.problem-card, .solution-card').forEach((card, index) => {
-                gsap.to(card, {
+                    ease: 'power3.out'
+                }, '-=0.4')
+                .to('.hero-actions', {
                     opacity: 1,
                     y: 0,
                     duration: 0.8,
-                    delay: index * 0.1,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'top 80%'
-                    }
-                });
-            });
+                    ease: 'power3.out'
+                }, '-=0.4');
             
-            // Value cards
-            gsap.utils.toArray('.value-card').forEach((card, index) => {
-                gsap.to(card, {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    duration: 1,
-                    delay: index * 0.15,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'top 80%'
-                    }
-                });
-            });
-            
-            // Showcase items
-            gsap.utils.toArray('.showcase-item').forEach((item, index) => {
-                gsap.to(item, {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    delay: index * 0.2,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: '.value-showcase',
-                        start: 'top 80%'
-                    }
-                });
-            });
-            
-            // Testimonials
-            gsap.utils.toArray('.testimonial-card').forEach((card, index) => {
-                gsap.to(card, {
-                    opacity: 1,
-                    y: 0,
-                    rotation: 0,
-                    duration: 1,
-                    delay: index * 0.2,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'top 80%'
-                    }
-                });
-            });
-            
-            // Showcase slider
-            gsap.to('.showcase-slider', {
-                opacity: 1,
-                scale: 1,
-                duration: 1.2,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.showcase-slider',
-                    start: 'top 80%'
-                }
-            });
-            
-            // CTA container
-            gsap.to('.cta-container', {
+            // Social proof animation
+            gsap.to('.social-proof-item', {
                 opacity: 1,
                 y: 0,
-                duration: 1,
+                duration: 0.8,
+                stagger: 0.1,
                 ease: 'power3.out',
                 scrollTrigger: {
-                    trigger: '.cta-container',
+                    trigger: '.social-proof',
                     start: 'top 80%'
                 }
             });
             
-            // Info cards
-            gsap.utils.toArray('.info-card').forEach((card, index) => {
-                gsap.to(card, {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    delay: index * 0.1,
-                    ease: 'power3.out',
+            // Section animations
+            const sections = gsap.utils.toArray('section:not(.hero)');
+            
+            sections.forEach(section => {
+                const label = section.querySelector('.section-label');
+                const title = section.querySelector('.section-title');
+                const description = section.querySelector('.section-description');
+                const cards = section.querySelectorAll('.card, .value-card, .testimonial-card');
+                
+                const tl = gsap.timeline({
                     scrollTrigger: {
-                        trigger: card,
-                        start: 'top 85%'
+                        trigger: section,
+                        start: 'top 80%'
                     }
                 });
-            });
-            
-            // Success timeline
-            gsap.to('.success-timeline', {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.success-timeline',
-                    start: 'top 80%'
+                
+                if (label) {
+                    tl.to(label, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.6,
+                        ease: 'power3.out'
+                    });
+                }
+                
+                if (title) {
+                    tl.to(title, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.8,
+                        ease: 'power3.out'
+                    }, '-=0.4');
+                }
+                
+                if (description) {
+                    tl.to(description, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.6,
+                        ease: 'power3.out'
+                    }, '-=0.4');
+                }
+                
+                if (cards.length) {
+                    tl.to(cards, {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 0.8,
+                        stagger: 0.1,
+                        ease: 'power3.out'
+                    }, '-=0.4');
                 }
             });
             
-            // Timeline steps
-            gsap.utils.toArray('.timeline-step').forEach((step, index) => {
-                gsap.to(step, {
-                    opacity: 1,
-                    x: 0,
-                    duration: 0.8,
-                    delay: index * 0.2,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: '.success-timeline',
-                        start: 'top 70%'
-                    }
-                });
-            });
-            
-            // Final CTA
+            // CTA animations
             gsap.timeline({
                 scrollTrigger: {
-                    trigger: '.final-cta',
+                    trigger: '.cta',
                     start: 'top 80%'
                 }
             })
-                .to('.final-cta-title', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' })
-                .to('.price-comparison', { opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.7)' }, '-=0.4')
-                .to('.final-cta-features', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4');
-        }
-        
-        
-        // Before/After Slider
-        const showcaseSlider = document.getElementById('showcaseSlider');
-        const showcaseHandle = document.getElementById('showcaseHandle');
-        const beforeSlide = document.querySelector('.showcase-slide.before');
-        let isDragging = false;
-        
-        if (showcaseHandle) {
-            showcaseHandle.addEventListener('mousedown', startDrag);
-            document.addEventListener('mousemove', drag);
-            document.addEventListener('mouseup', stopDrag);
+                .to('.cta-title', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' })
+                .to('.cta-subtitle', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4')
+                .to('.countdown', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4')
+                .to('.cta-price', { opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.7)' }, '-=0.4');
             
-            showcaseHandle.addEventListener('touchstart', startDrag);
-            document.addEventListener('touchmove', drag);
-            document.addEventListener('touchend', stopDrag);
-        }
-        
-        function startDrag(e) {
-            isDragging = true;
-            e.preventDefault();
-        }
-        
-        function drag(e) {
-            if (!isDragging) return;
-            
-            const rect = showcaseSlider.getBoundingClientRect();
-            const x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-            const position = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
-            
-            beforeSlide.style.width = position * 100 + '%';
-            showcaseHandle.style.left = position * 100 + '%';
-        }
-        
-        function stopDrag() {
-            isDragging = false;
-        }
-        
-        // Live Notifications
-        const notifications = [
-            { name: 'Tomáš z Prahy', action: 'se právě přidal' },
-            { name: 'Marie', action: 'začala svůj první projekt' },
-            { name: 'Petr', action: 'vydělal 15K na prvním videu' },
-            { name: 'Anna', action: 'dokončila modul Color Grading' },
-            { name: 'Jakub', action: 'získal prvního klienta' }
-        ];
-        
-        function showNotification() {
-            const container = document.getElementById('notificationContainer');
-            const notification = notifications[Math.floor(Math.random() * notifications.length)];
-            
-            const notificationEl = document.createElement('div');
-            notificationEl.className = 'notification';
-            notificationEl.innerHTML = `
-                <div class="notification-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
-                    </svg>
-                </div>
-                <div class="notification-content">
-                    <p class="notification-text">
-                        <strong>${notification.name}</strong> ${notification.action}
-                    </p>
-                </div>
-            `;
-            
-            container.appendChild(notificationEl);
-            
-            setTimeout(() => {
-                notificationEl.style.opacity = '0';
-                setTimeout(() => {
-                    notificationEl.remove();
-                }, 500);
-            }, 5000);
-        }
-        
-        // Show notifications periodically
-        setInterval(showNotification, 15000);
-        setTimeout(showNotification, 3000); // First notification after 3 seconds
-        
-        // Member count increment
-        let memberCount = 127;
-        const memberCountEl = document.getElementById('memberCount');
-        
-        setInterval(() => {
-            if (Math.random() > 0.8) {
-                memberCount++;
-                memberCountEl.textContent = memberCount;
-            }
-        }, 30000);
-        
-        // Exit Intent Popup
-        let exitIntentShown = false;
-        
-        document.addEventListener('mouseleave', (e) => {
-            if (e.clientY <= 0 && !exitIntentShown) {
-                exitIntentShown = true;
-                document.getElementById('exitPopup').classList.add('active');
-            }
-        });
-        
-        function closeExitPopup() {
-            document.getElementById('exitPopup').classList.remove('active');
-        }
-        
-        // Email submission
-        function submitEmail() {
-            const emailInput = document.getElementById('emailInput');
-            const email = emailInput.value;
-            
-            if (email && email.includes('@')) {
-                // Here you would normally send the email to your backend
-                console.log('Email submitted:', email);
-                alert('Skvělé! Checklist jsme ti poslali na email.');
-                emailInput.value = '';
-                
-                // Track conversion
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'conversion', {
-                        'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
-                        'value': 0.0,
-                        'currency': 'CZK'
-                    });
-                }
-            } else {
-                alert('Prosím zadej platný email.');
-            }
-        }
-        
-        // Chat function
-        function openChat() {
-            // Here you would integrate your chat widget
-            console.log('Opening chat...');
-            alert('Chat bude brzy k dispozici!');
-        }
-        
-        // Parallax effect for value cards
-        document.addEventListener('mousemove', (e) => {
-            const cards = document.querySelectorAll('.value-card');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            
-            cards.forEach((card, index) => {
-                const speed = (index + 1) * 0.5;
-                const xOffset = (x - 0.5) * speed * 10;
-                const yOffset = (y - 0.5) * speed * 10;
-                
-                card.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
-            });
-        });
-        
-        // Performance optimization - Lazy load images
-        const lazyImages = document.querySelectorAll('img[data-src]');
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
-                    observer.unobserve(img);
-                }
-            });
-        });
-        
-        lazyImages.forEach(img => imageObserver.observe(img));
-        
-        // Analytics tracking
-        function trackEvent(category, action, label) {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', action, {
-                    'event_category': category,
-                    'event_label': label
-                });
-            }
-        }
-        
-        // Track CTA clicks
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                trackEvent('CTA', 'click', this.textContent);
-            });
-        });
-        
-        // Track scroll depth
-        let maxScroll = 0;
-        window.addEventListener('scroll', () => {
-            const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            
-            if (scrollPercentage > maxScroll) {
-                maxScroll = scrollPercentage;
-                
-                if (maxScroll > 25 && maxScroll <= 30) {
-                    trackEvent('Scroll', 'depth', '25%');
-                } else if (maxScroll > 50 && maxScroll <= 55) {
-                    trackEvent('Scroll', 'depth', '50%');
-                } else if (maxScroll > 75 && maxScroll <= 80) {
-                    trackEvent('Scroll', 'depth', '75%');
-                } else if (maxScroll > 90) {
-                    trackEvent('Scroll', 'depth', '100%');
-                }
-            }
-        });
-        
-        // Video optimization - Pause when not in viewport
-        const heroVideo = document.querySelector('.hero-bg-video');
-        const videoObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    heroVideo.play();
-                } else {
-                    heroVideo.pause();
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        if (heroVideo) {
-            videoObserver.observe(heroVideo);
-        }
-        
-        // Smooth number counter animation
-        function animateValue(element, start, end, duration) {
-            const range = end - start;
-            const increment = range / (duration / 16);
-            let current = start;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
-                    element.textContent = end + '+';
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current) + '+';
-                }
-            }, 16);
-        }
-        
-        // Animate numbers when in viewport
-        const numberElements = document.querySelectorAll('.social-proof-number');
-        const numberObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.animated) {
-                    entry.target.animated = true;
-                    const finalNumber = parseInt(entry.target.textContent);
-                    if (!isNaN(finalNumber)) {
-                        animateValue(entry.target, 0, finalNumber, 2000);
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const offsetTop = target.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
                     }
-                }
+                });
             });
-        }, { threshold: 0.5 });
+        }
         
-        numberElements.forEach(el => numberObserver.observe(el));
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const parallaxElements = document.querySelectorAll('.hero-content');
+            
+            parallaxElements.forEach(el => {
+                const speed = 0.5;
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
         
         // Magnetic buttons effect
-        document.querySelectorAll('.btn, .nav-cta').forEach(button => {
+        document.querySelectorAll('.btn').forEach(button => {
             button.addEventListener('mousemove', (e) => {
                 const rect = button.getBoundingClientRect();
                 const x = e.clientX - rect.left - rect.width / 2;
@@ -3401,158 +1880,6 @@
                 button.style.transform = 'translate(0, 0)';
             });
         });
-        
-        // Ripple effect on buttons
-        document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.width = ripple.style.height = size + 'px';
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                ripple.classList.add('ripple');
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => ripple.remove(), 600);
-            });
-        });
-        
-        // Add ripple styles dynamically
-        const style = document.createElement('style');
-        style.textContent = `
-            .btn {
-                position: relative;
-                overflow: hidden;
-            }
-            .ripple {
-                position: absolute;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.3);
-                transform: scale(0);
-                animation: ripple-animation 0.6s ease-out;
-                pointer-events: none;
-            }
-            @keyframes ripple-animation {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-        
-        // Form validation with better UX
-        const emailInput = document.getElementById('emailInput');
-        if (emailInput) {
-            emailInput.addEventListener('input', function() {
-                const isValid = this.value.includes('@') && this.value.includes('.');
-                this.style.borderColor = isValid ? 'var(--accent-pink)' : '';
-            });
-        }
-        
-        // Smooth parallax for hero content
-        window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY;
-            const heroContent = document.querySelector('.hero-content');
-            const heroVideo = document.querySelector('.hero-bg-video');
-            
-            if (heroContent) {
-                heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
-                heroContent.style.opacity = 1 - (scrolled * 0.001);
-            }
-            
-            if (heroVideo) {
-                heroVideo.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-        
-        
-        // Progressive image loading with blur effect
-        const images = document.querySelectorAll('img');
-        images.forEach(img => {
-            img.style.filter = 'blur(10px)';
-            img.style.transition = 'filter 0.5s ease-out';
-            
-            img.addEventListener('load', function() {
-                this.style.filter = 'blur(0)';
-            });
-        });
-        
-        // Dynamic copyright year
-        const currentYear = new Date().getFullYear();
-        const copyrightElements = document.querySelectorAll('.footer-bottom p');
-        copyrightElements.forEach(el => {
-            el.innerHTML = el.innerHTML.replace('2024', currentYear);
-        });
-        
-        // Service Worker for offline support (optional)
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').catch(() => {
-                    // Service worker registration failed
-                });
-            });
-        }
-        
-        // Final initialization check
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log('Zanda Editor Academy - Loaded successfully');
-            
-            // Check for URL parameters for tracking
-            const urlParams = new URLSearchParams(window.location.search);
-            const source = urlParams.get('source');
-            const campaign = urlParams.get('campaign');
-            
-            if (source || campaign) {
-                trackEvent('Landing', 'visit', `${source || 'direct'}_${campaign || 'none'}`);
-            }
-        });
-        
-        // Accessibility improvements
-        // Skip to content link
-        const skipLink = document.createElement('a');
-        skipLink.href = '#hero';
-        skipLink.className = 'skip-to-content';
-        skipLink.textContent = 'Skip to content';
-        skipLink.style.cssText = `
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--accent-pink);
-            color: white;
-            padding: 8px;
-            z-index: 100;
-            text-decoration: none;
-        `;
-        skipLink.addEventListener('focus', () => {
-            skipLink.style.top = '0';
-        });
-        skipLink.addEventListener('blur', () => {
-            skipLink.style.top = '-40px';
-        });
-        document.body.insertBefore(skipLink, document.body.firstChild);
-        
-        // Performance monitoring
-        if ('PerformanceObserver' in window) {
-            const perfObserver = new PerformanceObserver((entryList) => {
-                for (const entry of entryList.getEntries()) {
-                    if (entry.entryType === 'largest-contentful-paint') {
-                        console.log('LCP:', entry.startTime);
-                        trackEvent('Performance', 'LCP', Math.round(entry.startTime));
-                    }
-                }
-            });
-            
-            perfObserver.observe({ entryTypes: ['largest-contentful-paint'] });
-        }
-        
-        // Final touch - remove no-js class if present
-        document.documentElement.classList.remove('no-js');
     </script>
 </body>
 </html>
