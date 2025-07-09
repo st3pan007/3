@@ -148,57 +148,6 @@
             background: radial-gradient(ellipse at center, rgba(255, 0, 128, 0.05) 0%, transparent 70%);
         }
         
-        /* Ultra Premium Preloader - Same as index.html */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--black);
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        
-        .preloader-inner {
-            text-align: center;
-        }
-        
-        .preloader-logo {
-            font-size: 72px;
-            font-weight: 700;
-            letter-spacing: -0.04em;
-            margin-bottom: 48px;
-            overflow: hidden;
-        }
-        
-        .preloader-logo span {
-            display: inline-block;
-            transform: translateY(100%);
-            opacity: 0;
-        }
-        
-        .preloader-progress {
-            width: 200px;
-            height: 1px;
-            background: var(--gray-900);
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .preloader-bar {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            background: var(--accent);
-            width: 0;
-            transition: width 0.3s ease;
-        }
-        
         /* Smooth Scrolling */
         html {
             scroll-behavior: smooth;
@@ -1140,20 +1089,6 @@
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
 
-    <!-- Ultra Premium Preloader - Same as index.html -->
-    <div class="preloader" id="preloader">
-        <div class="preloader-inner">
-            <div class="preloader-logo">
-                <span>Z</span><span>A</span><span>N</span><span>D</span><span>A</span>
-                <span>&nbsp;</span>
-                <span>V</span><span>I</span><span>S</span><span>U</span><span>A</span><span>L</span><span>S</span>
-            </div>
-            <div class="preloader-progress">
-                <div class="preloader-bar"></div>
-            </div>
-        </div>
-    </div>
-
     <!-- Navigation - Same as index.html -->
     <nav id="navbar">
         <div class="nav-wrapper">
@@ -1621,44 +1556,6 @@
             cursorFollower.style.display = 'none';
         }
         
-        // Preloader
-        const preloader = document.getElementById('preloader');
-        const preloaderBar = document.querySelector('.preloader-bar');
-        let loadProgress = 0;
-        
-        const loadInterval = setInterval(() => {
-            loadProgress += Math.random() * 15;
-            if (loadProgress > 100) loadProgress = 100;
-            
-            preloaderBar.style.width = loadProgress + '%';
-            
-            if (loadProgress >= 100) {
-                clearInterval(loadInterval);
-                
-                // Animate preloader text
-                gsap.to('.preloader-logo span', {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.5,
-                    stagger: 0.03,
-                    ease: 'power3.out',
-                    onComplete: () => {
-                        setTimeout(() => {
-                            gsap.to(preloader, {
-                                opacity: 0,
-                                duration: 0.5,
-                                ease: 'power2.inOut',
-                                onComplete: () => {
-                                    preloader.style.display = 'none';
-                                    initAnimations();
-                                }
-                            });
-                        }, 300);
-                    }
-                });
-            }
-        }, 50);
-        
         // Navigation - Intelligent Hide/Show
         const navbar = document.getElementById('navbar');
         let lastScrollY = 0;
@@ -1727,7 +1624,11 @@
         }
         updateCountdown();
         
-        // Initialize animations
+        // Initialize animations immediately (no preloader)
+        window.addEventListener('load', () => {
+            initAnimations();
+        });
+        
         function initAnimations() {
             // Hero animations
             const heroTimeline = gsap.timeline();
