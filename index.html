@@ -214,31 +214,35 @@
             transition: all 0.5s var(--ease-out-expo);
         }
         
+        nav.hidden {
+            transform: translateX(-50%) translateY(-150%);
+        }
+        
         .nav-wrapper {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(40px) saturate(200%);
+            -webkit-backdrop-filter: blur(40px) saturate(200%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: var(--radius-xl);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            padding: 2px 15px;
-            max-height: 50px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 10px 30px;
+            max-height: 60px;
             display: flex;
             align-items: center;
         }
         
         nav.scrolled .nav-wrapper {
-            background: rgba(0, 0, 0, 0.85);
-            border-color: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
-            max-height: 45px;
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+            max-height: 55px;
         }
         
         .nav-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 30px;
+            gap: 50px;
         }
         
         .logo {
@@ -256,41 +260,50 @@
             height: 100%;
             width: auto;
             object-fit: contain;
+            filter: brightness(0) invert(1);
         }
         
         .nav-links {
             display: flex;
-            gap: 28px;
+            gap: 40px;
             list-style: none;
             margin: 0;
         }
         
         .nav-links a {
-            color: var(--gray-400);
+            color: var(--gray-300);
             text-decoration: none;
             font-size: 14px;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             position: relative;
+            padding: 8px 16px;
+            border-radius: var(--radius-md);
+        }
+        
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-md);
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.4s var(--ease-out-expo);
         }
         
         .nav-links a:hover {
             color: var(--white);
         }
         
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--accent);
-            transition: width 0.3s var(--ease-out-expo);
+        .nav-links a:hover::before {
+            opacity: 1;
+            transform: scale(1);
         }
         
-        .nav-links a:hover::after {
-            width: 100%;
+        .nav-links a::after {
+            display: none;
         }
         
         /* CTA Button in Navigation */
@@ -468,9 +481,12 @@
         .hero-title {
             font-size: clamp(48px, 8vw, 120px);
             font-weight: 700;
-            line-height: 0.9;
+            line-height: 1.1;
             letter-spacing: -0.04em;
             margin-bottom: 32px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 
+                         0 8px 16px rgba(0, 0, 0, 0.2),
+                         0 16px 32px rgba(0, 0, 0, 0.1);
         }
         
         .hero-title .line {
@@ -674,6 +690,20 @@
             cursor: default;
             display: inline-flex;
             align-items: center;
+            gap: 8px;
+        }
+        
+        .marquee-item .client-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--gradient-pink-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--black);
         }
         
         .marquee-item::after {
@@ -694,6 +724,9 @@
         .about {
             padding: 180px 0;
             position: relative;
+            background: radial-gradient(ellipse at 20% 30%, rgba(255, 0, 128, 0.1) 0%, transparent 40%),
+                        radial-gradient(ellipse at 80% 70%, rgba(255, 51, 160, 0.08) 0%, transparent 40%),
+                        radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
         }
         
         .container {
@@ -892,162 +925,92 @@
             line-height: 1.6;
         }
         
-        /* Services Section */
-        .services {
-            padding: 180px 0;
-            position: relative;
-            background: var(--gray-950);
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+        /* Team Photos */
+        .team-photos {
+            display: flex;
             gap: 32px;
+            justify-content: center;
             margin-top: 96px;
-        }
-        
-        .service-card {
-            background: var(--black);
-            border: 1px solid var(--gray-900);
-            border-radius: var(--radius-2xl);
-            padding: 48px;
-            transition: all 0.5s var(--ease-out-expo);
             opacity: 0;
             transform: translateY(30px);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
         }
         
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+        .team-photo {
+            width: 200px;
             height: 200px;
-            background: var(--gradient-pink-white);
-            opacity: 0;
-            transform: translateY(-100%);
-            transition: all 0.7s var(--ease-out-expo);
-        }
-        
-        .service-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient-pink-white);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.5s var(--ease-out-expo);
-        }
-        
-        .service-card:hover {
-            border-color: rgba(255, 0, 128, 0.3);
-            transform: translateY(-12px);
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 0, 128, 0.1);
-        }
-        
-        .service-card:hover::before {
-            opacity: 0.05;
-            transform: translateY(0);
-        }
-        
-        .service-card:hover::after {
-            transform: scaleX(1);
-        }
-        
-        .service-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--gray-900);
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 32px;
-            transition: all 0.3s ease;
-        }
-        
-        .service-icon svg {
-            width: 32px;
-            height: 32px;
-            stroke: var(--white);
-            fill: none;
-            stroke-width: 1.5;
-        }
-        
-        .service-card:hover .service-icon {
-            background: var(--gradient-pink-white);
-            transform: scale(1.1);
-        }
-        
-        .service-title {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-        
-        .service-description {
-            font-size: 16px;
-            color: var(--gray-400);
-            line-height: 1.6;
-            margin-bottom: 32px;
-        }
-        
-        .service-features {
-            list-style: none;
-            max-height: 0;
+            border-radius: var(--radius-xl);
             overflow: hidden;
-            transition: max-height 0.5s var(--ease-out-expo);
-        }
-        
-        .service-card.expanded .service-features {
-            max-height: 400px;
-        }
-        
-        .service-features li {
-            padding: 12px 0;
-            font-size: 14px;
-            color: var(--gray-500);
-            border-bottom: 1px solid var(--gray-900);
             position: relative;
-            padding-left: 24px;
-        }
-        
-        .service-features li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
+            transition: transform 0.3s var(--ease-out-expo);
+            transform: scale(0.9);
             opacity: 0;
-            transition: opacity 0.3s ease;
         }
         
-        .service-card.expanded .service-features li::before {
-            opacity: 1;
+        .team-photo:hover {
+            transform: scale(1.05);
         }
         
-        .service-toggle {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 500;
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Personal Slide */
+        .personal-slide {
+            max-width: 800px;
+            margin: 96px auto 0;
+            background: var(--gray-950);
+            border: 1px solid var(--gray-900);
+            border-radius: var(--radius-2xl);
+            padding: 64px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .personal-content h3 {
+            font-size: 36px;
+            margin-bottom: 24px;
             background: var(--gradient-pink-white);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
         }
         
-        .service-toggle:hover {
-            gap: 12px;
+        .personal-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--gray-300);
+            margin-bottom: 48px;
+        }
+        
+        .personal-stats {
+            display: flex;
+            justify-content: center;
+            gap: 64px;
+        }
+        
+        .personal-stat {
+            text-align: center;
+        }
+        
+        .personal-stat .stat-value {
+            display: block;
+            font-size: 48px;
+            font-weight: 700;
+            background: var(--gradient-pink-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        
+        .personal-stat .stat-label {
+            font-size: 14px;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
         
         /* Video Showcase - Updated Smaller Cards */
@@ -1060,13 +1023,16 @@
         .video-scroll-wrapper {
             position: relative;
             overflow: hidden;
+            padding: 0 80px; /* Space for navigation buttons */
         }
         
         .video-horizontal-scroll {
             display: flex;
             gap: 24px;
-            padding: 48px 48px;
-            transition: transform 0.3s var(--ease-out-expo);
+            padding: 48px 0;
+            transition: transform 0.5s var(--ease-out-expo);
+            margin: 0 auto;
+            width: max-content;
         }
         
         .video-card {
@@ -1080,15 +1046,13 @@
             position: relative;
             flex-shrink: 0;
             transition: all 0.5s var(--ease-out-expo);
-            opacity: 0.7;
-            transform: scale(0.95);
+            opacity: 0.5;
+            transform: scale(0.9);
         }
         
         .video-card.active {
             opacity: 1;
             transform: scale(1);
-            border-color: var(--accent);
-            box-shadow: 0 20px 40px rgba(255, 0, 128, 0.2);
         }
         
         .video-thumbnail {
@@ -1158,6 +1122,245 @@
         .video-title {
             font-size: 20px;
             font-weight: 600;
+        }
+        
+        /* Video Navigation Controls */
+        .video-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-out-expo);
+            z-index: 10;
+        }
+        
+        .video-nav-button:hover {
+            background: rgba(255, 0, 128, 0.2);
+            border-color: var(--accent);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .video-nav-button.prev {
+            left: 20px;
+        }
+        
+        .video-nav-button.next {
+            right: 20px;
+        }
+        
+        .video-nav-button svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--white);
+            fill: none;
+            stroke-width: 2;
+            transition: stroke 0.3s ease;
+        }
+        
+        .video-nav-button:hover svg {
+            stroke: var(--accent);
+        }
+        
+        .video-nav-button.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        
+        .video-nav-button.disabled:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-50%);
+        }
+        
+        /* Video Indicator Dots */
+        .video-indicators {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 32px;
+            padding-bottom: 48px;
+        }
+        
+        .video-indicator {
+            width: 8px;
+            height: 8px;
+            background: var(--gray-800);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .video-indicator.active {
+            width: 24px;
+            background: var(--accent);
+            border-radius: 4px;
+        }
+        
+        .video-indicator:hover:not(.active) {
+            background: var(--gray-600);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 180px 0;
+            position: relative;
+            background: var(--gray-950);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 96px;
+        }
+        
+        .service-card {
+            background: var(--black);
+            border: 1px solid var(--gray-900);
+            border-radius: var(--radius-2xl);
+            padding: 48px;
+            transition: all 0.5s var(--ease-out-expo);
+            opacity: 0;
+            transform: translateY(30px);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: var(--gradient-pink-white);
+            opacity: 0;
+            transform: translateY(-100%);
+            transition: all 0.7s var(--ease-out-expo);
+        }
+        
+        .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-pink-white);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s var(--ease-out-expo);
+        }
+        
+        .service-card:hover {
+            border-color: rgba(255, 0, 128, 0.3);
+            transform: translateY(-12px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 0, 128, 0.1);
+        }
+        
+        .service-card:hover::before {
+            opacity: 0.05;
+            transform: translateY(0);
+        }
+        
+        .service-card:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .service-icon {
+            width: 100%;
+            height: 180px;
+            background: var(--gray-900);
+            border-radius: var(--radius-lg);
+            margin-bottom: 32px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .service-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s var(--ease-out-expo);
+        }
+        
+        .service-card:hover .service-icon img {
+            transform: scale(1.1);
+        }
+        
+        .service-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .service-description {
+            font-size: 16px;
+            color: var(--gray-400);
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+        
+        .service-features {
+            list-style: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s var(--ease-out-expo);
+        }
+        
+        .service-card.expanded .service-features {
+            max-height: 400px;
+        }
+        
+        .service-features li {
+            padding: 12px 0;
+            font-size: 14px;
+            color: var(--gray-500);
+            border-bottom: 1px solid var(--gray-900);
+            position: relative;
+            padding-left: 24px;
+        }
+        
+        .service-features li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .service-card.expanded .service-features li::before {
+            opacity: 1;
+        }
+        
+        .service-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            background: var(--gradient-pink-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .service-toggle:hover {
+            gap: 12px;
         }
         
         /* Services Marquee */
@@ -1265,7 +1468,7 @@
         
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 32px;
             grid-auto-rows: 400px;
         }
@@ -1497,7 +1700,7 @@
             color: var(--gray-400);
         }
         
-        /* Contact Section - Updated with Collapsible Form */
+        /* Contact Section - Updated with Calendly */
         .contact {
             padding: 180px 0;
             position: relative;
@@ -1540,144 +1743,25 @@
             margin: 0 auto;
         }
         
-        /* Collapsible Form Container */
-        .form-container {
+        /* Calendly Widget Styles */
+        .calendly-container {
             margin-bottom: 48px;
-        }
-        
-        .form-trigger {
-            width: 100%;
-            padding: 24px 32px;
-            background: var(--gray-950);
-            border: 1px solid var(--gray-900);
-            border-radius: var(--radius-xl);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s var(--ease-out-expo);
             opacity: 0;
             transform: translateY(30px);
         }
         
-        .form-trigger:hover {
-            background: var(--gray-900);
-            border-color: var(--gray-800);
-        }
-        
-        .form-trigger-text {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--white);
-        }
-        
-        .form-trigger-icon {
-            width: 24px;
-            height: 24px;
-            transition: transform 0.3s var(--ease-out-expo);
-        }
-        
-        .form-trigger-icon svg {
-            width: 100%;
-            height: 100%;
-            stroke: var(--accent);
-            fill: none;
-            stroke-width: 2;
-        }
-        
-        .form-trigger.active .form-trigger-icon {
-            transform: rotate(180deg);
-        }
-        
-        .contact-form-wrapper {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s var(--ease-out-expo);
-        }
-        
-        .contact-form-wrapper.expanded {
-            max-height: 600px;
-        }
-        
-        .contact-form {
-            background: var(--gray-950);
+        .calendly-wrapper {
+            background: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--gray-900);
             border-radius: var(--radius-xl);
-            padding: 48px;
-            margin-top: 16px;
-        }
-        
-        .form-group {
-            margin-bottom: 32px;
-        }
-        
-        .form-label {
-            display: block;
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--gray-400);
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-        
-        .form-input,
-        .form-textarea {
-            width: 100%;
-            padding: 16px 24px;
-            background: var(--black);
-            border: 1px solid var(--gray-800);
-            border-radius: var(--radius-md);
-            font-size: 16px;
-            color: var(--white);
-            transition: all 0.3s ease;
-        }
-        
-        .form-input:focus,
-        .form-textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-        
-        .form-textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        .form-button {
-            width: 100%;
-            padding: 20px;
-            background: var(--gradient-pink-white);
-            border: none;
-            border-radius: var(--radius-md);
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--black);
-            cursor: pointer;
+            padding: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             transition: all 0.3s var(--ease-out-expo);
-            position: relative;
-            overflow: hidden;
         }
         
-        .form-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.5s ease;
-        }
-        
-        .form-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 40px var(--accent-glow);
-        }
-        
-        .form-button:hover::before {
-            left: 100%;
+        .calendly-wrapper:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: var(--gray-800);
         }
         
         /* Contact Info Cards */
@@ -1878,6 +1962,24 @@
             .testimonials-wrapper {
                 height: auto;
             }
+            
+            .team-photos {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .team-photo {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .personal-slide {
+                padding: 48px 32px;
+            }
+            
+            .personal-stats {
+                gap: 32px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1946,6 +2048,45 @@
                 max-width: 250px;
                 height: 350px;
             }
+            
+            .video-nav-button {
+                width: 48px;
+                height: 48px;
+            }
+            
+            .video-nav-button.prev {
+                left: 10px;
+            }
+            
+            .video-nav-button.next {
+                right: 10px;
+            }
+            
+            .video-scroll-wrapper {
+                padding: 0 60px;
+            }
+            
+            .calendly-wrapper {
+                padding: 16px;
+            }
+            
+            .team-photos {
+                gap: 16px;
+            }
+            
+            .team-photo {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .personal-slide {
+                padding: 32px 24px;
+            }
+            
+            .personal-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
         }
     </style>
 </head>
@@ -2005,10 +2146,7 @@
             </div>
             <h1 class="hero-title">
                 <div class="line">
-                    <span>Transformujeme</span>
-                </div>
-                <div class="line">
-                    <span class="text-gradient">videa</span>
+                    <span>Transformujeme</span> <span class="text-gradient">videa</span>
                 </div>
                 <div class="line">
                     <span>v digitální zážitek</span>
@@ -2020,8 +2158,7 @@
                 a značky díky němu rostou.
             </p>
             <div class="hero-actions">
-                <a href="#work" class="btn btn-primary">Ukázat portfolio</a>
-                <a href="#contact" class="btn btn-secondary">Začít projekt</a>
+                <a href="#contact" class="btn btn-primary">Pojďme tvořit společně</a>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -2034,18 +2171,40 @@
     <section class="marquee-section">
         <div class="marquee-container">
             <div class="marquee-track">
-                <span class="marquee-item">TARY</span>
-                <span class="marquee-item">KUBA ENGLISH</span>
-                <span class="marquee-item">COMIC CON</span>
-                <span class="marquee-item">VINO OD BODLÁKU</span>
-                <span class="marquee-item">FASHION WEEK</span>
-                <span class="marquee-item">RED BULL</span>
-                <span class="marquee-item">TARY</span>
-                <span class="marquee-item">KUBA ENGLISH</span>
-                <span class="marquee-item">COMIC CON</span>
-                <span class="marquee-item">VINO OD BODLÁKU</span>
-                <span class="marquee-item">FASHION WEEK</span>
-                <span class="marquee-item">RED BULL</span>
+                <span class="marquee-item"><span class="client-avatar">KE</span>KUBA ENGLISH</span>
+                <span class="marquee-item"><span class="client-avatar">ED</span>ENGLISH PRO DĚTI</span>
+                <span class="marquee-item"><span class="client-avatar">AT</span>ADAM TRAN</span>
+                <span class="marquee-item"><span class="client-avatar">T</span>TARY</span>
+                <span class="marquee-item"><span class="client-avatar">TR</span>TARY REAKCE</span>
+                <span class="marquee-item"><span class="client-avatar">S</span>STÁŇA KANÁL</span>
+                <span class="marquee-item"><span class="client-avatar">PČ</span>PAN ČUNG</span>
+                <span class="marquee-item"><span class="client-avatar">CC</span>COMIC CON</span>
+                <span class="marquee-item"><span class="client-avatar">LK</span>LETENKY OD KUBY</span>
+                <span class="marquee-item"><span class="client-avatar">VB</span>VÍNO OD BODLÁKU</span>
+                <span class="marquee-item"><span class="client-avatar">WS</span>WABI SABI PODCAST</span>
+                <span class="marquee-item"><span class="client-avatar">GS</span>GORILLA SPACE</span>
+                <span class="marquee-item"><span class="client-avatar">ST</span>SPASITELKA TIKTOKU</span>
+                <span class="marquee-item"><span class="client-avatar">R</span>RAEGO</span>
+                <span class="marquee-item"><span class="client-avatar">CB</span>CASHFLOW BRNO</span>
+                <span class="marquee-item"><span class="client-avatar">RP</span>RADEK PETRÁŠ</span>
+                <span class="marquee-item"><span class="client-avatar">NČ</span>NAŠE CESTA</span>
+                <span class="marquee-item"><span class="client-avatar">KE</span>KUBA ENGLISH</span>
+                <span class="marquee-item"><span class="client-avatar">ED</span>ENGLISH PRO DĚTI</span>
+                <span class="marquee-item"><span class="client-avatar">AT</span>ADAM TRAN</span>
+                <span class="marquee-item"><span class="client-avatar">T</span>TARY</span>
+                <span class="marquee-item"><span class="client-avatar">TR</span>TARY REAKCE</span>
+                <span class="marquee-item"><span class="client-avatar">S</span>STÁŇA KANÁL</span>
+                <span class="marquee-item"><span class="client-avatar">PČ</span>PAN ČUNG</span>
+                <span class="marquee-item"><span class="client-avatar">CC</span>COMIC CON</span>
+                <span class="marquee-item"><span class="client-avatar">LK</span>LETENKY OD KUBY</span>
+                <span class="marquee-item"><span class="client-avatar">VB</span>VÍNO OD BODLÁKU</span>
+                <span class="marquee-item"><span class="client-avatar">WS</span>WABI SABI PODCAST</span>
+                <span class="marquee-item"><span class="client-avatar">GS</span>GORILLA SPACE</span>
+                <span class="marquee-item"><span class="client-avatar">ST</span>SPASITELKA TIKTOKU</span>
+                <span class="marquee-item"><span class="client-avatar">R</span>RAEGO</span>
+                <span class="marquee-item"><span class="client-avatar">CB</span>CASHFLOW BRNO</span>
+                <span class="marquee-item"><span class="client-avatar">RP</span>RADEK PETRÁŠ</span>
+                <span class="marquee-item"><span class="client-avatar">NČ</span>NAŠE CESTA</span>
             </div>
         </div>
     </section>
@@ -2124,115 +2283,66 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Co děláme</span>
-                <h2 class="section-title">Kompletní <span class="text-gradient">video produkce</span> pod jednou střechou</h2>
-                <p class="section-description">
-                    Od prvního nápadu až po finální export – postaráme se o každý pixel vašeho projektu
-                </p>
+            
+            <!-- Team Photos -->
+            <div class="team-photos">
+                <div class="team-photo">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&auto=format&q=80" alt="Team member">
+                </div>
+                <div class="team-photo">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&auto=format&q=80" alt="Team member">
+                </div>
+                <div class="team-photo">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&auto=format&q=80" alt="Team member">
+                </div>
             </div>
             
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
+            <!-- Personal Slide -->
+            <div class="personal-slide">
+                <div class="personal-content">
+                    <h3>O zakladateli</h3>
+                    <p>Jsem kreativní duše, která žije video produkcí. Od prvního střihu až po finální export - každý projekt je pro mě příležitost vytvořit něco jedinečného.</p>
+                    <div class="personal-stats">
+                        <div class="personal-stat">
+                            <span class="stat-value">3+</span>
+                            <span class="stat-label">Roky zkušeností</span>
+                        </div>
+                        <div class="personal-stat">
+                            <span class="stat-value">100+</span>
+                            <span class="stat-label">Spokojených klientů</span>
+                        </div>
+                        <div class="personal-stat">
+                            <span class="stat-value">500M+</span>
+                            <span class="stat-label">Zhlédnutí</span>
+                        </div>
                     </div>
-                    <h3 class="service-title">Předprodukce</h3>
-                    <p class="service-description">
-                        Plánujeme každý detail. Od kreativního konceptu po technickou přípravu – 
-                        zajistíme, že váš projekt začne správně.
-                    </p>
-                    <ul class="service-features">
-                        <li>Vývoj kreativního konceptu</li>
-                        <li>Location scouting</li>
-                        <li>Stylizace a kostýmy</li>
-                        <li>Rozpočet a harmonogram</li>
-                        <li>Pronájem techniky</li>
-                        <li>Storyboard a shot list</li>
-                        <li>Casting a výběr talentů</li>
-                    </ul>
-                    <button class="service-toggle" onclick="toggleService(this)">
-                        <span>Zobrazit více</span>
-                        <span>→</span>
-                    </button>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Produkce</h3>
-                    <p class="service-description">
-                        Točíme s profesionální technikou a kreativním přístupem. 
-                        Každý záběr musí být perfektní.
-                    </p>
-                    <ul class="service-features">
-                        <li>Kinematografie</li>
-                        <li>Dronové záběry</li>
-                        <li>Live streaming</li>
-                        <li>Steadicam a gimbal</li>
-                        <li>Multi-kamera setup</li>
-                        <li>Time-lapse a slow motion</li>
-                        <li>Green screen</li>
-                        <li>Dynamické webináře</li>
-                    </ul>
-                    <button class="service-toggle" onclick="toggleService(this)">
-                        <span>Zobrazit více</span>
-                        <span>→</span>
-                    </button>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Postprodukce</h3>
-                    <p class="service-description">
-                        Tady se děje kouzlo. Střih, efekty, zvuk – transformujeme surový materiál 
-                        v cinematické dílo.
-                    </p>
-                    <ul class="service-features">
-                        <li>Color grading</li>
-                        <li>Zvuková postprodukce</li>
-                        <li>3D animace a CGI</li>
-                        <li>Titulky a popisky</li>
-                        <li>Whiteboard animace</li>
-                        <li>DVD a Blu-ray authoring</li>
-                        <li>Distribuční služby</li>
-                        <li>Archivace a zálohy</li>
-                    </ul>
-                    <button class="service-toggle" onclick="toggleService(this)">
-                        <span>Zobrazit více</span>
-                        <span>→</span>
-                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Video Showcase - Updated with Smaller Cards -->
+    <!-- Video Showcase - Updated with Manual Navigation -->
     <section class="video-showcase">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Showreel</span>
-                <h2 class="section-title">Výběr z našich <span class="text-gradient">nejlepších editů</span></h2>
+                <h2 class="section-title">Naše <span class="text-gradient">nejlepší edity</span></h2>
             </div>
         </div>
         
         <div class="video-scroll-wrapper">
+            <!-- Navigation Buttons -->
+            <button class="video-nav-button prev disabled" onclick="navigateVideos('prev')">
+                <svg viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button class="video-nav-button next" onclick="navigateVideos('next')">
+                <svg viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+            
             <div class="video-horizontal-scroll" id="videoScroll">
                 <div class="video-card active">
                     <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&h=800&fit=crop&auto=format&q=80" alt="Fashion Week Praha" class="video-thumbnail">
@@ -2292,6 +2402,130 @@
                         <div class="video-number">04</div>
                         <h3 class="video-title">Comic Con Prague Aftermovie</h3>
                     </div>
+                </div>
+                
+                <div class="video-card">
+                    <img src="https://images.unsplash.com/photo-1626447857058-2ba6a8868cb5?w=600&h=800&fit=crop&auto=format&q=80" alt="Luxusní kampaň" class="video-thumbnail">
+                    <div class="video-overlay">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-number">05</div>
+                        <h3 class="video-title">Luxusní kampaň pro značku</h3>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <img src="https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?w=600&h=800&fit=crop&auto=format&q=80" alt="YouTube série" class="video-thumbnail">
+                    <div class="video-overlay">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-number">06</div>
+                        <h3 class="video-title">YouTube série - kompletní produkce</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Indicator Dots -->
+            <div class="video-indicators">
+                <span class="video-indicator active" onclick="goToVideo(0)"></span>
+                <span class="video-indicator" onclick="goToVideo(1)"></span>
+                <span class="video-indicator" onclick="goToVideo(2)"></span>
+                <span class="video-indicator" onclick="goToVideo(3)"></span>
+                <span class="video-indicator" onclick="goToVideo(4)"></span>
+                <span class="video-indicator" onclick="goToVideo(5)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Co děláme</span>
+                <h2 class="section-title">Kompletní <span class="text-gradient">video produkce</span> pod jednou střechou</h2>
+                <p class="section-description">
+                    Od prvního nápadu až po finální export – postaráme se o každý pixel vašeho projektu
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=400&fit=crop&auto=format&q=80" alt="Editace">
+                    </div>
+                    <h3 class="service-title">Editace & Střih</h3>
+                    <p class="service-description">
+                        Profesionální střih videí pro všechny platformy. Od YouTube videí po Instagram Reels - vytvoříme obsah, který zaujme.
+                    </p>
+                    <ul class="service-features">
+                        <li>YouTube videa (long-form)</li>
+                        <li>Instagram Reels & TikToky</li>
+                        <li>Podcast střih</li>
+                        <li>Reklamní spoty</li>
+                        <li>Hudební videoklipy</li>
+                        <li>Event aftermovies</li>
+                        <li>Vzdělávací obsah</li>
+                    </ul>
+                    <button class="service-toggle" onclick="toggleService(this)">
+                        <span>Zobrazit více</span>
+                        <span>→</span>
+                    </button>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=400&fit=crop&auto=format&q=80" alt="Motion Design">
+                    </div>
+                    <h3 class="service-title">Motion Design</h3>
+                    <p class="service-description">
+                        Oživíme vaše videa animacemi a efekty. Od jednoduchých titulků po komplexní 3D animace.
+                    </p>
+                    <ul class="service-features">
+                        <li>Animated logo reveals</li>
+                        <li>Kinetic typography</li>
+                        <li>Infografiky</li>
+                        <li>Lower thirds</li>
+                        <li>Transitions & efekty</li>
+                        <li>3D animace</li>
+                        <li>Character animation</li>
+                    </ul>
+                    <button class="service-toggle" onclick="toggleService(this)">
+                        <span>Zobrazit více</span>
+                        <span>→</span>
+                    </button>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=400&fit=crop&auto=format&q=80" alt="Color Grading">
+                    </div>
+                    <h3 class="service-title">Color Grading</h3>
+                    <p class="service-description">
+                        Profesionální barevné korekce a grading. Dodáme vašim videím jedinečný vizuální styl.
+                    </p>
+                    <ul class="service-features">
+                        <li>Barevná korekce</li>
+                        <li>Kreativní color grading</li>
+                        <li>LUT creation</li>
+                        <li>Film emulation</li>
+                        <li>HDR grading</li>
+                        <li>Skin tone correction</li>
+                        <li>Style matching</li>
+                    </ul>
+                    <button class="service-toggle" onclick="toggleService(this)">
+                        <span>Zobrazit více</span>
+                        <span>→</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -2548,7 +2782,7 @@
         </div>
     </section>
 
-    <!-- Contact Section - Updated with Collapsible Form -->
+    <!-- Contact Section - Updated with Calendly -->
     <section class="contact" id="contact">
         <div class="contact-bg-animation">
             <div class="contact-circle"></div>
@@ -2570,35 +2804,10 @@
                 </div>
                 
                 <div class="contact-main">
-                    <!-- Collapsible Form -->
-                    <div class="form-container">
-                        <div class="form-trigger" onclick="toggleContactForm()">
-                            <span class="form-trigger-text">Napište nám zprávu</span>
-                            <div class="form-trigger-icon">
-                                <svg viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-form-wrapper" id="contactFormWrapper">
-                            <form class="contact-form">
-                                <div class="form-group">
-                                    <label class="form-label">Vaše jméno</label>
-                                    <input type="text" class="form-input" placeholder="Jan Novák">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Email</label>
-                                    <input type="email" class="form-input" placeholder="jan@novak.cz">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">O jaký projekt jde?</label>
-                                    <textarea class="form-textarea" placeholder="Popište nám váš projekt..."></textarea>
-                                </div>
-                                <button type="submit" class="form-button">
-                                    Odeslat zprávu
-                                </button>
-                            </form>
+                    <!-- Calendly Widget -->
+                    <div class="calendly-container">
+                        <div class="calendly-wrapper">
+                            <div class="calendly-inline-widget" data-url="https://calendly.com/zanecek123/30min" style="min-width:320px;height:700px;border-radius: var(--radius-xl);overflow:hidden;"></div>
                         </div>
                     </div>
                     
@@ -2874,61 +3083,124 @@
             });
         }
         
-        // Contact Form Toggle
-        function toggleContactForm() {
-            const trigger = document.querySelector('.form-trigger');
-            const wrapper = document.getElementById('contactFormWrapper');
-            
-            trigger.classList.toggle('active');
-            wrapper.classList.toggle('expanded');
-        }
-        
-        // Video Showcase - Horizontal Scroll
+        // Video Showcase - Manual Navigation
         const videoScroll = document.getElementById('videoScroll');
         const videoCards = document.querySelectorAll('.video-card');
-        let isScrolling = false;
+        const prevBtn = document.querySelector('.video-nav-button.prev');
+        const nextBtn = document.querySelector('.video-nav-button.next');
+        const indicators = document.querySelectorAll('.video-indicator');
         let currentIndex = 0;
+        let visibleCards = window.innerWidth > 1024 ? 3 : window.innerWidth > 768 ? 2 : 1;
+        const totalCards = videoCards.length;
         
-        // Mouse wheel event for horizontal scroll
-        videoScroll.addEventListener('wheel', (e) => {
-            e.preventDefault();
-            
-            if (!isScrolling) {
-                isScrolling = true;
-                
-                if (e.deltaY > 0 && currentIndex < videoCards.length - 1) {
-                    currentIndex++;
-                } else if (e.deltaY < 0 && currentIndex > 0) {
-                    currentIndex--;
-                }
-                
-                updateVideoScroll();
-                
-                setTimeout(() => {
-                    isScrolling = false;
-                }, 500);
+        // Update visible cards on resize
+        window.addEventListener('resize', () => {
+            visibleCards = window.innerWidth > 1024 ? 3 : window.innerWidth > 768 ? 2 : 1;
+            if (currentIndex > totalCards - visibleCards) {
+                currentIndex = Math.max(0, totalCards - visibleCards);
             }
+            updateVideoPosition();
         });
         
-        function updateVideoScroll() {
+        function updateVideoPosition() {
             const cardWidth = videoCards[0].offsetWidth;
             const gap = 24;
-            const offset = currentIndex * (cardWidth + gap);
+            const scrollWrapper = document.querySelector('.video-scroll-wrapper');
+            const wrapperWidth = scrollWrapper.offsetWidth;
+            const totalWidth = (cardWidth + gap) * visibleCards - gap;
+            const centerOffset = (wrapperWidth - totalWidth) / 2;
+            
+            let offset = currentIndex * (cardWidth + gap) - centerOffset;
+            
+            // Ensure we don't scroll past the edges
+            const maxOffset = (totalCards - visibleCards) * (cardWidth + gap) - centerOffset;
+            offset = Math.min(Math.max(offset, -centerOffset), maxOffset);
             
             gsap.to(videoScroll, {
                 x: -offset,
-                duration: 0.5,
+                duration: 0.6,
                 ease: 'power3.inOut'
             });
             
+            // Update active states
             videoCards.forEach((card, index) => {
-                if (index === currentIndex) {
+                if (index >= currentIndex && index < currentIndex + visibleCards) {
                     card.classList.add('active');
                 } else {
                     card.classList.remove('active');
                 }
             });
+            
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                if (index === currentIndex) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+            
+            // Update button states
+            if (currentIndex === 0) {
+                prevBtn.classList.add('disabled');
+            } else {
+                prevBtn.classList.remove('disabled');
+            }
+            
+            if (currentIndex >= totalCards - visibleCards) {
+                nextBtn.classList.add('disabled');
+            } else {
+                nextBtn.classList.remove('disabled');
+            }
         }
+        
+        function navigateVideos(direction) {
+            if (direction === 'prev' && currentIndex > 0) {
+                currentIndex--;
+            } else if (direction === 'next' && currentIndex < totalCards - visibleCards) {
+                currentIndex++;
+            }
+            updateVideoPosition();
+        }
+        
+        function goToVideo(index) {
+            const maxIndex = Math.max(0, totalCards - visibleCards);
+            if (index >= 0 && index <= maxIndex) {
+                currentIndex = Math.min(index, maxIndex);
+                updateVideoPosition();
+            }
+        }
+        
+        // Touch/Swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        videoScroll.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
+        
+        videoScroll.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].clientX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    navigateVideos('next');
+                } else {
+                    navigateVideos('prev');
+                }
+            }
+        }
+        
+        // Initialize video position on load
+        setTimeout(() => {
+            updateVideoPosition();
+        }, 100);
         
         // Initialize animations
         function initAnimations() {
@@ -3056,7 +3328,7 @@
                 delay: 0.2
             });
             
-            gsap.to('.form-trigger', {
+            gsap.to('.calendly-container', {
                 opacity: 1,
                 y: 0,
                 duration: 1,
@@ -3105,6 +3377,42 @@
                             setTimeout(() => item.classList.add('active'), index * 200);
                         });
                     }
+                }
+            });
+            
+            // Team photos animation
+            gsap.to('.team-photos', {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.team-photos',
+                    start: 'top 80%'
+                }
+            });
+            
+            gsap.to('.team-photo', {
+                scale: 1,
+                opacity: 1,
+                duration: 0.8,
+                stagger: 0.1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.team-photos',
+                    start: 'top 80%'
+                }
+            });
+            
+            // Personal slide animation
+            gsap.to('.personal-slide', {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.personal-slide',
+                    start: 'top 80%'
                 }
             });
             
@@ -3199,5 +3507,8 @@
             });
         }
     </script>
+    
+    <!-- Calendly Widget Script -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
