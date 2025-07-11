@@ -502,10 +502,18 @@
         }
         
         .text-gradient {
-            background: var(--gradient-pink-white);
+            background: linear-gradient(135deg, #FF0080 0%, #FF33A0 25%, #FFFFFF 50%, #FF33A0 75%, #FF0080 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
         .hero-description {
@@ -697,13 +705,12 @@
             width: 24px;
             height: 24px;
             border-radius: 50%;
-            background: var(--gradient-pink-white);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
-            font-weight: 700;
-            color: var(--black);
+            object-fit: cover;
+            border: 2px solid #FF0080;
+            flex-shrink: 0;
         }
         
         .marquee-item::after {
@@ -2146,10 +2153,10 @@
             </div>
             <h1 class="hero-title">
                 <div class="line">
-                    <span>Transformujeme</span> <span class="text-gradient">videa</span>
+                    <span>Transfor</span><span class="text-gradient">mujeme videa</span>
                 </div>
                 <div class="line">
-                    <span>v digitální zážitek</span>
+                    <span>v di</span><span class="text-gradient">gitální zážitek</span>
                 </div>
             </h1>
             <p class="hero-description">
@@ -2171,40 +2178,36 @@
     <section class="marquee-section">
         <div class="marquee-container">
             <div class="marquee-track">
-                <span class="marquee-item"><span class="client-avatar">KE</span>KUBA ENGLISH</span>
-                <span class="marquee-item"><span class="client-avatar">ED</span>ENGLISH PRO DĚTI</span>
-                <span class="marquee-item"><span class="client-avatar">AT</span>ADAM TRAN</span>
-                <span class="marquee-item"><span class="client-avatar">T</span>TARY</span>
-                <span class="marquee-item"><span class="client-avatar">TR</span>TARY REAKCE</span>
-                <span class="marquee-item"><span class="client-avatar">S</span>STÁŇA KANÁL</span>
-                <span class="marquee-item"><span class="client-avatar">PČ</span>PAN ČUNG</span>
-                <span class="marquee-item"><span class="client-avatar">CC</span>COMIC CON</span>
-                <span class="marquee-item"><span class="client-avatar">LK</span>LETENKY OD KUBY</span>
-                <span class="marquee-item"><span class="client-avatar">VB</span>VÍNO OD BODLÁKU</span>
-                <span class="marquee-item"><span class="client-avatar">WS</span>WABI SABI PODCAST</span>
-                <span class="marquee-item"><span class="client-avatar">GS</span>GORILLA SPACE</span>
-                <span class="marquee-item"><span class="client-avatar">ST</span>SPASITELKA TIKTOKU</span>
-                <span class="marquee-item"><span class="client-avatar">R</span>RAEGO</span>
-                <span class="marquee-item"><span class="client-avatar">CB</span>CASHFLOW BRNO</span>
-                <span class="marquee-item"><span class="client-avatar">RP</span>RADEK PETRÁŠ</span>
-                <span class="marquee-item"><span class="client-avatar">NČ</span>NAŠE CESTA</span>
-                <span class="marquee-item"><span class="client-avatar">KE</span>KUBA ENGLISH</span>
-                <span class="marquee-item"><span class="client-avatar">ED</span>ENGLISH PRO DĚTI</span>
-                <span class="marquee-item"><span class="client-avatar">AT</span>ADAM TRAN</span>
-                <span class="marquee-item"><span class="client-avatar">T</span>TARY</span>
-                <span class="marquee-item"><span class="client-avatar">TR</span>TARY REAKCE</span>
-                <span class="marquee-item"><span class="client-avatar">S</span>STÁŇA KANÁL</span>
-                <span class="marquee-item"><span class="client-avatar">PČ</span>PAN ČUNG</span>
-                <span class="marquee-item"><span class="client-avatar">CC</span>COMIC CON</span>
-                <span class="marquee-item"><span class="client-avatar">LK</span>LETENKY OD KUBY</span>
-                <span class="marquee-item"><span class="client-avatar">VB</span>VÍNO OD BODLÁKU</span>
-                <span class="marquee-item"><span class="client-avatar">WS</span>WABI SABI PODCAST</span>
-                <span class="marquee-item"><span class="client-avatar">GS</span>GORILLA SPACE</span>
-                <span class="marquee-item"><span class="client-avatar">ST</span>SPASITELKA TIKTOKU</span>
-                <span class="marquee-item"><span class="client-avatar">R</span>RAEGO</span>
-                <span class="marquee-item"><span class="client-avatar">CB</span>CASHFLOW BRNO</span>
-                <span class="marquee-item"><span class="client-avatar">RP</span>RADEK PETRÁŠ</span>
-                <span class="marquee-item"><span class="client-avatar">NČ</span>NAŠE CESTA</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Kuba%20English.jpg" alt="Kuba English" class="client-avatar">KUBA ENGLISH</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/English%20pro%20d%C4%9Bti.jpg" alt="English pro děti" class="client-avatar">ENGLISH PRO DĚTI</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Adam%20Tran.jpg" alt="Adam Tran" class="client-avatar">ADAM TRAN</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Tary.jpg" alt="Tary" class="client-avatar">TARY</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Tary%20Reakce.jpg" alt="Tary Reakce" class="client-avatar">TARY REAKCE</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/St%C3%A1%C5%88a%20kan%C3%A1l.jpg" alt="Stáňa kanál" class="client-avatar">STÁŇA KANÁL</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Pan%20%C4%8Cung.jpg" alt="Pan Čung" class="client-avatar">PAN ČUNG</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Comic-Con%20Prague.jpg" alt="Comic Con" class="client-avatar">COMIC CON</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Letenky%20od%20Kuby.jpg" alt="Letenky od Kuby" class="client-avatar">LETENKY OD KUBY</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Wabi%20Sabi.jpg" alt="Wabi Sabi Podcast" class="client-avatar">WABI SABI PODCAST</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Gorillaspace.jpg" alt="Gorilla Space" class="client-avatar">GORILLA SPACE</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Spasitelka%20TikToku.jpg" alt="Spasitelka TikToku" class="client-avatar">SPASITELKA TIKTOKU</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Raego.jpg" alt="Raego" class="client-avatar">RAEGO</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Cashflow%20Brno.jpg" alt="Cashflow Brno" class="client-avatar">CASHFLOW BRNO</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Radek%20Petr%C3%A1%C5%A1.jpg" alt="Radek Petráš" class="client-avatar">RADEK PETRÁŠ</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Kuba%20English.jpg" alt="Kuba English" class="client-avatar">KUBA ENGLISH</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/English%20pro%20d%C4%9Bti.jpg" alt="English pro děti" class="client-avatar">ENGLISH PRO DĚTI</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Adam%20Tran.jpg" alt="Adam Tran" class="client-avatar">ADAM TRAN</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Tary.jpg" alt="Tary" class="client-avatar">TARY</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Tary%20Reakce.jpg" alt="Tary Reakce" class="client-avatar">TARY REAKCE</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/St%C3%A1%C5%88a%20kan%C3%A1l.jpg" alt="Stáňa kanál" class="client-avatar">STÁŇA KANÁL</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Pan%20%C4%8Cung.jpg" alt="Pan Čung" class="client-avatar">PAN ČUNG</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Comic-Con%20Prague.jpg" alt="Comic Con" class="client-avatar">COMIC CON</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Letenky%20od%20Kuby.jpg" alt="Letenky od Kuby" class="client-avatar">LETENKY OD KUBY</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Wabi%20Sabi.jpg" alt="Wabi Sabi Podcast" class="client-avatar">WABI SABI PODCAST</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Gorillaspace.jpg" alt="Gorilla Space" class="client-avatar">GORILLA SPACE</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Spasitelka%20TikToku.jpg" alt="Spasitelka TikToku" class="client-avatar">SPASITELKA TIKTOKU</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Raego.jpg" alt="Raego" class="client-avatar">RAEGO</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Cashflow%20Brno.jpg" alt="Cashflow Brno" class="client-avatar">CASHFLOW BRNO</span>
+                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Radek%20Petr%C3%A1%C5%A1.jpg" alt="Radek Petráš" class="client-avatar">RADEK PETRÁŠ</span>
             </div>
         </div>
     </section>
