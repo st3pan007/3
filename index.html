@@ -217,7 +217,7 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 40px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            padding: 15px; /* Changed from 10px 30px to 20px for equal spacing */
+            padding: 15px;
             max-height: 60px;
             display: flex;
             align-items: center;
@@ -638,6 +638,109 @@
             100% { transform: translateY(200%); }
         }
 
+        /* Founder Section */
+        .founder {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+            background: var(--black);
+        }
+
+        .founder-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 48px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .founder-text {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        .founder-label {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+
+        .founder-title {
+            font-size: clamp(32px, 3.5vw, 48px);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 32px;
+        }
+
+        .founder-description {
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--gray-300);
+            margin-bottom: 24px;
+        }
+
+        .founder-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 32px;
+        }
+
+        .founder-stat {
+            text-align: left;
+        }
+
+        .founder-stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .founder-stat-label {
+            font-size: 13px;
+            color: var(--gray-500);
+            margin-top: 8px;
+        }
+
+        .founder-image-wrapper {
+            position: relative;
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        .founder-image-container {
+            position: relative;
+            border-radius: 40px;
+            overflow: hidden;
+            aspect-ratio: 1/1.2;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .founder-image-container::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: var(--gradient-pink-white);
+            border-radius: 40px;
+            z-index: -1;
+            opacity: 1;
+        }
+
+        .founder-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 38px;
+        }
+
         /* Premium Marquee */
         .marquee-section {
             padding: 16px 0;
@@ -664,7 +767,7 @@
             align-items: center;
             animation: marquee 30s linear infinite;
             white-space: nowrap;
-            padding-right: 30px; /* Same as margin in ::after */
+            padding-right: 30px;
         }
 
         @keyframes marquee {
@@ -758,200 +861,239 @@
             transform: translateY(20px);
         }
 
-        /* Video Showcase - Updated Smaller Cards */
+        /* Video Showcase - Apple Style Carousel */
         .video-showcase {
             position: relative;
             background: var(--gray-950);
-            padding: 180px 0 0;
+            padding: 180px 0;
         }
 
-        .video-scroll-wrapper {
+        .video-showcase-wrapper {
             position: relative;
-            overflow: hidden;
-            padding: 0 80px; /* Space for navigation buttons */
+            padding: 0;
+            perspective: 1200px;
         }
 
-        .video-horizontal-scroll {
+        .video-carousel {
+            position: relative;
+            height: 600px;
             display: flex;
-            gap: 24px;
-            padding: 48px 0;
-            transition: transform 0.5s var(--ease-out-expo);
+            align-items: center;
+            justify-content: center;
             margin: 0 auto;
-            width: max-content;
+            max-width: 1600px;
         }
 
-        .video-card {
-            min-width: 300px;
-            max-width: 300px;
-            height: 400px;
+        .video-carousel-track {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-style: preserve-3d;
+        }
+
+        .video-card-apple {
+            position: absolute;
+            width: 400px;
+            height: 500px;
             background: var(--black);
             border: 1px solid var(--gray-900);
             border-radius: var(--radius-xl);
             overflow: hidden;
-            position: relative;
-            flex-shrink: 0;
-            transition: all 0.5s var(--ease-out-expo);
-            opacity: 0.5;
-            transform: scale(0.9);
+            transition: all 0.8s var(--ease-out-expo);
+            cursor: pointer;
+            transform-style: preserve-3d;
         }
 
-        .video-card.active {
+        .video-card-apple.center {
+            transform: translateX(0) scale(1.2) rotateY(0deg);
+            z-index: 3;
             opacity: 1;
-            transform: scale(1);
         }
 
-        .video-thumbnail {
+        .video-card-apple.left-1 {
+            transform: translateX(-450px) scale(0.8) rotateY(25deg);
+            z-index: 2;
+            opacity: 0.7;
+        }
+
+        .video-card-apple.left-2 {
+            transform: translateX(-700px) scale(0.6) rotateY(35deg);
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        .video-card-apple.right-1 {
+            transform: translateX(450px) scale(0.8) rotateY(-25deg);
+            z-index: 2;
+            opacity: 0.7;
+        }
+
+        .video-card-apple.right-2 {
+            transform: translateX(700px) scale(0.6) rotateY(-35deg);
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        .video-card-apple.hidden {
+            transform: translateX(0) scale(0.5) rotateY(0deg);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .video-card-apple.center .video-info-apple {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .video-thumbnail-apple {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .video-overlay {
+        .video-overlay-apple {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.9) 100%);
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.5s ease;
         }
 
-        .video-card:hover .video-overlay {
+        .video-card-apple.center .video-overlay-apple {
             opacity: 1;
         }
 
-        .play-button {
-            width: 60px;
-            height: 60px;
-            background: var(--white);
+        .play-button-apple {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: transform 0.3s var(--ease-out-expo);
+            transition: all 0.5s var(--ease-out-expo);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        .play-button:hover {
-            transform: scale(1.1);
+        .video-card-apple.center .play-button-apple {
+            transform: translate(-50%, -50%) scale(1);
         }
 
-        .play-button svg {
-            width: 20px;
-            height: 20px;
+        .play-button-apple:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .play-button-apple svg {
+            width: 24px;
+            height: 24px;
             fill: var(--black);
             margin-left: 4px;
         }
 
-        .video-info {
+        .video-info-apple {
             position: absolute;
-            bottom: 24px;
-            left: 24px;
-            right: 24px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 48px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s var(--ease-out-expo);
         }
 
-        .video-number {
-            font-size: 12px;
+        .video-number-apple {
+            font-size: 14px;
             font-weight: 600;
             background: var(--gradient-pink-white);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .video-title-apple {
+            font-size: 28px;
+            font-weight: 600;
             margin-bottom: 8px;
         }
 
-        .video-title {
-            font-size: 20px;
-            font-weight: 600;
+        .video-description-apple {
+            font-size: 16px;
+            color: var(--gray-400);
+            line-height: 1.5;
         }
 
-        /* Video Navigation Controls */
-        .video-nav-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 56px;
-            height: 56px;
-            background: rgba(255, 255, 255, 0.1);
+        /* Video Navigation */
+        .video-nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            margin-top: 80px;
+        }
+
+        .video-nav-dots {
+            display: flex;
+            gap: 12px;
+        }
+
+        .video-nav-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--gray-700);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .video-nav-dot.active {
+            background: var(--accent);
+            transform: scale(1.5);
+        }
+
+        .video-nav-dot:hover:not(.active) {
+            background: var(--gray-500);
+        }
+
+        .video-nav-arrow {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s var(--ease-out-expo);
-            z-index: 10;
         }
 
-        .video-nav-button:hover {
-            background: rgba(255, 0, 128, 0.2);
+        .video-nav-arrow:hover {
+            background: rgba(255, 0, 128, 0.1);
             border-color: var(--accent);
-            transform: translateY(-50%) scale(1.1);
+            transform: scale(1.1);
         }
 
-        .video-nav-button.prev {
-            left: 20px;
-        }
-
-        .video-nav-button.next {
-            right: 20px;
-        }
-
-        .video-nav-button svg {
-            width: 24px;
-            height: 24px;
+        .video-nav-arrow svg {
+            width: 20px;
+            height: 20px;
             stroke: var(--white);
             fill: none;
             stroke-width: 2;
-            transition: stroke 0.3s ease;
-        }
-
-        .video-nav-button:hover svg {
-            stroke: var(--accent);
-        }
-
-        .video-nav-button.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-
-        .video-nav-button.disabled:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-50%);
-        }
-
-        /* Video Indicator Dots */
-        .video-indicators {
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-            margin-top: 32px;
-            padding-bottom: 48px;
-        }
-
-        .video-indicator {
-            width: 8px;
-            height: 8px;
-            background: var(--gray-800);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .video-indicator.active {
-            width: 24px;
-            background: var(--accent);
-            border-radius: 4px;
-        }
-
-        .video-indicator:hover:not(.active) {
-            background: var(--gray-600);
         }
 
         /* Services Section */
@@ -1597,6 +1739,12 @@
         }
 
         /* Responsive */
+        @media (max-width: 1200px) {
+            .founder-container {
+                gap: 60px;
+            }
+        }
+
         @media (max-width: 1024px) {
             nav {
                 max-width: 95%;
@@ -1633,6 +1781,45 @@
             .testimonials-wrapper {
                 height: auto;
             }
+
+            .founder-container {
+                grid-template-columns: 1fr;
+                gap: 64px;
+            }
+
+            .founder-text {
+                text-align: center;
+                order: 2;
+            }
+
+            .founder-image-wrapper {
+                order: 1;
+            }
+
+            .founder-stats {
+                justify-content: center;
+            }
+
+            .video-card-apple {
+                width: 300px;
+                height: 400px;
+            }
+
+            .video-card-apple.left-1 {
+                transform: translateX(-350px) scale(0.8) rotateY(25deg);
+            }
+
+            .video-card-apple.left-2 {
+                display: none;
+            }
+
+            .video-card-apple.right-1 {
+                transform: translateX(350px) scale(0.8) rotateY(-25deg);
+            }
+
+            .video-card-apple.right-2 {
+                display: none;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1642,7 +1829,7 @@
             }
 
             .nav-wrapper {
-                padding: 10px; /* Adjusted for mobile */
+                padding: 10px;
                 max-height: 45px;
             }
 
@@ -1692,31 +1879,46 @@
                 font-size: clamp(40px, 10vw, 80px);
             }
 
-            .video-card {
-                min-width: 250px;
-                max-width: 250px;
+            .calendly-wrapper {
+                padding: 16px;
+            }
+
+            .video-carousel {
+                height: 400px;
+            }
+
+            .video-card-apple {
+                width: 250px;
                 height: 350px;
             }
 
-            .video-nav-button {
-                width: 48px;
-                height: 48px;
+            .video-card-apple.left-1,
+            .video-card-apple.right-1 {
+                display: none;
             }
 
-            .video-nav-button.prev {
-                left: 10px;
+            .video-info-apple {
+                padding: 24px;
             }
 
-            .video-nav-button.next {
-                right: 10px;
+            .video-title-apple {
+                font-size: 20px;
             }
 
-            .video-scroll-wrapper {
-                padding: 0 60px;
+            .video-description-apple {
+                font-size: 14px;
             }
 
-            .calendly-wrapper {
-                padding: 16px;
+            .founder-container {
+                padding: 0 24px;
+            }
+
+            .founder-stats {
+                gap: 32px;
+            }
+
+            .founder-stat-number {
+                font-size: 36px;
             }
         }
     </style>
@@ -1789,6 +1991,48 @@
         </div>
     </section>
 
+    <!-- Founder Section -->
+    <section class="founder" id="founder">
+        <div class="founder-container">
+            <div class="founder-text">
+                <span class="founder-label">Můj příběh</span>
+                <h2 class="founder-title">
+                    Od <span class="text-gradient">vášně k videu</span><br>
+                    k prémiové agentuře
+                </h2>
+                <p class="founder-description">
+                    Za Zanda Visuals stojím já - mladý kreativec, který věří, že každé video má potenciál změnit svět. 
+                    Začal jsem v roce 2022 s jednou kamerou a nekonečnou vášní pro storytelling. 
+                    Dnes vytvářím obsah pro největší české influencery a značky.
+                </p>
+                <p class="founder-description">
+                    Nejsem jen další video agentura – jsem partner, který rozumí digitálnímu světu a ví, 
+                    jak v něm vyniknout. Každý projekt beru osobně a každé video dělám tak, 
+                    jako by bylo mé vlastní.
+                </p>
+                <div class="founder-stats">
+                    <div class="founder-stat">
+                        <div class="founder-stat-number">500M+</div>
+                        <div class="founder-stat-label">Zhlédnutí celkem</div>
+                    </div>
+                    <div class="founder-stat">
+                        <div class="founder-stat-number">3+</div>
+                        <div class="founder-stat-label">Roky zkušeností</div>
+                    </div>
+                    <div class="founder-stat">
+                        <div class="founder-stat-number">50+</div>
+                        <div class="founder-stat-label">Spokojených klientů</div>
+                    </div>
+                </div>
+            </div>
+            <div class="founder-image-wrapper">
+                <div class="founder-image-container">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop&auto=format&q=80" alt="Zakladatel Zanda Visuals" class="founder-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="marquee-section">
         <div class="marquee-container">
             <div class="marquee-track">
@@ -1834,117 +2078,135 @@
             </div>
         </div>
 
-        <div class="video-scroll-wrapper">
-            <button class="video-nav-button prev disabled" onclick="navigateVideos('prev')">
-                <svg viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
-            </button>
-            <button class="video-nav-button next" onclick="navigateVideos('next')">
-                <svg viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-            </button>
-
-            <div class="video-horizontal-scroll" id="videoScroll">
-                <div class="video-card active">
-                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&h=800&fit=crop&auto=format&q=80" alt="Fashion Week Praha" class="video-thumbnail">
-                    <div class="video-overlay">
-                        <div class="play-button">
+        <div class="video-showcase-wrapper">
+            <div class="video-carousel">
+                <div class="video-carousel-track" id="videoCarousel">
+                    <div class="video-card-apple center" data-index="0">
+                        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&h=800&fit=crop&auto=format&q=80" alt="Fashion Week Praha" class="video-thumbnail-apple">
+                        <div class="video-overlay-apple"></div>
+                        <div class="play-button-apple">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
                         </div>
+                        <div class="video-info-apple">
+                            <div class="video-number-apple">01</div>
+                            <h3 class="video-title-apple">Fashion Week Praha 2024</h3>
+                            <p class="video-description-apple">Zachytili jsme atmosféru nejprestižnější módní události roku</p>
+                        </div>
                     </div>
-                    <div class="video-info">
-                        <div class="video-number">01</div>
-                        <h3 class="video-title">Fashion Week Praha 2024</h3>
-                    </div>
-                </div>
 
-                <div class="video-card">
-                    <img src="https://images.unsplash.com/photo-1524634126442-357e0eac3c14?w=600&h=800&fit=crop&auto=format&q=80" alt="Red Bull Sports" class="video-thumbnail">
-                    <div class="video-overlay">
-                        <div class="play-button">
+                    <div class="video-card-apple right-1" data-index="1">
+                        <img src="https://images.unsplash.com/photo-1524634126442-357e0eac3c14?w=600&h=800&fit=crop&auto=format&q=80" alt="Red Bull Sports" class="video-thumbnail-apple">
+                        <div class="video-overlay-apple"></div>
+                        <div class="play-button-apple">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
                         </div>
+                        <div class="video-info-apple">
+                            <div class="video-number-apple">02</div>
+                            <h3 class="video-title-apple">Red Bull Extreme Sports</h3>
+                            <p class="video-description-apple">Adrenalinová jízda plná extrémních sportů</p>
+                        </div>
                     </div>
-                    <div class="video-info">
-                        <div class="video-number">02</div>
-                        <h3 class="video-title">Red Bull Extreme Sports</h3>
-                    </div>
-                </div>
 
-                <div class="video-card">
-                    <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=800&fit=crop&auto=format&q=80" alt="Tary Music Video" class="video-thumbnail">
-                    <div class="video-overlay">
-                        <div class="play-button">
+                    <div class="video-card-apple right-2" data-index="2">
+                        <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=800&fit=crop&auto=format&q=80" alt="Tary Music Video" class="video-thumbnail-apple">
+                        <div class="video-overlay-apple"></div>
+                        <div class="play-button-apple">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
                         </div>
+                        <div class="video-info-apple">
+                            <div class="video-number-apple">03</div>
+                            <h3 class="video-title-apple">Tary Music Video</h3>
+                            <p class="video-description-apple">Vizuálně ohromující hudební videoklip</p>
+                        </div>
                     </div>
-                    <div class="video-info">
-                        <div class="video-number">03</div>
-                        <h3 class="video-title">Tary Music Video</h3>
-                    </div>
-                </div>
 
-                <div class="video-card">
-                    <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=600&h=800&fit=crop&auto=format&q=80" alt="Comic Con Aftermovie" class="video-thumbnail">
-                    <div class="video-overlay">
-                        <div class="play-button">
+                    <div class="video-card-apple hidden" data-index="3">
+                        <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=600&h=800&fit=crop&auto=format&q=80" alt="Comic Con Aftermovie" class="video-thumbnail-apple">
+                        <div class="video-overlay-apple"></div>
+                        <div class="play-button-apple">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
                         </div>
+                        <div class="video-info-apple">
+                            <div class="video-number-apple">04</div>
+                            <h3 class="video-title-apple">Comic Con Prague Aftermovie</h3>
+                            <p class="video-description-apple">Oficiální aftermovie největší popkulturní události</p>
+                        </div>
                     </div>
-                    <div class="video-info">
-                        <div class="video-number">04</div>
-                        <h3 class="video-title">Comic Con Prague Aftermovie</h3>
-                    </div>
-                </div>
 
-                <div class="video-card">
-                    <img src="https://images.unsplash.com/photo-1626447857058-2ba6a8868cb5?w=600&h=800&fit=crop&auto=format&q=80" alt="Luxusní kampaň" class="video-thumbnail">
-                    <div class="video-overlay">
-                        <div class="play-button">
+                    <div class="video-card-apple hidden" data-index="4">
+                        <img src="https://images.unsplash.com/photo-1626447857058-2ba6a8868cb5?w=600&h=800&fit=crop&auto=format&q=80" alt="Luxusní kampaň" class="video-thumbnail-apple">
+                        <div class="video-overlay-apple"></div>
+                        <div class="play-button-apple">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
                         </div>
+                        <div class="video-info-apple">
+                            <div class="video-number-apple">05</div>
+                            <h3 class="video-title-apple">Luxusní kampaň pro značku</h3>
+                            <p class="video-description-apple">Prémiová reklamní kampaň s hollywoodskou produkcí</p>
+                        </div>
                     </div>
-                    <div class="video-info">
-                        <div class="video-number">05</div>
-                        <h3 class="video-title">Luxusní kampaň pro značku</h3>
-                    </div>
-                </div>
 
-                <div class="video-card">
-                    <img src="https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?w=600&h=800&fit=crop&auto=format&q=80" alt="YouTube série" class="video-thumbnail">
-                    <div class="video-overlay">
-                        <div class="play-button">
+                    <div class="video-card-apple left-2" data-index="5">
+                        <img src="https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?w=600&h=800&fit=crop&auto=format&q=80" alt="YouTube série" class="video-thumbnail-apple">
+                        <div class="video-overlay-apple"></div>
+                        <div class="play-button-apple">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
                         </div>
+                        <div class="video-info-apple">
+                            <div class="video-number-apple">06</div>
+                            <h3 class="video-title-apple">YouTube série - kompletní produkce</h3>
+                            <p class="video-description-apple">Od nápadu po realizaci celé YouTube série</p>
+                        </div>
                     </div>
-                    <div class="video-info">
-                        <div class="video-number">06</div>
-                        <h3 class="video-title">YouTube série - kompletní produkce</h3>
+
+                    <div class="video-card-apple left-1" data-index="6">
+                        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&h=800&fit=crop&auto=format&q=80" alt="Fashion Week Praha" class="video-thumbnail-apple">
+                        <div class="video-overlay-apple"></div>
+                        <div class="play-button-apple">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                        <div class="video-info-apple">
+                            <div class="video-number-apple">01</div>
+                            <h3 class="video-title-apple">Fashion Week Praha 2024</h3>
+                            <p class="video-description-apple">Zachytili jsme atmosféru nejprestižnější módní události roku</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="video-indicators">
-                <span class="video-indicator active" onclick="goToVideo(0)"></span>
-                <span class="video-indicator" onclick="goToVideo(1)"></span>
-                <span class="video-indicator" onclick="goToVideo(2)"></span>
-                <span class="video-indicator" onclick="goToVideo(3)"></span>
-                <span class="video-indicator" onclick="goToVideo(4)"></span>
-                <span class="video-indicator" onclick="goToVideo(5)"></span>
+            <div class="video-nav-container">
+                <button class="video-nav-arrow" onclick="navigateCarousel('prev')">
+                    <svg viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <div class="video-nav-dots">
+                    <span class="video-nav-dot active" onclick="goToSlide(0)"></span>
+                    <span class="video-nav-dot" onclick="goToSlide(1)"></span>
+                    <span class="video-nav-dot" onclick="goToSlide(2)"></span>
+                    <span class="video-nav-dot" onclick="goToSlide(3)"></span>
+                    <span class="video-nav-dot" onclick="goToSlide(4)"></span>
+                    <span class="video-nav-dot" onclick="goToSlide(5)"></span>
+                </div>
+                <button class="video-nav-arrow" onclick="navigateCarousel('next')">
+                    <svg viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
             </div>
         </div>
     </section>
@@ -2441,124 +2703,111 @@
             });
         }
 
-        // Video Showcase - Manual Navigation
-        const videoScroll = document.getElementById('videoScroll');
-        const videoCards = document.querySelectorAll('.video-card');
-        const prevBtn = document.querySelector('.video-nav-button.prev');
-        const nextBtn = document.querySelector('.video-nav-button.next');
-        const indicators = document.querySelectorAll('.video-indicator');
-        let currentIndex = 0;
-        let visibleCards = window.innerWidth > 1024 ? 3 : window.innerWidth > 768 ? 2 : 1;
-        const totalCards = videoCards.length;
+        // Apple Style Video Carousel
+        let currentSlide = 0;
+        const totalSlides = 7; // 0-6 including duplicates
+        const actualSlides = 6; // 0-5 actual unique videos
+        let isTransitioning = false;
 
-        // Update visible cards on resize
-        window.addEventListener('resize', () => {
-            visibleCards = window.innerWidth > 1024 ? 3 : window.innerWidth > 768 ? 2 : 1;
-            if (currentIndex > totalCards - visibleCards) {
-                currentIndex = Math.max(0, totalCards - visibleCards);
+        function updateCarousel() {
+            const cards = document.querySelectorAll('.video-card-apple');
+            const dots = document.querySelectorAll('.video-nav-dot');
+
+            cards.forEach((card, index) => {
+                card.classList.remove('center', 'left-1', 'left-2', 'right-1', 'right-2', 'hidden');
+
+                const position = (index - currentSlide + totalSlides) % totalSlides;
+
+                if (position === 0) {
+                    card.classList.add('center');
+                } else if (position === 1 || position === totalSlides - 6) {
+                    card.classList.add('right-1');
+                } else if (position === 2 || position === totalSlides - 5) {
+                    card.classList.add('right-2');
+                } else if (position === totalSlides - 1 || position === 6) {
+                    card.classList.add('left-1');
+                } else if (position === totalSlides - 2 || position === 5) {
+                    card.classList.add('left-2');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // Update dots
+            const actualSlideIndex = currentSlide % actualSlides;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === actualSlideIndex);
+            });
+        }
+
+        function navigateCarousel(direction) {
+            if (isTransitioning) return;
+            isTransitioning = true;
+
+            if (direction === 'next') {
+                currentSlide = (currentSlide + 1) % totalSlides;
+            } else {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
             }
-            updateVideoPosition();
+
+            updateCarousel();
+
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 800);
+        }
+
+        function goToSlide(index) {
+            if (isTransitioning) return;
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        // Auto-play carousel
+        let carouselInterval = setInterval(() => {
+            navigateCarousel('next');
+        }, 5000);
+
+        // Pause on hover
+        const videoCarousel = document.querySelector('.video-carousel');
+        videoCarousel.addEventListener('mouseenter', () => {
+            clearInterval(carouselInterval);
         });
 
-        function updateVideoPosition() {
-            const cardWidth = videoCards[0].offsetWidth;
-            const gap = 24;
-            const scrollWrapper = document.querySelector('.video-scroll-wrapper');
-            const wrapperWidth = scrollWrapper.offsetWidth;
-            const totalWidth = (cardWidth + gap) * visibleCards - gap;
-            const centerOffset = (wrapperWidth - totalWidth) / 2;
+        videoCarousel.addEventListener('mouseleave', () => {
+            carouselInterval = setInterval(() => {
+                navigateCarousel('next');
+            }, 5000);
+        });
 
-            let offset = currentIndex * (cardWidth + gap) - centerOffset;
-
-            // Ensure we don't scroll past the edges
-            const maxOffset = (totalCards - visibleCards) * (cardWidth + gap) - centerOffset;
-            offset = Math.min(Math.max(offset, -centerOffset), maxOffset);
-
-            gsap.to(videoScroll, {
-                x: -offset,
-                duration: 0.6,
-                ease: 'power3.inOut'
-            });
-
-            // Update active states
-            videoCards.forEach((card, index) => {
-                if (index >= currentIndex && index < currentIndex + visibleCards) {
-                    card.classList.add('active');
-                } else {
-                    card.classList.remove('active');
-                }
-            });
-
-            // Update indicators
-            indicators.forEach((indicator, index) => {
-                if (index === currentIndex) {
-                    indicator.classList.add('active');
-                } else {
-                    indicator.classList.remove('active');
-                }
-            });
-
-            // Update button states
-            if (currentIndex === 0) {
-                prevBtn.classList.add('disabled');
-            } else {
-                prevBtn.classList.remove('disabled');
-            }
-
-            if (currentIndex >= totalCards - visibleCards) {
-                nextBtn.classList.add('disabled');
-            } else {
-                nextBtn.classList.remove('disabled');
-            }
-        }
-
-        function navigateVideos(direction) {
-            if (direction === 'prev' && currentIndex > 0) {
-                currentIndex--;
-            } else if (direction === 'next' && currentIndex < totalCards - visibleCards) {
-                currentIndex++;
-            }
-            updateVideoPosition();
-        }
-
-        function goToVideo(index) {
-            const maxIndex = Math.max(0, totalCards - visibleCards);
-            if (index >= 0 && index <= maxIndex) {
-                currentIndex = Math.min(index, maxIndex);
-                updateVideoPosition();
-            }
-        }
-
-        // Touch/Swipe support for mobile
+        // Touch support for carousel
         let touchStartX = 0;
         let touchEndX = 0;
 
-        videoScroll.addEventListener('touchstart', (e) => {
+        videoCarousel.addEventListener('touchstart', (e) => {
             touchStartX = e.touches[0].clientX;
         });
 
-        videoScroll.addEventListener('touchend', (e) => {
+        videoCarousel.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].clientX;
-            handleSwipe();
+            handleCarouselSwipe();
         });
 
-        function handleSwipe() {
+        function handleCarouselSwipe() {
             const swipeThreshold = 50;
             const diff = touchStartX - touchEndX;
 
             if (Math.abs(diff) > swipeThreshold) {
                 if (diff > 0) {
-                    navigateVideos('next');
+                    navigateCarousel('next');
                 } else {
-                    navigateVideos('prev');
+                    navigateCarousel('prev');
                 }
             }
         }
 
-        // Initialize video position on load
-        setTimeout(() => {
-            updateVideoPosition();
-        }, 100);
+        // Initialize carousel
+        updateCarousel();
 
         // Initialize animations
         function initAnimations() {
@@ -2596,8 +2845,32 @@
                     duration: 0.5
                 }, '-=0.2');
 
+            // Founder section animations
+            gsap.to('.founder-text', {
+                opacity: 1,
+                x: 0,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.founder',
+                    start: 'top 80%'
+                }
+            });
+
+            gsap.to('.founder-image-wrapper', {
+                opacity: 1,
+                x: 0,
+                duration: 1,
+                delay: 0.3,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.founder',
+                    start: 'top 80%'
+                }
+            });
+
             // Section animations
-            const sections = gsap.utils.toArray('section:not(.hero)');
+            const sections = gsap.utils.toArray('section:not(.hero):not(.founder)');
 
             sections.forEach(section => {
                 const label = section.querySelector('.section-label');
@@ -2709,22 +2982,26 @@
                 delay: 0.2
             });
 
-            // Counter animation
-            const counters = document.querySelectorAll('.stat-number[data-count]');
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-count'));
+            // Counter animation for founder stats
+            const statNumbers = document.querySelectorAll('.founder-stat-number');
+            statNumbers.forEach(stat => {
+                const value = stat.textContent;
+                const number = parseInt(value.replace(/\D/g, ''));
+                const suffix = value.replace(/[0-9]/g, '');
 
                 ScrollTrigger.create({
-                    trigger: counter,
+                    trigger: stat,
                     start: 'top 80%',
                     onEnter: () => {
-                        gsap.to(counter, {
-                            textContent: target,
+                        gsap.fromTo(stat, {
+                            textContent: 0
+                        }, {
+                            textContent: number,
                             duration: 2,
                             ease: 'power1.out',
                             snap: { textContent: 1 },
                             onUpdate: function() {
-                                counter.textContent = Math.ceil(this.targets()[0].textContent) + '+';
+                                stat.textContent = Math.ceil(this.targets()[0].textContent) + suffix;
                             }
                         });
                     }
