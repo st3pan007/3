@@ -638,109 +638,6 @@
             100% { transform: translateY(200%); }
         }
 
-        /* Founder Section */
-        .founder {
-            padding: 100px 0;
-            position: relative;
-            overflow: hidden;
-            background: var(--black);
-        }
-
-        .founder-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 48px;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .founder-text {
-            opacity: 0;
-            transform: translateX(-50px);
-        }
-
-        .founder-label {
-            display: inline-block;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            margin-bottom: 24px;
-        }
-
-        .founder-title {
-            font-size: clamp(32px, 3.5vw, 48px);
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            margin-bottom: 32px;
-        }
-
-        .founder-description {
-            font-size: 17px;
-            line-height: 1.8;
-            color: var(--gray-300);
-            margin-bottom: 24px;
-        }
-
-        .founder-stats {
-            display: flex;
-            gap: 40px;
-            margin-top: 32px;
-        }
-
-        .founder-stat {
-            text-align: left;
-        }
-
-        .founder-stat-number {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--accent);
-            line-height: 1;
-        }
-
-        .founder-stat-label {
-            font-size: 13px;
-            color: var(--gray-500);
-            margin-top: 8px;
-        }
-
-        .founder-image-wrapper {
-            position: relative;
-            opacity: 0;
-            transform: translateX(50px);
-        }
-
-        .founder-image-container {
-            position: relative;
-            border-radius: 40px;
-            overflow: hidden;
-            aspect-ratio: 1/1.2;
-            max-width: 300px;
-            margin: 0 auto;
-        }
-
-        .founder-image-container::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            background: var(--gradient-pink-white);
-            border-radius: 40px;
-            z-index: -1;
-            opacity: 1;
-        }
-
-        .founder-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 38px;
-        }
-
         /* Premium Marquee */
         .marquee-section {
             padding: 16px 0;
@@ -813,52 +710,6 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             transform: scale(1.05);
-        }
-
-        /* General Section Styles */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 48px;
-        }
-
-        .section-header {
-            max-width: 800px;
-            margin: 0 auto 96px;
-            text-align: center;
-        }
-
-        .section-label {
-            display: inline-block;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            background: var(--gradient-pink-white);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 24px;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .section-title {
-            font-size: clamp(40px, 5vw, 64px);
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            margin-bottom: 24px;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .section-description {
-            font-size: 18px;
-            line-height: 1.7;
-            color: var(--gray-400);
-            opacity: 0;
-            transform: translateY(20px);
         }
 
         /* Video Showcase - Apple Style Carousel */
@@ -1094,6 +945,192 @@
             stroke: var(--white);
             fill: none;
             stroke-width: 2;
+        }
+
+        /* Founder Section - Updated Stats */
+        .founder {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+            background: var(--black);
+        }
+
+        .founder-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 48px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .founder-text {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        .founder-label {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+
+        .founder-title {
+            font-size: clamp(32px, 3.5vw, 48px);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 32px;
+        }
+
+        .founder-description {
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--gray-300);
+            margin-bottom: 24px;
+        }
+
+        .founder-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .founder-stat {
+            background: linear-gradient(135deg, var(--gray-950) 0%, var(--gray-900) 100%);
+            border: 1px solid var(--gray-800);
+            border-radius: var(--radius-xl);
+            padding: 32px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .founder-stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-pink-white);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s var(--ease-out-expo);
+        }
+
+        .founder-stat:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 0, 128, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 0, 128, 0.1);
+        }
+
+        .founder-stat:hover::before {
+            transform: scaleX(1);
+        }
+
+        .founder-stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            background: var(--gradient-pink-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .founder-stat-label {
+            font-size: 13px;
+            color: var(--gray-400);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .founder-image-wrapper {
+            position: relative;
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        .founder-image-container {
+            position: relative;
+            border-radius: 40px;
+            overflow: hidden;
+            aspect-ratio: 1/1.2;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .founder-image-container::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: var(--gradient-pink-white);
+            border-radius: 40px;
+            z-index: -1;
+            opacity: 1;
+        }
+
+        .founder-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 38px;
+        }
+
+        /* General Section Styles */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+
+        .section-header {
+            max-width: 800px;
+            margin: 0 auto 96px;
+            text-align: center;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: var(--gradient-pink-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .section-title {
+            font-size: clamp(40px, 5vw, 64px);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .section-description {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--gray-400);
+            opacity: 0;
+            transform: translateY(20px);
         }
 
         /* Services Section */
@@ -1518,7 +1555,7 @@
             color: var(--gray-400);
         }
 
-        /* Contact Section - Updated with Calendly */
+        /* Contact Section - Updated with Social Icons */
         .contact {
             padding: 180px 0;
             position: relative;
@@ -1650,6 +1687,69 @@
             font-size: 18px;
             font-weight: 600;
             color: var(--white);
+        }
+
+        /* Social Media Icons */
+        .social-media-icons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 32px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .social-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--gray-950) 0%, var(--gray-900) 100%);
+            border: 1px solid var(--gray-800);
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.4s var(--ease-out-expo);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--gradient-pink-white);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.6s var(--ease-out-expo);
+            opacity: 0.1;
+        }
+
+        .social-icon:hover::before {
+            width: 120%;
+            height: 120%;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-8px) scale(1.1);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(255, 0, 128, 0.3);
+        }
+
+        .social-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--white);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-icon:hover svg {
+            stroke: var(--black);
         }
 
         /* Contact Background Animation */
@@ -1871,10 +1971,6 @@
                 font-size: 12px;
             }
 
-            .contact-form {
-                padding: 32px;
-            }
-
             .contact-heading {
                 font-size: clamp(40px, 10vw, 80px);
             }
@@ -1914,11 +2010,26 @@
             }
 
             .founder-stats {
-                gap: 32px;
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
 
             .founder-stat-number {
-                font-size: 36px;
+                font-size: 32px;
+            }
+
+            .social-media-icons {
+                gap: 12px;
+            }
+
+            .social-icon {
+                width: 56px;
+                height: 56px;
+            }
+
+            .social-icon svg {
+                width: 24px;
+                height: 24px;
             }
         }
     </style>
@@ -1988,48 +2099,6 @@
         <div class="scroll-indicator">
             <span class="scroll-text">Scroll</span>
             <div class="scroll-line"></div>
-        </div>
-    </section>
-
-    <!-- Founder Section -->
-    <section class="founder" id="founder">
-        <div class="founder-container">
-            <div class="founder-text">
-                <span class="founder-label">Můj příběh</span>
-                <h2 class="founder-title">
-                    Od <span class="text-gradient">vášně k videu</span><br>
-                    k prémiové agentuře
-                </h2>
-                <p class="founder-description">
-                    Za Zanda Visuals stojím já - mladý kreativec, který věří, že každé video má potenciál změnit svět. 
-                    Začal jsem v roce 2022 s jednou kamerou a nekonečnou vášní pro storytelling. 
-                    Dnes vytvářím obsah pro největší české influencery a značky.
-                </p>
-                <p class="founder-description">
-                    Nejsem jen další video agentura – jsem partner, který rozumí digitálnímu světu a ví, 
-                    jak v něm vyniknout. Každý projekt beru osobně a každé video dělám tak, 
-                    jako by bylo mé vlastní.
-                </p>
-                <div class="founder-stats">
-                    <div class="founder-stat">
-                        <div class="founder-stat-number">500M+</div>
-                        <div class="founder-stat-label">Zhlédnutí celkem</div>
-                    </div>
-                    <div class="founder-stat">
-                        <div class="founder-stat-number">3+</div>
-                        <div class="founder-stat-label">Roky zkušeností</div>
-                    </div>
-                    <div class="founder-stat">
-                        <div class="founder-stat-number">50+</div>
-                        <div class="founder-stat-label">Spokojených klientů</div>
-                    </div>
-                </div>
-            </div>
-            <div class="founder-image-wrapper">
-                <div class="founder-image-container">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop&auto=format&q=80" alt="Zakladatel Zanda Visuals" class="founder-image">
-                </div>
-            </div>
         </div>
     </section>
 
@@ -2207,6 +2276,48 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                     </svg>
                 </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="founder" id="founder">
+        <div class="founder-container">
+            <div class="founder-text">
+                <span class="founder-label">Můj příběh</span>
+                <h2 class="founder-title">
+                    Od <span class="text-gradient">vášně k videu</span><br>
+                    k prémiové agentuře
+                </h2>
+                <p class="founder-description">
+                    Za Zanda Visuals stojím já - mladý kreativec, který věří, že každé video má potenciál změnit svět. 
+                    Začal jsem v roce 2022 s jednou kamerou a nekonečnou vášní pro storytelling. 
+                    Dnes vytvářím obsah pro největší české influencery a značky.
+                </p>
+                <p class="founder-description">
+                    Nejsem jen další video agentura – jsem partner, který rozumí digitálnímu světu a ví, 
+                    jak v něm vyniknout. Každý projekt beru osobně a každé video dělám tak, 
+                    jako by bylo mé vlastní.
+                </p>
+                <div class="founder-stats">
+                    <div class="founder-stat">
+                        <div class="founder-stat-number">500M+</div>
+                        <div class="founder-stat-label">Zhlédnutí celkem</div>
+                    </div>
+                    <div class="founder-stat">
+                        <div class="founder-stat-number">3+</div>
+                        <div class="founder-stat-label">Roky zkušeností</div>
+                    </div>
+                    <div class="founder-stat">
+                        <div class="founder-stat-number">50+</div>
+                        <div class="founder-stat-label">Spokojených klientů</div>
+                    </div>
+                </div>
+            </div>
+            <div class="founder-image-wrapper">
+                <div class="founder-image-container">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop&auto=format&q=80" alt="Zakladatel Zanda Visuals" class="founder-image">
+                </div>
             </div>
         </div>
     </section>
@@ -2489,19 +2600,28 @@
                                 <div class="contact-info-value">+420 123 456 789</div>
                             </div>
                         </a>
+                    </div>
 
-                        <a href="https://instagram.com/zandavisuals" target="_blank" class="contact-info-card">
-                            <div class="contact-info-icon">
-                                <svg viewBox="0 0 24 24">
-                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"/>
-                                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke-width="2"/>
-                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2" stroke-linecap="round"/>
-                                </svg>
-                            </div>
-                            <div class="contact-info-content">
-                                <div class="contact-info-label">Instagram</div>
-                                <div class="contact-info-value">@zandavisuals</div>
-                            </div>
+                    <div class="social-media-icons">
+                        <a href="https://instagram.com/zandavisuals" target="_blank" class="social-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                                <path d="m15.5 8.5-.01 0"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com/company/zandavisuals" target="_blank" class="social-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect width="4" height="12" x="2" y="9"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                        <a href="https://youtube.com/@zandavisuals" target="_blank" class="social-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/>
+                                <path d="m10 15 5-3-5-3z"/>
+                            </svg>
                         </a>
                     </div>
                 </div>
@@ -2980,6 +3100,18 @@
                     start: 'top 80%'
                 },
                 delay: 0.2
+            });
+
+            gsap.to('.social-media-icons', {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.contact-main',
+                    start: 'top 80%'
+                },
+                delay: 0.4
             });
 
             // Counter animation for founder stats
