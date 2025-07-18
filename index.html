@@ -816,19 +816,21 @@
             object-fit: cover;
         }
 
-        .video-overlay-apple {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.9) 100%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
+        .video-iframe-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #000;
         }
 
-        .video-card-apple.center .video-overlay-apple {
-            opacity: 1;
+        .video-iframe-wrapper iframe {
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        /* Ensure video controls are visible */
+        .video-iframe-wrapper iframe[src*="controls=true"] {
+            pointer-events: auto;
         }
 
         .play-button-apple {
@@ -846,6 +848,7 @@
             cursor: pointer;
             transition: all 0.5s var(--ease-out-expo);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 10;
         }
 
         .video-card-apple.center .play-button-apple {
@@ -873,6 +876,11 @@
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.8s var(--ease-out-expo);
+        }
+
+        .video-card-apple.center .video-info-apple {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .video-number-apple {
@@ -2040,6 +2048,10 @@
                 font-size: 14px;
             }
 
+            .video-iframe-wrapper {
+                height: 100%;
+            }
+
             .founder-container {
                 padding: 0 24px;
             }
@@ -2187,23 +2199,25 @@
             <div class="video-carousel">
                 <div class="video-carousel-track" id="videoCarousel">
                     <div class="video-card-apple center" data-index="0">
-                        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&h=800&fit=crop&auto=format&q=80" alt="Fashion Week Praha" class="video-thumbnail-apple">
-                        <div class="video-overlay-apple"></div>
-                        <div class="play-button-apple">
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
+                            <iframe
+                                id="cloudflare-video-0"
+                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/dd2f0a80b4e82209116065e52da99461/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
+                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
+                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                allowfullscreen="true">
+                            </iframe>
+                            <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/f98d5fa9-da9c-408c-edde-686d93c33e00/public" alt="Showreel Zanda Visuals" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="play-button-apple" onclick="playCloudflareVideo(0)">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
-                        </div>
-                        <div class="video-info-apple">
-                            <div class="video-number-apple">01</div>
-                            <h3 class="video-title-apple">Fashion Week Praha 2024</h3>
-                            <p class="video-description-apple">Zachytili jsme atmosféru nejprestižnější módní události roku</p>
                         </div>
                     </div>
 
                     <div class="video-card-apple right-1" data-index="1">
                         <img src="https://images.unsplash.com/photo-1524634126442-357e0eac3c14?w=600&h=800&fit=crop&auto=format&q=80" alt="Red Bull Sports" class="video-thumbnail-apple">
-                        <div class="video-overlay-apple"></div>
                         <div class="play-button-apple">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
@@ -2218,7 +2232,6 @@
 
                     <div class="video-card-apple right-2" data-index="2">
                         <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=800&fit=crop&auto=format&q=80" alt="Tary Music Video" class="video-thumbnail-apple">
-                        <div class="video-overlay-apple"></div>
                         <div class="play-button-apple">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
@@ -2233,7 +2246,6 @@
 
                     <div class="video-card-apple hidden" data-index="3">
                         <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=600&h=800&fit=crop&auto=format&q=80" alt="Comic Con Aftermovie" class="video-thumbnail-apple">
-                        <div class="video-overlay-apple"></div>
                         <div class="play-button-apple">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
@@ -2248,7 +2260,6 @@
 
                     <div class="video-card-apple hidden" data-index="4">
                         <img src="https://images.unsplash.com/photo-1626447857058-2ba6a8868cb5?w=600&h=800&fit=crop&auto=format&q=80" alt="Luxusní kampaň" class="video-thumbnail-apple">
-                        <div class="video-overlay-apple"></div>
                         <div class="play-button-apple">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
@@ -2263,7 +2274,6 @@
 
                     <div class="video-card-apple left-2" data-index="5">
                         <img src="https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?w=600&h=800&fit=crop&auto=format&q=80" alt="YouTube série" class="video-thumbnail-apple">
-                        <div class="video-overlay-apple"></div>
                         <div class="play-button-apple">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
@@ -2278,7 +2288,6 @@
 
                     <div class="video-card-apple left-1" data-index="6">
                         <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&h=800&fit=crop&auto=format&q=80" alt="Fashion Week Praha" class="video-thumbnail-apple">
-                        <div class="video-overlay-apple"></div>
                         <div class="play-button-apple">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
@@ -2806,9 +2815,62 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
+        // Stop all videos helper function
+        function stopAllVideos() {
+            const iframe = document.getElementById('cloudflare-video-0');
+            if (iframe && iframe.style.opacity === '1') {
+                const thumbnail = iframe.parentElement.querySelector('.video-thumbnail-apple');
+                const playButton = iframe.parentElement.parentElement.querySelector('.play-button-apple');
+                
+                // Completely stop video by resetting iframe
+                const originalSrc = "https://customer-go903c29r7kfmooj.cloudflarestream.com/dd2f0a80b4e82209116065e52da99461/iframe?poster=https%3A%2F%2Fimagedelivery.net%2F2OhTeUm5dT07PSQroFepFw%2Ff98d5fa9-da9c-408c-edde-686d93c33e00%2Fpublic&controls=true&autoplay=false&muted=false&loop=false";
+                
+                // Create a new iframe to replace the old one
+                const newIframe = iframe.cloneNode(false);
+                newIframe.src = originalSrc;
+                newIframe.style.opacity = '0';
+                
+                // Replace the iframe
+                iframe.parentNode.replaceChild(newIframe, iframe);
+                
+                // Show thumbnail and play button again
+                if (thumbnail) {
+                    thumbnail.style.display = 'block';
+                }
+                if (playButton) {
+                    playButton.style.display = 'flex';
+                }
+            }
+        }
+
         // Custom Cursor
         const cursor = document.querySelector('.cursor');
         const cursorFollower = document.querySelector('.cursor-follower');
+
+        // Function to play Cloudflare video
+        function playCloudflareVideo(index) {
+            const iframe = document.getElementById('cloudflare-video-' + index);
+            const thumbnail = iframe.parentElement.querySelector('.video-thumbnail-apple');
+            const playButton = iframe.parentElement.parentElement.querySelector('.play-button-apple');
+            
+            // Check if the video card is still center
+            const videoCard = iframe.closest('.video-card-apple');
+            if (!videoCard || !videoCard.classList.contains('center')) {
+                return; // Don't play if not center
+            }
+            
+            // Hide thumbnail and play button
+            if (thumbnail) {
+                thumbnail.style.display = 'none';
+            }
+            if (playButton) {
+                playButton.style.display = 'none';
+            }
+            
+            // Show iframe with controls - DO NOT autoplay
+            iframe.style.opacity = '1';
+            // Keep autoplay=false always
+        }
 
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
@@ -2930,6 +2992,9 @@
             if (isTransitioning) return;
             isTransitioning = true;
 
+            // Stop any playing videos when changing slides
+            stopAllVideos();
+
             if (direction === 'next') {
                 currentSlide = (currentSlide + 1) % totalSlides;
             } else {
@@ -2945,26 +3010,42 @@
 
         function goToSlide(index) {
             if (isTransitioning) return;
+            
+            // Stop any playing videos when changing slides
+            stopAllVideos();
+            
             currentSlide = index;
             updateCarousel();
         }
 
-        // Auto-play carousel
-        let carouselInterval = setInterval(() => {
-            navigateCarousel('next');
-        }, 5000);
+        // Auto-play carousel - DISABLED
+        // let carouselInterval = setInterval(() => {
+        //     // Check if video is playing before auto-advancing
+        //     const iframe = document.getElementById('cloudflare-video-0');
+        //     if (iframe && iframe.style.opacity === '1') {
+        //         // Video is playing, skip auto-advance
+        //         return;
+        //     }
+        //     navigateCarousel('next');
+        // }, 5000);
 
-        // Pause on hover
+        // Pause on hover - NO LONGER NEEDED
         const videoCarousel = document.querySelector('.video-carousel');
-        videoCarousel.addEventListener('mouseenter', () => {
-            clearInterval(carouselInterval);
-        });
+        // videoCarousel.addEventListener('mouseenter', () => {
+        //     clearInterval(carouselInterval);
+        // });
 
-        videoCarousel.addEventListener('mouseleave', () => {
-            carouselInterval = setInterval(() => {
-                navigateCarousel('next');
-            }, 5000);
-        });
+        // videoCarousel.addEventListener('mouseleave', () => {
+        //     carouselInterval = setInterval(() => {
+        //         // Check if video is playing before auto-advancing
+        //         const iframe = document.getElementById('cloudflare-video-0');
+        //         if (iframe && iframe.style.opacity === '1') {
+        //             // Video is playing, skip auto-advance
+        //             return;
+        //         }
+        //         navigateCarousel('next');
+        //     }, 5000);
+        // });
 
         // Touch support for carousel
         let touchStartX = 0;
@@ -2984,6 +3065,9 @@
             const diff = touchStartX - touchEndX;
 
             if (Math.abs(diff) > swipeThreshold) {
+                // Stop any playing videos before swiping
+                stopAllVideos();
+                
                 if (diff > 0) {
                     navigateCarousel('next');
                 } else {
@@ -2995,8 +3079,24 @@
         // Initialize carousel
         updateCarousel();
 
+        // Stop video when page loses visibility
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopAllVideos();
+            }
+        });
+
         // Initialize animations
         function initAnimations() {
+            // Stop video when scrolling out of video showcase section
+            ScrollTrigger.create({
+                trigger: '.video-showcase',
+                start: 'top bottom',
+                end: 'bottom top',
+                onLeave: () => stopAllVideos(),
+                onLeaveBack: () => stopAllVideos()
+            });
+
             // Hero animations
             const heroTimeline = gsap.timeline();
 
