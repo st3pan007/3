@@ -554,17 +554,28 @@
             height: 300px;
         }
 
+        .btn:focus {
+            outline: none;
+        }
+
         .btn-primary {
             background: var(--gradient-pink-white);
             color: var(--black);
-            border: 1px solid transparent;
+            border: none !important;
             font-weight: 600;
             box-shadow: 0 4px 15px rgba(255, 0, 128, 0.3);
+            outline: none;
+        }
+
+        .btn-primary:focus {
+            outline: none;
+            border: none !important;
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 35px rgba(255, 0, 128, 0.4), 0 5px 15px rgba(255, 255, 255, 0.1);
+            border: none !important;
         }
 
         .btn-secondary {
@@ -1000,6 +1011,8 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
             margin-top: 48px;
+            justify-items: center;
+            text-align: center;
         }
 
         .founder-stat {
@@ -1011,6 +1024,10 @@
             position: relative;
             overflow: hidden;
             transition: all 0.4s var(--ease-out-expo);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .founder-stat::before {
@@ -1594,8 +1611,20 @@
         }
 
         .contact-main {
-            max-width: 600px;
+            max-width: 100%;
             margin: 0 auto;
+        }
+
+        @media (min-width: 1024px) {
+            .contact-main {
+                max-width: 1140px;
+            }
+        }
+
+        @media (max-width: 1023px) {
+            .contact-main {
+                max-width: 600px;
+            }
         }
 
         /* Calendly Widget Styles */
@@ -1603,6 +1632,10 @@
             margin-bottom: 48px;
             opacity: 0;
             transform: translateY(30px);
+            width: 100%;
+            max-width: 1140px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .calendly-wrapper {
@@ -1749,7 +1782,7 @@
         }
 
         .social-icon:hover svg {
-            stroke: var(--black);
+            stroke: var(--accent);
         }
 
         /* Contact Background Animation */
@@ -1898,6 +1931,8 @@
 
             .founder-stats {
                 justify-content: center;
+                text-align: center;
+                justify-items: center;
             }
 
             .video-card-apple {
@@ -2012,6 +2047,7 @@
             .founder-stats {
                 grid-template-columns: 1fr;
                 gap: 20px;
+                text-align: center;
             }
 
             .founder-stat-number {
@@ -2286,18 +2322,23 @@
             <div class="founder-text">
                 <span class="founder-label">Můj příběh</span>
                 <h2 class="founder-title">
-                    Od <span class="text-gradient">vášně k videu</span><br>
-                    k prémiové agentuře
+                    Z <span class="text-gradient">editora videí</span><br>
+                    až k vlastní agentuře
                 </h2>
                 <p class="founder-description">
-                    Za Zanda Visuals stojím já - mladý kreativec, který věří, že každé video má potenciál změnit svět. 
-                    Začal jsem v roce 2022 s jednou kamerou a nekonečnou vášní pro storytelling. 
-                    Dnes vytvářím obsah pro největší české influencery a značky.
+                    Za Zanda Visuals stojím já – mladý kreativec, který se rozhodl jít proti proudu. 
+		    Ve třetím ročníku jsem odešel z Gymnázia, protože jsem věděl, že moje cesta vede jinam. 
+                    Místo školy jsem začal tvořit.
                 </p>
                 <p class="founder-description">
-                    Nejsem jen další video agentura – jsem partner, který rozumí digitálnímu světu a ví, 
-                    jak v něm vyniknout. Každý projekt beru osobně a každé video dělám tak, 
-                    jako by bylo mé vlastní.
+                    Stříhat jsem začal pro YouTubery, influencery a marketingové agentury. 
+		    Každej den jsem se učil něco novýho, ladil detaily a posouval svůj skill – střih už pro mě nebyl jen práce, ale zbraň pro budování brandu.
+                </p>
+		<p class="founder-description">
+                    Dnes tvořím ty nejostřejší videa pro značky a influencery, kteří chtějí být vidět. 
+                    Nejde jen o efekty – pomáhám jim budovat osobní značku, příběh, která prodává a zanechá dojem. 
+                    Každý projekt beru jako svůj vlastní. 
+                    Styl, vibe, message – všechno musí sedět.
                 </p>
                 <div class="founder-stats">
                     <div class="founder-stat">
@@ -2337,18 +2378,17 @@
                     <div class="service-icon">
                         <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=400&fit=crop&auto=format&q=80" alt="Editace">
                     </div>
-                    <h3 class="service-title">Editace & Střih</h3>
+                    <h3 class="service-title">Editting</h3>
                     <p class="service-description">
-                        Profesionální střih videí pro všechny platformy. Od YouTube videí po Instagram Reels - vytvoříme obsah, který zaujme.
+                        Dynamický střih, plynulé přechody, precizní color grading a motion design, co drží oči na obrazovce. Vytváříme videa, která baví, prodávají a dávají smysl od první do poslední sekundy.
                     </p>
                     <ul class="service-features">
-                        <li>YouTube videa (long-form)</li>
-                        <li>Instagram Reels & TikToky</li>
-                        <li>Podcast střih</li>
-                        <li>Reklamní spoty</li>
-                        <li>Hudební videoklipy</li>
-                        <li>Event aftermovies</li>
-                        <li>Vzdělávací obsah</li>
+                        <li>Kreativní a rytmický střih (pro social, YouTube, reklamy)</li>
+                        <li>Cinematický color grading podle brandu nebo moodu</li>
+                        <li>Animace, efekty & přechody na míru</li>
+                        <li>Kinetic typografie a dynamické titulky</li>
+                        <li>Sound design & hudební layering</li>
+                        <li>Adaptace pro různé platformy (Ig, Yt, TikTok)</li>
                     </ul>
                     <button class="service-toggle" onclick="toggleService(this)">
                         <span>Zobrazit více</span>
@@ -2360,18 +2400,20 @@
                     <div class="service-icon">
                         <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=400&fit=crop&auto=format&q=80" alt="Motion Design">
                     </div>
-                    <h3 class="service-title">Motion Design</h3>
+                    <h3 class="service-title">Branding</h3>
                     <p class="service-description">
-                        Oživíme vaše videa animacemi a efekty. Od jednoduchých titulků po komplexní 3D animace.
+                        Nejde jen o to, jak tvoje videa vypadají – ale proč tak vypadají. Pomůžeme ti vybudovat silnou značku s jasnou strategií, vizuální identitou a stylem, který si lidi zamilují (a zapamatují).
                     </p>
                     <ul class="service-features">
-                        <li>Animated logo reveals</li>
-                        <li>Kinetic typography</li>
-                        <li>Infografiky</li>
-                        <li>Lower thirds</li>
-                        <li>Transitions & efekty</li>
-                        <li>3D animace</li>
-                        <li>Character animation</li>
+                        <li>Strategický rozbor značky a cílovky</li>
+                        <li>Tvorba vizuální identity (barvy, fonty, styl)</li>
+                        <li>Úvodní animace & logo reveals</li>
+                        <li>Šablony na míru pro Reels, Shorts i YouTube</li>
+                        <li>Brandová typografie & grafické prvky</li>
+                        <li>Intros/outros s konzistentní estetikou</li>
+                        <li>Video style guide pro tvůj tým nebo editory</li>
+			<li>Story & tone-of-voice strategie</li>
+                        <li>Kreativní směr – jak tvoje značka působí</li>
                     </ul>
                     <button class="service-toggle" onclick="toggleService(this)">
                         <span>Zobrazit více</span>
@@ -2383,18 +2425,18 @@
                     <div class="service-icon">
                         <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=400&fit=crop&auto=format&q=80" alt="Color Grading">
                     </div>
-                    <h3 class="service-title">Color Grading</h3>
+                    <h3 class="service-title">Skriptování</h3>
                     <p class="service-description">
-                        Profesionální barevné korekce a grading. Dodáme vašim videím jedinečný vizuální styl.
+                        Vizuální storytelling začíná na papíře. Pomůžeme ti vytvořit scénář, který zaujme, udrží pozornost a přiměje k akci.
                     </p>
                     <ul class="service-features">
-                        <li>Barevná korekce</li>
-                        <li>Kreativní color grading</li>
-                        <li>LUT creation</li>
-                        <li>Film emulation</li>
-                        <li>HDR grading</li>
-                        <li>Skin tone correction</li>
-                        <li>Style matching</li>
+                        <li>Skripty pro Reels & TikTok</li>
+                        <li>YouTube skripty (včetně hooků a CTA)</li>
+                        <li>Kreativní koncepty pro kampaně</li>
+                        <li>Storyboardy a moodboardy</li>
+                        <li>Texty do videí a voiceovery</li>
+                        <li>Struktura a rytmus scénáře</li>
+                        <li>Strategie pro retention</li>
                     </ul>
                     <button class="service-toggle" onclick="toggleService(this)">
                         <span>Zobrazit více</span>
@@ -2572,7 +2614,31 @@
                 <div class="contact-main">
                     <div class="calendly-container">
                         <div class="calendly-wrapper">
-                            <div class="calendly-inline-widget" data-url="https://calendly.com/zandavisuals/30min" style="min-width:320px;height:500px;border-radius: var(--radius-xl);overflow:hidden;"></div>
+                            <!-- Calendly inline widget begin -->
+                            <div class="calendly-inline-widget" data-url="https://calendly.com/zandavisuals/30min" style="min-width:320px;height:700px;"></div>
+                            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                            <style>
+                                /* Desktop/Notebook styles */
+                                @media (min-width: 1024px) {
+                                    .calendly-inline-widget {
+                                        width: 1105px !important;
+                                        max-width: 100% !important;
+                                        margin: 0 auto !important;
+                                    }
+                                    
+                                    .calendly-wrapper {
+                                        max-width: 1140px !important;
+                                        margin: 0 auto !important;
+                                    }
+                                }
+                                
+                                /* Mobile styles - keep original */
+                                @media (max-width: 1023px) {
+                                    .calendly-inline-widget {
+                                        width: 100% !important;
+                                    }
+                                }
+                            </style>
                         </div>
                     </div>
 
@@ -3118,12 +3184,18 @@
             const statNumbers = document.querySelectorAll('.founder-stat-number');
             statNumbers.forEach(stat => {
                 const value = stat.textContent;
-                const number = parseInt(value.replace(/\D/g, ''));
-                const suffix = value.replace(/[0-9]/g, '');
+                const hasM = value.includes('M');
+                const hasPlus = value.includes('+');
+                let number = parseInt(value.replace(/\D/g, ''));
+                let suffix = '';
+                
+                if (hasM) suffix = 'M';
+                if (hasPlus) suffix += '+';
 
                 ScrollTrigger.create({
                     trigger: stat,
                     start: 'top 80%',
+                    once: true,
                     onEnter: () => {
                         gsap.fromTo(stat, {
                             textContent: 0
