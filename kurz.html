@@ -172,47 +172,36 @@
             background: var(--gray-700);
         }
         
-        /* Navigation - Exact same as index.html */
+        /* Navigation - Floating Style EXACTLY as index.html */
         nav {
             position: fixed;
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: auto;
-            max-width: 90%;
+            width: 90%;
+            max-width: 1000px;
             z-index: 1000;
             transition: all 0.5s var(--ease-out-expo);
         }
         
-        nav.hidden {
-            transform: translateX(-50%) translateY(-150%);
-        }
-        
         .nav-wrapper {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-xl);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            padding: 2px 15px;
-            max-height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(40px) saturate(200%);
+            -webkit-backdrop-filter: blur(40px) saturate(200%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            max-height: 60px;
             display: flex;
             align-items: center;
-        }
-        
-        nav.scrolled .nav-wrapper {
-            background: rgba(0, 0, 0, 0.85);
-            border-color: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
-            max-height: 45px;
         }
         
         .nav-container {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            gap: 30px;
+            width: 100%;
         }
         
         .logo {
@@ -230,43 +219,50 @@
             height: 100%;
             width: auto;
             object-fit: contain;
+            filter: brightness(0) invert(1);
         }
         
         .nav-links {
             display: flex;
-            gap: 28px;
+            gap: 40px;
             list-style: none;
             margin: 0;
         }
         
         .nav-links a {
-            color: var(--gray-400);
+            color: var(--gray-300);
             text-decoration: none;
             font-size: 14px;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             position: relative;
+            padding: 8px 16px;
+            border-radius: var(--radius-md);
         }
         
-        .nav-links a:hover,
-        .nav-links a.active {
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-md);
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.4s var(--ease-out-expo);
+        }
+        
+        .nav-links a:hover {
             color: var(--white);
         }
         
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--accent);
-            transition: width 0.3s var(--ease-out-expo);
+        .nav-links a:hover::before {
+            opacity: 1;
+            transform: scale(1);
         }
         
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
+        .nav-links a::after {
+            display: none;
         }
         
         /* CTA Button in Navigation - Same as index.html */
@@ -393,9 +389,12 @@
         .hero-title {
             font-size: clamp(48px, 8vw, 120px);
             font-weight: 700;
-            line-height: 0.9;
+            line-height: 1.1;
             letter-spacing: -0.04em;
             margin-bottom: 32px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),
+                         0 8px 16px rgba(0, 0, 0, 0.2),
+                         0 16px 32px rgba(0, 0, 0, 0.1);
         }
         
         .hero-title .line {
@@ -411,10 +410,18 @@
         }
         
         .text-gradient {
-            background: var(--gradient-pink-white);
+            background: linear-gradient(135deg, #FF0080 0%, #FF33A0 25%, #FFFFFF 50%, #FF33A0 75%, #FF0080 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
         .hero-description {
@@ -436,7 +443,7 @@
             transform: translateY(20px);
         }
         
-        /* Premium Buttons - Same as index.html */
+        /* Premium Buttons - Enhanced exactly as index.html */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -470,17 +477,28 @@
             height: 300px;
         }
         
+        .btn:focus {
+            outline: none;
+        }
+        
         .btn-primary {
             background: var(--gradient-pink-white);
             color: var(--black);
-            border: 1px solid transparent;
+            border: none !important;
             font-weight: 600;
             box-shadow: 0 4px 15px rgba(255, 0, 128, 0.3);
+            outline: none;
+        }
+        
+        .btn-primary:focus {
+            outline: none;
+            border: none !important;
         }
         
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 35px rgba(255, 0, 128, 0.4), 0 5px 15px rgba(255, 255, 255, 0.1);
+            border: none !important;
         }
         
         .btn-secondary {
@@ -512,7 +530,7 @@
         
         /* Sections */
         section {
-            padding: 120px 0;
+            padding: 180px 0;
             position: relative;
         }
         
@@ -603,16 +621,16 @@
             letter-spacing: 0.1em;
         }
         
-        /* Problem/Solution Cards */
+        /* Problem/Solution Cards - Matching index.html service cards */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 32px;
-            margin-top: 64px;
+            margin-top: 96px;
         }
         
         .card {
-            background: var(--gray-950);
+            background: var(--black);
             border: 1px solid var(--gray-900);
             border-radius: var(--radius-2xl);
             padding: 48px;
@@ -621,6 +639,7 @@
             transform: translateY(30px);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
         
         .card::before {
@@ -636,6 +655,19 @@
             transition: all 0.7s var(--ease-out-expo);
         }
         
+        .card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-pink-white);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s var(--ease-out-expo);
+        }
+        
         .card:hover {
             border-color: rgba(255, 0, 128, 0.3);
             transform: translateY(-12px);
@@ -645,6 +677,10 @@
         .card:hover::before {
             opacity: 0.05;
             transform: translateY(0);
+        }
+        
+        .card:hover::after {
+            transform: scaleX(1);
         }
         
         .card-icon {
@@ -684,7 +720,7 @@
             line-height: 1.6;
         }
         
-        /* Value Section */
+        /* Value Section - Updated to match index.html */
         .value-card {
             background: var(--black);
             border: 1px solid var(--gray-900);
@@ -693,7 +729,7 @@
             position: relative;
             overflow: hidden;
             opacity: 0;
-            transform: translateY(30px) scale(0.98);
+            transform: translateY(30px);
             transition: all 0.5s var(--ease-out-expo);
         }
         
@@ -704,8 +740,9 @@
         }
         
         .value-card:hover {
-            transform: translateY(-10px) scale(1);
+            transform: translateY(-10px) scale(1.02);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 0, 128, 0.3);
         }
         
         .value-badge {
@@ -773,41 +810,74 @@
             stroke-width: 3;
         }
         
-        /* Testimonials */
+        /* Testimonials - Updated to match index.html style */
         .testimonials {
             background: var(--gray-950);
-            padding: 120px 0;
+            padding: 180px 0;
+            position: relative;
+            overflow: hidden;
         }
         
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 32px;
-            margin-top: 64px;
+        .testimonials-wrapper {
+            position: relative;
+            height: 600px;
+            margin-top: 96px;
         }
         
-        .testimonial-card {
-            background: var(--black);
-            border: 1px solid var(--gray-900);
+        .testimonial-card-modern {
+            position: absolute;
+            width: 400px;
+            height: auto;
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--black) 100%);
+            border: 1px solid var(--gray-800);
             border-radius: var(--radius-2xl);
             padding: 48px;
-            position: relative;
-            opacity: 0;
-            transform: translateY(30px) rotate(-2deg);
             transition: all 0.5s var(--ease-out-expo);
+            cursor: pointer;
+            opacity: 0;
         }
         
-        .testimonial-card:nth-child(even) {
-            transform: translateY(30px) rotate(2deg);
+        .testimonial-card-modern:nth-child(1) {
+            top: 0;
+            left: 10%;
+            transform: rotate(-5deg);
         }
         
-        .testimonial-card:hover {
-            transform: translateY(-10px) rotate(0deg) scale(1.02);
-            box-shadow: 0 30px 60px rgba(255, 0, 128, 0.1);
-            border-color: var(--accent);
+        .testimonial-card-modern:nth-child(2) {
+            top: 100px;
+            left: 35%;
+            transform: rotate(3deg);
+            z-index: 2;
         }
         
-        .testimonial-stars {
+        .testimonial-card-modern:nth-child(3) {
+            top: 50px;
+            right: 10%;
+            transform: rotate(-3deg);
+        }
+        
+        .testimonial-card-modern:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            box-shadow: 0 50px 100px rgba(255, 0, 128, 0.3);
+            z-index: 10;
+        }
+        
+        .testimonial-card-modern::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 120px;
+            font-weight: 700;
+            background: var(--gradient-pink-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0.1;
+            line-height: 1;
+        }
+        
+        .testimonial-rating {
             display: flex;
             gap: 4px;
             margin-bottom: 24px;
@@ -820,21 +890,22 @@
             clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
         }
         
-        .testimonial-text {
-            font-size: 18px;
-            line-height: 1.8;
-            color: var(--gray-200);
+        .testimonial-text-modern {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--white);
             margin-bottom: 32px;
-            font-style: italic;
+            position: relative;
+            z-index: 1;
         }
         
-        .testimonial-author {
+        .testimonial-author-modern {
             display: flex;
             align-items: center;
             gap: 16px;
         }
         
-        .author-avatar {
+        .author-avatar-modern {
             width: 56px;
             height: 56px;
             background: var(--gradient-pink-white);
@@ -847,26 +918,28 @@
             color: var(--black);
         }
         
-        .author-info {
+        .author-info-modern {
             flex: 1;
         }
         
-        .author-name {
+        .author-name-modern {
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 4px;
         }
         
-        .author-role {
+        .author-role-modern {
             font-size: 14px;
-            color: var(--gray-500);
+            color: var(--gray-400);
         }
         
         /* CTA Section */
         .cta {
-            padding: 120px 0;
+            padding: 180px 0;
             text-align: center;
             position: relative;
+            background: var(--black);
+            overflow: hidden;
         }
         
         .cta::before {
@@ -999,9 +1072,37 @@
         }
         
         /* Responsive */
+        @media (max-width: 1200px) {
+            .testimonial-card-modern {
+                position: relative !important;
+                width: 100%;
+                transform: none !important;
+                margin-bottom: 24px;
+            }
+            
+            .testimonials-wrapper {
+                height: auto;
+            }
+        }
+        
         @media (max-width: 1024px) {
-            .cards-grid,
-            .testimonials-grid {
+            nav {
+                max-width: 95%;
+            }
+            
+            .nav-container {
+                gap: 25px;
+            }
+            
+            .nav-links {
+                gap: 20px;
+            }
+            
+            .nav-links a {
+                font-size: 13px;
+            }
+            
+            .cards-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -1012,19 +1113,25 @@
         
         @media (max-width: 768px) {
             nav {
+                top: 10px;
                 max-width: 95%;
+            }
+            
+            .nav-wrapper {
+                padding: 10px;
+                max-height: 45px;
             }
             
             .nav-container {
                 gap: 15px;
             }
             
-            .nav-links {
-                display: none;
-            }
-            
             .logo {
                 height: 50px;
+            }
+            
+            .nav-links {
+                display: none;
             }
             
             .btn-nav-cta {
@@ -1069,15 +1176,6 @@
             .social-proof-container {
                 gap: 32px;
             }
-            
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-            
-            .testimonial-card {
-                padding: 32px;
-            }
         }
     </style>
 </head>
@@ -1089,17 +1187,17 @@
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
 
-    <!-- Navigation - Same as index.html -->
+    <!-- Navigation - Exact same as index.html -->
     <nav id="navbar">
         <div class="nav-wrapper">
             <div class="nav-container">
                 <a href="index.html" class="logo">
-                    <img src="https://raw.githubusercontent.com/st3pan007/3/main/images/logo.webp" alt="Zanda Visuals">
+                    <img src="https://raw.githubusercontent.com/st3pan007/3/main/images/logo1.png" alt="Zanda Visuals">
                 </a>
                 <ul class="nav-links">
                     <li><a href="index.html">O nás</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="kurz.html" class="active">Náš kurz</a></li>
+                    <li><a href="kurz.html">Náš kurz</a></li>
                 </ul>
                 <a href="#start" class="btn-nav-cta">Začít teď</a>
             </div>
@@ -1269,7 +1367,7 @@
                     <a href="#start" class="btn btn-primary" style="width: 100%">Začít vydělávat teď</a>
                 </div>
                 
-                <div class="value-card">
+                <div class="card">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -1282,7 +1380,7 @@
                     </p>
                 </div>
                 
-                <div class="value-card">
+                <div class="card">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -1308,66 +1406,66 @@
                 </p>
             </div>
             
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
+            <div class="testimonials-wrapper">
+                <div class="testimonial-card-modern">
+                    <div class="testimonial-rating">
                         <div class="star"></div>
                         <div class="star"></div>
                         <div class="star"></div>
                         <div class="star"></div>
                         <div class="star"></div>
                     </div>
-                    <p class="testimonial-text">
+                    <p class="testimonial-text-modern">
                         "Za první měsíc jsem vydělal 35K. Zakázky chodí furt, už si vybírám jen ty nejlepší. 
                         Díky Academy jsem dal výpověď v práci."
                     </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">MK</div>
-                        <div class="author-info">
-                            <div class="author-name">Martin K.</div>
-                            <div class="author-role">Freelance editor</div>
+                    <div class="testimonial-author-modern">
+                        <div class="author-avatar-modern">MK</div>
+                        <div class="author-info-modern">
+                            <div class="author-name-modern">Martin K.</div>
+                            <div class="author-role-modern">Freelance editor</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
+                <div class="testimonial-card-modern">
+                    <div class="testimonial-rating">
                         <div class="star"></div>
                         <div class="star"></div>
                         <div class="star"></div>
                         <div class="star"></div>
                         <div class="star"></div>
                     </div>
-                    <p class="testimonial-text">
+                    <p class="testimonial-text-modern">
                         "Šablony jsou game changer. Co mi dřív trvalo 6 hodin, teď stíhám za 2. 
                         Mám víc času a vydělávám 3x víc."
                     </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">TP</div>
-                        <div class="author-info">
-                            <div class="author-name">Tereza P.</div>
-                            <div class="author-role">Content creator</div>
+                    <div class="testimonial-author-modern">
+                        <div class="author-avatar-modern">TP</div>
+                        <div class="author-info-modern">
+                            <div class="author-name-modern">Tereza P.</div>
+                            <div class="author-role-modern">Content creator</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
+                <div class="testimonial-card-modern">
+                    <div class="testimonial-rating">
                         <div class="star"></div>
                         <div class="star"></div>
                         <div class="star"></div>
                         <div class="star"></div>
                         <div class="star"></div>
                     </div>
-                    <p class="testimonial-text">
+                    <p class="testimonial-text-modern">
                         "Nejlepší investice ever. Za 500 Kč měsíčně mám mentoring, zakázky a komunitu. 
                         ROI první týden."
                     </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">JN</div>
-                        <div class="author-info">
-                            <div class="author-name">Jan N.</div>
-                            <div class="author-role">Video editor</div>
+                    <div class="testimonial-author-modern">
+                        <div class="author-avatar-modern">JN</div>
+                        <div class="author-info-modern">
+                            <div class="author-name-modern">Jan N.</div>
+                            <div class="author-role-modern">Video editor</div>
                         </div>
                     </div>
                 </div>
@@ -1556,38 +1654,6 @@
             cursorFollower.style.display = 'none';
         }
         
-        // Navigation - Intelligent Hide/Show
-        const navbar = document.getElementById('navbar');
-        let lastScrollY = 0;
-        let ticking = false;
-        
-        function updateNavbar() {
-            const currentScrollY = window.scrollY;
-            
-            if (currentScrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-            
-            // Hide navbar when scrolling down, show when scrolling up
-            if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                navbar.classList.add('hidden');
-            } else {
-                navbar.classList.remove('hidden');
-            }
-            
-            lastScrollY = currentScrollY;
-            ticking = false;
-        }
-        
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(updateNavbar);
-                ticking = true;
-            }
-        });
-        
         // Countdown Timer
         function updateCountdown() {
             const countdownElements = {
@@ -1680,7 +1746,7 @@
                 const label = section.querySelector('.section-label');
                 const title = section.querySelector('.section-title');
                 const description = section.querySelector('.section-description');
-                const cards = section.querySelectorAll('.card, .value-card, .testimonial-card');
+                const cards = section.querySelectorAll('.card, .value-card, .testimonial-card-modern');
                 
                 const tl = gsap.timeline({
                     scrollTrigger: {
@@ -1728,6 +1794,18 @@
                 }
             });
             
+            // Testimonials animation
+            gsap.to('.testimonial-card-modern', {
+                opacity: 1,
+                duration: 1,
+                stagger: 0.2,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.testimonials-wrapper',
+                    start: 'top 80%'
+                }
+            });
+            
             // CTA animations
             gsap.timeline({
                 scrollTrigger: {
@@ -1755,32 +1833,6 @@
                 });
             });
         }
-        
-        // Parallax effect on scroll
-        window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY;
-            const parallaxElements = document.querySelectorAll('.hero-content');
-            
-            parallaxElements.forEach(el => {
-                const speed = 0.5;
-                el.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        });
-        
-        // Magnetic buttons effect
-        document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('mousemove', (e) => {
-                const rect = button.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                
-                button.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
-            });
-            
-            button.addEventListener('mouseleave', () => {
-                button.style.transform = 'translate(0, 0)';
-            });
-        });
     </script>
 </body>
 </html>
