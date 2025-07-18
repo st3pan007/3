@@ -849,6 +849,7 @@
             transition: all 0.5s var(--ease-out-expo);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             z-index: 10;
+            pointer-events: auto;
         }
 
         .video-card-apple.center .play-button-apple {
@@ -1095,21 +1096,11 @@
             margin: 0 auto;
         }
 
-        .founder-image-container::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            background: var(--gradient-pink-white);
-            border-radius: 40px;
-            z-index: -1;
-            opacity: 1;
-        }
-
         .founder-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 38px;
+            border-radius: 40px;
         }
 
         /* General Section Styles */
@@ -2366,7 +2357,7 @@
             </div>
             <div class="founder-image-wrapper">
                 <div class="founder-image-container">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop&auto=format&q=80" alt="Zakladatel Zanda Visuals" class="founder-image">
+                    <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/d839e1f4-9c32-4ba9-9981-d4c86253fd00/public" alt="Zakladatel Zanda Visuals" class="founder-image">
                 </div>
             </div>
         </div>
@@ -2823,7 +2814,7 @@
                 const playButton = iframe.parentElement.parentElement.querySelector('.play-button-apple');
                 
                 // Completely stop video by resetting iframe
-                const originalSrc = "https://customer-go903c29r7kfmooj.cloudflarestream.com/dd2f0a80b4e82209116065e52da99461/iframe?poster=https%3A%2F%2Fimagedelivery.net%2F2OhTeUm5dT07PSQroFepFw%2Ff98d5fa9-da9c-408c-edde-686d93c33e00%2Fpublic&controls=true&autoplay=false&muted=false&loop=false";
+                const originalSrc = "https://customer-go903c29r7kfmooj.cloudflarestream.com/dd2f0a80b4e82209116065e52da99461/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off";
                 
                 // Create a new iframe to replace the old one
                 const newIframe = iframe.cloneNode(false);
