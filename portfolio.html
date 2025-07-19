@@ -1643,9 +1643,15 @@
             margin-right: auto;
         }
 
-        .calendly-wrapper:hover {
-            background: rgba(255, 255, 255, 0.03);
-        }
+	.calendly-wrapper {
+    	    background: rgba(255, 255, 255, 0.02);
+    	    border: 1px solid transparent;
+    	    border-radius: var(--radius-xl);
+    	    padding: 16px;
+   	    box-shadow: 0 50px 100px rgba(255, 0, 128, 0.3);
+  	    transition: all 0.3s var(--ease-out-expo);
+	    position: relative;
+	}
 
         /* Contact Info Cards */
         .contact-info-cards {
