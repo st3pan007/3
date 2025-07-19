@@ -1635,37 +1635,14 @@
         /* Calendly Widget Styles */
         .calendly-container {
             margin-bottom: 48px;
-            opacity: 0;
-            transform: translateY(30px);
+            opacity: 1;
+            transform: none;
             width: 100%;
             max-width: 1140px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .calendly-wrapper {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid transparent;
-            border-radius: var(--radius-xl);
-            padding: 16px;
-            box-shadow: 0 50px 100px rgba(255, 0, 128, 0.3);
-            transition: all 0.3s var(--ease-out-expo);
-            position: relative;
-        }
-
-        .calendly-wrapper::before {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            background: var(--gradient-pink-white);
-            border-radius: var(--radius-xl);
-            opacity: 0.2;
-            z-index: -1;
-        }
-
-        .calendly-wrapper:hover {
-            background: rgba(255, 255, 255, 0.03);
-        }
 
         /* Contact Info Cards */
         .contact-info-cards {
