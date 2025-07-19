@@ -1022,6 +1022,9 @@
             margin-top: 48px;
             justify-items: center;
             text-align: center;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .founder-stat {
@@ -1037,6 +1040,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            min-height: 140px;
+            width: 100%;
         }
 
         .founder-stat::before {
@@ -1639,25 +1644,43 @@
 
         .calendly-wrapper {
             background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--gray-900);
+            border: 1px solid transparent;
             border-radius: var(--radius-xl);
             padding: 16px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 50px 100px rgba(255, 0, 128, 0.3);
             transition: all 0.3s var(--ease-out-expo);
+            position: relative;
+        }
+
+        .calendly-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: var(--gradient-pink-white);
+            border-radius: var(--radius-xl);
+            opacity: 0.2;
+            z-index: -1;
         }
 
         .calendly-wrapper:hover {
             background: rgba(255, 255, 255, 0.03);
-            border-color: var(--gray-800);
         }
 
         /* Contact Info Cards */
         .contact-info-cards {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 24px;
             opacity: 0;
             transform: translateY(30px);
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .contact-info-cards {
+                grid-template-columns: 1fr;
+            }
         }
 
         .contact-info-card {
@@ -2051,6 +2074,7 @@
                 grid-template-columns: 1fr;
                 gap: 20px;
                 text-align: center;
+                max-width: 100%;
             }
 
             .founder-stat-number {
@@ -2198,7 +2222,7 @@
                                 allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
                                 allowfullscreen="true">
                             </iframe>
-                            <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/f98d5fa9-da9c-408c-edde-686d93c33e00/public" alt="Showreel Zanda Visuals" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                            <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/2dcf2a24-a1c5-4e86-050b-5c7a6fb97600/public" alt="Showreel Zanda Visuals" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="play-button-apple" onclick="playCloudflareVideo(0)">
                             <svg viewBox="0 0 24 24">
@@ -2208,86 +2232,110 @@
                     </div>
 
                     <div class="video-card-apple right-1" data-index="1">
-                        <img src="https://images.unsplash.com/photo-1524634126442-357e0eac3c14?w=600&h=800&fit=crop&auto=format&q=80" alt="Red Bull Sports" class="video-thumbnail-apple">
-                        <div class="play-button-apple">
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
+                            <iframe
+                                id="cloudflare-video-1"
+                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/77e18e1e562cd91a8aa93affd601cf05/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
+                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
+                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                allowfullscreen="true">
+                            </iframe>
+                            <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/8fc1e2b6-64ad-4197-b229-0797f4013600/public" alt="Video 2" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="play-button-apple" onclick="playCloudflareVideo(1)">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
-                        </div>
-                        <div class="video-info-apple">
-                            <div class="video-number-apple">02</div>
-                            <h3 class="video-title-apple">Red Bull Extreme Sports</h3>
-                            <p class="video-description-apple">Adrenalinová jízda plná extrémních sportů</p>
                         </div>
                     </div>
 
                     <div class="video-card-apple right-2" data-index="2">
-                        <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=800&fit=crop&auto=format&q=80" alt="Tary Music Video" class="video-thumbnail-apple">
-                        <div class="play-button-apple">
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
+                            <iframe
+                                id="cloudflare-video-2"
+                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/145c0ff903bab04c91978a84b54d5b93/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
+                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
+                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                allowfullscreen="true">
+                            </iframe>
+                            <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/dc8beb30-d7ff-4cc1-9587-f7492852c000/public" alt="Video 3" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="play-button-apple" onclick="playCloudflareVideo(2)">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
-                        </div>
-                        <div class="video-info-apple">
-                            <div class="video-number-apple">03</div>
-                            <h3 class="video-title-apple">Tary Music Video</h3>
-                            <p class="video-description-apple">Vizuálně ohromující hudební videoklip</p>
                         </div>
                     </div>
 
                     <div class="video-card-apple hidden" data-index="3">
-                        <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=600&h=800&fit=crop&auto=format&q=80" alt="Comic Con Aftermovie" class="video-thumbnail-apple">
-                        <div class="play-button-apple">
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
+                            <iframe
+                                id="cloudflare-video-3"
+                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/bb8576d7faa4cd2489589339f23bee52/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
+                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
+                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                allowfullscreen="true">
+                            </iframe>
+                            <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/8169492a-afa9-42c0-c5a5-849ac27e1400/public" alt="Video 4" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="play-button-apple" onclick="playCloudflareVideo(3)">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
-                        </div>
-                        <div class="video-info-apple">
-                            <div class="video-number-apple">04</div>
-                            <h3 class="video-title-apple">Comic Con Prague Aftermovie</h3>
-                            <p class="video-description-apple">Oficiální aftermovie největší popkulturní události</p>
                         </div>
                     </div>
 
                     <div class="video-card-apple hidden" data-index="4">
-                        <img src="https://images.unsplash.com/photo-1626447857058-2ba6a8868cb5?w=600&h=800&fit=crop&auto=format&q=80" alt="Luxusní kampaň" class="video-thumbnail-apple">
-                        <div class="play-button-apple">
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
+                            <iframe
+                                id="cloudflare-video-4"
+                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/d19b73b9457e3c5bed572ba35473a184/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
+                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
+                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                allowfullscreen="true">
+                            </iframe>
+                            <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/e035984b-a007-4cb9-6050-ddec5c387700/public" alt="Video 5" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="play-button-apple" onclick="playCloudflareVideo(4)">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
-                        </div>
-                        <div class="video-info-apple">
-                            <div class="video-number-apple">05</div>
-                            <h3 class="video-title-apple">Luxusní kampaň pro značku</h3>
-                            <p class="video-description-apple">Prémiová reklamní kampaň s hollywoodskou produkcí</p>
                         </div>
                     </div>
 
                     <div class="video-card-apple left-2" data-index="5">
-                        <img src="https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?w=600&h=800&fit=crop&auto=format&q=80" alt="YouTube série" class="video-thumbnail-apple">
-                        <div class="play-button-apple">
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
+                            <iframe
+                                id="cloudflare-video-5"
+                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/eac60b5b2cde02cb5e881e9749f3be5c/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
+                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
+                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                allowfullscreen="true">
+                            </iframe>
+                            <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/2da731c7-37e4-4bf3-cf29-ee6552eb9500/public" alt="Video 6" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="play-button-apple" onclick="playCloudflareVideo(5)">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
-                        </div>
-                        <div class="video-info-apple">
-                            <div class="video-number-apple">06</div>
-                            <h3 class="video-title-apple">YouTube série - kompletní produkce</h3>
-                            <p class="video-description-apple">Od nápadu po realizaci celé YouTube série</p>
                         </div>
                     </div>
 
                     <div class="video-card-apple left-1" data-index="6">
-                        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&h=800&fit=crop&auto=format&q=80" alt="Fashion Week Praha" class="video-thumbnail-apple">
-                        <div class="play-button-apple">
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
+                            <iframe
+                                id="cloudflare-video-6"
+                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/093540beabc63f35494667def3b1b9c1/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
+                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
+                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                allowfullscreen="true">
+                            </iframe>
+                            <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/3621e7b1-dd97-43aa-e10f-54fe6b2d7400/public" alt="Video 7" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="play-button-apple" onclick="playCloudflareVideo(6)">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
-                        </div>
-                        <div class="video-info-apple">
-                            <div class="video-number-apple">01</div>
-                            <h3 class="video-title-apple">Fashion Week Praha 2024</h3>
-                            <p class="video-description-apple">Zachytili jsme atmosféru nejprestižnější módní události roku</p>
                         </div>
                     </div>
                 </div>
@@ -2306,6 +2354,7 @@
                     <span class="video-nav-dot" onclick="goToSlide(3)"></span>
                     <span class="video-nav-dot" onclick="goToSlide(4)"></span>
                     <span class="video-nav-dot" onclick="goToSlide(5)"></span>
+                    <span class="video-nav-dot" onclick="goToSlide(6)"></span>
                 </div>
                 <button class="video-nav-arrow" onclick="navigateCarousel('next')">
                     <svg viewBox="0 0 24 24">
@@ -2808,30 +2857,61 @@
 
         // Stop all videos helper function
         function stopAllVideos() {
-            const iframe = document.getElementById('cloudflare-video-0');
-            if (iframe && iframe.style.opacity === '1') {
-                const thumbnail = iframe.parentElement.querySelector('.video-thumbnail-apple');
-                const playButton = iframe.parentElement.parentElement.querySelector('.play-button-apple');
-                
-                // Completely stop video by resetting iframe
-                const originalSrc = "https://customer-go903c29r7kfmooj.cloudflarestream.com/dd2f0a80b4e82209116065e52da99461/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off";
-                
-                // Create a new iframe to replace the old one
-                const newIframe = iframe.cloneNode(false);
-                newIframe.src = originalSrc;
-                newIframe.style.opacity = '0';
-                
-                // Replace the iframe
-                iframe.parentNode.replaceChild(newIframe, iframe);
-                
-                // Show thumbnail and play button again
-                if (thumbnail) {
-                    thumbnail.style.display = 'block';
+            // Array of all video IDs and their corresponding URLs
+            const videos = [
+                {
+                    id: 'cloudflare-video-0',
+                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/dd2f0a80b4e82209116065e52da99461/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
+                },
+                {
+                    id: 'cloudflare-video-1',
+                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/77e18e1e562cd91a8aa93affd601cf05/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
+                },
+                {
+                    id: 'cloudflare-video-2',
+                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/145c0ff903bab04c91978a84b54d5b93/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
+                },
+                {
+                    id: 'cloudflare-video-3',
+                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/bb8576d7faa4cd2489589339f23bee52/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
+                },
+                {
+                    id: 'cloudflare-video-4',
+                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/d19b73b9457e3c5bed572ba35473a184/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
+                },
+                {
+                    id: 'cloudflare-video-5',
+                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/eac60b5b2cde02cb5e881e9749f3be5c/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
+                },
+                {
+                    id: 'cloudflare-video-6',
+                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/093540beabc63f35494667def3b1b9c1/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
                 }
-                if (playButton) {
-                    playButton.style.display = 'flex';
+            ];
+
+            videos.forEach(video => {
+                const iframe = document.getElementById(video.id);
+                if (iframe && iframe.style.opacity === '1') {
+                    const thumbnail = iframe.parentElement.querySelector('.video-thumbnail-apple');
+                    const playButton = iframe.parentElement.parentElement.querySelector('.play-button-apple');
+                    
+                    // Create a new iframe to replace the old one
+                    const newIframe = iframe.cloneNode(false);
+                    newIframe.src = video.src;
+                    newIframe.style.opacity = '0';
+                    
+                    // Replace the iframe
+                    iframe.parentNode.replaceChild(newIframe, iframe);
+                    
+                    // Show thumbnail and play button again
+                    if (thumbnail) {
+                        thumbnail.style.display = 'block';
+                    }
+                    if (playButton) {
+                        playButton.style.display = 'flex';
+                    }
                 }
-            }
+            });
         }
 
         // Custom Cursor
@@ -2840,6 +2920,9 @@
 
         // Function to play Cloudflare video
         function playCloudflareVideo(index) {
+            // First stop all other videos
+            stopAllVideos();
+            
             const iframe = document.getElementById('cloudflare-video-' + index);
             const thumbnail = iframe.parentElement.querySelector('.video-thumbnail-apple');
             const playButton = iframe.parentElement.parentElement.querySelector('.play-button-apple');
@@ -2944,8 +3027,8 @@
 
         // Apple Style Video Carousel
         let currentSlide = 0;
-        const totalSlides = 7; // 0-6 including duplicates
-        const actualSlides = 6; // 0-5 actual unique videos
+        const totalSlides = 7; // 0-6 including all videos
+        const actualSlides = 7; // 0-6 actual unique videos
         let isTransitioning = false;
 
         function updateCarousel() {
@@ -2959,13 +3042,13 @@
 
                 if (position === 0) {
                     card.classList.add('center');
-                } else if (position === 1 || position === totalSlides - 6) {
+                } else if (position === 1) {
                     card.classList.add('right-1');
-                } else if (position === 2 || position === totalSlides - 5) {
+                } else if (position === 2) {
                     card.classList.add('right-2');
-                } else if (position === totalSlides - 1 || position === 6) {
+                } else if (position === totalSlides - 1) {
                     card.classList.add('left-1');
-                } else if (position === totalSlides - 2 || position === 5) {
+                } else if (position === totalSlides - 2) {
                     card.classList.add('left-2');
                 } else {
                     card.classList.add('hidden');
@@ -2973,9 +3056,8 @@
             });
 
             // Update dots
-            const actualSlideIndex = currentSlide % actualSlides;
             dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === actualSlideIndex);
+                dot.classList.toggle('active', index === currentSlide);
             });
         }
 
