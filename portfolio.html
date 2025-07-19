@@ -554,17 +554,28 @@
             height: 300px;
         }
 
+        .btn:focus {
+            outline: none;
+        }
+
         .btn-primary {
             background: var(--gradient-pink-white);
             color: var(--black);
-            border: 1px solid transparent;
+            border: none !important;
             font-weight: 600;
             box-shadow: 0 4px 15px rgba(255, 0, 128, 0.3);
+            outline: none;
+        }
+
+        .btn-primary:focus {
+            outline: none;
+            border: none !important;
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 35px rgba(255, 0, 128, 0.4), 0 5px 15px rgba(255, 255, 255, 0.1);
+            border: none !important;
         }
 
         .btn-secondary {
@@ -592,49 +603,6 @@
 
         .btn-secondary:hover::after {
             opacity: 1;
-        }
-
-        /* Hero Video Container */
-        .hero-video-container {
-            max-width: 800px;
-            margin: 40px auto;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .hero-video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: var(--radius-xl);
-            background: var(--black);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), 0 0 60px rgba(255, 0, 128, 0.15);
-        }
-
-        .hero-video-wrapper::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            background: var(--gradient-pink-white);
-            border-radius: var(--radius-xl);
-            z-index: -1;
-            opacity: 0.5;
-            animation: videoGlow 4s ease-in-out infinite alternate;
-        }
-
-        @keyframes videoGlow {
-            0% { opacity: 0.4; transform: scale(1); }
-            100% { opacity: 0.7; transform: scale(1.02); }
-        }
-
-        .hero-video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: var(--radius-xl);
         }
 
         /* Scroll Indicator */
@@ -679,109 +647,6 @@
         @keyframes scrollDown {
             0% { transform: translateY(-100%); }
             100% { transform: translateY(200%); }
-        }
-
-        /* Founder Section */
-        .founder {
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-            background: var(--black);
-        }
-
-        .founder-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 48px;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .founder-text {
-            opacity: 0;
-            transform: translateX(-50px);
-        }
-
-        .founder-label {
-            display: inline-block;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            margin-bottom: 24px;
-        }
-
-        .founder-title {
-            font-size: clamp(32px, 3.5vw, 48px);
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -0.03em;
-            margin-bottom: 32px;
-        }
-
-        .founder-description {
-            font-size: 17px;
-            line-height: 1.8;
-            color: var(--gray-300);
-            margin-bottom: 24px;
-        }
-
-        .founder-stats {
-            display: flex;
-            gap: 40px;
-            margin-top: 32px;
-        }
-
-        .founder-stat {
-            text-align: left;
-        }
-
-        .founder-stat-number {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--accent);
-            line-height: 1;
-        }
-
-        .founder-stat-label {
-            font-size: 13px;
-            color: var(--gray-500);
-            margin-top: 8px;
-        }
-
-        .founder-image-wrapper {
-            position: relative;
-            opacity: 0;
-            transform: translateX(50px);
-        }
-
-        .founder-image-container {
-            position: relative;
-            border-radius: 40px;
-            overflow: hidden;
-            aspect-ratio: 1/1.2;
-            max-width: 300px;
-            margin: 0 auto;
-        }
-
-        .founder-image-container::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            background: var(--gradient-pink-white);
-            border-radius: 40px;
-            z-index: -1;
-            opacity: 1;
-        }
-
-        .founder-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 38px;
         }
 
         /* Premium Marquee */
@@ -858,57 +723,11 @@
             transform: scale(1.05);
         }
 
-        /* General Section Styles */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 48px;
-        }
-
-        .section-header {
-            max-width: 800px;
-            margin: 0 auto 96px;
-            text-align: center;
-        }
-
-        .section-label {
-            display: inline-block;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            background: var(--gradient-pink-white);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 24px;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .section-title {
-            font-size: clamp(40px, 5vw, 64px);
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            margin-bottom: 24px;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .section-description {
-            font-size: 18px;
-            line-height: 1.7;
-            color: var(--gray-400);
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
         /* Video Showcase - Apple Style Carousel */
         .video-showcase {
             position: relative;
             background: var(--gray-950);
-            padding: 120px 0 0;
+            padding: 180px 0;
         }
 
         .video-showcase-wrapper {
@@ -997,19 +816,21 @@
             object-fit: cover;
         }
 
-        .video-overlay-apple {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.9) 100%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
+        .video-iframe-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #000;
         }
 
-        .video-card-apple.center .video-overlay-apple {
-            opacity: 1;
+        .video-iframe-wrapper iframe {
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        /* Ensure video controls are visible */
+        .video-iframe-wrapper iframe[src*="controls=true"] {
+            pointer-events: auto;
         }
 
         .play-button-apple {
@@ -1027,6 +848,8 @@
             cursor: pointer;
             transition: all 0.5s var(--ease-out-expo);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            pointer-events: auto;
         }
 
         .video-card-apple.center .play-button-apple {
@@ -1054,6 +877,11 @@
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.8s var(--ease-out-expo);
+        }
+
+        .video-card-apple.center .video-info-apple {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .video-number-apple {
@@ -1139,9 +967,196 @@
             stroke-width: 2;
         }
 
+        /* Founder Section - Updated Stats */
+        .founder {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+            background: var(--black);
+        }
+
+        .founder-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 48px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .founder-text {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        .founder-label {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+
+        .founder-title {
+            font-size: clamp(32px, 3.5vw, 48px);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 32px;
+        }
+
+        .founder-description {
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--gray-300);
+            margin-bottom: 24px;
+        }
+
+        .founder-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+            justify-items: center;
+            text-align: center;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .founder-stat {
+            background: linear-gradient(135deg, var(--gray-950) 0%, var(--gray-900) 100%);
+            border: 1px solid var(--gray-800);
+            border-radius: var(--radius-xl);
+            padding: 32px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s var(--ease-out-expo);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 140px;
+            width: 100%;
+        }
+
+        .founder-stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-pink-white);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s var(--ease-out-expo);
+        }
+
+        .founder-stat:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 0, 128, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 0, 128, 0.1);
+        }
+
+        .founder-stat:hover::before {
+            transform: scaleX(1);
+        }
+
+        .founder-stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            background: var(--gradient-pink-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .founder-stat-label {
+            font-size: 13px;
+            color: var(--gray-400);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .founder-image-wrapper {
+            position: relative;
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        .founder-image-container {
+            position: relative;
+            border-radius: 40px;
+            overflow: hidden;
+            aspect-ratio: 1/1.2;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .founder-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 40px;
+        }
+
+        /* General Section Styles */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+
+        .section-header {
+            max-width: 800px;
+            margin: 0 auto 96px;
+            text-align: center;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: var(--gradient-pink-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .section-title {
+            font-size: clamp(40px, 5vw, 64px);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .section-description {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--gray-400);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
         /* Services Section */
         .services {
-            padding: 120px 0;
+            padding: 180px 0;
             position: relative;
             background: var(--gray-950);
         }
@@ -1295,7 +1310,7 @@
 
         /* Portfolio Section */
         .portfolio {
-            padding: 120px 0;
+            padding: 180px 0;
             position: relative;
         }
 
@@ -1440,7 +1455,7 @@
 
         /* Testimonials - Ultra Modern */
         .testimonials {
-            padding: 120px 0;
+            padding: 180px 0;
             position: relative;
             background: var(--gray-950);
             overflow: hidden;
@@ -1561,9 +1576,9 @@
             color: var(--gray-400);
         }
 
-        /* Contact Section - Updated with Calendly */
+        /* Contact Section - Updated with Social Icons */
         .contact {
-            padding: 120px 0;
+            padding: 180px 0;
             position: relative;
             background: var(--black);
             overflow: hidden;
@@ -1581,7 +1596,7 @@
         }
 
         .contact-heading {
-            font-size: clamp(48px, 6vw, 96px);
+            font-size: clamp(60px, 8vw, 120px);
             font-weight: 700;
             line-height: 0.9;
             letter-spacing: -0.04em;
@@ -1600,38 +1615,42 @@
         }
 
         .contact-main {
-            max-width: 600px;
+            max-width: 100%;
             margin: 0 auto;
         }
 
-        /* Calendly Widget Styles */
-        .calendly-container {
-            margin-bottom: 48px;
+        @media (min-width: 1024px) {
+            .contact-main {
+                max-width: 1140px;
+            }
+        }
+
+        @media (max-width: 1023px) {
+            .contact-main {
+                max-width: 600px;
+            }
+        }
+
+        .calendly-inline-widget {
             opacity: 0;
             transform: translateY(30px);
-        }
-
-        .calendly-wrapper {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--gray-900);
-            border-radius: var(--radius-xl);
-            padding: 16px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s var(--ease-out-expo);
-        }
-
-        .calendly-wrapper:hover {
-            background: rgba(255, 255, 255, 0.03);
-            border-color: var(--gray-800);
         }
 
         /* Contact Info Cards */
         .contact-info-cards {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 24px;
             opacity: 0;
             transform: translateY(30px);
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .contact-info-cards {
+                grid-template-columns: 1fr;
+            }
         }
 
         .contact-info-card {
@@ -1693,6 +1712,69 @@
             font-size: 18px;
             font-weight: 600;
             color: var(--white);
+        }
+
+        /* Social Media Icons */
+        .social-media-icons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 32px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .social-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--gray-950) 0%, var(--gray-900) 100%);
+            border: 1px solid var(--gray-800);
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.4s var(--ease-out-expo);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--gradient-pink-white);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.6s var(--ease-out-expo);
+            opacity: 0.1;
+        }
+
+        .social-icon:hover::before {
+            width: 120%;
+            height: 120%;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-8px) scale(1.1);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(255, 0, 128, 0.3);
+        }
+
+        .social-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--white);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-icon:hover svg {
+            stroke: var(--accent);
         }
 
         /* Contact Background Animation */
@@ -1793,10 +1875,6 @@
                 max-width: 95%;
             }
 
-            .hero-video-container {
-                margin: 40px auto;
-            }
-
             .nav-container {
                 gap: 25px;
             }
@@ -1845,6 +1923,8 @@
 
             .founder-stats {
                 justify-content: center;
+                text-align: center;
+                justify-items: center;
             }
 
             .video-card-apple {
@@ -1901,20 +1981,6 @@
                 font-size: clamp(40px, 10vw, 80px);
             }
 
-            .hero-video-container {
-                margin: 32px auto;
-            }
-
-            .hero-video-wrapper {
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 0, 128, 0.1);
-                border-radius: var(--radius-lg);
-            }
-
-            .hero-video-wrapper::before,
-            .hero-video-wrapper iframe {
-                border-radius: var(--radius-lg);
-            }
-
             .footer-content {
                 flex-direction: column;
                 gap: 24px;
@@ -1925,23 +1991,19 @@
             }
 
             section {
-                padding: 80px 0;
+                padding: 96px 0;
             }
 
             .marquee-item {
                 font-size: 12px;
             }
 
-            .contact-form {
-                padding: 32px;
-            }
-
             .contact-heading {
-                font-size: clamp(36px, 8vw, 64px);
+                font-size: clamp(40px, 10vw, 80px);
             }
 
-            .calendly-wrapper {
-                padding: 16px;
+            .calendly-inline-widget {
+                filter: drop-shadow(0 0 40px rgba(255, 0, 128, 0.3));
             }
 
             .video-carousel {
@@ -1970,16 +2032,37 @@
                 font-size: 14px;
             }
 
+            .video-iframe-wrapper {
+                height: 100%;
+            }
+
             .founder-container {
                 padding: 0 24px;
             }
 
             .founder-stats {
-                gap: 32px;
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+                max-width: 100%;
             }
 
             .founder-stat-number {
-                font-size: 36px;
+                font-size: 32px;
+            }
+
+            .social-media-icons {
+                gap: 12px;
+            }
+
+            .social-icon {
+                width: 56px;
+                height: 56px;
+            }
+
+            .social-icon svg {
+                width: 24px;
+                height: 24px;
             }
         }
     </style>
@@ -2042,18 +2125,6 @@
                 Od prvního nápadu po poslední střih tvoříme obsah, který si lidé zapamatují
                 a značky díky němu rostou.
             </p>
-            <div class="hero-video-container">
-                <div class="hero-video-wrapper">
-                    <iframe 
-                        src="https://www.youtube.com/embed/R1FZ5vVzWiI" 
-                        width="100%" 
-                        height="100%" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
             <div class="hero-actions">
                 <a href="#contact" class="btn btn-primary">Pojďme tvořit společně</a>
             </div>
@@ -2061,48 +2132,6 @@
         <div class="scroll-indicator">
             <span class="scroll-text">Scroll</span>
             <div class="scroll-line"></div>
-        </div>
-    </section>
-
-    <!-- Founder Section -->
-    <section class="founder" id="founder">
-        <div class="founder-container">
-            <div class="founder-text">
-                <span class="founder-label">Můj příběh</span>
-                <h2 class="founder-title">
-                    Od <span class="text-gradient">vášně k videu</span><br>
-                    k prémiové agentuře
-                </h2>
-                <p class="founder-description">
-                    Za Zanda Visuals stojím já - mladý kreativec, který věří, že každé video má potenciál změnit svět. 
-                    Začal jsem v roce 2022 s jednou kamerou a nekonečnou vášní pro storytelling. 
-                    Dnes vytvářím obsah pro největší české influencery a značky.
-                </p>
-                <p class="founder-description">
-                    Nejsem jen další video agentura – jsem partner, který rozumí digitálnímu světu a ví, 
-                    jak v něm vyniknout. Každý projekt beru osobně a každé video dělám tak, 
-                    jako by bylo mé vlastní.
-                </p>
-                <div class="founder-stats">
-                    <div class="founder-stat">
-                        <div class="founder-stat-number">500M+</div>
-                        <div class="founder-stat-label">Zhlédnutí celkem</div>
-                    </div>
-                    <div class="founder-stat">
-                        <div class="founder-stat-number">3+</div>
-                        <div class="founder-stat-label">Roky zkušeností</div>
-                    </div>
-                    <div class="founder-stat">
-                        <div class="founder-stat-number">50+</div>
-                        <div class="founder-stat-label">Spokojených klientů</div>
-                    </div>
-                </div>
-            </div>
-            <div class="founder-image-wrapper">
-                <div class="founder-image-container">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop&auto=format&q=80" alt="Zakladatel Zanda Visuals" class="founder-image">
-                </div>
-            </div>
         </div>
     </section>
 
@@ -2155,107 +2184,128 @@
             <div class="video-carousel">
                 <div class="video-carousel-track" id="videoCarousel">
                     <div class="video-card-apple center" data-index="0">
-                        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&h=800&fit=crop&auto=format&q=80" alt="Fashion Week Praha" class="video-thumbnail-apple">
-                        <div class="video-overlay-apple"></div>
-                        <div class="play-button-apple">
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
+                            <iframe
+                                id="cloudflare-video-0"
+                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/dd2f0a80b4e82209116065e52da99461/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
+                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
+                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                allowfullscreen="true">
+                            </iframe>
+                            <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/2dcf2a24-a1c5-4e86-050b-5c7a6fb97600/public" alt="Showreel Zanda Visuals" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="play-button-apple" onclick="playCloudflareVideo(0)">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
-                        </div>
-                        <div class="video-info-apple">
-                            <div class="video-number-apple">01</div>
-                            <h3 class="video-title-apple">Fashion Week Praha 2024</h3>
-                            <p class="video-description-apple">Zachytili jsme atmosféru nejprestižnější módní události roku</p>
                         </div>
                     </div>
 
                     <div class="video-card-apple right-1" data-index="1">
-                        <img src="https://images.unsplash.com/photo-1524634126442-357e0eac3c14?w=600&h=800&fit=crop&auto=format&q=80" alt="Red Bull Sports" class="video-thumbnail-apple">
-                        <div class="video-overlay-apple"></div>
-                        <div class="play-button-apple">
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
+                            <iframe
+                                id="cloudflare-video-1"
+                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/77e18e1e562cd91a8aa93affd601cf05/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
+                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
+                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                allowfullscreen="true">
+                            </iframe>
+                            <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/8fc1e2b6-64ad-4197-b229-0797f4013600/public" alt="Video 2" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="play-button-apple" onclick="playCloudflareVideo(1)">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
-                        </div>
-                        <div class="video-info-apple">
-                            <div class="video-number-apple">02</div>
-                            <h3 class="video-title-apple">Red Bull Extreme Sports</h3>
-                            <p class="video-description-apple">Adrenalinová jízda plná extrémních sportů</p>
                         </div>
                     </div>
 
                     <div class="video-card-apple right-2" data-index="2">
-                        <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=800&fit=crop&auto=format&q=80" alt="Tary Music Video" class="video-thumbnail-apple">
-                        <div class="video-overlay-apple"></div>
-                        <div class="play-button-apple">
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
+                            <iframe
+                                id="cloudflare-video-2"
+                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/145c0ff903bab04c91978a84b54d5b93/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
+                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
+                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                allowfullscreen="true">
+                            </iframe>
+                            <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/dc8beb30-d7ff-4cc1-9587-f7492852c000/public" alt="Video 3" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="play-button-apple" onclick="playCloudflareVideo(2)">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
-                        </div>
-                        <div class="video-info-apple">
-                            <div class="video-number-apple">03</div>
-                            <h3 class="video-title-apple">Tary Music Video</h3>
-                            <p class="video-description-apple">Vizuálně ohromující hudební videoklip</p>
                         </div>
                     </div>
 
                     <div class="video-card-apple hidden" data-index="3">
-                        <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=600&h=800&fit=crop&auto=format&q=80" alt="Comic Con Aftermovie" class="video-thumbnail-apple">
-                        <div class="video-overlay-apple"></div>
-                        <div class="play-button-apple">
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
+                            <iframe
+                                id="cloudflare-video-3"
+                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/bb8576d7faa4cd2489589339f23bee52/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
+                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
+                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                allowfullscreen="true">
+                            </iframe>
+                            <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/8169492a-afa9-42c0-c5a5-849ac27e1400/public" alt="Video 4" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="play-button-apple" onclick="playCloudflareVideo(3)">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
-                        </div>
-                        <div class="video-info-apple">
-                            <div class="video-number-apple">04</div>
-                            <h3 class="video-title-apple">Comic Con Prague Aftermovie</h3>
-                            <p class="video-description-apple">Oficiální aftermovie největší popkulturní události</p>
                         </div>
                     </div>
 
                     <div class="video-card-apple hidden" data-index="4">
-                        <img src="https://images.unsplash.com/photo-1626447857058-2ba6a8868cb5?w=600&h=800&fit=crop&auto=format&q=80" alt="Luxusní kampaň" class="video-thumbnail-apple">
-                        <div class="video-overlay-apple"></div>
-                        <div class="play-button-apple">
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
+                            <iframe
+                                id="cloudflare-video-4"
+                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/d19b73b9457e3c5bed572ba35473a184/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
+                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
+                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                allowfullscreen="true">
+                            </iframe>
+                            <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/e035984b-a007-4cb9-6050-ddec5c387700/public" alt="Video 5" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="play-button-apple" onclick="playCloudflareVideo(4)">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
-                        </div>
-                        <div class="video-info-apple">
-                            <div class="video-number-apple">05</div>
-                            <h3 class="video-title-apple">Luxusní kampaň pro značku</h3>
-                            <p class="video-description-apple">Prémiová reklamní kampaň s hollywoodskou produkcí</p>
                         </div>
                     </div>
 
                     <div class="video-card-apple left-2" data-index="5">
-                        <img src="https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?w=600&h=800&fit=crop&auto=format&q=80" alt="YouTube série" class="video-thumbnail-apple">
-                        <div class="video-overlay-apple"></div>
-                        <div class="play-button-apple">
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
+                            <iframe
+                                id="cloudflare-video-5"
+                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/eac60b5b2cde02cb5e881e9749f3be5c/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
+                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
+                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                allowfullscreen="true">
+                            </iframe>
+                            <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/2da731c7-37e4-4bf3-cf29-ee6552eb9500/public" alt="Video 6" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="play-button-apple" onclick="playCloudflareVideo(5)">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
-                        </div>
-                        <div class="video-info-apple">
-                            <div class="video-number-apple">06</div>
-                            <h3 class="video-title-apple">YouTube série - kompletní produkce</h3>
-                            <p class="video-description-apple">Od nápadu po realizaci celé YouTube série</p>
                         </div>
                     </div>
 
                     <div class="video-card-apple left-1" data-index="6">
-                        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&h=800&fit=crop&auto=format&q=80" alt="Fashion Week Praha" class="video-thumbnail-apple">
-                        <div class="video-overlay-apple"></div>
-                        <div class="play-button-apple">
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
+                            <iframe
+                                id="cloudflare-video-6"
+                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/093540beabc63f35494667def3b1b9c1/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
+                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
+                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                                allowfullscreen="true">
+                            </iframe>
+                            <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/3621e7b1-dd97-43aa-e10f-54fe6b2d7400/public" alt="Video 7" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="play-button-apple" onclick="playCloudflareVideo(6)">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
-                        </div>
-                        <div class="video-info-apple">
-                            <div class="video-number-apple">01</div>
-                            <h3 class="video-title-apple">Fashion Week Praha 2024</h3>
-                            <p class="video-description-apple">Zachytili jsme atmosféru nejprestižnější módní události roku</p>
                         </div>
                     </div>
                 </div>
@@ -2274,12 +2324,60 @@
                     <span class="video-nav-dot" onclick="goToSlide(3)"></span>
                     <span class="video-nav-dot" onclick="goToSlide(4)"></span>
                     <span class="video-nav-dot" onclick="goToSlide(5)"></span>
+                    <span class="video-nav-dot" onclick="goToSlide(6)"></span>
                 </div>
                 <button class="video-nav-arrow" onclick="navigateCarousel('next')">
                     <svg viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                     </svg>
                 </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="founder" id="founder">
+        <div class="founder-container">
+            <div class="founder-text">
+                <span class="founder-label">Můj příběh</span>
+                <h2 class="founder-title">
+                    Z <span class="text-gradient">editora videí</span><br>
+                    až k vlastní agentuře
+                </h2>
+                <p class="founder-description">
+                    Za Zanda Visuals stojím já – mladý kreativec, který se rozhodl jít proti proudu. 
+		    Ve třetím ročníku jsem odešel z Gymnázia, protože jsem věděl, že moje cesta vede jinam. 
+                    Místo školy jsem začal tvořit.
+                </p>
+                <p class="founder-description">
+                    Stříhat jsem začal pro YouTubery, influencery a marketingové agentury. 
+		    Každej den jsem se učil něco novýho, ladil detaily a posouval svůj skill – střih už pro mě nebyl jen práce, ale zbraň pro budování brandu.
+                </p>
+		<p class="founder-description">
+                    Dnes tvořím ty nejostřejší videa pro značky a influencery, kteří chtějí být vidět. 
+                    Nejde jen o efekty – pomáhám jim budovat osobní značku, příběh, která prodává a zanechá dojem. 
+                    Každý projekt beru jako svůj vlastní. 
+                    Styl, vibe, message – všechno musí sedět.
+                </p>
+                <div class="founder-stats">
+                    <div class="founder-stat">
+                        <div class="founder-stat-number">500M+</div>
+                        <div class="founder-stat-label">Zhlédnutí celkem</div>
+                    </div>
+                    <div class="founder-stat">
+                        <div class="founder-stat-number">3+</div>
+                        <div class="founder-stat-label">Roky zkušeností</div>
+                    </div>
+                    <div class="founder-stat">
+                        <div class="founder-stat-number">50+</div>
+                        <div class="founder-stat-label">Spokojených klientů</div>
+                    </div>
+                </div>
+            </div>
+            <div class="founder-image-wrapper">
+                <div class="founder-image-container">
+                    <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/d839e1f4-9c32-4ba9-9981-d4c86253fd00/public" alt="Zakladatel Zanda Visuals" class="founder-image">
+                </div>
             </div>
         </div>
     </section>
@@ -2299,18 +2397,17 @@
                     <div class="service-icon">
                         <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=400&fit=crop&auto=format&q=80" alt="Editace">
                     </div>
-                    <h3 class="service-title">Editace & Střih</h3>
+                    <h3 class="service-title">Editting</h3>
                     <p class="service-description">
-                        Profesionální střih videí pro všechny platformy. Od YouTube videí po Instagram Reels - vytvoříme obsah, který zaujme.
+                        Dynamický střih, plynulé přechody, precizní color grading a motion design, co drží oči na obrazovce. Vytváříme videa, která baví, prodávají a dávají smysl od první do poslední sekundy.
                     </p>
                     <ul class="service-features">
-                        <li>YouTube videa (long-form)</li>
-                        <li>Instagram Reels & TikToky</li>
-                        <li>Podcast střih</li>
-                        <li>Reklamní spoty</li>
-                        <li>Hudební videoklipy</li>
-                        <li>Event aftermovies</li>
-                        <li>Vzdělávací obsah</li>
+                        <li>Kreativní a rytmický střih (pro social, YouTube, reklamy)</li>
+                        <li>Cinematický color grading podle brandu nebo moodu</li>
+                        <li>Animace, efekty & přechody na míru</li>
+                        <li>Kinetic typografie a dynamické titulky</li>
+                        <li>Sound design & hudební layering</li>
+                        <li>Adaptace pro různé platformy (Ig, Yt, TikTok)</li>
                     </ul>
                     <button class="service-toggle" onclick="toggleService(this)">
                         <span>Zobrazit více</span>
@@ -2322,18 +2419,20 @@
                     <div class="service-icon">
                         <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=400&fit=crop&auto=format&q=80" alt="Motion Design">
                     </div>
-                    <h3 class="service-title">Motion Design</h3>
+                    <h3 class="service-title">Branding</h3>
                     <p class="service-description">
-                        Oživíme vaše videa animacemi a efekty. Od jednoduchých titulků po komplexní 3D animace.
+                        Nejde jen o to, jak tvoje videa vypadají – ale proč tak vypadají. Pomůžeme ti vybudovat silnou značku s jasnou strategií, vizuální identitou a stylem, který si lidi zamilují (a zapamatují).
                     </p>
                     <ul class="service-features">
-                        <li>Animated logo reveals</li>
-                        <li>Kinetic typography</li>
-                        <li>Infografiky</li>
-                        <li>Lower thirds</li>
-                        <li>Transitions & efekty</li>
-                        <li>3D animace</li>
-                        <li>Character animation</li>
+                        <li>Strategický rozbor značky a cílovky</li>
+                        <li>Tvorba vizuální identity (barvy, fonty, styl)</li>
+                        <li>Úvodní animace & logo reveals</li>
+                        <li>Šablony na míru pro Reels, Shorts i YouTube</li>
+                        <li>Brandová typografie & grafické prvky</li>
+                        <li>Intros/outros s konzistentní estetikou</li>
+                        <li>Video style guide pro tvůj tým nebo editory</li>
+			<li>Story & tone-of-voice strategie</li>
+                        <li>Kreativní směr – jak tvoje značka působí</li>
                     </ul>
                     <button class="service-toggle" onclick="toggleService(this)">
                         <span>Zobrazit více</span>
@@ -2345,18 +2444,18 @@
                     <div class="service-icon">
                         <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=400&fit=crop&auto=format&q=80" alt="Color Grading">
                     </div>
-                    <h3 class="service-title">Color Grading</h3>
+                    <h3 class="service-title">Skriptování</h3>
                     <p class="service-description">
-                        Profesionální barevné korekce a grading. Dodáme vašim videím jedinečný vizuální styl.
+                        Vizuální storytelling začíná na papíře. Pomůžeme ti vytvořit scénář, který zaujme, udrží pozornost a přiměje k akci.
                     </p>
                     <ul class="service-features">
-                        <li>Barevná korekce</li>
-                        <li>Kreativní color grading</li>
-                        <li>LUT creation</li>
-                        <li>Film emulation</li>
-                        <li>HDR grading</li>
-                        <li>Skin tone correction</li>
-                        <li>Style matching</li>
+                        <li>Skripty pro Reels & TikTok</li>
+                        <li>YouTube skripty (včetně hooků a CTA)</li>
+                        <li>Kreativní koncepty pro kampaně</li>
+                        <li>Storyboardy a moodboardy</li>
+                        <li>Texty do videí a voiceovery</li>
+                        <li>Struktura a rytmus scénáře</li>
+                        <li>Strategie pro retention</li>
                     </ul>
                     <button class="service-toggle" onclick="toggleService(this)">
                         <span>Zobrazit více</span>
@@ -2532,11 +2631,10 @@
                 </div>
 
                 <div class="contact-main">
-                    <div class="calendly-container">
-                        <div class="calendly-wrapper">
-                            <div class="calendly-inline-widget" data-url="https://calendly.com/zandavisuals/30min" style="min-width:320px;height:500px;border-radius: var(--radius-xl);overflow:hidden;"></div>
-                        </div>
-                    </div>
+                    <!-- Calendly inline widget begin -->
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/zandavisuals/30min" style="min-width:320px;height:700px;margin-bottom:48px;"></div>
+                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                    <!-- Calendly inline widget end -->
 
                     <div class="contact-info-cards">
                         <a href="mailto:hello@zandavisuals.cz" class="contact-info-card">
@@ -2547,7 +2645,7 @@
                             </div>
                             <div class="contact-info-content">
                                 <div class="contact-info-label">Email</div>
-                                <div class="contact-info-value">hello@zandavisuals.cz</div>
+                                <div class="contact-info-value">kontakt@zandavisuals.cz</div>
                             </div>
                         </a>
 
@@ -2559,22 +2657,31 @@
                             </div>
                             <div class="contact-info-content">
                                 <div class="contact-info-label">Telefon</div>
-                                <div class="contact-info-value">+420 123 456 789</div>
+                                <div class="contact-info-value">+420 792 756 329</div>
                             </div>
                         </a>
+                    </div>
 
-                        <a href="https://instagram.com/zandavisuals" target="_blank" class="contact-info-card">
-                            <div class="contact-info-icon">
-                                <svg viewBox="0 0 24 24">
-                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"/>
-                                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke-width="2"/>
-                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2" stroke-linecap="round"/>
-                                </svg>
-                            </div>
-                            <div class="contact-info-content">
-                                <div class="contact-info-label">Instagram</div>
-                                <div class="contact-info-value">@zandavisuals</div>
-                            </div>
+                    <div class="social-media-icons">
+                        <a href="https://instagram.com/zandavisuals" target="_blank" class="social-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                                <path d="m15.5 8.5-.01 0"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/zandavfx/" target="_blank" class="social-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect width="4" height="12" x="2" y="9"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@ZandaVFX" target="_blank" class="social-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/>
+                                <path d="m10 15 5-3-5-3z"/>
+                            </svg>
                         </a>
                     </div>
                 </div>
@@ -2693,9 +2800,96 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
+        // Stop all videos helper function
+        function stopAllVideos() {
+            // Array of all video IDs and their corresponding URLs
+            const videos = [
+                {
+                    id: 'cloudflare-video-0',
+                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/dd2f0a80b4e82209116065e52da99461/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
+                },
+                {
+                    id: 'cloudflare-video-1',
+                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/77e18e1e562cd91a8aa93affd601cf05/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
+                },
+                {
+                    id: 'cloudflare-video-2',
+                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/145c0ff903bab04c91978a84b54d5b93/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
+                },
+                {
+                    id: 'cloudflare-video-3',
+                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/bb8576d7faa4cd2489589339f23bee52/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
+                },
+                {
+                    id: 'cloudflare-video-4',
+                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/d19b73b9457e3c5bed572ba35473a184/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
+                },
+                {
+                    id: 'cloudflare-video-5',
+                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/eac60b5b2cde02cb5e881e9749f3be5c/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
+                },
+                {
+                    id: 'cloudflare-video-6',
+                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/093540beabc63f35494667def3b1b9c1/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
+                }
+            ];
+
+            videos.forEach(video => {
+                const iframe = document.getElementById(video.id);
+                if (iframe && iframe.style.opacity === '1') {
+                    const thumbnail = iframe.parentElement.querySelector('.video-thumbnail-apple');
+                    const playButton = iframe.parentElement.parentElement.querySelector('.play-button-apple');
+                    
+                    // Create a new iframe to replace the old one
+                    const newIframe = iframe.cloneNode(false);
+                    newIframe.src = video.src;
+                    newIframe.style.opacity = '0';
+                    
+                    // Replace the iframe
+                    iframe.parentNode.replaceChild(newIframe, iframe);
+                    
+                    // Show thumbnail and play button again
+                    if (thumbnail) {
+                        thumbnail.style.display = 'block';
+                    }
+                    if (playButton) {
+                        playButton.style.display = 'flex';
+                    }
+                }
+            });
+        }
+
         // Custom Cursor
         const cursor = document.querySelector('.cursor');
         const cursorFollower = document.querySelector('.cursor-follower');
+
+        // Function to play Cloudflare video
+        function playCloudflareVideo(index) {
+            // First stop all other videos
+            stopAllVideos();
+            
+            const iframe = document.getElementById('cloudflare-video-' + index);
+            const thumbnail = iframe.parentElement.querySelector('.video-thumbnail-apple');
+            const playButton = iframe.parentElement.parentElement.querySelector('.play-button-apple');
+            
+            // Check if the video card is still center
+            const videoCard = iframe.closest('.video-card-apple');
+            if (!videoCard || !videoCard.classList.contains('center')) {
+                return; // Don't play if not center
+            }
+            
+            // Hide thumbnail and play button
+            if (thumbnail) {
+                thumbnail.style.display = 'none';
+            }
+            if (playButton) {
+                playButton.style.display = 'none';
+            }
+            
+            // Show iframe with controls - DO NOT autoplay
+            iframe.style.opacity = '1';
+            // Keep autoplay=false always
+        }
 
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
@@ -2778,8 +2972,8 @@
 
         // Apple Style Video Carousel
         let currentSlide = 0;
-        const totalSlides = 7; // 0-6 including duplicates
-        const actualSlides = 6; // 0-5 actual unique videos
+        const totalSlides = 7; // 0-6 including all videos
+        const actualSlides = 7; // 0-6 actual unique videos
         let isTransitioning = false;
 
         function updateCarousel() {
@@ -2793,13 +2987,13 @@
 
                 if (position === 0) {
                     card.classList.add('center');
-                } else if (position === 1 || position === totalSlides - 6) {
+                } else if (position === 1) {
                     card.classList.add('right-1');
-                } else if (position === 2 || position === totalSlides - 5) {
+                } else if (position === 2) {
                     card.classList.add('right-2');
-                } else if (position === totalSlides - 1 || position === 6) {
+                } else if (position === totalSlides - 1) {
                     card.classList.add('left-1');
-                } else if (position === totalSlides - 2 || position === 5) {
+                } else if (position === totalSlides - 2) {
                     card.classList.add('left-2');
                 } else {
                     card.classList.add('hidden');
@@ -2807,15 +3001,17 @@
             });
 
             // Update dots
-            const actualSlideIndex = currentSlide % actualSlides;
             dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === actualSlideIndex);
+                dot.classList.toggle('active', index === currentSlide);
             });
         }
 
         function navigateCarousel(direction) {
             if (isTransitioning) return;
             isTransitioning = true;
+
+            // Stop any playing videos when changing slides
+            stopAllVideos();
 
             if (direction === 'next') {
                 currentSlide = (currentSlide + 1) % totalSlides;
@@ -2832,26 +3028,42 @@
 
         function goToSlide(index) {
             if (isTransitioning) return;
+            
+            // Stop any playing videos when changing slides
+            stopAllVideos();
+            
             currentSlide = index;
             updateCarousel();
         }
 
-        // Auto-play carousel
-        let carouselInterval = setInterval(() => {
-            navigateCarousel('next');
-        }, 5000);
+        // Auto-play carousel - DISABLED
+        // let carouselInterval = setInterval(() => {
+        //     // Check if video is playing before auto-advancing
+        //     const iframe = document.getElementById('cloudflare-video-0');
+        //     if (iframe && iframe.style.opacity === '1') {
+        //         // Video is playing, skip auto-advance
+        //         return;
+        //     }
+        //     navigateCarousel('next');
+        // }, 5000);
 
-        // Pause on hover
+        // Pause on hover - NO LONGER NEEDED
         const videoCarousel = document.querySelector('.video-carousel');
-        videoCarousel.addEventListener('mouseenter', () => {
-            clearInterval(carouselInterval);
-        });
+        // videoCarousel.addEventListener('mouseenter', () => {
+        //     clearInterval(carouselInterval);
+        // });
 
-        videoCarousel.addEventListener('mouseleave', () => {
-            carouselInterval = setInterval(() => {
-                navigateCarousel('next');
-            }, 5000);
-        });
+        // videoCarousel.addEventListener('mouseleave', () => {
+        //     carouselInterval = setInterval(() => {
+        //         // Check if video is playing before auto-advancing
+        //         const iframe = document.getElementById('cloudflare-video-0');
+        //         if (iframe && iframe.style.opacity === '1') {
+        //             // Video is playing, skip auto-advance
+        //             return;
+        //         }
+        //         navigateCarousel('next');
+        //     }, 5000);
+        // });
 
         // Touch support for carousel
         let touchStartX = 0;
@@ -2871,6 +3083,9 @@
             const diff = touchStartX - touchEndX;
 
             if (Math.abs(diff) > swipeThreshold) {
+                // Stop any playing videos before swiping
+                stopAllVideos();
+                
                 if (diff > 0) {
                     navigateCarousel('next');
                 } else {
@@ -2882,8 +3097,24 @@
         // Initialize carousel
         updateCarousel();
 
+        // Stop video when page loses visibility
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopAllVideos();
+            }
+        });
+
         // Initialize animations
         function initAnimations() {
+            // Stop video when scrolling out of video showcase section
+            ScrollTrigger.create({
+                trigger: '.video-showcase',
+                start: 'top bottom',
+                end: 'bottom top',
+                onLeave: () => stopAllVideos(),
+                onLeaveBack: () => stopAllVideos()
+            });
+
             // Hero animations
             const heroTimeline = gsap.timeline();
 
@@ -2902,12 +3133,6 @@
                     ease: 'power3.out'
                 }, '-=0.4')
                 .to('.hero-description', {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    ease: 'power3.out'
-                }, '-=0.4')
-                .to('.hero-video-container', {
                     opacity: 1,
                     y: 0,
                     duration: 0.8,
@@ -3038,7 +3263,7 @@
                 delay: 0.2
             });
 
-            gsap.to('.calendly-container', {
+            gsap.to('.calendly-inline-widget', {
                 opacity: 1,
                 y: 0,
                 duration: 1,
@@ -3061,16 +3286,34 @@
                 delay: 0.2
             });
 
+            gsap.to('.social-media-icons', {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.contact-main',
+                    start: 'top 80%'
+                },
+                delay: 0.4
+            });
+
             // Counter animation for founder stats
             const statNumbers = document.querySelectorAll('.founder-stat-number');
             statNumbers.forEach(stat => {
                 const value = stat.textContent;
-                const number = parseInt(value.replace(/\D/g, ''));
-                const suffix = value.replace(/[0-9]/g, '');
+                const hasM = value.includes('M');
+                const hasPlus = value.includes('+');
+                let number = parseInt(value.replace(/\D/g, ''));
+                let suffix = '';
+                
+                if (hasM) suffix = 'M';
+                if (hasPlus) suffix += '+';
 
                 ScrollTrigger.create({
                     trigger: stat,
                     start: 'top 80%',
+                    once: true,
                     onEnter: () => {
                         gsap.fromTo(stat, {
                             textContent: 0
