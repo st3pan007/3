@@ -1018,7 +1018,7 @@
         .founder-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 20px;
             margin-top: 48px;
             justify-items: center;
             text-align: center;
@@ -1244,6 +1244,7 @@
         }
 
         .service-title {
+	    font-family: var(--font-sans);
             font-size: 24px;
             font-weight: 600;
             margin-bottom: 16px;
@@ -1596,7 +1597,7 @@
         }
 
         .contact-heading {
-            font-size: clamp(60px, 8vw, 120px);
+            font-size: clamp(30px, 8vw, 100px);
             font-weight: 700;
             line-height: 0.9;
             letter-spacing: -0.04em;
@@ -1609,7 +1610,7 @@
             font-size: 24px;
             line-height: 1.6;
             color: var(--gray-300);
-            margin-bottom: 96px;
+            margin-bottom: 50px;
             opacity: 0;
             transform: translateY(30px);
         }
@@ -1631,7 +1632,7 @@
             }
         }
 
-        .calendly-inline-widget {
+	.calendly-inline-widget {
             opacity: 0;
             transform: translateY(30px);
         }
@@ -2002,8 +2003,8 @@
                 font-size: clamp(40px, 10vw, 80px);
             }
 
-            .calendly-inline-widget {
-                filter: drop-shadow(0 0 40px rgba(255, 0, 128, 0.3));
+            .calendly-wrapper {
+                padding: 16px;
             }
 
             .video-carousel {
@@ -2138,36 +2139,34 @@
     <section class="marquee-section">
         <div class="marquee-container">
             <div class="marquee-track">
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Kuba%20English.jpg" alt="Kuba English" class="client-avatar">KUBA ENGLISH</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/English%20pro%20d%C4%9Bti.jpg" alt="English pro děti" class="client-avatar">ENGLISH PRO DĚTI</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Adam%20Tran.jpg" alt="Adam Tran" class="client-avatar">ADAM TRAN</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Tary.jpg" alt="Tary" class="client-avatar">TARY</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Tary%20Reakce.jpg" alt="Tary Reakce" class="client-avatar">TARY REAKCE</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/St%C3%A1%C5%88a%20kan%C3%A1l.jpg" alt="Stáňa kanál" class="client-avatar">STÁŇA KANÁL</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Pan%20%C4%8Cung.jpg" alt="Pan Čung" class="client-avatar">PAN ČUNG</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Comic-Con%20Prague.jpg" alt="Comic Con" class="client-avatar">COMIC CON</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Letenky%20od%20Kuby.jpg" alt="Letenky od Kuby" class="client-avatar">LETENKY OD KUBY</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Wabi%20Sabi.jpg" alt="Wabi Sabi Podcast" class="client-avatar">WABI SABI PODCAST</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Gorillaspace.jpg" alt="Gorilla Space" class="client-avatar">GORILLA SPACE</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Spasitelka%20TikToku.jpg" alt="Spasitelka TikToku" class="client-avatar">SPASITELKA TIKTOKU</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Raego.jpg" alt="Raego" class="client-avatar">RAEGO</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Cashflow%20Brno.jpg" alt="Cashflow Brno" class="client-avatar">CASHFLOW BRNO</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Radek%20Petr%C3%A1%C5%A1.jpg" alt="Radek Petráš" class="client-avatar">RADEK PETRÁŠ</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Kuba%20English.jpg" alt="Kuba English" class="client-avatar">KUBA ENGLISH</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/English%20pro%20d%C4%9Bti.jpg" alt="English pro děti" class="client-avatar">ENGLISH PRO DĚTI</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Adam%20Tran.jpg" alt="Adam Tran" class="client-avatar">ADAM TRAN</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Tary.jpg" alt="Tary" class="client-avatar">TARY</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Tary%20Reakce.jpg" alt="Tary Reakce" class="client-avatar">TARY REAKCE</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/St%C3%A1%C5%88a%20kan%C3%A1l.jpg" alt="Stáňa kanál" class="client-avatar">STÁŇA KANÁL</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Pan%20%C4%8Cung.jpg" alt="Pan Čung" class="client-avatar">PAN ČUNG</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Comic-Con%20Prague.jpg" alt="Comic Con" class="client-avatar">COMIC CON</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Letenky%20od%20Kuby.jpg" alt="Letenky od Kuby" class="client-avatar">LETENKY OD KUBY</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Wabi%20Sabi.jpg" alt="Wabi Sabi Podcast" class="client-avatar">WABI SABI PODCAST</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Gorillaspace.jpg" alt="Gorilla Space" class="client-avatar">GORILLA SPACE</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Spasitelka%20TikToku.jpg" alt="Spasitelka TikToku" class="client-avatar">SPASITELKA TIKTOKU</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Raego.jpg" alt="Raego" class="client-avatar">RAEGO</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Cashflow%20Brno.jpg" alt="Cashflow Brno" class="client-avatar">CASHFLOW BRNO</span>
-                <span class="marquee-item"><img src="https://raw.githubusercontent.com/st3pan007/3/main/images/Radek%20Petr%C3%A1%C5%A1.jpg" alt="Radek Petráš" class="client-avatar">RADEK PETRÁŠ</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/28062a8f-5d11-4693-3afc-638b7f33be00/public" alt="Kuba English" class="client-avatar">KUBA ENGLISH</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/74fd0950-c051-46c3-952b-25aaecbd1b00/public" alt="English pro děti" class="client-avatar">ENGLISH PRO DĚTI</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/b99a2b36-78e5-40ff-8ab2-9afcf2e95700/public" alt="Tary" class="client-avatar">TARY</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/5bb61f11-b954-4edc-33ff-553bc85a8700/public" alt="Tary Reakce" class="client-avatar">TARY REAKCE</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/451a4b1b-f346-4f6f-00a5-71b00fb4b000/public" alt="Stáňa kanál" class="client-avatar">STÁŇA KANÁL</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/0ef82ec9-336a-4cfc-b33a-ccfb4568df00/public" alt="Pan Čung" class="client-avatar">PAN ČUNG</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/fa2e2df3-ac40-4476-39db-f3c7ed8c6900/public" alt="Comic Con" class="client-avatar">COMIC CON</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/e648b648-a3e8-48d5-c039-e86037206a00/public" alt="Letenky od Kuby" class="client-avatar">LETENKY OD KUBY</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/19764afd-2a6d-4e2d-c431-efbc4efac600/public" alt="Wabi Sabi Podcast" class="client-avatar">WABI SABI PODCAST</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/76eb99c6-4c77-41e9-446d-a9c08da16700/public" alt="Gorilla Space" class="client-avatar">GORILLA SPACE</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/846f90b0-e43b-4e2e-d2fc-099a6e673100/public" alt="Spasitelka TikToku" class="client-avatar">SPASITELKA TIKTOKU</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/2b86b501-537a-443a-ccec-a4f37081d100/public" alt="Raego" class="client-avatar">RAEGO</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/04d95fbc-4a43-4867-bcd0-65a6d8d5e500/public" alt="Cashflow Brno" class="client-avatar">CASHFLOW BRNO</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/49e2fcd6-260f-4e41-6b65-7e5d0ac41000/public" alt="Radek Petráš" class="client-avatar">RADEK PETRÁŠ</span>
+		<span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/28062a8f-5d11-4693-3afc-638b7f33be00/public" alt="Kuba English" class="client-avatar">KUBA ENGLISH</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/74fd0950-c051-46c3-952b-25aaecbd1b00/public" alt="English pro děti" class="client-avatar">ENGLISH PRO DĚTI</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/b99a2b36-78e5-40ff-8ab2-9afcf2e95700/public" alt="Tary" class="client-avatar">TARY</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/5bb61f11-b954-4edc-33ff-553bc85a8700/public" alt="Tary Reakce" class="client-avatar">TARY REAKCE</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/451a4b1b-f346-4f6f-00a5-71b00fb4b000/public" alt="Stáňa kanál" class="client-avatar">STÁŇA KANÁL</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/0ef82ec9-336a-4cfc-b33a-ccfb4568df00/public" alt="Pan Čung" class="client-avatar">PAN ČUNG</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/fa2e2df3-ac40-4476-39db-f3c7ed8c6900/public" alt="Comic Con" class="client-avatar">COMIC CON</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/e648b648-a3e8-48d5-c039-e86037206a00/public" alt="Letenky od Kuby" class="client-avatar">LETENKY OD KUBY</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/19764afd-2a6d-4e2d-c431-efbc4efac600/public" alt="Wabi Sabi Podcast" class="client-avatar">WABI SABI PODCAST</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/76eb99c6-4c77-41e9-446d-a9c08da16700/public" alt="Gorilla Space" class="client-avatar">GORILLA SPACE</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/846f90b0-e43b-4e2e-d2fc-099a6e673100/public" alt="Spasitelka TikToku" class="client-avatar">SPASITELKA TIKTOKU</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/2b86b501-537a-443a-ccec-a4f37081d100/public" alt="Raego" class="client-avatar">RAEGO</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/04d95fbc-4a43-4867-bcd0-65a6d8d5e500/public" alt="Cashflow Brno" class="client-avatar">CASHFLOW BRNO</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/49e2fcd6-260f-4e41-6b65-7e5d0ac41000/public" alt="Radek Petráš" class="client-avatar">RADEK PETRÁŠ</span>
             </div>
         </div>
     </section>
@@ -2631,10 +2630,35 @@
                 </div>
 
                 <div class="contact-main">
-                    <!-- Calendly inline widget begin -->
-                    <div class="calendly-inline-widget" data-url="https://calendly.com/zandavisuals/30min" style="min-width:320px;height:700px;margin-bottom:48px;"></div>
-                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                    <!-- Calendly inline widget end -->
+                    <div class="calendly-container">
+                        <div class="calendly-wrapper">
+                            <!-- Calendly inline widget begin -->
+                            <div class="calendly-inline-widget" data-url="https://calendly.com/zandavisuals/30min" style="min-width:320px;height:700px;"></div>
+                            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                            <style>
+                                /* Desktop/Notebook styles */
+                                @media (min-width: 1024px) {
+                                    .calendly-inline-widget {
+                                        width: 1105px !important;
+                                        max-width: 100% !important;
+                                        margin: 0 auto !important;
+                                    }
+                                    
+                                    .calendly-wrapper {
+                                        max-width: 1140px !important;
+                                        margin: 0 auto !important;
+                                    }
+                                }
+                                
+                                /* Mobile styles - keep original */
+                                @media (max-width: 1023px) {
+                                    .calendly-inline-widget {
+                                        width: 100% !important;
+                                    }
+                                }
+                            </style>
+                        </div>
+                    </div>
 
                     <div class="contact-info-cards">
                         <a href="mailto:hello@zandavisuals.cz" class="contact-info-card">
@@ -2663,21 +2687,21 @@
                     </div>
 
                     <div class="social-media-icons">
-                        <a href="https://instagram.com/zandavisuals" target="_blank" class="social-icon">
+                        <a href="https://www.instagram.com/zanda.visuals/" target="_blank" class="social-icon">
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
                                 <path d="m15.5 8.5-.01 0"/>
                                 <circle cx="12" cy="12" r="3"/>
                             </svg>
                         </a>
-                        <a href="https://www.linkedin.com/in/zandavfx/" target="_blank" class="social-icon">
+                        <a href="https://www.linkedin.com/in/zandavisuals/" target="_blank" class="social-icon">
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                                 <rect width="4" height="12" x="2" y="9"/>
                                 <circle cx="4" cy="4" r="2"/>
                             </svg>
                         </a>
-                        <a href="https://www.youtube.com/@ZandaVFX" target="_blank" class="social-icon">
+                        <a href="https://www.youtube.com/@Zandavisuals" target="_blank" class="social-icon">
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/>
                                 <path d="m10 15 5-3-5-3z"/>
@@ -3263,7 +3287,7 @@
                 delay: 0.2
             });
 
-            gsap.to('.calendly-inline-widget', {
+            gsap.to('.calendly-container', {
                 opacity: 1,
                 y: 0,
                 duration: 1,
