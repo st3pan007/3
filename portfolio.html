@@ -1598,10 +1598,10 @@
 
         .contact-heading {
             font-size: clamp(30px, 8vw, 100px);
-            font-weight: 700;
+            font-weight: 500;
             line-height: 0.9;
             letter-spacing: -0.04em;
-            margin-bottom: 48px;
+            margin-bottom: 20px;
             opacity: 0;
             transform: translateY(50px);
         }
@@ -1610,7 +1610,7 @@
             font-size: 24px;
             line-height: 1.6;
             color: var(--gray-300);
-            margin-bottom: 50px;
+            margin-bottom: 5px;
             opacity: 0;
             transform: translateY(30px);
         }
@@ -1634,7 +1634,7 @@
 
         /* Calendly Widget Styles */
         .calendly-container {
-            margin-bottom: 48px;
+            margin-bottom: 10px;
             opacity: 1;
             transform: none;
             width: 100%;
@@ -1643,15 +1643,6 @@
             margin-right: auto;
         }
 
-	.calendly-wrapper {
-    	    background: rgba(255, 255, 255, 0.02);
-    	    border: 1px solid transparent;
-    	    border-radius: var(--radius-xl);
-    	    padding: none;
-   	    box-shadow: 0 1px 1px rgba(255, 0, 128, 0.3);
-  	    transition: all 0.3s var(--ease-out-expo);
-	    position: relative;
-	}
 
         /* Contact Info Cards */
         .contact-info-cards {
@@ -1660,7 +1651,7 @@
             gap: 24px;
             opacity: 0;
             transform: translateY(30px);
-            max-width: 1140px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -1677,7 +1668,7 @@
             padding: 24px 32px;
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 30px;
             transition: all 0.3s var(--ease-out-expo);
             cursor: pointer;
             text-decoration: none;
@@ -3301,17 +3292,6 @@
                     start: 'top 80%'
                 },
                 delay: 0.2
-            });
-
-            gsap.to('.calendly-container', {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.contact-main',
-                    start: 'top 80%'
-                }
             });
 
             gsap.to('.contact-info-cards', {
