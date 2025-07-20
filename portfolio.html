@@ -2101,10 +2101,11 @@
 
         .portfolio-modal-info {
             padding: 64px;
-            overflow-y: auto;
             display: flex;
             flex-direction: column;
             gap: 40px;
+            overflow-y: auto;
+            overflow-x: hidden;  /* FIX: Added to prevent horizontal scroll */
         }
         /* Custom scrollbar for modal */
         .portfolio-modal-info::-webkit-scrollbar {
@@ -2141,16 +2142,20 @@
         .portfolio-modal-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 18px;
             animation: modalSlideIn 0.6s var(--ease-out-expo) 0.3s both;
+            width: 100%;       /* FIX: Added */
+            max-width: 400px;   /* FIX: Added */
         }
         .modal-stat {
             text-align: center;
-            padding: 24px;
+            padding: 20px;
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: var(--radius-lg);
             transition: all 0.3s ease;
+            min-width: 120px;   /* FIX: Added */
+            min-height: 80px;   /* FIX: Added */
         }
         .modal-stat:hover {
             background: rgba(255, 0, 128, 0.1);
@@ -2159,13 +2164,14 @@
         }
         .modal-stat-value {
             display: block;
-            font-size: 32px;
+            font-size: 24px;
             font-weight: 700;
             background: var(--gradient-pink-white);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 8px;
+            min-height: 40px;   /* FIX: Added */
         }
         .modal-stat-label {
             font-size: 12px;
@@ -2424,6 +2430,11 @@
             .portfolio-modal-stats {
                 grid-template-columns: 1fr;
                 gap: 16px;
+                max-width: 100%; /* Allow full width on mobile */
+            }
+            .modal-stat {
+                min-width: 100%;    /* FIX: Added */
+                min-height: 70px;   /* FIX: Added */
             }
             .modal-detail-grid {
                 grid-template-columns: 1fr;
@@ -4037,7 +4048,7 @@
         }
         
         // Helper function for number animation
-        function animateValue(element, start, end, duration, suffix, formatter) {
+        function animateValue(element, start, end, duration, formatter) {
             const startTime = Date.now();
             
             function update() {
@@ -4074,9 +4085,9 @@
         function animateModalStats(stats) {
             const statElements = document.querySelectorAll('.modal-stat-value');
             if (stats && statElements.length === 3) {
-                animateValue(statElements[0], 0, stats.views, 1500, 'M+', 'M+');
-                animateValue(statElements[1], 0, stats.engagement, 1500, 'K', 'K');
-                animateValue(statElements[2], 0, stats.roi, 1500, '%', '%');
+                animateValue(statElements[0], 0, stats.views, 1500, 'M+');
+                animateValue(statElements[1], 0, stats.engagement, 1500, 'K');
+                animateValue(statElements[2], 0, stats.roi, 1500, '%');
             }
         }
 
