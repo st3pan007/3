@@ -92,43 +92,6 @@
             line-height: 1.1;
         }
 
-        /* Custom Cursor */
-        .cursor {
-            width: 12px;
-            height: 12px;
-            background: var(--accent);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s ease, opacity 0.1s ease;
-            transform: translate(-50%, -50%);
-            mix-blend-mode: difference;
-        }
-
-        .cursor-follower {
-            width: 30px;
-            height: 30px;
-            border: 1px solid var(--accent);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9998;
-            transition: all 0.15s ease;
-            transform: translate(-50%, -50%);
-            opacity: 0.5;
-        }
-
-        .cursor.active {
-            transform: translate(-50%, -50%) scale(0.5);
-            opacity: 0.8;
-        }
-
-        .cursor-follower.active {
-            transform: translate(-50%, -50%) scale(1.5);
-            opacity: 0.3;
-        }
-
         /* Three.js Canvas Background - Enhanced */
         #canvas-container {
             position: fixed;
@@ -2886,10 +2849,6 @@
                 }
             });
         }
-
-        // Custom Cursor
-        const cursor = document.querySelector('.cursor');
-        const cursorFollower = document.querySelector('.cursor-follower');
 
         // Function to play Cloudflare video
         function playCloudflareVideo(index) {
