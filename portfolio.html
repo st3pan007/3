@@ -2062,8 +2062,8 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: var(--radius-2xl);
             overflow: hidden;
-            transform: scale(0.9) translateY(50px);
-            transition: all 0.5s var(--ease-out-expo);
+            transform: scale(0.95) translateY(30px);
+            transition: transform 0.5s var(--ease-out-expo), opacity 0.4s ease;
             box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5),
                         0 0 200px rgba(255, 0, 128, 0.1);
         }
@@ -2098,24 +2098,7 @@
             height: 90vh;
             overflow: hidden;
         }
-        .portfolio-modal-media {
-            position: relative;
-            background: var(--black);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .portfolio-modal-video-wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-        .portfolio-modal-video-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+
         .portfolio-modal-info {
             padding: 64px;
             overflow-y: auto;
@@ -2278,49 +2261,197 @@
                 transform: translateY(0);
             }
         }
+        
+        /* NEW STYLES: Portfolio Modal Carousel */
+        .portfolio-modal-media {
+            position: relative;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .portfolio-modal-carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .portfolio-modal-carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s var(--ease-out-expo);
+        }
+
+        .portfolio-modal-media-item {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+
+        .portfolio-modal-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .portfolio-modal-video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .portfolio-modal-video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Navigační šipky */
+        .portfolio-modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-out-expo);
+            z-index: 2;
+        }
+
+        .portfolio-modal-nav:hover {
+            background: rgba(255, 0, 128, 0.2);
+            border-color: var(--accent);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .portfolio-modal-nav svg {
+            width: 20px;
+            height: 20px;
+            stroke: #fff;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .portfolio-modal-nav-prev {
+            left: 20px;
+        }
+
+        .portfolio-modal-nav-next {
+            right: 20px;
+        }
+
+        /* Indikátory */
+        .portfolio-modal-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+        }
+
+        .portfolio-modal-indicator {
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-out-expo);
+        }
+
+        .portfolio-modal-indicator.active {
+            background: var(--accent);
+            transform: scale(1.5);
+        }
+
         /* Responsive Modal */
         @media (max-width: 1024px) {
             .portfolio-modal-content {
                 grid-template-columns: 1fr;
                 height: auto;
                 max-height: 90vh;
+                overflow-y: auto;
             }
-                .portfolio-modal-media {
-                height: 400px;
+            .portfolio-modal-media {
+                height: 50vh;
+                min-height: 300px;
             }
-                .portfolio-modal-info {
+            .portfolio-modal-info {
                 padding: 40px;
             }
-                .portfolio-modal-title {
+            .portfolio-modal-title {
                 font-size: 36px;
             }
+            .portfolio-modal-nav {
+                width: 40px;
+                height: 40px;
+            }
+            .portfolio-modal-nav-prev {
+                left: 10px;
+            }
+            .portfolio-modal-nav-next {
+                right: 10px;
+            }
         }
+        
         @media (max-width: 768px) {
             .portfolio-modal-container {
                 width: 95%;
                 max-height: 95vh;
             }
-                .portfolio-modal-media {
-                height: 300px;
-            }
-                .portfolio-modal-info {
+            .portfolio-modal-info {
                 padding: 32px;
                 gap: 24px;
             }
-                .portfolio-modal-close {
+            .portfolio-modal-close {
                 top: 16px;
                 right: 16px;
                 width: 48px;
                 height: 48px;
             }
-                .portfolio-modal-stats {
+            .portfolio-modal-stats {
                 grid-template-columns: 1fr;
                 gap: 16px;
             }
-                .modal-detail-grid {
+            .modal-detail-grid {
                 grid-template-columns: 1fr;
             }
         }
+
+        @media (max-width: 480px) {
+            .portfolio-modal-media {
+                height: 40vh;
+                min-height: 250px;
+            }
+            .portfolio-modal-nav {
+                width: 36px;
+                height: 36px;
+            }
+            .portfolio-modal-nav svg {
+                width: 16px;
+                height: 16px;
+            }
+            .portfolio-modal-indicators {
+                bottom: 10px;
+            }
+            .portfolio-modal-indicator {
+                width: 6px;
+                height: 6px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -2797,8 +2928,29 @@
             
             <div class="portfolio-modal-content">
                 <div class="portfolio-modal-media">
-                    <div class="portfolio-modal-video-wrapper">
-                        <iframe id="modalVideo" src="" frameborder="0" allowfullscreen></iframe>
+                    <div class="portfolio-modal-carousel">
+                        <div class="portfolio-modal-carousel-track">
+                            </div>
+                        
+                        <button class="portfolio-modal-nav portfolio-modal-nav-prev" onclick="navigateModalCarousel('prev')">
+                            <svg viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button class="portfolio-modal-nav portfolio-modal-nav-next" onclick="navigateModalCarousel('next')">
+                            <svg viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                        
+                        <div class="portfolio-modal-indicators">
+                             <span class="portfolio-modal-indicator active" onclick="goToModalSlide(0)"></span>
+                             <span class="portfolio-modal-indicator" onclick="goToModalSlide(1)"></span>
+                             <span class="portfolio-modal-indicator" onclick="goToModalSlide(2)"></span>
+                             <span class="portfolio-modal-indicator" onclick="goToModalSlide(3)"></span>
+                             <span class="portfolio-modal-indicator" onclick="goToModalSlide(4)"></span>
+                             <span class="portfolio-modal-indicator" onclick="goToModalSlide(5)"></span>
+                        </div>
                     </div>
                 </div>
                 
@@ -2810,15 +2962,15 @@
                     
                     <div class="portfolio-modal-stats">
                         <div class="modal-stat">
-                            <span class="modal-stat-value">2.5M+</span>
+                            <span class="modal-stat-value">0</span>
                             <span class="modal-stat-label">Zhlédnutí</span>
                         </div>
                         <div class="modal-stat">
-                            <span class="modal-stat-value">45K</span>
+                            <span class="modal-stat-value">0</span>
                             <span class="modal-stat-label">Engagement</span>
                         </div>
                         <div class="modal-stat">
-                            <span class="modal-stat-value">300%</span>
+                            <span class="modal-stat-value">0</span>
                             <span class="modal-stat-label">ROI</span>
                         </div>
                     </div>
@@ -3355,34 +3507,7 @@
             updateCarousel();
         }
 
-        // Auto-play carousel - DISABLED
-        // let carouselInterval = setInterval(() => {
-        //     // Check if video is playing before auto-advancing
-        //     const iframe = document.getElementById('cloudflare-video-0');
-        //     if (iframe && iframe.style.opacity === '1') {
-        //         // Video is playing, skip auto-advance
-        //         return;
-        //     }
-        //     navigateCarousel('next');
-        // }, 5000);
-
-        // Pause on hover - NO LONGER NEEDED
         const videoCarousel = document.querySelector('.video-carousel');
-        // videoCarousel.addEventListener('mouseenter', () => {
-        //     clearInterval(carouselInterval);
-        // });
-
-        // videoCarousel.addEventListener('mouseleave', () => {
-        //     carouselInterval = setInterval(() => {
-        //         // Check if video is playing before auto-advancing
-        //         const iframe = document.getElementById('cloudflare-video-0');
-        //         if (iframe && iframe.style.opacity === '1') {
-        //             // Video is playing, skip auto-advance
-        //             return;
-        //         }
-        //         navigateCarousel('next');
-        //     }, 5000);
-        // });
 
         // Touch support for carousel
         let touchStartX = 0;
@@ -3736,93 +3861,150 @@
 		});
         }
         
-        // Portfolio Modal Data
+        // --- NEW/MODIFIED JAVASCRIPT FOR PORTFOLIO MODAL ---
+
+        // Portfolio Modal Carousel State
+        let modalCarouselIndex = 0;
+        const modalCarouselItems = 6;
+
+        // Expanded Portfolio Data with media array
         const portfolioData = {
             'commercial': {
                 title: 'Prémiová kampaň pro luxusní značku',
                 category: 'Reklama',
-                video: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/dd2f0a80b4e82209116065e52da99461/iframe',
+                media: [
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/dd2f0a80b4e82209116065e52da99461/iframe' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/f3c6d86a-115f-4a0b-cd61-949247382700/public' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/9922579b-23a3-4809-178c-572714e86700/public' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/77e18e1e562cd91a8aa93affd601cf05/iframe' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/93a10731-97f3-4e44-5991-6456f9f36f00/public' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/e13f9905-d352-4e58-3e9a-4fd9b007d400/public' }
+                ],
                 description: 'Vizuálně ohromující kampaň, která redefinovala standardy v luxury marketingu. Kombinace cinematografie, motion designu a storytellingu vytvořila nezapomenutelný zážitek.',
                 client: 'Confidential Luxury Brand',
                 year: '2024',
                 duration: '1:30',
                 platforms: 'YouTube, Instagram, Web',
                 stats: {
-                    views: '2.5M+',
-                    engagement: '45K',
-                    roi: '300%'
+                    views: 2500000,
+                    engagement: 45000,
+                    roi: 300
                 }
             },
             'social': {
                 title: 'Virální Reels série',
                 category: 'Social Media',
-                video: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/77e18e1e562cd91a8aa93affd601cf05/iframe',
+                media: [
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/77e18e1e562cd91a8aa93affd601cf05/iframe' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/b5f8f8f8-b8f8-48f8-88f8-f8f8f8f8f8f8/public' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/c5f8f8f8-b8f8-48f8-88f8-f8f8f8f8f8f8/public' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/d19b73b9457e3c5bed572ba35473a184/iframe' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/d5f8f8f8-b8f8-48f8-88f8-f8f8f8f8f8f8/public' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/e5f8f8f8-b8f8-48f8-88f8-f8f8f8f8f8f8/public' }
+                ],
                 description: 'Série dynamických Reels, které způsobily revoluci v přístupu ke krátkému video contentu. Každé video bylo optimalizováno pro maximální engagement a virální potenciál.',
                 client: 'Fashion Influencer',
                 year: '2024',
                 duration: '0:15 - 0:30',
                 platforms: 'Instagram Reels, TikTok',
                 stats: {
-                    views: '15M+',
-                    engagement: '890K',
-                    roi: '520%'
+                    views: 15000000,
+                    engagement: 890000,
+                    roi: 520
                 }
             },
             'events': {
                 title: 'Comic Con Prague Aftermovie',
                 category: 'Event Coverage',
-                video: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/145c0ff903bab04c91978a84b54d5b93/iframe',
+                media: [
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/145c0ff903bab04c91978a84b54d5b93/iframe' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/a1b2c3d4-e5f6-a1b2-c3d4-e5f6a1b2c3d4/public' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/b1c2d3e4-f5a6-b1c2-d3e4-f5a6b1c2d3e4/public' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/eac60b5b2cde02cb5e881e9749f3be5c/iframe' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/c1d2e3f4-a5b6-c1d2-e3f4-a5b6c1d2e3f4/public' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/d1e2f3a4-b5c6-d1e2-f3a4-b5c6d1e2f3a4/public' }
+                ],
                 description: 'Epický aftermovie zachycující energii největšího pop-culture eventu v ČR. Dynamický střih, cinematické záběry a perfektní sound design.',
                 client: 'Comic Con Prague',
                 year: '2023',
                 duration: '3:45',
                 platforms: 'YouTube, Facebook, Web',
                 stats: {
-                    views: '450K+',
-                    engagement: '25K',
-                    roi: '180%'
+                    views: 450000,
+                    engagement: 25000,
+                    roi: 180
                 }
             },
             'youtube': {
                 title: 'YouTube série pro Kuba English',
                 category: 'YouTube Content',
-                video: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/bb8576d7faa4cd2489589339f23bee52/iframe',
+                media: [
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/bb8576d7faa4cd2489589339f23bee52/iframe' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/abcdef12-3456-7890-abcd-ef1234567890/public' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/fedcba09-8765-4321-fedc-ba0987654321/public' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/093540beabc63f35494667def3b1b9c1/iframe' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/11223344-5566-7788-9900-aabbccddeeff/public' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/ffeeddcc-bbaa-0099-8877-665544332211/public' }
+                ],
                 description: 'Kompletní video produkce pro jeden z nejúspěšnějších vzdělávacích kanálů. Inovativní přístup ke vzdělávacímu contentu s důrazem na retention a engagement.',
                 client: 'Kuba English',
                 year: '2024',
                 duration: '10:00+',
                 platforms: 'YouTube',
                 stats: {
-                    views: '5M+',
-                    engagement: '120K',
-                    roi: '450%'
+                    views: 5000000,
+                    engagement: 120000,
+                    roi: 450
                 }
             }
         };
 
-        // Portfolio Modal Functions
+        // Open Modal Function
         function openPortfolioModal(category) {
             const modal = document.getElementById('portfolioModal');
             const data = portfolioData[category];
             
             if (!data) return;
 
-            // Stop any playing videos in carousel
+            // Reset carousel
+            modalCarouselIndex = 0;
+            
+            const track = modal.querySelector('.portfolio-modal-carousel-track');
+            track.innerHTML = ''; // Clear previous items
+            track.style.transform = 'translateX(0%)'; // Reset position
+
+            // Populate carousel track
+            data.media.forEach((media, index) => {
+                const item = document.createElement('div');
+                item.className = `portfolio-modal-media-item ${index === 0 ? 'active' : ''}`;
+                item.dataset.index = index;
+                
+                if (media.type === 'video') {
+                    item.innerHTML = `
+                        <div class="portfolio-modal-video-wrapper">
+                            <iframe src="${media.src}" frameborder="0" allowfullscreen></iframe>
+                        </div>`;
+                } else {
+                    item.innerHTML = `<img src="${media.src}" alt="${data.title} - ${index + 1}" class="portfolio-modal-image" loading="lazy">`;
+                }
+                
+                track.appendChild(item);
+            });
+
+            // Update indicators
+            const indicators = modal.querySelectorAll('.portfolio-modal-indicator');
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === 0);
+            });
+
+            // Stop any playing videos in the main carousel
             stopAllVideos();
 
-            // Update modal content
+            // Update other modal content
             modal.querySelector('.portfolio-modal-category').textContent = data.category;
             modal.querySelector('.portfolio-modal-title').textContent = data.title;
             modal.querySelector('.portfolio-modal-description p').textContent = data.description;
-            modal.querySelector('#modalVideo').src = data.video;
-
-            // Update stats
-            const stats = modal.querySelectorAll('.modal-stat-value');
-            stats[0].textContent = data.stats.views;
-            stats[1].textContent = data.stats.engagement;
-            stats[2].textContent = data.stats.roi;
-
-            // Update details
+            
             const details = modal.querySelectorAll('.detail-value');
             details[0].textContent = data.client;
             details[1].textContent = data.year;
@@ -3833,69 +4015,151 @@
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
 
-            // Animate stats on open
+            // Animate stats
             setTimeout(() => {
-                animateModalStats();
-            }, 500);
+                animateModalStats(data.stats);
+            }, 300);
         }
 
+        // Close Modal Function
         function closePortfolioModal() {
             const modal = document.getElementById('portfolioModal');
             modal.classList.remove('active');
             document.body.style.overflow = '';
 
-            // Clear video src to stop playback
+            // Clear all video sources in the modal to stop playback
             setTimeout(() => {
-                modal.querySelector('#modalVideo').src = '';
+                 const iframes = modal.querySelectorAll('.portfolio-modal-video-wrapper iframe');
+                 iframes.forEach(iframe => {
+                    iframe.src = '';
+                 });
             }, 400); // Wait for closing animation
         }
+        
+        // Helper function for number animation
+        function animateValue(element, start, end, duration, suffix, formatter) {
+            const startTime = Date.now();
+            
+            function update() {
+                const currentTime = Date.now();
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // EaseOutQuart timing function
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                const current = start + (end - start) * easeOutQuart;
+                
+                let displayValue;
+                 if (formatter === 'M+') {
+                    displayValue = (current / 1000000).toFixed(1) + 'M+';
+                } else if (formatter === 'K') {
+                    displayValue = Math.round(current / 1000) + 'K';
+                } else if (formatter === '%') {
+                    displayValue = Math.round(current) + '%';
+                } else {
+                    displayValue = Math.round(current);
+                }
 
-        function animateModalStats() {
-            const stats = document.querySelectorAll('.modal-stat-value');
-            stats.forEach(stat => {
-                const value = stat.textContent;
-                const hasM = value.includes('M');
-                const hasK = value.includes('K');
-                const hasPercent = value.includes('%');
-                const hasPlus = value.includes('+');
+                element.textContent = displayValue;
                 
-                let number = parseFloat(value.replace(/[^0-9.]/g, ''));
-                let suffix = '';
-                
-                if (hasM) suffix = 'M';
-                if (hasK) suffix = 'K';
-                if (hasPercent) suffix = '%';
-                if (hasPlus) suffix += '+';
-                
-                let temp = { val: 0 }; // Temporary object for GSAP to tween
-                gsap.to(temp, {
-                    val: number,
-                    duration: 1.5,
-                    ease: 'power2.out',
-                    onUpdate: function() {
-                        if (number < 10) { // For numbers that might have decimals
-                            stat.textContent = temp.val.toFixed(1) + suffix;
-                        } else {
-                            stat.textContent = Math.ceil(temp.val) + suffix;
-                        }
-                    }
-                });
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+            
+            update();
+        }
+
+        // Corrected stat animation function
+        function animateModalStats(stats) {
+            const statElements = document.querySelectorAll('.modal-stat-value');
+            if (stats && statElements.length === 3) {
+                animateValue(statElements[0], 0, stats.views, 1500, 'M+', 'M+');
+                animateValue(statElements[1], 0, stats.engagement, 1500, 'K', 'K');
+                animateValue(statElements[2], 0, stats.roi, 1500, '%', '%');
+            }
+        }
+
+        // Carousel Navigation
+        function navigateModalCarousel(direction) {
+            const track = document.querySelector('.portfolio-modal-carousel-track');
+            const indicators = document.querySelectorAll('.portfolio-modal-indicator');
+            
+            if (direction === 'next') {
+                modalCarouselIndex = (modalCarouselIndex + 1) % modalCarouselItems;
+            } else {
+                modalCarouselIndex = (modalCarouselIndex - 1 + modalCarouselItems) % modalCarouselItems;
+            }
+            
+            track.style.transform = `translateX(-${modalCarouselIndex * 100}%)`;
+            
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === modalCarouselIndex);
             });
         }
 
+        // Direct slide navigation
+        function goToModalSlide(index) {
+            modalCarouselIndex = index;
+            const track = document.querySelector('.portfolio-modal-carousel-track');
+            const indicators = document.querySelectorAll('.portfolio-modal-indicator');
+            
+            track.style.transform = `translateX(-${modalCarouselIndex * 100}%)`;
+            
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === modalCarouselIndex);
+            });
+        }
 
-        // Close modal on backdrop click
-        document.querySelector('.portfolio-modal-backdrop').addEventListener('click', closePortfolioModal);
+        // --- Event Listeners ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Close modal on backdrop click
+            document.querySelector('.portfolio-modal-backdrop').addEventListener('click', closePortfolioModal);
 
-        // Close modal on ESC key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                const modal = document.getElementById('portfolioModal');
-                if (modal.classList.contains('active')) {
-                    closePortfolioModal();
+            // Touch support for modal carousel
+            const modalCarousel = document.querySelector('.portfolio-modal-carousel');
+            let modalTouchStartX = 0;
+            let modalTouchEndX = 0;
+
+            if (modalCarousel) {
+                modalCarousel.addEventListener('touchstart', (e) => {
+                    modalTouchStartX = e.touches[0].clientX;
+                });
+                
+                modalCarousel.addEventListener('touchend', (e) => {
+                    modalTouchEndX = e.changedTouches[0].clientX;
+                    handleModalSwipe();
+                });
+            }
+
+            function handleModalSwipe() {
+                const swipeThreshold = 50;
+                const diff = modalTouchStartX - modalTouchEndX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        navigateModalCarousel('next');
+                    } else {
+                        navigateModalCarousel('prev');
+                    }
                 }
             }
+
+            // Keyboard navigation for modal
+            document.addEventListener('keydown', (e) => {
+                const modal = document.getElementById('portfolioModal');
+                if (modal && modal.classList.contains('active')) {
+                    if (e.key === 'ArrowLeft') {
+                        navigateModalCarousel('prev');
+                    } else if (e.key === 'ArrowRight') {
+                        navigateModalCarousel('next');
+                    } else if (e.key === 'Escape') {
+                        closePortfolioModal();
+                    }
+                }
+            });
         });
+
     </script>
 
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
