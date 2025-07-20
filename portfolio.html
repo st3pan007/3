@@ -2326,9 +2326,6 @@
 <body>
     <div id="canvas-container"></div>
 
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-
     <div class="preloader" id="preloader">
         <div class="preloader-inner">
             <div class="preloader-logo">
@@ -3237,32 +3234,6 @@
             // Show iframe with controls - DO NOT autoplay
             iframe.style.opacity = '1';
             // Keep autoplay=false always
-        }
-
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-
-            setTimeout(() => {
-                cursorFollower.style.left = e.clientX + 'px';
-                cursorFollower.style.top = e.clientY + 'px';
-            }, 50);
-        });
-
-        document.addEventListener('mousedown', () => {
-            cursor.classList.add('active');
-            cursorFollower.classList.add('active');
-        });
-
-        document.addEventListener('mouseup', () => {
-            cursor.classList.remove('active');
-            cursorFollower.classList.remove('active');
-        });
-
-        // Hide cursor on mobile
-        if ('ontouchstart' in window) {
-            cursor.style.display = 'none';
-            cursorFollower.style.display = 'none';
         }
 
         // Preloader
