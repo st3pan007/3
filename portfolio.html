@@ -2472,6 +2472,135 @@
             }
         }
 
+        /* --- NEW CSS FOR PREMIUM MARQUEE --- */
+        /* Premium Tools Marquee Section */
+        .premium-marquee-section {
+            background-color: var(--black);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+            height: 110px;
+            display: flex;
+            align-items: center;
+        }
+
+        .premium-marquee-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .premium-marquee-container::before,
+        .premium-marquee-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 90%;
+            z-index: 2;
+        }
+
+        .premium-marquee-container::before {
+            left: 0;
+            background: linear-gradient(to right, var(--black) 0%, transparent 100%);
+        }
+
+        .premium-marquee-container::after {
+            right: 0;
+            background: linear-gradient(to left, var(--black) 0%, transparent 100%);
+        }
+
+        .premium-marquee-track {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            will-change: transform;
+            animation: premium-marquee-animation 20s linear infinite;
+        }
+
+        .premium-marquee-container:hover .premium-marquee-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes premium-marquee-animation {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .premium-marquee-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 40px;
+        }
+
+        .premium-marquee-item img {
+            height: 90px;
+            width: auto;
+            border-radius: var(--radius-lg);
+            border: 2px solid transparent;
+            transition: all 0.4s var(--ease-out-expo);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .premium-marquee-item:hover img {
+            transform: scale(1.05);
+            border-color: var(--accent);
+            box-shadow: 0 20px 50px rgba(255, 0, 128, 0.3), 0 0 15px var(--accent-glow);
+            filter: brightness(1.1);
+        }
+
+        .premium-marquee-separator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gradient-pink-white);
+            box-shadow: 0 0 10px var(--accent-glow);
+            animation: separator-pulse 2s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes separator-pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+        }
+
+        /* Responsive Design for Premium Marquee */
+        @media (max-width: 768px) {
+            .premium-marquee-section {
+                height: 300px;
+                padding: 60px 0;
+            }
+
+            .premium-marquee-item img {
+                height: 150px;
+            }
+
+            .premium-marquee-track {
+                animation-duration: 40s; /* Slower on mobile */
+            }
+
+            .premium-marquee-container::before,
+            .premium-marquee-container::after {
+                width: 80px;
+            }
+        }
+
+
     </style>
 </head>
 <body>
@@ -2552,7 +2681,7 @@
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/e648b648-a3e8-48d5-c039-e86037206a00/public" alt="Letenky od Kuby" class="client-avatar">LETENKY OD KUBY</span>
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/19764afd-2a6d-4e2d-c431-efbc4efac600/public" alt="Wabi Sabi Podcast" class="client-avatar">WABI SABI PODCAST</span>
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/76eb99c6-4c77-41e9-446d-a9c08da16700/public" alt="Gorilla Space" class="client-avatar">GORILLA SPACE</span>
-                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/846f90b0-e43b-4e2e-d2fc-099a6e673100/public" alt="Spasitelka TikToku" class="client-avatar">SPASITELKA TIKTOKU</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/846f90b0-e43b-4e2e-d2fc-099a6e673100/public" alt="Flexy Babka" class="client-avatar">FLEXY BABKA</span>
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/2b86b501-537a-443a-ccec-a4f37081d100/public" alt="Raego" class="client-avatar">RAEGO</span>
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/04d95fbc-4a43-4867-bcd0-65a6d8d5e500/public" alt="Cashflow Brno" class="client-avatar">CASHFLOW BRNO</span>
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/49e2fcd6-260f-4e41-6b65-7e5d0ac41000/public" alt="Radek Petráš" class="client-avatar">RADEK PETRÁŠ</span>
@@ -2566,7 +2695,7 @@
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/e648b648-a3e8-48d5-c039-e86037206a00/public" alt="Letenky od Kuby" class="client-avatar">LETENKY OD KUBY</span>
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/19764afd-2a6d-4e2d-c431-efbc4efac600/public" alt="Wabi Sabi Podcast" class="client-avatar">WABI SABI PODCAST</span>
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/76eb99c6-4c77-41e9-446d-a9c08da16700/public" alt="Gorilla Space" class="client-avatar">GORILLA SPACE</span>
-                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/846f90b0-e43b-4e2e-d2fc-099a6e673100/public" alt="Spasitelka TikToku" class="client-avatar">SPASITELKA TIKTOKU</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/846f90b0-e43b-4e2e-d2fc-099a6e673100/public" alt="Flexy Babka" class="client-avatar">FLEXY BABKA</span>
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/2b86b501-537a-443a-ccec-a4f37081d100/public" alt="Raego" class="client-avatar">RAEGO</span>
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/04d95fbc-4a43-4867-bcd0-65a6d8d5e500/public" alt="Cashflow Brno" class="client-avatar">CASHFLOW BRNO</span>
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/49e2fcd6-260f-4e41-6b65-7e5d0ac41000/public" alt="Radek Petráš" class="client-avatar">RADEK PETRÁŠ</span>
@@ -3103,6 +3232,68 @@
         </div>
     </section>
 
+    <section class="premium-marquee-section">
+        <div class="premium-marquee-container">
+            <div class="premium-marquee-track">
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/69ec171e-684f-4d4e-764f-a72605528000/public" alt="Tool 1"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/6686df97-feed-450f-24d6-4ba151b59900/public" alt="Tool 2"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/7b2fa1b2-2b29-412f-b8ef-6289e9517600/public" alt="Tool 3"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/bf426c75-fceb-4222-4048-8b5871cbb300/public" alt="Tool 4"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/ea9b72a4-8c30-4afb-e734-97c8efed9c00/public" alt="Tool 5"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/f24000ad-5b3c-45de-1a2f-5274e19a0c00/public" alt="Tool 6"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/8d3bd2b7-0183-491a-b56d-0a9a61c8c100/public" alt="Tool 7"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/b6a267fb-4a12-4a64-b029-17fdb928ab00/public" alt="Tool 8"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/37f56bfc-3bad-4470-6a9c-fea339cfac00/public" alt="Tool 9"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/be6eec24-715e-450c-57e1-eb2812f94400/public" alt="Tool 10"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/c8d54345-b9e0-4b9a-4872-187f1f4c4400/public" alt="Tool 11"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/139a6330-b8a0-493e-1cc1-811e447aa900/public" alt="Tool 12"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/f7337695-6cee-4584-0758-4ef9a1565600/public" alt="Tool 13"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/10cbc00c-2947-48d2-acaf-575cca207900/public" alt="Tool 14"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/69ec171e-684f-4d4e-764f-a72605528000/public" alt="Tool 1"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/6686df97-feed-450f-24d6-4ba151b59900/public" alt="Tool 2"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/7b2fa1b2-2b29-412f-b8ef-6289e9517600/public" alt="Tool 3"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/bf426c75-fceb-4222-4048-8b5871cbb300/public" alt="Tool 4"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/ea9b72a4-8c30-4afb-e734-97c8efed9c00/public" alt="Tool 5"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/f24000ad-5b3c-45de-1a2f-5274e19a0c00/public" alt="Tool 6"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/8d3bd2b7-0183-491a-b56d-0a9a61c8c100/public" alt="Tool 7"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/b6a267fb-4a12-4a64-b029-17fdb928ab00/public" alt="Tool 8"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/37f56bfc-3bad-4470-6a9c-fea339cfac00/public" alt="Tool 9"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/be6eec24-715e-450c-57e1-eb2812f94400/public" alt="Tool 10"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/c8d54345-b9e0-4b9a-4872-187f1f4c4400/public" alt="Tool 11"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/139a6330-b8a0-493e-1cc1-811e447aa900/public" alt="Tool 12"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/f7337695-6cee-4584-0758-4ef9a1565600/public" alt="Tool 13"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/10cbc00c-2947-48d2-acaf-575cca207900/public" alt="Tool 14"></div>
+                <div class="premium-marquee-separator"></div>
+            </div>
+        </div>
+    </section>
     <section class="contact" id="contact">
         <div class="contact-bg-animation">
             <div class="contact-circle"></div>
