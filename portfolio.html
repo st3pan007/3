@@ -1556,7 +1556,7 @@
         }
 
         .contact-heading {
-            font-size: clamp(20px, 8vw, 50px);
+            font-size: clamp(20px, 8vw, 40px);
             font-weight: 500;
             line-height: 0.9;
             letter-spacing: -0.04em;
@@ -2868,20 +2868,12 @@
                 </p>
             </div>
 
-            <div class="portfolio-filters">
-                <button class="filter-pill active" data-filter="all">Vše</button>
-                <button class="filter-pill" data-filter="commercial">Reklamy</button>
-                <button class="filter-pill" data-filter="social">Social Media</button>
-                <button class="filter-pill" data-filter="events">Eventy</button>
-                <button class="filter-pill" data-filter="youtube">YouTube</button>
-            </div>
-
             <div class="portfolio-grid">
                 <div class="portfolio-item large" data-category="commercial">
                     <img src="https://images.unsplash.com/photo-1626544827763-d516dce335e2?w=1200&h=800&fit=crop&auto=format&q=80" alt="Prémiová kampaň" class="portfolio-image">
                     <div class="portfolio-content">
-                        <div class="portfolio-category">Reklama</div>
-                        <h3 class="portfolio-title">Prémiová kampaň</h3>
+                        <div class="portfolio-category">Reklamy</div>
+                        <h3 class="portfolio-title">Nejúspěšnější reklamy</h3>
                         <a href="#" class="portfolio-link" onclick="openPortfolioModal('commercial'); return false;">
                             <span>Zobrazit projekt</span>
                             <span>→</span>
@@ -2892,8 +2884,8 @@
                 <div class="portfolio-item" data-category="social">
                     <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&h=800&fit=crop&auto=format&q=80" alt="Virální Reels" class="portfolio-image">
                     <div class="portfolio-content">
-                        <div class="portfolio-category">Social Media</div>
-                        <h3 class="portfolio-title">Virální Reels</h3>
+                        <div class="portfolio-category">Longform</div>
+                        <h3 class="portfolio-title">Virální YouTube videa</h3>
                         <a href="#" class="portfolio-link" onclick="openPortfolioModal('social'); return false;">
                             <span>Zobrazit projekt</span>
                             <span>→</span>
@@ -2904,8 +2896,8 @@
                 <div class="portfolio-item tall" data-category="events">
                     <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=600&h=1200&fit=crop&auto=format&q=80" alt="Comic Con Prague" class="portfolio-image">
                     <div class="portfolio-content">
-                        <div class="portfolio-category">Event Coverage</div>
-                        <h3 class="portfolio-title">Comic Con Prague</h3>
+                        <div class="portfolio-category">Shortform</div>
+                        <h3 class="portfolio-title">Reels na které jsme pyšní</h3>
                         <a href="#" class="portfolio-link" onclick="openPortfolioModal('events'); return false;">
                             <span>Zobrazit projekt</span>
                             <span>→</span>
@@ -2916,8 +2908,8 @@
                 <div class="portfolio-item" data-category="youtube">
                     <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=800&fit=crop&auto=format&q=80" alt="YouTube kampaň" class="portfolio-image">
                     <div class="portfolio-content">
-                        <div class="portfolio-category">YouTube</div>
-                        <h3 class="portfolio-title">YouTube kampaň</h3>
+                        <div class="portfolio-category">Grafika</div>
+                        <h3 class="portfolio-title">Úspěené thumbnaily</h3>
                         <a href="#" class="portfolio-link" onclick="openPortfolioModal('youtube'); return false;">
                             <span>Zobrazit projekt</span>
                             <span>→</span>
@@ -3113,8 +3105,8 @@
             <div class="contact-wrapper">
                 <div class="contact-content">
                     <h2 class="contact-heading">
-                        Společně najdeme způsob, jak posunout vaše podnikání na <br>
-                        <span class="text-gradient">vyšší úroveň</span>.
+                        Společně najdeme způsob,<br> jak posunout vaše
+                        <span class="text-gradient">podnikání na vyšší úroveň</span>.
                     </h2>
                 </div>
 
@@ -3795,41 +3787,6 @@
                 marqueeTrack.style.animationPlayState = 'running';
             });
 
-            // Portfolio filter
-            const filterBtns = document.querySelectorAll('.filter-pill');
-            const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-
-                    const filter = btn.dataset.filter;
-
-                    portfolioItems.forEach(item => {
-                        if (filter === 'all' || item.dataset.category === filter) {
-                            gsap.to(item, {
-                                opacity: 1,
-                                scale: 1,
-                                duration: 0.5,
-                                ease: 'power3.out'
-                            });
-                            item.style.display = 'block';
-                        } else {
-                            gsap.to(item, {
-                                opacity: 0,
-                                scale: 0.95,
-                                duration: 0.5,
-                                ease: 'power3.out',
-                                onComplete: () => {
-                                    item.style.display = 'none';
-                                }
-                            });
-                        }
-                    });
-                });
-            });
-
 	// Smooth scrolling for navigation
 		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 		    anchor.addEventListener('click', function (e) {
@@ -3881,15 +3838,15 @@
         // Expanded Portfolio Data with media array
         const portfolioData = {
             'commercial': {
-                title: 'Prémiová kampaň pro luxusní značku',
-                category: 'Reklama',
+                title: 'Nejúspěšnější kampaňe',
+                category: 'Reklamy',
                 media: [
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/dd2f0a80b4e82209116065e52da99461/iframe' },
-                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/f3c6d86a-115f-4a0b-cd61-949247382700/public' },
-                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/9922579b-23a3-4809-178c-572714e86700/public' },
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/77e18e1e562cd91a8aa93affd601cf05/iframe' },
-                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/93a10731-97f3-4e44-5991-6456f9f36f00/public' },
-                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/e13f9905-d352-4e58-3e9a-4fd9b007d400/public' }
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/5419de75de2edd60bdfd25afa12542e6/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/5cb1646599ffd0bf08a012d6254fa9d5/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/c705998fad95b29ba8f588d712464ea6/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/0ee77ffc8f7c821c0da670f0b24e563a/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/7cef2fc61c7c6710f1c63ac3aa60542f/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/a980f9a7efd722bd48ac015795a80b89/iframe' }
                 ],
                 description: 'Vizuálně ohromující kampaň, která redefinovala standardy v luxury marketingu. Kombinace cinematografie, motion designu a storytellingu vytvořila nezapomenutelný zážitek.',
                 client: 'Confidential Luxury Brand',
@@ -3906,12 +3863,12 @@
                 title: 'Virální Reels série',
                 category: 'Social Media',
                 media: [
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/77e18e1e562cd91a8aa93affd601cf05/iframe' },
-                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/b5f8f8f8-b8f8-48f8-88f8-f8f8f8f8f8f8/public' },
-                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/c5f8f8f8-b8f8-48f8-88f8-f8f8f8f8f8f8/public' },
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/d19b73b9457e3c5bed572ba35473a184/iframe' },
-                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/d5f8f8f8-b8f8-48f8-88f8-f8f8f8f8f8f8/public' },
-                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/e5f8f8f8-b8f8-48f8-88f8-f8f8f8f8f8f8/public' }
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/7de146df161088928e0979ac6054c701/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/0d56c258a59edc65e8cfa7093dd3ebfe/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/9544314ad21a62f75159ca46834ef207/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/78bd423d1d0588e7c4070aaeb2f2eee8/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/ea9454ea3d102fbe0685faf442234475/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/8c13785661d2380d7f172507bbfbf203/iframe' }
                 ],
                 description: 'Série dynamických Reels, které způsobily revoluci v přístupu ke krátkému video contentu. Každé video bylo optimalizováno pro maximální engagement a virální potenciál.',
                 client: 'Fashion Influencer',
@@ -3928,12 +3885,12 @@
                 title: 'Comic Con Prague Aftermovie',
                 category: 'Event Coverage',
                 media: [
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/145c0ff903bab04c91978a84b54d5b93/iframe' },
-                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/a1b2c3d4-e5f6-a1b2-c3d4-e5f6a1b2c3d4/public' },
-                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/b1c2d3e4-f5a6-b1c2-d3e4-f5a6b1c2d3e4/public' },
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/eac60b5b2cde02cb5e881e9749f3be5c/iframe' },
-                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/c1d2e3f4-a5b6-c1d2-e3f4-a5b6c1d2e3f4/public' },
-                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/d1e2f3a4-b5c6-d1e2-f3a4-b5c6d1e2f3a4/public' }
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/50e4539de3fd1da15bf2a06cd9d3219b/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/f2f9b7008650af0804d379f79d2d1682/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/fa526a99fcd4fc249af3e30e8cdcc8b4/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/8294bb1c59e022c2d50469074b35eb42/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/a0066f9af61f70896e1ee8d05e2d4c4b/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/442410a93a6178b4d1445a09bf3cd6bb/iframe' }
                 ],
                 description: 'Epický aftermovie zachycující energii největšího pop-culture eventu v ČR. Dynamický střih, cinematické záběry a perfektní sound design.',
                 client: 'Comic Con Prague',
@@ -3950,12 +3907,12 @@
                 title: 'YouTube série pro Kuba English',
                 category: 'YouTube Content',
                 media: [
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/bb8576d7faa4cd2489589339f23bee52/iframe' },
-                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/abcdef12-3456-7890-abcd-ef1234567890/public' },
-                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/fedcba09-8765-4321-fedc-ba0987654321/public' },
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/093540beabc63f35494667def3b1b9c1/iframe' },
-                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/11223344-5566-7788-9900-aabbccddeeff/public' },
-                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/ffeeddcc-bbaa-0099-8877-665544332211/public' }
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/c4f8dcf0-c450-4291-92bc-c6ae3da20400/public' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/1a42ba19-f70c-4ab8-2970-8a5c75c05b00/public' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/de0d28ad-a0b1-4b31-02f3-3390a2e5e100/public' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/e3b20889-b714-478e-f516-b44b16bf8100/public' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/9c80b2d0-e125-4518-53e0-cf79c4f11600/public' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/412696ff-510d-4b41-5565-04c0bb416800/public' }
                 ],
                 description: 'Kompletní video produkce pro jeden z nejúspěšnějších vzdělávacích kanálů. Inovativní přístup ke vzdělávacímu contentu s důrazem na retention a engagement.',
                 client: 'Kuba English',
