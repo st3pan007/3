@@ -1154,7 +1154,8 @@
             transition: all 0.7s var(--ease-out-expo);
         }
 
-        .service-card::after {
+        /* ÚPRAVA 1: Následující dva selektory byly odstraněny, aby se zrušila růžová čára */
+        /* .service-card::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -1166,6 +1167,7 @@
             transform-origin: left;
             transition: transform 0.5s var(--ease-out-expo);
         }
+        */
 
         .service-card:hover {
             border-color: rgba(255, 0, 128, 0.3);
@@ -1178,9 +1180,11 @@
             transform: translateY(0);
         }
 
+        /*
         .service-card:hover::after {
             transform: scaleX(1);
         }
+        */
 
         .service-icon {
             width: 100%;
@@ -1553,6 +1557,11 @@
             max-width: 900px;
             margin: 0 auto;
             text-align: center;
+        }
+        
+        /* ÚPRAVA 2: Zde je přidán margin-bottom pro nový nadpis */
+        .contact-content .section-label {
+            margin-bottom: 32px;
         }
 
         .contact-heading {
@@ -3104,6 +3113,7 @@
         <div class="container">
             <div class="contact-wrapper">
                 <div class="contact-content">
+                    <span class="section-label">OZVI SE, DÁME CALL</span>
                     <h2 class="contact-heading">
                         Společně najdeme způsob,<br> jak posunout vaše
                         <span class="text-gradient">podnikání na vyšší úroveň</span>.
@@ -3621,7 +3631,7 @@
             });
 
             // Section animations
-            const sections = gsap.utils.toArray('section:not(.hero):not(.founder)');
+            const sections = gsap.utils.toArray('section:not(.hero):not(.founder):not(.contact)');
 
             sections.forEach(section => {
                 const label = section.querySelector('.section-label');
@@ -3687,63 +3697,44 @@
             });
 
             // Contact animations
-            gsap.to('.contact-heading', {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                ease: 'power3.out',
+            const contactTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: '.contact',
                     start: 'top 80%'
                 }
             });
 
-            gsap.to('.contact-description', {
+            contactTl.to('.contact .section-label', {
                 opacity: 1,
                 y: 0,
-                duration: 0.8,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.contact',
-                    start: 'top 80%'
-                },
-                delay: 0.2
-            });
-
-            gsap.to('.calendly-container', {
+                duration: 0.6,
+                ease: 'power3.out'
+            })
+            .to('.contact-heading', {
                 opacity: 1,
                 y: 0,
                 duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.contact-main',
-                    start: 'top 80%'
-                }
-            });
-
-            gsap.to('.contact-info-cards', {
+                ease: 'power3.out'
+            }, '-=0.4')
+            .to('.calendly-container', {
                 opacity: 1,
                 y: 0,
                 duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.contact-main',
-                    start: 'top 80%'
-                },
-                delay: 0.2
-            });
-
-            gsap.to('.social-media-icons', {
+                ease: 'power3.out'
+            }, '-=0.8')
+            .to('.contact-info-cards', {
                 opacity: 1,
                 y: 0,
                 duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.contact-main',
-                    start: 'top 80%'
-                },
-                delay: 0.4
-            });
+                ease: 'power3.out'
+            }, '-=0.8')
+            .to('.social-media-icons', {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power3.out'
+            }, '-=0.8');
+
 
             // Counter animation for founder stats
             const statNumbers = document.querySelectorAll('.founder-stat-number');
@@ -3927,7 +3918,25 @@
             }
         };
 
-        // Open Modal Function
+        // --- START: OPREAVENÉ FUNKCE DLE POŽADAVKU ---
+
+        // Vylepšená funkce pro zastavení videí v modalu
+        function stopAllModalVideos() {
+            const iframes = document.querySelectorAll('.portfolio-modal-carousel-track iframe');
+            iframes.forEach(iframe => {
+                // Nejdřív vyprázdnit src
+                const originalSrc = iframe.src;
+                iframe.src = '';
+                
+                // Pak nahradit iframe novým s původním src
+                const newIframe = iframe.cloneNode(true);
+                newIframe.src = originalSrc;
+                iframe.parentNode.replaceChild(newIframe, iframe);
+            });
+        }
+
+
+        // Upravená funkce pro otevření modalu
         function openPortfolioModal(category) {
             const modal = document.getElementById('portfolioModal');
             const data = portfolioData[category];
@@ -3941,16 +3950,22 @@
             track.innerHTML = ''; // Clear previous items
             track.style.transform = 'translateX(0%)'; // Reset position
 
-            // Populate carousel track
+            // Populate carousel track s upravenými URL
             data.media.forEach((media, index) => {
                 const item = document.createElement('div');
                 item.className = `portfolio-modal-media-item ${index === 0 ? 'active' : ''}`;
                 item.dataset.index = index;
                 
                 if (media.type === 'video') {
+                    // Použití nového formátu URL s požadovanými parametry
                     item.innerHTML = `
                         <div class="portfolio-modal-video-wrapper">
-                            <iframe src="${media.src}" frameborder="0" allowfullscreen></iframe>
+                            <iframe 
+                                src="${media.src}?autoplay=false&muted=true&loop=false&preload=none&controls=true" 
+                                frameborder="0" 
+                                allow="fullscreen" 
+                                allowfullscreen>
+                            </iframe>
                         </div>`;
                 } else {
                     item.innerHTML = `<img src="${media.src}" alt="${data.title} - ${index + 1}" class="portfolio-modal-image" loading="lazy">`;
@@ -3989,20 +4004,26 @@
             }, 300);
         }
 
-        // Close Modal Function
+        // Upravená funkce pro zavření modalu
         function closePortfolioModal() {
             const modal = document.getElementById('portfolioModal');
             modal.classList.remove('active');
             document.body.style.overflow = '';
 
-            // Clear all video sources in the modal to stop playback
+            // Spolehlivé zastavení všech videí v modalu při zavření
+            stopAllModalVideos();
+            
+            // Dodatečná ochrana: po krátkém timeoutu vyprázdnit src
+            // aby se zamezilo jakýmkoli problémům s cache prohlížeče.
             setTimeout(() => {
-                 const iframes = modal.querySelectorAll('.portfolio-modal-video-wrapper iframe');
-                 iframes.forEach(iframe => {
+                const iframes = document.querySelectorAll('.portfolio-modal-carousel-track iframe');
+                iframes.forEach(iframe => {
                     iframe.src = '';
-                 });
-            }, 400); // Wait for closing animation
+                });
+            }, 500); // 500ms je dostatečná doba pro dokončení animace zavření
         }
+        
+        // --- KONEC: OPRAVENÉ FUNKCE ---
         
         // Helper function for number animation
         function animateValue(element, start, end, duration, formatter) {
@@ -4050,6 +4071,9 @@
 
         // Carousel Navigation
         function navigateModalCarousel(direction) {
+            // Zastavení videí před změnou slidu
+            stopAllModalVideos();
+            
             const track = document.querySelector('.portfolio-modal-carousel-track');
             const indicators = document.querySelectorAll('.portfolio-modal-indicator');
             
@@ -4068,6 +4092,9 @@
 
         // Direct slide navigation
         function goToModalSlide(index) {
+            // Zastavení videí před změnou slidu
+            stopAllModalVideos();
+            
             modalCarouselIndex = index;
             const track = document.querySelector('.portfolio-modal-carousel-track');
             const indicators = document.querySelectorAll('.portfolio-modal-indicator');
