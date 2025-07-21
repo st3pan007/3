@@ -1154,7 +1154,8 @@
             transition: all 0.7s var(--ease-out-expo);
         }
 
-        .service-card::after {
+        /* ÚPRAVA 1: Následující dva selektory byly odstraněny, aby se zrušila růžová čára */
+        /* .service-card::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -1166,6 +1167,7 @@
             transform-origin: left;
             transition: transform 0.5s var(--ease-out-expo);
         }
+        */
 
         .service-card:hover {
             border-color: rgba(255, 0, 128, 0.3);
@@ -1178,9 +1180,11 @@
             transform: translateY(0);
         }
 
+        /*
         .service-card:hover::after {
             transform: scaleX(1);
         }
+        */
 
         .service-icon {
             width: 100%;
@@ -1554,9 +1558,14 @@
             margin: 0 auto;
             text-align: center;
         }
+        
+        /* ÚPRAVA 2: Zde je přidán margin-bottom pro nový nadpis */
+        .contact-content .section-label {
+            margin-bottom: 32px;
+        }
 
         .contact-heading {
-            font-size: clamp(20px, 8vw, 50px);
+            font-size: clamp(20px, 8vw, 40px);
             font-weight: 500;
             line-height: 0.9;
             letter-spacing: -0.04em;
@@ -2023,6 +2032,575 @@
                 height: 24px;
             }
         }
+        
+        /* Portfolio Modal - Ultra Premium */
+        .portfolio-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+        .portfolio-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .portfolio-modal-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .portfolio-modal-container {
+            position: relative;
+            width: 90%;
+            max-width: 1400px;
+            max-height: 90vh;
+            background: linear-gradient(135deg, var(--gray-950) 0%, var(--black) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            transform: scale(0.95) translateY(30px);
+            transition: transform 0.5s var(--ease-out-expo), opacity 0.4s ease;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5),
+                        0 0 200px rgba(255, 0, 128, 0.1);
+        }
+        .portfolio-modal.active .portfolio-modal-container {
+            transform: scale(1) translateY(0);
+        }
+        .portfolio-modal-close {
+            position: absolute;
+            top: 32px;
+            right: 32px;
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-out-expo);
+            z-index: 10;
+        }
+        .portfolio-modal-close:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: rotate(90deg) scale(1.1);
+        }
+        .portfolio-modal-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            height: 90vh;
+            overflow: hidden;
+        }
+
+        .portfolio-modal-info {
+            padding: 64px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            overflow-y: auto;
+            overflow-x: hidden;  /* FIX: Added to prevent horizontal scroll */
+        }
+        /* Custom scrollbar for modal */
+        .portfolio-modal-info::-webkit-scrollbar {
+            width: 4px;
+        }
+        .portfolio-modal-info::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .portfolio-modal-info::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: var(--radius-full);
+        }
+        .portfolio-modal-header {
+            animation: modalSlideIn 0.6s var(--ease-out-expo) 0.2s both;
+        }
+        .portfolio-modal-category {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: var(--gradient-pink-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+        .portfolio-modal-title {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+        .portfolio-modal-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            animation: modalSlideIn 0.6s var(--ease-out-expo) 0.3s both;
+            width: 100%;       /* FIX: Added */
+            max-width: 400px;   /* FIX: Added */
+        }
+        .modal-stat {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            transition: all 0.3s ease;
+            min-width: 120px;   /* FIX: Added */
+            min-height: 80px;   /* FIX: Added */
+        }
+        .modal-stat:hover {
+            background: rgba(255, 0, 128, 0.1);
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+        .modal-stat-value {
+            display: block;
+            font-size: 24px;
+            font-weight: 700;
+            background: var(--gradient-pink-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            min-height: 40px;   /* FIX: Added */
+        }
+        .modal-stat-label {
+            font-size: 12px;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .portfolio-modal-description {
+            animation: modalSlideIn 0.6s var(--ease-out-expo) 0.4s both;
+        }
+        .portfolio-modal-description p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--gray-300);
+        }
+        .portfolio-modal-details {
+            animation: modalSlideIn 0.6s var(--ease-out-expo) 0.5s both;
+        }
+        .portfolio-modal-details h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        .modal-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .modal-detail {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .detail-label {
+            font-size: 12px;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .detail-value {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--white);
+        }
+        .portfolio-modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            animation: modalSlideIn 0.6s var(--ease-out-expo) 0.6s both;
+        }
+        .modal-tag {
+            padding: 8px 16px;
+            background: rgba(255, 0, 128, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: var(--radius-full);
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--accent);
+        }
+        .portfolio-modal-cta {
+            animation: modalSlideIn 0.6s var(--ease-out-expo) 0.7s both;
+        }
+        .modal-cta-btn {
+            width: 100%;
+            padding: 20px;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        .modal-cta-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.6s ease;
+        }
+        .modal-cta-btn:hover::after {
+            width: 300%;
+            height: 300%;
+        }
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* NEW STYLES: Portfolio Modal Carousel */
+        .portfolio-modal-media {
+            position: relative;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .portfolio-modal-carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .portfolio-modal-carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s var(--ease-out-expo);
+        }
+
+        .portfolio-modal-media-item {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+
+        .portfolio-modal-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .portfolio-modal-video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .portfolio-modal-video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Navigační šipky */
+        .portfolio-modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-out-expo);
+            z-index: 2;
+        }
+
+        .portfolio-modal-nav:hover {
+            background: rgba(255, 0, 128, 0.2);
+            border-color: var(--accent);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .portfolio-modal-nav svg {
+            width: 20px;
+            height: 20px;
+            stroke: #fff;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .portfolio-modal-nav-prev {
+            left: 20px;
+        }
+
+        .portfolio-modal-nav-next {
+            right: 20px;
+        }
+
+        /* Indikátory */
+        .portfolio-modal-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+        }
+
+        .portfolio-modal-indicator {
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-out-expo);
+        }
+
+        .portfolio-modal-indicator.active {
+            background: var(--accent);
+            transform: scale(1.5);
+        }
+
+        /* Responsive Modal */
+        @media (max-width: 1024px) {
+            .portfolio-modal-content {
+                grid-template-columns: 1fr;
+                height: auto;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+            .portfolio-modal-media {
+                height: 50vh;
+                min-height: 300px;
+            }
+            .portfolio-modal-info {
+                padding: 40px;
+            }
+            .portfolio-modal-title {
+                font-size: 36px;
+            }
+            .portfolio-modal-nav {
+                width: 40px;
+                height: 40px;
+            }
+            .portfolio-modal-nav-prev {
+                left: 10px;
+            }
+            .portfolio-modal-nav-next {
+                right: 10px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .portfolio-modal-container {
+                width: 95%;
+                max-height: 95vh;
+            }
+            .portfolio-modal-info {
+                padding: 32px;
+                gap: 24px;
+            }
+            .portfolio-modal-close {
+                top: 16px;
+                right: 16px;
+                width: 48px;
+                height: 48px;
+            }
+            .portfolio-modal-stats {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                max-width: 100%; /* Allow full width on mobile */
+            }
+            .modal-stat {
+                min-width: 100%;    /* FIX: Added */
+                min-height: 70px;   /* FIX: Added */
+            }
+            .modal-detail-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio-modal-media {
+                height: 40vh;
+                min-height: 250px;
+            }
+            .portfolio-modal-nav {
+                width: 36px;
+                height: 36px;
+            }
+            .portfolio-modal-nav svg {
+                width: 16px;
+                height: 16px;
+            }
+            .portfolio-modal-indicators {
+                bottom: 10px;
+            }
+            .portfolio-modal-indicator {
+                width: 6px;
+                height: 6px;
+            }
+        }
+
+        /* --- NEW CSS FOR PREMIUM MARQUEE --- */
+        /* Premium Tools Marquee Section */
+        .premium-marquee-section {
+            background-color: var(--black);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+            height: 110px;
+            display: flex;
+            align-items: center;
+        }
+
+        .premium-marquee-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .premium-marquee-container::before,
+        .premium-marquee-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 90%;
+            z-index: 2;
+        }
+
+        .premium-marquee-container::before {
+            left: 0;
+            background: linear-gradient(to right, var(--black) 0%, transparent 100%);
+        }
+
+        .premium-marquee-container::after {
+            right: 0;
+            background: linear-gradient(to left, var(--black) 0%, transparent 100%);
+        }
+
+        .premium-marquee-track {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            will-change: transform;
+            animation: premium-marquee-animation 20s linear infinite;
+        }
+
+        .premium-marquee-container:hover .premium-marquee-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes premium-marquee-animation {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .premium-marquee-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 40px;
+        }
+
+        .premium-marquee-item img {
+            height: 90px;
+            width: auto;
+            border-radius: var(--radius-lg);
+            border: 2px solid transparent;
+            transition: all 0.4s var(--ease-out-expo);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .premium-marquee-item:hover img {
+            transform: scale(1);
+            border-color: var(--accent);
+            box-shadow: 0 20px 50px rgba(255, 0, 128, 0.3), 0 0 15px var(--accent-glow);
+            filter: brightness(1.1);
+        }
+
+        .premium-marquee-separator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gradient-pink-white);
+            box-shadow: 0 0 10px var(--accent-glow);
+            animation: separator-pulse 2s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes separator-pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+        }
+
+        /* Responsive Design for Premium Marquee */
+        @media (max-width: 768px) {
+            .premium-marquee-section {
+                height: 300px;
+                padding: 60px 0;
+            }
+
+            .premium-marquee-item img {
+                height: 150px;
+            }
+
+            .premium-marquee-track {
+                animation-duration: 40s; /* Slower on mobile */
+            }
+
+            .premium-marquee-container::before,
+            .premium-marquee-container::after {
+                width: 80px;
+            }
+        }
+
+
     </style>
 </head>
 <body>
@@ -2032,7 +2610,7 @@
         <div class="preloader-inner">
             <div class="preloader-logo">
                 <span>Z</span><span>A</span><span>N</span><span>D</span><span>A</span>
-                <span>&nbsp;</span>
+                <span> </span>
                 <span>V</span><span>I</span><span>S</span><span>U</span><span>A</span><span>L</span><span>S</span>
             </div>
             <div class="preloader-progress">
@@ -2103,7 +2681,7 @@
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/e648b648-a3e8-48d5-c039-e86037206a00/public" alt="Letenky od Kuby" class="client-avatar">LETENKY OD KUBY</span>
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/19764afd-2a6d-4e2d-c431-efbc4efac600/public" alt="Wabi Sabi Podcast" class="client-avatar">WABI SABI PODCAST</span>
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/76eb99c6-4c77-41e9-446d-a9c08da16700/public" alt="Gorilla Space" class="client-avatar">GORILLA SPACE</span>
-                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/846f90b0-e43b-4e2e-d2fc-099a6e673100/public" alt="Spasitelka TikToku" class="client-avatar">SPASITELKA TIKTOKU</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/846f90b0-e43b-4e2e-d2fc-099a6e673100/public" alt="Flexy Babka" class="client-avatar">FLEXY BABKA</span>
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/2b86b501-537a-443a-ccec-a4f37081d100/public" alt="Raego" class="client-avatar">RAEGO</span>
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/04d95fbc-4a43-4867-bcd0-65a6d8d5e500/public" alt="Cashflow Brno" class="client-avatar">CASHFLOW BRNO</span>
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/49e2fcd6-260f-4e41-6b65-7e5d0ac41000/public" alt="Radek Petráš" class="client-avatar">RADEK PETRÁŠ</span>
@@ -2117,7 +2695,7 @@
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/e648b648-a3e8-48d5-c039-e86037206a00/public" alt="Letenky od Kuby" class="client-avatar">LETENKY OD KUBY</span>
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/19764afd-2a6d-4e2d-c431-efbc4efac600/public" alt="Wabi Sabi Podcast" class="client-avatar">WABI SABI PODCAST</span>
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/76eb99c6-4c77-41e9-446d-a9c08da16700/public" alt="Gorilla Space" class="client-avatar">GORILLA SPACE</span>
-                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/846f90b0-e43b-4e2e-d2fc-099a6e673100/public" alt="Spasitelka TikToku" class="client-avatar">SPASITELKA TIKTOKU</span>
+                <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/846f90b0-e43b-4e2e-d2fc-099a6e673100/public" alt="Flexy Babka" class="client-avatar">FLEXY BABKA</span>
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/2b86b501-537a-443a-ccec-a4f37081d100/public" alt="Raego" class="client-avatar">RAEGO</span>
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/04d95fbc-4a43-4867-bcd0-65a6d8d5e500/public" alt="Cashflow Brno" class="client-avatar">CASHFLOW BRNO</span>
                 <span class="marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/49e2fcd6-260f-4e41-6b65-7e5d0ac41000/public" alt="Radek Petráš" class="client-avatar">RADEK PETRÁŠ</span>
@@ -2288,7 +2866,6 @@
         </div>
     </section>
 
-    <!-- Founder Section -->
     <section class="founder" id="founder">
         <div class="founder-container">
             <div class="founder-text">
@@ -2314,7 +2891,7 @@
                 </p>
                 <div class="founder-stats">
                     <div class="founder-stat">
-                        <div class="founder-stat-number">500M+</div>
+                        <div class="founder-stat-number">127M+</div>
                         <div class="founder-stat-label">Zhlédnutí celkem</div>
                     </div>
                     <div class="founder-stat">
@@ -2399,7 +2976,7 @@
                     </div>
                     <h3 class="service-title">Skriptování</h3>
                     <p class="service-description">
-                        Vizuální storytelling začíná na papíře. Pomůžeme ti vytvořit scénář, který zaujme, udrží pozornost a přiměje k akci.
+                        Vizuální storytelling začíná na papíře. Pomůžeme ti vytvořit scénář, který zaujme, udrží pozornost a přiměje k akci. Propracujeme každý dialog a scénu tak, aby tvořily tvůj příběh.
                     </p>
                     <ul class="service-features">
                         <li>Skripty pro Reels & TikTok</li>
@@ -2429,21 +3006,13 @@
                 </p>
             </div>
 
-            <div class="portfolio-filters">
-                <button class="filter-pill active" data-filter="all">Vše</button>
-                <button class="filter-pill" data-filter="commercial">YouTube</button>
-                <button class="filter-pill" data-filter="social">Reklamy</button>
-                <button class="filter-pill" data-filter="events">Reels</button>
-                <button class="filter-pill" data-filter="youtube">Thumbnail</button>
-            </div>
-
             <div class="portfolio-grid">
                 <div class="portfolio-item large" data-category="commercial">
-                    <img src="https://images.unsplash.com/photo-1626544827763-d516dce335e2?w=1200&h=800&fit=crop&auto=format&q=80" alt="Prémiová kampaň" class="portfolio-image">
+                    <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/f2943656-6323-4835-b2b6-ce42a5d73900/public" alt="Grafika reklamy" class="portfolio-image">
                     <div class="portfolio-content">
                         <div class="portfolio-category">Reklamy</div>
-                        <h3 class="portfolio-title">Prémiová kampaň</h3>
-                        <a href="#" class="portfolio-link">
+                        <h3 class="portfolio-title">Nejúspěšnější reklamy</h3>
+                        <a href="#" class="portfolio-link" onclick="openPortfolioModal('commercial'); return false;">
                             <span>Zobrazit projekt</span>
                             <span>→</span>
                         </a>
@@ -2451,11 +3020,11 @@
                 </div>
 
                 <div class="portfolio-item" data-category="social">
-                    <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&h=800&fit=crop&auto=format&q=80" alt="Virální Reels" class="portfolio-image">
+                    <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/4da12792-d785-4cb8-8ded-bc84a7e7bb00/public" alt="Virální Reels" class="portfolio-image">
                     <div class="portfolio-content">
-                        <div class="portfolio-category">Reels</div>
-                        <h3 class="portfolio-title">Virální Reels</h3>
-                        <a href="#" class="portfolio-link">
+                        <div class="portfolio-category">Longform</div>
+                        <h3 class="portfolio-title">Virální YouTube videa</h3>
+                        <a href="#" class="portfolio-link" onclick="openPortfolioModal('social'); return false;">
                             <span>Zobrazit projekt</span>
                             <span>→</span>
                         </a>
@@ -2463,11 +3032,11 @@
                 </div>
 
                 <div class="portfolio-item tall" data-category="events">
-                    <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=600&h=1200&fit=crop&auto=format&q=80" alt="Comic Con Prague" class="portfolio-image">
+                    <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/c4cf13a9-8b74-476c-5868-449cfd40ba00/public" alt="Comic Con Prague" class="portfolio-image">
                     <div class="portfolio-content">
-                        <div class="portfolio-category">Thumbnail</div>
-                        <h3 class="portfolio-title">Comic Con Prague</h3>
-                        <a href="#" class="portfolio-link">
+                        <div class="portfolio-category">Shortform</div>
+                        <h3 class="portfolio-title">Reels na které jsme pyšní</h3>
+                        <a href="#" class="portfolio-link" onclick="openPortfolioModal('events'); return false;">
                             <span>Zobrazit projekt</span>
                             <span>→</span>
                         </a>
@@ -2475,11 +3044,11 @@
                 </div>
 
                 <div class="portfolio-item" data-category="youtube">
-                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=800&fit=crop&auto=format&q=80" alt="YouTube kampaň" class="portfolio-image">
+                    <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/e2056675-0cff-46d9-41a2-61a859841900/public" alt="YouTube kampaň" class="portfolio-image">
                     <div class="portfolio-content">
-                        <div class="portfolio-category">YouTube</div>
-                        <h3 class="portfolio-title">YouTube kampaň</h3>
-                        <a href="#" class="portfolio-link">
+                        <div class="portfolio-category">Grafika</div>
+                        <h3 class="portfolio-title">Úspěšné thumbnaily</h3>
+                        <a href="#" class="portfolio-link" onclick="openPortfolioModal('youtube'); return false;">
                             <span>Zobrazit projekt</span>
                             <span>→</span>
                         </a>
@@ -2489,6 +3058,106 @@
         </div>
     </section>
 
+    <div class="portfolio-modal" id="portfolioModal">
+        <div class="portfolio-modal-backdrop"></div>
+        <div class="portfolio-modal-container">
+            <button class="portfolio-modal-close" onclick="closePortfolioModal()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+            
+            <div class="portfolio-modal-content">
+                <div class="portfolio-modal-media">
+                    <div class="portfolio-modal-carousel">
+                        <div class="portfolio-modal-carousel-track">
+                            </div>
+                        
+                        <button class="portfolio-modal-nav portfolio-modal-nav-prev" onclick="navigateModalCarousel('prev')">
+                            <svg viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button class="portfolio-modal-nav portfolio-modal-nav-next" onclick="navigateModalCarousel('next')">
+                            <svg viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                        
+                        <div class="portfolio-modal-indicators">
+                             <span class="portfolio-modal-indicator active" onclick="goToModalSlide(0)"></span>
+                             <span class="portfolio-modal-indicator" onclick="goToModalSlide(1)"></span>
+                             <span class="portfolio-modal-indicator" onclick="goToModalSlide(2)"></span>
+                             <span class="portfolio-modal-indicator" onclick="goToModalSlide(3)"></span>
+                             <span class="portfolio-modal-indicator" onclick="goToModalSlide(4)"></span>
+                             <span class="portfolio-modal-indicator" onclick="goToModalSlide(5)"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-modal-info">
+                    <div class="portfolio-modal-header">
+                        <span class="portfolio-modal-category"></span>
+                        <h2 class="portfolio-modal-title"></h2>
+                    </div>
+                    
+                    <div class="portfolio-modal-stats">
+                        <div class="modal-stat">
+                            <span class="modal-stat-value">0</span>
+                            <span class="modal-stat-label">Zhlédnutí</span>
+                        </div>
+                        <div class="modal-stat">
+                            <span class="modal-stat-value">0</span>
+                            <span class="modal-stat-label">Engagement</span>
+                        </div>
+                        <div class="modal-stat">
+                            <span class="modal-stat-value">0</span>
+                            <span class="modal-stat-label">ROI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-modal-description">
+                        <p></p>
+                    </div>
+                    
+                    <div class="portfolio-modal-details">
+                        <h3>Detaily projektu</h3>
+                        <div class="modal-detail-grid">
+                            <div class="modal-detail">
+                                <span class="detail-label">Klient</span>
+                                <span class="detail-value"></span>
+                            </div>
+                            <div class="modal-detail">
+                                <span class="detail-label">Rok</span>
+                                <span class="detail-value"></span>
+                            </div>
+                            <div class="modal-detail">
+                                <span class="detail-label">Délka</span>
+                                <span class="detail-value"></span>
+                            </div>
+                            <div class="modal-detail">
+                                <span class="detail-label">Platformy</span>
+                                <span class="detail-value"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-modal-tags">
+                        <span class="modal-tag">Motion Design</span>
+                        <span class="modal-tag">Color Grading</span>
+                        <span class="modal-tag">Sound Design</span>
+                    </div>
+                    
+                    <div class="portfolio-modal-cta">
+                        <a href="#contact" class="btn btn-primary modal-cta-btn" onclick="closePortfolioModal()">
+                            Chci podobné video
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-header">
@@ -2563,6 +3232,68 @@
         </div>
     </section>
 
+    <section class="premium-marquee-section">
+        <div class="premium-marquee-container">
+            <div class="premium-marquee-track">
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/69ec171e-684f-4d4e-764f-a72605528000/public" alt="Tool 1"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/6686df97-feed-450f-24d6-4ba151b59900/public" alt="Tool 2"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/7b2fa1b2-2b29-412f-b8ef-6289e9517600/public" alt="Tool 3"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/bf426c75-fceb-4222-4048-8b5871cbb300/public" alt="Tool 4"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/ea9b72a4-8c30-4afb-e734-97c8efed9c00/public" alt="Tool 5"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/f24000ad-5b3c-45de-1a2f-5274e19a0c00/public" alt="Tool 6"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/8d3bd2b7-0183-491a-b56d-0a9a61c8c100/public" alt="Tool 7"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/b6a267fb-4a12-4a64-b029-17fdb928ab00/public" alt="Tool 8"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/37f56bfc-3bad-4470-6a9c-fea339cfac00/public" alt="Tool 9"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/be6eec24-715e-450c-57e1-eb2812f94400/public" alt="Tool 10"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/c8d54345-b9e0-4b9a-4872-187f1f4c4400/public" alt="Tool 11"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/139a6330-b8a0-493e-1cc1-811e447aa900/public" alt="Tool 12"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/f7337695-6cee-4584-0758-4ef9a1565600/public" alt="Tool 13"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/10cbc00c-2947-48d2-acaf-575cca207900/public" alt="Tool 14"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/69ec171e-684f-4d4e-764f-a72605528000/public" alt="Tool 1"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/6686df97-feed-450f-24d6-4ba151b59900/public" alt="Tool 2"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/7b2fa1b2-2b29-412f-b8ef-6289e9517600/public" alt="Tool 3"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/bf426c75-fceb-4222-4048-8b5871cbb300/public" alt="Tool 4"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/ea9b72a4-8c30-4afb-e734-97c8efed9c00/public" alt="Tool 5"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/f24000ad-5b3c-45de-1a2f-5274e19a0c00/public" alt="Tool 6"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/8d3bd2b7-0183-491a-b56d-0a9a61c8c100/public" alt="Tool 7"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/b6a267fb-4a12-4a64-b029-17fdb928ab00/public" alt="Tool 8"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/37f56bfc-3bad-4470-6a9c-fea339cfac00/public" alt="Tool 9"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/be6eec24-715e-450c-57e1-eb2812f94400/public" alt="Tool 10"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/c8d54345-b9e0-4b9a-4872-187f1f4c4400/public" alt="Tool 11"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/139a6330-b8a0-493e-1cc1-811e447aa900/public" alt="Tool 12"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/f7337695-6cee-4584-0758-4ef9a1565600/public" alt="Tool 13"></div>
+                <div class="premium-marquee-separator"></div>
+                <div class="premium-marquee-item"><img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/10cbc00c-2947-48d2-acaf-575cca207900/public" alt="Tool 14"></div>
+                <div class="premium-marquee-separator"></div>
+            </div>
+        </div>
+    </section>
     <section class="contact" id="contact">
         <div class="contact-bg-animation">
             <div class="contact-circle"></div>
@@ -2573,16 +3304,16 @@
         <div class="container">
             <div class="contact-wrapper">
                 <div class="contact-content">
+                    <span class="section-label">OZVI SE, DÁME CALL</span>
                     <h2 class="contact-heading">
-                        Společně najdeme způsob, jak posunout vaše podnikání na <br>
-                        <span class="text-gradient">vyšší úroveň</span>.
+                        Společně najdeme způsob,<br> jak posunout vaše
+                        <span class="text-gradient">podnikání na vyšší úroveň</span>.
                     </h2>
                 </div>
 
                 <div class="contact-main">
                     <div class="calendly-container">
                         <div class="calendly-wrapper">
-                            <!-- Calendly inline widget begin -->
                             <div class="calendly-inline-widget" data-url="https://calendly.com/zandavisuals/30min" style="min-width:320px;height:700px;"></div>
                             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
                             <style>
@@ -2860,7 +3591,7 @@
             iframe.style.opacity = '1';
             // Keep autoplay=false always
         }
-       
+
         // Preloader
         const preloader = document.getElementById('preloader');
         const preloaderBar = document.querySelector('.preloader-bar');
@@ -2980,34 +3711,7 @@
             updateCarousel();
         }
 
-        // Auto-play carousel - DISABLED
-        // let carouselInterval = setInterval(() => {
-        //     // Check if video is playing before auto-advancing
-        //     const iframe = document.getElementById('cloudflare-video-0');
-        //     if (iframe && iframe.style.opacity === '1') {
-        //         // Video is playing, skip auto-advance
-        //         return;
-        //     }
-        //     navigateCarousel('next');
-        // }, 5000);
-
-        // Pause on hover - NO LONGER NEEDED
         const videoCarousel = document.querySelector('.video-carousel');
-        // videoCarousel.addEventListener('mouseenter', () => {
-        //     clearInterval(carouselInterval);
-        // });
-
-        // videoCarousel.addEventListener('mouseleave', () => {
-        //     carouselInterval = setInterval(() => {
-        //         // Check if video is playing before auto-advancing
-        //         const iframe = document.getElementById('cloudflare-video-0');
-        //         if (iframe && iframe.style.opacity === '1') {
-        //             // Video is playing, skip auto-advance
-        //             return;
-        //         }
-        //         navigateCarousel('next');
-        //     }, 5000);
-        // });
 
         // Touch support for carousel
         let touchStartX = 0;
@@ -3118,7 +3822,7 @@
             });
 
             // Section animations
-            const sections = gsap.utils.toArray('section:not(.hero):not(.founder)');
+            const sections = gsap.utils.toArray('section:not(.hero):not(.founder):not(.contact)');
 
             sections.forEach(section => {
                 const label = section.querySelector('.section-label');
@@ -3184,63 +3888,44 @@
             });
 
             // Contact animations
-            gsap.to('.contact-heading', {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                ease: 'power3.out',
+            const contactTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: '.contact',
                     start: 'top 80%'
                 }
             });
 
-            gsap.to('.contact-description', {
+            contactTl.to('.contact .section-label', {
                 opacity: 1,
                 y: 0,
-                duration: 0.8,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.contact',
-                    start: 'top 80%'
-                },
-                delay: 0.2
-            });
-
-            gsap.to('.calendly-container', {
+                duration: 0.6,
+                ease: 'power3.out'
+            })
+            .to('.contact-heading', {
                 opacity: 1,
                 y: 0,
                 duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.contact-main',
-                    start: 'top 80%'
-                }
-            });
-
-            gsap.to('.contact-info-cards', {
+                ease: 'power3.out'
+            }, '-=0.4')
+            .to('.calendly-container', {
                 opacity: 1,
                 y: 0,
                 duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.contact-main',
-                    start: 'top 80%'
-                },
-                delay: 0.2
-            });
-
-            gsap.to('.social-media-icons', {
+                ease: 'power3.out'
+            }, '-=0.8')
+            .to('.contact-info-cards', {
                 opacity: 1,
                 y: 0,
                 duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.contact-main',
-                    start: 'top 80%'
-                },
-                delay: 0.4
-            });
+                ease: 'power3.out'
+            }, '-=0.8')
+            .to('.social-media-icons', {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power3.out'
+            }, '-=0.8');
+
 
             // Counter animation for founder stats
             const statNumbers = document.querySelectorAll('.founder-stat-number');
@@ -3284,41 +3969,6 @@
                 marqueeTrack.style.animationPlayState = 'running';
             });
 
-            // Portfolio filter
-            const filterBtns = document.querySelectorAll('.filter-pill');
-            const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-
-                    const filter = btn.dataset.filter;
-
-                    portfolioItems.forEach(item => {
-                        if (filter === 'all' || item.dataset.category === filter) {
-                            gsap.to(item, {
-                                opacity: 1,
-                                scale: 1,
-                                duration: 0.5,
-                                ease: 'power3.out'
-                            });
-                            item.style.display = 'block';
-                        } else {
-                            gsap.to(item, {
-                                opacity: 0,
-                                scale: 0.95,
-                                duration: 0.5,
-                                ease: 'power3.out',
-                                onComplete: () => {
-                                    item.style.display = 'none';
-                                }
-                            });
-                        }
-                    });
-                });
-            });
-
 	// Smooth scrolling for navigation
 		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 		    anchor.addEventListener('click', function (e) {
@@ -3360,6 +4010,342 @@
 		    });
 		});
         }
+        
+        // --- NEW/MODIFIED JAVASCRIPT FOR PORTFOLIO MODAL ---
+
+        // Portfolio Modal Carousel State
+        let modalCarouselIndex = 0;
+        const modalCarouselItems = 6;
+
+        // Expanded Portfolio Data with media array
+        const portfolioData = {
+            'commercial': {
+                title: 'Nejúspěšnější reklamy',
+                category: 'Reklamy',
+                media: [
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/5419de75de2edd60bdfd25afa12542e6/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/5cb1646599ffd0bf08a012d6254fa9d5/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/c705998fad95b29ba8f588d712464ea6/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/0ee77ffc8f7c821c0da670f0b24e563a/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/7cef2fc61c7c6710f1c63ac3aa60542f/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/a980f9a7efd722bd48ac015795a80b89/iframe' }
+                ],
+                description: 'Od rychlých Reels po dlouhé formáty – tohle jsou kampaně, co fungují.Kombinujeme cinematografii, motion design a storytelling, který nejen zaujme, ale hlavně prodává.Tvořeno pro značky jako Trenér žen, Kuba English, Letenky od Kuby a English pro děti, tahle videa generovala masivní dosahy, přinesla nové zákazníky a posunula brand na novou úroveň.',
+                client: 'Influenceři, Podnikatelé',
+                year: '2024-2025',
+                duration: '15 s - 20 min',
+                platforms: 'Reels, Facebook, YouTube',
+                stats: {
+                    views: 1500000,
+                    engagement: 45000,
+                    roas: 300
+                }
+            },
+            'social': {
+                title: 'Virální Reels série',
+                category: 'Social Media',
+                media: [
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/7de146df161088928e0979ac6054c701/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/0d56c258a59edc65e8cfa7093dd3ebfe/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/9544314ad21a62f75159ca46834ef207/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/78bd423d1d0588e7c4070aaeb2f2eee8/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/ea9454ea3d102fbe0685faf442234475/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/8c13785661d2380d7f172507bbfbf203/iframe' }
+                ],
+                description: 'Série dynamických Reels, které způsobily revoluci v přístupu ke krátkému video contentu. Každé video bylo optimalizováno pro maximální engagement a virální potenciál.',
+                client: 'Fashion Influencer',
+                year: '2024',
+                duration: '0:15 - 0:30',
+                platforms: 'Instagram Reels, TikTok',
+                stats: {
+                    views: 15000000,
+                    engagement: 890000,
+                    roi: 520
+                }
+            },
+            'events': {
+                title: 'Comic Con Prague Aftermovie',
+                category: 'Event Coverage',
+                media: [
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/50e4539de3fd1da15bf2a06cd9d3219b/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/f2f9b7008650af0804d379f79d2d1682/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/fa526a99fcd4fc249af3e30e8cdcc8b4/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/8294bb1c59e022c2d50469074b35eb42/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/a0066f9af61f70896e1ee8d05e2d4c4b/iframe' },
+                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/442410a93a6178b4d1445a09bf3cd6bb/iframe' }
+                ],
+                description: 'Epický aftermovie zachycující energii největšího pop-culture eventu v ČR. Dynamický střih, cinematické záběry a perfektní sound design.',
+                client: 'Comic Con Prague',
+                year: '2023',
+                duration: '3:45',
+                platforms: 'YouTube, Facebook, Web',
+                stats: {
+                    views: 450000,
+                    engagement: 25000,
+                    roi: 180
+                }
+            },
+            'youtube': {
+                title: 'YouTube série pro Kuba English',
+                category: 'YouTube Content',
+                media: [
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/c4f8dcf0-c450-4291-92bc-c6ae3da20400/public' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/1a42ba19-f70c-4ab8-2970-8a5c75c05b00/public' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/de0d28ad-a0b1-4b31-02f3-3390a2e5e100/public' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/e3b20889-b714-478e-f516-b44b16bf8100/public' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/9c80b2d0-e125-4518-53e0-cf79c4f11600/public' },
+                    { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/412696ff-510d-4b41-5565-04c0bb416800/public' }
+                ],
+                description: 'Kompletní video produkce pro jeden z nejúspěšnějších vzdělávacích kanálů. Inovativní přístup ke vzdělávacímu contentu s důrazem na retention a engagement.',
+                client: 'Kuba English',
+                year: '2024',
+                duration: '10:00+',
+                platforms: 'YouTube',
+                stats: {
+                    views: 5000000,
+                    engagement: 120000,
+                    roi: 450
+                }
+            }
+        };
+
+        // --- START: OPREAVENÉ FUNKCE DLE POŽADAVKU ---
+
+        // Vylepšená funkce pro zastavení videí v modalu
+        function stopAllModalVideos() {
+            const iframes = document.querySelectorAll('.portfolio-modal-carousel-track iframe');
+            iframes.forEach(iframe => {
+                // Nejdřív vyprázdnit src
+                const originalSrc = iframe.src;
+                iframe.src = '';
+                
+                // Pak nahradit iframe novým s původním src
+                const newIframe = iframe.cloneNode(true);
+                newIframe.src = originalSrc;
+                iframe.parentNode.replaceChild(newIframe, iframe);
+            });
+        }
+
+
+        // Upravená funkce pro otevření modalu
+        function openPortfolioModal(category) {
+            const modal = document.getElementById('portfolioModal');
+            const data = portfolioData[category];
+            
+            if (!data) return;
+
+            // Reset carousel
+            modalCarouselIndex = 0;
+            
+            const track = modal.querySelector('.portfolio-modal-carousel-track');
+            track.innerHTML = ''; // Clear previous items
+            track.style.transform = 'translateX(0%)'; // Reset position
+
+            // Populate carousel track s upravenými URL
+            data.media.forEach((media, index) => {
+                const item = document.createElement('div');
+                item.className = `portfolio-modal-media-item ${index === 0 ? 'active' : ''}`;
+                item.dataset.index = index;
+                
+                if (media.type === 'video') {
+                    // Použití nového formátu URL s požadovanými parametry
+                    item.innerHTML = `
+                        <div class="portfolio-modal-video-wrapper">
+                            <iframe 
+                                src="${media.src}?autoplay=false&muted=true&loop=false&preload=none&controls=true" 
+                                frameborder="0" 
+                                allow="fullscreen" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>`;
+                } else {
+                    item.innerHTML = `<img src="${media.src}" alt="${data.title} - ${index + 1}" class="portfolio-modal-image" loading="lazy">`;
+                }
+                
+                track.appendChild(item);
+            });
+
+            // Update indicators
+            const indicators = modal.querySelectorAll('.portfolio-modal-indicator');
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === 0);
+            });
+
+            // Stop any playing videos in the main carousel
+            stopAllVideos();
+
+            // Update other modal content
+            modal.querySelector('.portfolio-modal-category').textContent = data.category;
+            modal.querySelector('.portfolio-modal-title').textContent = data.title;
+            modal.querySelector('.portfolio-modal-description p').textContent = data.description;
+            
+            const details = modal.querySelectorAll('.detail-value');
+            details[0].textContent = data.client;
+            details[1].textContent = data.year;
+            details[2].textContent = data.duration;
+            details[3].textContent = data.platforms;
+
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Animate stats
+            setTimeout(() => {
+                animateModalStats(data.stats);
+            }, 300);
+        }
+
+        // Upravená funkce pro zavření modalu
+        function closePortfolioModal() {
+            const modal = document.getElementById('portfolioModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+
+            // Spolehlivé zastavení všech videí v modalu při zavření
+            stopAllModalVideos();
+            
+            // Dodatečná ochrana: po krátkém timeoutu vyprázdnit src
+            // aby se zamezilo jakýmkoli problémům s cache prohlížeče.
+            setTimeout(() => {
+                const iframes = document.querySelectorAll('.portfolio-modal-carousel-track iframe');
+                iframes.forEach(iframe => {
+                    iframe.src = '';
+                });
+            }, 500); // 500ms je dostatečná doba pro dokončení animace zavření
+        }
+        
+        // --- KONEC: OPRAVENÉ FUNKCE ---
+        
+        // Helper function for number animation
+        function animateValue(element, start, end, duration, formatter) {
+            const startTime = Date.now();
+            
+            function update() {
+                const currentTime = Date.now();
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // EaseOutQuart timing function
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                const current = start + (end - start) * easeOutQuart;
+                
+                let displayValue;
+                 if (formatter === 'M+') {
+                    displayValue = (current / 1000000).toFixed(1) + 'M+';
+                } else if (formatter === 'K') {
+                    displayValue = Math.round(current / 1000) + 'K';
+                } else if (formatter === '%') {
+                    displayValue = Math.round(current) + '%';
+                } else {
+                    displayValue = Math.round(current);
+                }
+
+                element.textContent = displayValue;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+            
+            update();
+        }
+
+        // Corrected stat animation function
+        function animateModalStats(stats) {
+            const statElements = document.querySelectorAll('.modal-stat-value');
+            if (stats && statElements.length === 3) {
+                animateValue(statElements[0], 0, stats.views, 1500, 'M+');
+                animateValue(statElements[1], 0, stats.engagement, 1500, 'K');
+                animateValue(statElements[2], 0, stats.roi, 1500, '%');
+            }
+        }
+
+        // Carousel Navigation
+        function navigateModalCarousel(direction) {
+            // Zastavení videí před změnou slidu
+            stopAllModalVideos();
+            
+            const track = document.querySelector('.portfolio-modal-carousel-track');
+            const indicators = document.querySelectorAll('.portfolio-modal-indicator');
+            
+            if (direction === 'next') {
+                modalCarouselIndex = (modalCarouselIndex + 1) % modalCarouselItems;
+            } else {
+                modalCarouselIndex = (modalCarouselIndex - 1 + modalCarouselItems) % modalCarouselItems;
+            }
+            
+            track.style.transform = `translateX(-${modalCarouselIndex * 100}%)`;
+            
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === modalCarouselIndex);
+            });
+        }
+
+        // Direct slide navigation
+        function goToModalSlide(index) {
+            // Zastavení videí před změnou slidu
+            stopAllModalVideos();
+            
+            modalCarouselIndex = index;
+            const track = document.querySelector('.portfolio-modal-carousel-track');
+            const indicators = document.querySelectorAll('.portfolio-modal-indicator');
+            
+            track.style.transform = `translateX(-${modalCarouselIndex * 100}%)`;
+            
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === modalCarouselIndex);
+            });
+        }
+
+        // --- Event Listeners ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Close modal on backdrop click
+            document.querySelector('.portfolio-modal-backdrop').addEventListener('click', closePortfolioModal);
+
+            // Touch support for modal carousel
+            const modalCarousel = document.querySelector('.portfolio-modal-carousel');
+            let modalTouchStartX = 0;
+            let modalTouchEndX = 0;
+
+            if (modalCarousel) {
+                modalCarousel.addEventListener('touchstart', (e) => {
+                    modalTouchStartX = e.touches[0].clientX;
+                });
+                
+                modalCarousel.addEventListener('touchend', (e) => {
+                    modalTouchEndX = e.changedTouches[0].clientX;
+                    handleModalSwipe();
+                });
+            }
+
+            function handleModalSwipe() {
+                const swipeThreshold = 50;
+                const diff = modalTouchStartX - modalTouchEndX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        navigateModalCarousel('next');
+                    } else {
+                        navigateModalCarousel('prev');
+                    }
+                }
+            }
+
+            // Keyboard navigation for modal
+            document.addEventListener('keydown', (e) => {
+                const modal = document.getElementById('portfolioModal');
+                if (modal && modal.classList.contains('active')) {
+                    if (e.key === 'ArrowLeft') {
+                        navigateModalCarousel('prev');
+                    } else if (e.key === 'ArrowRight') {
+                        navigateModalCarousel('next');
+                    } else if (e.key === 'Escape') {
+                        closePortfolioModal();
+                    }
+                }
+            });
+        });
+
     </script>
 
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
