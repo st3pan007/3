@@ -1017,11 +1017,11 @@
 	    background: linear-gradient(135deg, rgba(255, 0, 128, 0.1) 0%, rgba(255, 0, 128, 0.05) 100%);
 	    transition: height 0.6s var(--ease-out-expo);
 	}
-	
+
 	.founder-stat:hover::before {
 	    height: 100%;
 	}
-	
+
 	.founder-stat:hover {
 	    transform: translateY(-8px);
 	    border-color: var(--accent);
@@ -1067,7 +1067,7 @@
             object-fit: cover;
             border-radius: 40px;
         }
-        
+
         .founder-image-container iframe {
             border-radius: 40px;
         }
@@ -1562,7 +1562,7 @@
             margin: 0 auto;
             text-align: center;
         }
-        
+
         /* ÚPRAVA 2: Zde je přidán margin-bottom pro nový nadpis */
         .contact-content .section-label {
             margin-bottom: 32px;
@@ -2036,7 +2036,7 @@
                 height: 24px;
             }
         }
-        
+
         /* Portfolio Modal - Ultra Premium */
         .portfolio-modal {
             position: fixed;
@@ -2280,7 +2280,7 @@
                 transform: translateY(0);
             }
         }
-        
+
         /* NEW STYLES: Portfolio Modal Carousel */
         .portfolio-modal-media {
             position: relative;
@@ -2424,7 +2424,7 @@
                 right: 10px;
             }
         }
-        
+
         @media (max-width: 768px) {
             .portfolio-modal-container {
                 width: 95%;
@@ -2719,14 +2719,7 @@
             <div class="video-carousel">
                 <div class="video-carousel-track" id="videoCarousel">
                     <div class="video-card-apple center" data-index="0">
-                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
-                            <iframe
-                                id="cloudflare-video-0"
-                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/dd2f0a80b4e82209116065e52da99461/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
-                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
-                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                                allowfullscreen="true">
-                            </iframe>
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;" data-video-id="dd2f0a80b4e82209116065e52da99461">
                             <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/2dcf2a24-a1c5-4e86-050b-5c7a6fb97600/public" alt="Showreel Zanda Visuals" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="play-button-apple" onclick="playCloudflareVideo(0)">
@@ -2737,14 +2730,7 @@
                     </div>
 
                     <div class="video-card-apple right-1" data-index="1">
-                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
-                            <iframe
-                                id="cloudflare-video-1"
-                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/77e18e1e562cd91a8aa93affd601cf05/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
-                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
-                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                                allowfullscreen="true">
-                            </iframe>
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;" data-video-id="77e18e1e562cd91a8aa93affd601cf05">
                             <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/8fc1e2b6-64ad-4197-b229-0797f4013600/public" alt="Video 2" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="play-button-apple" onclick="playCloudflareVideo(1)">
@@ -2755,14 +2741,7 @@
                     </div>
 
                     <div class="video-card-apple right-2" data-index="2">
-                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
-                            <iframe
-                                id="cloudflare-video-2"
-                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/145c0ff903bab04c91978a84b54d5b93/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
-                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
-                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                                allowfullscreen="true">
-                            </iframe>
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;" data-video-id="145c0ff903bab04c91978a84b54d5b93">
                             <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/dc8beb30-d7ff-4cc1-9587-f7492852c000/public" alt="Video 3" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="play-button-apple" onclick="playCloudflareVideo(2)">
@@ -2773,14 +2752,7 @@
                     </div>
 
                     <div class="video-card-apple hidden" data-index="3">
-                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
-                            <iframe
-                                id="cloudflare-video-3"
-                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/bb8576d7faa4cd2489589339f23bee52/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
-                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
-                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                                allowfullscreen="true">
-                            </iframe>
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;" data-video-id="bb8576d7faa4cd2489589339f23bee52">
                             <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/8169492a-afa9-42c0-c5a5-849ac27e1400/public" alt="Video 4" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="play-button-apple" onclick="playCloudflareVideo(3)">
@@ -2791,14 +2763,7 @@
                     </div>
 
                     <div class="video-card-apple hidden" data-index="4">
-                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
-                            <iframe
-                                id="cloudflare-video-4"
-                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/d19b73b9457e3c5bed572ba35473a184/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
-                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
-                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                                allowfullscreen="true">
-                            </iframe>
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;" data-video-id="d19b73b9457e3c5bed572ba35473a184">
                             <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/e035984b-a007-4cb9-6050-ddec5c387700/public" alt="Video 5" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="play-button-apple" onclick="playCloudflareVideo(4)">
@@ -2809,14 +2774,7 @@
                     </div>
 
                     <div class="video-card-apple left-2" data-index="5">
-                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
-                            <iframe
-                                id="cloudflare-video-5"
-                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/eac60b5b2cde02cb5e881e9749f3be5c/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
-                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
-                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                                allowfullscreen="true">
-                            </iframe>
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;" data-video-id="eac60b5b2cde02cb5e881e9749f3be5c">
                             <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/2da731c7-37e4-4bf3-cf29-ee6552eb9500/public" alt="Video 6" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="play-button-apple" onclick="playCloudflareVideo(5)">
@@ -2827,14 +2785,7 @@
                     </div>
 
                     <div class="video-card-apple left-1" data-index="6">
-                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;">
-                            <iframe
-                                id="cloudflare-video-6"
-                                src="https://customer-go903c29r7kfmooj.cloudflarestream.com/093540beabc63f35494667def3b1b9c1/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off"
-                                style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%; opacity: 0;"
-                                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                                allowfullscreen="true">
-                            </iframe>
+                        <div class="video-iframe-wrapper" style="position: relative; width: 100%; height: 100%;" data-video-id="093540beabc63f35494667def3b1b9c1">
                             <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/3621e7b1-dd97-43aa-e10f-54fe6b2d7400/public" alt="Video 7" class="video-thumbnail-apple" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="play-button-apple" onclick="playCloudflareVideo(6)">
@@ -2879,18 +2830,18 @@
                     až k vlastní agentuře
                 </h2>
                 <p class="founder-description">
-                    Za Zanda Visuals stojím já – mladý kreativec, který se rozhodl jít proti proudu. 
-		    Ve třetím ročníku jsem odešel z Gymnázia, protože jsem věděl, že moje cesta vede jinam. 
+                    Za Zanda Visuals stojím já – mladý kreativec, který se rozhodl jít proti proudu.
+		    Ve třetím ročníku jsem odešel z Gymnázia, protože jsem věděl, že moje cesta vede jinam.
                     Místo školy jsem začal tvořit.
                 </p>
                 <p class="founder-description">
-                    Stříhat jsem začal pro YouTubery, influencery a marketingové agentury. 
+                    Stříhat jsem začal pro YouTubery, influencery a marketingové agentury.
 		    Každej den jsem se učil něco novýho, ladil detaily a posouval svůj skill – střih už pro mě nebyl jen práce, ale zbraň pro budování brandu.
                 </p>
 		<p class="founder-description">
-                    Dnes tvořím ty nejostřejší videa pro značky a influencery, kteří chtějí být vidět. 
-                    Nejde jen o efekty – pomáhám jim budovat osobní značku, příběh, která prodává a zanechá dojem. 
-                    Každý projekt beru jako svůj vlastní. 
+                    Dnes tvořím ty nejostřejší videa pro značky a influencery, kteří chtějí být vidět.
+                    Nejde jen o efekty – pomáhám jim budovat osobní značku, příběh, která prodává a zanechá dojem.
+                    Každý projekt beru jako svůj vlastní.
                     Styl, vibe, message – všechno musí sedět.
                 </p>
                 <div class="founder-stats">
@@ -3077,13 +3028,13 @@
                     <path d="M18 6L6 18M6 6l12 12"/>
                 </svg>
             </button>
-            
+
             <div class="portfolio-modal-content">
                 <div class="portfolio-modal-media">
                     <div class="portfolio-modal-carousel">
                         <div class="portfolio-modal-carousel-track">
                             </div>
-                        
+
                         <button class="portfolio-modal-nav portfolio-modal-nav-prev" onclick="navigateModalCarousel('prev')">
                             <svg viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
@@ -3094,7 +3045,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                             </svg>
                         </button>
-                        
+
                         <div class="portfolio-modal-indicators">
                              <span class="portfolio-modal-indicator active" onclick="goToModalSlide(0)"></span>
                              <span class="portfolio-modal-indicator" onclick="goToModalSlide(1)"></span>
@@ -3105,13 +3056,13 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="portfolio-modal-info">
                     <div class="portfolio-modal-header">
                         <span class="portfolio-modal-category"></span>
                         <h2 class="portfolio-modal-title"></h2>
                     </div>
-                    
+
                     <div class="portfolio-modal-stats">
                         <div class="modal-stat">
                             <span class="modal-stat-value">0</span>
@@ -3126,11 +3077,11 @@
                             <span class="modal-stat-label"></span>
                         </div>
                     </div>
-                    
+
                     <div class="portfolio-modal-description">
                         <p></p>
                     </div>
-                    
+
                     <div class="portfolio-modal-details">
                         <h3>Detaily projektu</h3>
                         <div class="modal-detail-grid">
@@ -3152,9 +3103,9 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="portfolio-modal-tags"></div>
-                    
+
                     <div class="portfolio-modal-cta">
                         <a href="#contact" class="btn btn-primary modal-cta-btn" onclick="closePortfolioModal()">
                             Chci podobné video
@@ -3164,7 +3115,7 @@
             </div>
         </div>
     </div>
-    
+
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-header">
@@ -3331,13 +3282,13 @@
                                         max-width: 100% !important;
                                         margin: 0 auto !important;
                                     }
-                                    
+
                                     .calendly-wrapper {
                                         max-width: 1140px !important;
                                         margin: 0 auto !important;
                                     }
                                 }
-                                
+
                                 /* Mobile styles - keep original */
                                 @media (max-width: 1023px) {
                                     .calendly-inline-widget {
@@ -3514,52 +3465,17 @@
 
         // Stop all videos helper function
         function stopAllVideos() {
-            // Array of all video IDs and their corresponding URLs
-            const videos = [
-                {
-                    id: 'cloudflare-video-0',
-                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/dd2f0a80b4e82209116065e52da99461/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
-                },
-                {
-                    id: 'cloudflare-video-1',
-                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/77e18e1e562cd91a8aa93affd601cf05/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
-                },
-                {
-                    id: 'cloudflare-video-2',
-                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/145c0ff903bab04c91978a84b54d5b93/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
-                },
-                {
-                    id: 'cloudflare-video-3',
-                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/bb8576d7faa4cd2489589339f23bee52/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
-                },
-                {
-                    id: 'cloudflare-video-4',
-                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/d19b73b9457e3c5bed572ba35473a184/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
-                },
-                {
-                    id: 'cloudflare-video-5',
-                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/eac60b5b2cde02cb5e881e9749f3be5c/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
-                },
-                {
-                    id: 'cloudflare-video-6',
-                    src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/093540beabc63f35494667def3b1b9c1/iframe?controls=true&autoplay=false&muted=false&loop=false&preload=metadata&defaultTextTrack=off'
-                }
-            ];
+            // For showreel videos
+            const showreelWrappers = document.querySelectorAll('.video-card-apple .video-iframe-wrapper');
+            showreelWrappers.forEach(wrapper => {
+                const iframe = wrapper.querySelector('iframe');
+                const thumbnail = wrapper.querySelector('.video-thumbnail-apple');
+                const playButton = wrapper.closest('.video-card-apple').querySelector('.play-button-apple');
 
-            videos.forEach(video => {
-                const iframe = document.getElementById(video.id);
-                if (iframe && iframe.style.opacity === '1') {
-                    const thumbnail = iframe.parentElement.querySelector('.video-thumbnail-apple');
-                    const playButton = iframe.parentElement.parentElement.querySelector('.play-button-apple');
-                    
-                    // Create a new iframe to replace the old one
-                    const newIframe = iframe.cloneNode(false);
-                    newIframe.src = video.src;
-                    newIframe.style.opacity = '0';
-                    
-                    // Replace the iframe
-                    iframe.parentNode.replaceChild(newIframe, iframe);
-                    
+                if (iframe) {
+                    // Remove iframe completely
+                    iframe.remove();
+
                     // Show thumbnail and play button again
                     if (thumbnail) {
                         thumbnail.style.display = 'block';
@@ -3575,17 +3491,34 @@
         function playCloudflareVideo(index) {
             // First stop all other videos
             stopAllVideos();
-            
-            const iframe = document.getElementById('cloudflare-video-' + index);
-            const thumbnail = iframe.parentElement.querySelector('.video-thumbnail-apple');
-            const playButton = iframe.parentElement.parentElement.querySelector('.play-button-apple');
-            
+
+            const card = document.querySelector(`[data-index="${index}"]`);
+            const wrapper = card.querySelector('.video-iframe-wrapper');
+            const thumbnail = wrapper.querySelector('.video-thumbnail-apple');
+            const playButton = card.querySelector('.play-button-apple');
+            const videoId = wrapper.dataset.videoId;
+
             // Check if the video card is still center
-            const videoCard = iframe.closest('.video-card-apple');
-            if (!videoCard || !videoCard.classList.contains('center')) {
-                return; // Don't play if not center
+            if (!card || !card.classList.contains('center')) {
+                return;
             }
-            
+
+            // Check if iframe already exists
+            let iframe = wrapper.querySelector('iframe');
+
+            if (!iframe && videoId) {
+                // Create iframe
+                iframe = document.createElement('iframe');
+                iframe.id = `cloudflare-video-${index}`;
+                iframe.src = `https://customer-go903c29r7kfmooj.cloudflarestream.com/${videoId}/iframe?controls=true&autoplay=true&muted=false&loop=false`;
+                iframe.style.cssText = 'border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;';
+                iframe.allow = 'accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;';
+                iframe.allowFullscreen = true;
+
+                // Add to DOM
+                wrapper.appendChild(iframe);
+            }
+
             // Hide thumbnail and play button
             if (thumbnail) {
                 thumbnail.style.display = 'none';
@@ -3593,10 +3526,6 @@
             if (playButton) {
                 playButton.style.display = 'none';
             }
-            
-            // Show iframe with controls - DO NOT autoplay
-            iframe.style.opacity = '1';
-            // Keep autoplay=false always
         }
 
         // Preloader
@@ -3710,10 +3639,10 @@
 
         function goToSlide(index) {
             if (isTransitioning) return;
-            
+
             // Stop any playing videos when changing slides
             stopAllVideos();
-            
+
             currentSlide = index;
             updateCarousel();
         }
@@ -3740,7 +3669,7 @@
             if (Math.abs(diff) > swipeThreshold) {
                 // Stop any playing videos before swiping
                 stopAllVideos();
-                
+
                 if (diff > 0) {
                     navigateCarousel('next');
                 } else {
@@ -3942,7 +3871,7 @@
                 const hasPlus = value.includes('+');
                 let number = parseInt(value.replace(/\D/g, ''));
                 let suffix = '';
-                
+
                 if (hasM) suffix = 'M';
                 if (hasPlus) suffix += '+';
 
@@ -3981,7 +3910,7 @@
 		    anchor.addEventListener('click', function (e) {
 		        e.preventDefault();
 		        const targetId = this.getAttribute('href');
-		        
+
 		        // Special handling for contact section - scroll directly to Calendly widget
 		        if (targetId === '#contact') {
 		            // Wait a bit for Calendly to load if needed
@@ -3992,11 +3921,11 @@
 		                    const rect = calendlyWidget.getBoundingClientRect();
 		                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 		                    const elementTop = rect.top + scrollTop;
-		                    
+
 		                    // Calculate position to center the widget in viewport
 		                    // Subtract navbar height (80px) and add some padding
 		                    const targetPosition = elementTop - 150;
-		                    
+
 		                    window.scrollTo({
 		                        top: targetPosition,
 		                        behavior: 'smooth'
@@ -4017,7 +3946,7 @@
 		    });
 		});
         }
-        
+
         // --- NEW/MODIFIED JAVASCRIPT FOR PORTFOLIO MODAL ---
 
         // Portfolio Modal Carousel State
@@ -4030,12 +3959,12 @@
                 title: 'Nejúspěšnější reklamy',
                 category: 'Reklamy',
                 media: [
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/5419de75de2edd60bdfd25afa12542e6/iframe' },
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/5cb1646599ffd0bf08a012d6254fa9d5/iframe' },
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/c705998fad95b29ba8f588d712464ea6/iframe' },
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/0ee77ffc8f7c821c0da670f0b24e563a/iframe' },
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/7cef2fc61c7c6710f1c63ac3aa60542f/iframe' },
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/a980f9a7efd722bd48ac015795a80b89/iframe' }
+                    { type: 'video', videoId: '5419de75de2edd60bdfd25afa12542e6' },
+                    { type: 'video', videoId: '5cb1646599ffd0bf08a012d6254fa9d5' },
+                    { type: 'video', videoId: 'c705998fad95b29ba8f588d712464ea6' },
+                    { type: 'video', videoId: '0ee77ffc8f7c821c0da670f0b24e563a' },
+                    { type: 'video', videoId: '7cef2fc61c7c6710f1c63ac3aa60542f' },
+                    { type: 'video', videoId: 'a980f9a7efd722bd48ac015795a80b89' }
                 ],
                 description: 'Od rychlých Reels po dlouhé formáty – tohle jsou kampaně, co fungují.Kombinujeme cinematografii, motion design a storytelling, který nejen zaujme, ale hlavně prodává.Tvořeno pro značky jako Trenér žen, Kuba English, Letenky od Kuby a English pro děti, tahle videa generovala masivní dosahy, přinesla nové zákazníky a posunula brand na novou úroveň.',
                 client: 'Influenceři, Podnikatelé',
@@ -4049,7 +3978,7 @@
                 },
                 statsLabels: {
                     label1: 'Zhlédnutí',
-                    label2: 'Reach', 
+                    label2: 'Reach',
                     label3: 'ROI'
                 },
                 detailLabels: {
@@ -4064,12 +3993,12 @@
                 title: 'Virální YouTube videa',
                 category: 'Longform',
                 media: [
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/7de146df161088928e0979ac6054c701/iframe' },
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/0d56c258a59edc65e8cfa7093dd3ebfe/iframe' },
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/9544314ad21a62f75159ca46834ef207/iframe' },
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/78bd423d1d0588e7c4070aaeb2f2eee8/iframe' },
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/ea9454ea3d102fbe0685faf442234475/iframe' },
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/8c13785661d2380d7f172507bbfbf203/iframe' }
+                    { type: 'video', videoId: '7de146df161088928e0979ac6054c701' },
+                    { type: 'video', videoId: '0d56c258a59edc65e8cfa7093dd3ebfe' },
+                    { type: 'video', videoId: '9544314ad21a62f75159ca46834ef207' },
+                    { type: 'video', videoId: '78bd423d1d0588e7c4070aaeb2f2eee8' },
+                    { type: 'video', videoId: 'ea9454ea3d102fbe0685faf442234475' },
+                    { type: 'video', videoId: '8c13785661d2380d7f172507bbfbf203' }
                 ],
                 description: 'Obsah, co baví, vydělává a trenduje. Pracovali jsme na několika virálních sériích – od hlavních videí pro Taryho, přes úspěšný formát Tary Reakce, až po zábavný edit pro Pokeccc. Každé video jsme stavěli na autenticitě, chytrém střihu a retenci diváků, aby vydrželo nejen v trendech, ale i v paměti.',
                 client: 'Tary, Pokeccc',
@@ -4083,7 +4012,7 @@
                 },
                 statsLabels: {
                     label1: 'Zhlédnutí',
-                    label2: 'Watchtime', 
+                    label2: 'Watchtime',
                     label3: 'Subs'
                 },
                 detailLabels: {
@@ -4098,12 +4027,12 @@
                 title: 'Reels, na které jsme pyšní',
                 category: 'Shortform',
                 media: [
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/50e4539de3fd1da15bf2a06cd9d3219b/iframe' },
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/f2f9b7008650af0804d379f79d2d1682/iframe' },
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/fa526a99fcd4fc249af3e30e8cdcc8b4/iframe' },
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/8294bb1c59e022c2d50469074b35eb42/iframe' },
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/a0066f9af61f70896e1ee8d05e2d4c4b/iframe' },
-                    { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/442410a93a6178b4d1445a09bf3cd6bb/iframe' }
+                    { type: 'video', videoId: '50e4539de3fd1da15bf2a06cd9d3219b' },
+                    { type: 'video', videoId: 'f2f9b7008650af0804d379f79d2d1682' },
+                    { type: 'video', videoId: 'fa526a99fcd4fc249af3e30e8cdcc8b4' },
+                    { type: 'video', videoId: '8294bb1c59e022c2d50469074b35eb42' },
+                    { type: 'video', videoId: 'a0066f9af61f70896e1ee8d05e2d4c4b' },
+                    { type: 'video', videoId: '442410a93a6178b4d1445a09bf3cd6bb' }
                 ],
                 description: 'Reels, které nejsou jen trendy – jsou strategické a unikátní. Tvoříme krátká videa, která baví, zaujmou během prvních sekund a zároveň posilují brand. Pracovali jsme na short form obsahu pro značky jako Pan Čung, Comic Con Prague, Wabi Sabi, Kuba English, Letenky od Kuby a English pro děti – každé video laděné tak, aby rezonovalo s cílovkou a algoritmem zároveň.',
 		client: 'Pan Čung, Kubova English a podnikatelé',
@@ -4117,7 +4046,7 @@
                 },
                 statsLabels: {
                     label1: 'Shlédnutí',
-                    label2: 'Retention', 
+                    label2: 'Retention',
                     label3: 'ROI'
                 },
                 detailLabels: {
@@ -4147,11 +4076,11 @@
                 stats: {
                     stat1: '10.4%',
                     stat2: '10M+',
-                    stat3: '50+' 
+                    stat3: '50+'
                 },
                 statsLabels: {
                     label1: 'Průměrný CTR',
-                    label2: 'Impresí', 
+                    label2: 'Impresí',
                     label3: 'Spok. klientů'
                 },
                 detailLabels: {
@@ -4173,7 +4102,7 @@
                 // Nejdřív vyprázdnit src
                 const originalSrc = iframe.src;
                 iframe.src = '';
-                
+
                 // Pak nahradit iframe novým s původním src
                 const newIframe = iframe.cloneNode(true);
                 newIframe.src = originalSrc;
@@ -4186,12 +4115,12 @@
         function openPortfolioModal(category) {
             const modal = document.getElementById('portfolioModal');
             const data = portfolioData[category];
-            
+
             if (!data) return;
 
             // Reset carousel
             modalCarouselIndex = 0;
-            
+
             const track = modal.querySelector('.portfolio-modal-carousel-track');
             track.innerHTML = ''; // Clear previous items
             track.style.transform = 'translateX(0%)'; // Reset position
@@ -4201,25 +4130,24 @@
                 const item = document.createElement('div');
                 item.className = `portfolio-modal-media-item ${index === 0 ? 'active' : ''}`;
                 item.dataset.index = index;
-                
+
                 if (media.type === 'video') {
-                    // Použití nového formátu URL s požadovanými parametry
                     item.innerHTML = `
-                        <div class="portfolio-modal-video-wrapper">
-                            <iframe 
-                                src="${media.src}?autoplay=false&muted=true&loop=false&preload=none&controls=true" 
-                                frameborder="0" 
-                                allow="fullscreen" 
-                                allowfullscreen>
-                            </iframe>
-                        </div>`;
+                        <div class="portfolio-modal-video-wrapper" data-video-id="${media.videoId}" data-loaded="false">
+                            </div>`;
                 } else {
                     item.innerHTML = `<img src="${media.src}" alt="${data.title} - ${index + 1}" class="portfolio-modal-image" loading="lazy">`;
                 }
-                
+
                 track.appendChild(item);
             });
-
+            // Po vytvoření všech media items
+            if (data.media[0].type === 'video') {
+                const firstWrapper = track.querySelector('.portfolio-modal-video-wrapper');
+                if (firstWrapper) {
+                    loadModalVideo(data.media[0].videoId, firstWrapper);
+                }
+            }
             // Update indicators
             const indicators = modal.querySelectorAll('.portfolio-modal-indicator');
             indicators.forEach((indicator, index) => {
@@ -4232,7 +4160,7 @@
             // Update other modal content
             modal.querySelector('.portfolio-modal-category').textContent = data.category;
             modal.querySelector('.portfolio-modal-title').textContent = data.title;
-            
+
             // Update stat labels
             const statLabels = modal.querySelectorAll('.modal-stat-label');
             statLabels[0].textContent = data.statsLabels.label1;
@@ -4255,9 +4183,9 @@
                 tagElement.textContent = tag;
                 tagsContainer.appendChild(tagElement);
             });
-            
+
             modal.querySelector('.portfolio-modal-description p').textContent = data.description;
-            
+
             const details = modal.querySelectorAll('.detail-value');
             details[0].textContent = data.client;
             details[1].textContent = data.year;
@@ -4274,6 +4202,20 @@
             }, 300);
         }
 
+        function loadModalVideo(videoId, wrapper) {
+            if (wrapper.dataset.loaded === 'true') return;
+
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://customer-go903c29r7kfmooj.cloudflarestream.com/${videoId}/iframe?autoplay=false&muted=true&loop=false&controls=true`;
+            iframe.frameborder = '0';
+            iframe.allow = 'fullscreen';
+            iframe.allowFullscreen = true;
+            iframe.style.cssText = 'width: 100%; height: 100%;';
+
+            wrapper.appendChild(iframe);
+            wrapper.dataset.loaded = 'true';
+        }
+
         // Upravená funkce pro zavření modalu
         function closePortfolioModal() {
             const modal = document.getElementById('portfolioModal');
@@ -4282,7 +4224,7 @@
 
             // Spolehlivé zastavení všech videí v modalu při zavření
             stopAllModalVideos();
-            
+
             // Dodatečná ochrana: po krátkém timeoutu vyprázdnit src
             // aby se zamezilo jakýmkoli problémům s cache prohlížeče.
             setTimeout(() => {
@@ -4291,12 +4233,12 @@
                     iframe.src = '';
                 });
             }, 500); // 500ms je dostatečná doba pro dokončení animace zavření
-        }       
+        }
 
         // Corrected stat animation function
         function animateModalStats(stats) {
             const statElements = document.querySelectorAll('.modal-stat-value');
-            if (stats && statElements.length === 3) {        
+            if (stats && statElements.length === 3) {
 		statElements[0].textContent = stats.stat1;
         	statElements[1].textContent = stats.stat2;
         	statElements[2].textContent = stats.stat3;
@@ -4307,37 +4249,47 @@
         function navigateModalCarousel(direction) {
             // Zastavení videí před změnou slidu
             stopAllModalVideos();
-            
+
             const track = document.querySelector('.portfolio-modal-carousel-track');
             const indicators = document.querySelectorAll('.portfolio-modal-indicator');
-            
+
             if (direction === 'next') {
                 modalCarouselIndex = (modalCarouselIndex + 1) % modalCarouselItems;
             } else {
                 modalCarouselIndex = (modalCarouselIndex - 1 + modalCarouselItems) % modalCarouselItems;
             }
-            
+
             track.style.transform = `translateX(-${modalCarouselIndex * 100}%)`;
-            
+
             indicators.forEach((indicator, index) => {
                 indicator.classList.toggle('active', index === modalCarouselIndex);
             });
+            const currentItem = document.querySelector(`.portfolio-modal-media-item[data-index="${modalCarouselIndex}"]`);
+            const videoWrapper = currentItem?.querySelector('.portfolio-modal-video-wrapper');
+            if (videoWrapper && videoWrapper.dataset.videoId) {
+                loadModalVideo(videoWrapper.dataset.videoId, videoWrapper);
+            }
         }
 
         // Direct slide navigation
         function goToModalSlide(index) {
             // Zastavení videí před změnou slidu
             stopAllModalVideos();
-            
+
             modalCarouselIndex = index;
             const track = document.querySelector('.portfolio-modal-carousel-track');
             const indicators = document.querySelectorAll('.portfolio-modal-indicator');
-            
+
             track.style.transform = `translateX(-${modalCarouselIndex * 100}%)`;
-            
+
             indicators.forEach((indicator, i) => {
                 indicator.classList.toggle('active', i === modalCarouselIndex);
             });
+            const currentItem = document.querySelector(`.portfolio-modal-media-item[data-index="${modalCarouselIndex}"]`);
+            const videoWrapper = currentItem?.querySelector('.portfolio-modal-video-wrapper');
+            if (videoWrapper && videoWrapper.dataset.videoId) {
+                loadModalVideo(videoWrapper.dataset.videoId, videoWrapper);
+            }
         }
 
         // --- Event Listeners ---
@@ -4354,7 +4306,7 @@
                 modalCarousel.addEventListener('touchstart', (e) => {
                     modalTouchStartX = e.touches[0].clientX;
                 });
-                
+
                 modalCarousel.addEventListener('touchend', (e) => {
                     modalTouchEndX = e.changedTouches[0].clientX;
                     handleModalSwipe();
@@ -4364,7 +4316,7 @@
             function handleModalSwipe() {
                 const swipeThreshold = 50;
                 const diff = modalTouchStartX - modalTouchEndX;
-                
+
                 if (Math.abs(diff) > swipeThreshold) {
                     if (diff > 0) {
                         navigateModalCarousel('next');
