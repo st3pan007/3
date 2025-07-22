@@ -1056,7 +1056,7 @@
             position: relative;
             border-radius: 40px;
             overflow: hidden;
-            aspect-ratio: 1/1.2;
+            aspect-ratio: 9/16;
             max-width: 300px;
             margin: 0 auto;
         }
@@ -1065,6 +1065,10 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 40px;
+        }
+        
+        .founder-image-container iframe {
             border-radius: 40px;
         }
 
@@ -2610,7 +2614,7 @@
         <div class="preloader-inner">
             <div class="preloader-logo">
                 <span>Z</span><span>A</span><span>N</span><span>D</span><span>A</span>
-                <span> </span>
+                <span> </span>
                 <span>V</span><span>I</span><span>S</span><span>U</span><span>A</span><span>L</span><span>S</span>
             </div>
             <div class="preloader-progress">
@@ -2906,7 +2910,14 @@
             </div>
             <div class="founder-image-wrapper">
                 <div class="founder-image-container">
-                    <img src="https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/d839e1f4-9c32-4ba9-9981-d4c86253fd00/public" alt="Zakladatel Zanda Visuals" class="founder-image">
+                    <div style="position: relative; padding-top: 177.77777777777777%;">
+                        <iframe
+                            src="https://customer-go903c29r7kfmooj.cloudflarestream.com/b9beb705b5fbab575e305b76d4b3e7ad/iframe?muted=true&preload=true&loop=true&autoplay=true&poster=https%3A%2F%2Fcustomer-go903c29r7kfmooj.cloudflarestream.com%2Fb9beb705b5fbab575e305b76d4b3e7ad%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600&controls=false"
+                            style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
+                            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                            allowfullscreen="true">
+                        </iframe>
+                    </div>
                 </div>
             </div>
         </div>
@@ -3104,15 +3115,15 @@
                     <div class="portfolio-modal-stats">
                         <div class="modal-stat">
                             <span class="modal-stat-value">0</span>
-                            <span class="modal-stat-label">Zhlédnutí</span>
+                            <span class="modal-stat-label"></span>
                         </div>
                         <div class="modal-stat">
                             <span class="modal-stat-value">0</span>
-                            <span class="modal-stat-label">Engagement</span>
+                            <span class="modal-stat-label"></span>
                         </div>
                         <div class="modal-stat">
                             <span class="modal-stat-value">0</span>
-                            <span class="modal-stat-label">ROI</span>
+                            <span class="modal-stat-label"></span>
                         </div>
                     </div>
                     
@@ -3124,29 +3135,25 @@
                         <h3>Detaily projektu</h3>
                         <div class="modal-detail-grid">
                             <div class="modal-detail">
-                                <span class="detail-label">Klient</span>
+                                <span class="detail-label"></span>
                                 <span class="detail-value"></span>
                             </div>
                             <div class="modal-detail">
-                                <span class="detail-label">Rok</span>
+                                <span class="detail-label"></span>
                                 <span class="detail-value"></span>
                             </div>
                             <div class="modal-detail">
-                                <span class="detail-label">Délka</span>
+                                <span class="detail-label"></span>
                                 <span class="detail-value"></span>
                             </div>
                             <div class="modal-detail">
-                                <span class="detail-label">Platformy</span>
+                                <span class="detail-label"></span>
                                 <span class="detail-value"></span>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="portfolio-modal-tags">
-                        <span class="modal-tag">Motion Design</span>
-                        <span class="modal-tag">Color Grading</span>
-                        <span class="modal-tag">Sound Design</span>
-                    </div>
+                    <div class="portfolio-modal-tags"></div>
                     
                     <div class="portfolio-modal-cta">
                         <a href="#contact" class="btn btn-primary modal-cta-btn" onclick="closePortfolioModal()">
@@ -4036,14 +4043,26 @@
                 duration: '15s - 20min',
                 platforms: 'Reels, Facebook, YouTube',
                 stats: {
-                    views: 1500000,
-                    engagement: 45000,
-                    roi: 300
-                }
+                    stat1: '1.5M+',
+                    stat2: '45K',
+                    stat3: '300%'
+                },
+                statsLabels: {
+                    label1: 'Zhlédnutí',
+                    label2: 'Reach', 
+                    label3: 'ROI'
+                },
+                detailLabels: {
+                    label1: 'Klient',
+                    label2: 'Rok',
+                    label3: 'Délka',
+                    label4: 'Platformy'
+                },
+                tags: ['Motion Design', 'Color Grading', 'Sound Design']
             },
             'social': {
-                title: 'Virální Reels série',
-                category: 'Social Media',
+                title: 'Virální YouTube videa',
+                category: 'Longform',
                 media: [
                     { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/7de146df161088928e0979ac6054c701/iframe' },
                     { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/0d56c258a59edc65e8cfa7093dd3ebfe/iframe' },
@@ -4052,20 +4071,32 @@
                     { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/ea9454ea3d102fbe0685faf442234475/iframe' },
                     { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/8c13785661d2380d7f172507bbfbf203/iframe' }
                 ],
-                description: 'Série dynamických Reels, které způsobily revoluci v přístupu ke krátkému video contentu. Každé video bylo optimalizováno pro maximální engagement a virální potenciál.',
-                client: 'Fashion Influencer',
-                year: '2024',
-                duration: '0:15 - 0:30',
-                platforms: 'Instagram Reels, TikTok',
+                description: 'Obsah, co baví, vydělává a trenduje. Pracovali jsme na několika virálních sériích – od hlavních videí pro Taryho, přes úspěšný formát Tary Reakce, až po zábavný edit pro Pokeccc. Každé video jsme stavěli na autenticitě, chytrém střihu a retenci diváků, aby vydrželo nejen v trendech, ale i v paměti.',
+                client: 'Tary, Pokeccc',
+                year: '2024-2025',
+                duration: '3-20 minut',
+                platforms: 'YouTube',
                 stats: {
-                    views: 15000000,
-                    engagement: 890000,
-                    roi: 520
-                }
+                    stat1: '15M+',
+                    stat2: '127K',
+                    stat3: '100K+'
+                },
+                statsLabels: {
+                    label1: 'Zhlédnutí',
+                    label2: 'Watchtime', 
+                    label3: 'Subs'
+                },
+                detailLabels: {
+                    label1: 'Klienti',
+                    label2: 'Rok',
+                    label3: 'Délka',
+                    label4: 'Platformy'
+                },
+                tags: ['Motion Design', 'Color Grading', 'Sound Design']
             },
             'events': {
-                title: 'Comic Con Prague Aftermovie',
-                category: 'Event Coverage',
+                title: 'Reels, na které jsme pyšní',
+                category: 'Shortform',
                 media: [
                     { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/50e4539de3fd1da15bf2a06cd9d3219b/iframe' },
                     { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/f2f9b7008650af0804d379f79d2d1682/iframe' },
@@ -4074,20 +4105,32 @@
                     { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/a0066f9af61f70896e1ee8d05e2d4c4b/iframe' },
                     { type: 'video', src: 'https://customer-go903c29r7kfmooj.cloudflarestream.com/442410a93a6178b4d1445a09bf3cd6bb/iframe' }
                 ],
-                description: 'Epický aftermovie zachycující energii největšího pop-culture eventu v ČR. Dynamický střih, cinematické záběry a perfektní sound design.',
-                client: 'Comic Con Prague',
-                year: '2023',
-                duration: '3:45',
-                platforms: 'YouTube, Facebook, Web',
+                description: 'Reels, které nejsou jen trendy – jsou strategické a unikátní. Tvoříme krátká videa, která baví, zaujmou během prvních sekund a zároveň posilují brand. Pracovali jsme na short form obsahu pro značky jako Pan Čung, Comic Con Prague, Wabi Sabi, Kuba English, Letenky od Kuby a English pro děti – každé video laděné tak, aby rezonovalo s cílovkou a algoritmem zároveň.',
+		client: 'Pan Čung, Kubova English a podnikatelé',
+		year: '2023-2025',
+                duration: '0:15-3:00 minuty',
+                platforms: 'Reels, Facebook, YouTube shorts',
                 stats: {
-                    views: 450000,
-                    engagement: 25000,
-                    roi: 180
-                }
+                    stat1: '70M+',
+                    stat2: '86%',
+                    stat3: '530%'
+                },
+                statsLabels: {
+                    label1: 'Shlédnutí',
+                    label2: 'Retention', 
+                    label3: 'ROI'
+                },
+                detailLabels: {
+                    label1: 'Klienti',
+                    label2: 'Rok',
+                    label3: 'Délka Videa',
+                    label4: 'Použití'
+                },
+                tags: ['Motion Design', 'Color Grading', 'Sound Design']
             },
             'youtube': {
-                title: 'YouTube série pro Kuba English',
-                category: 'YouTube Content',
+                title: 'Úspěšné thumbnaily',
+                category: 'Grafika',
                 media: [
                     { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/c4f8dcf0-c450-4291-92bc-c6ae3da20400/public' },
                     { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/1a42ba19-f70c-4ab8-2970-8a5c75c05b00/public' },
@@ -4096,16 +4139,28 @@
                     { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/9c80b2d0-e125-4518-53e0-cf79c4f11600/public' },
                     { type: 'image', src: 'https://imagedelivery.net/2OhTeUm5dT07PSQroFepFw/412696ff-510d-4b41-5565-04c0bb416800/public' }
                 ],
-                description: 'Kompletní video produkce pro jeden z nejúspěšnějších vzdělávacích kanálů. Inovativní přístup ke vzdělávacímu contentu s důrazem na retention a engagement.',
-                client: 'Kuba English',
+                description: 'Miniatury, které prodávají video dřív, než někdo klikne. Tvoříme výrazné a optimalizované thumbnaily, které zastaví scroll a zvednou CTR. Některé návrhy slouží jako vizuální reference pro inspiraci, jiné jsou přímo použité v úspěšných videích pro top české YouTubery. Design vždy ladíme podle cílovky, obsahu a trendů – aby každý obrázek fungoval jako magnet.',
+                client: 'Grafika/YouTube thumbnaily',
                 year: '2024',
-                duration: '10:00+',
-                platforms: 'YouTube',
+                duration: '1+ série/ klient',
+                platforms: 'YouTube, Shorts, Reels',
                 stats: {
-                    views: 5000000,
-                    engagement: 120000,
-                    roi: 450
-                }
+                    stat1: '10.4%',
+                    stat2: '10M+',
+                    stat3: '50+' 
+                },
+                statsLabels: {
+                    label1: 'Průměrný CTR',
+                    label2: 'Impresí', 
+                    label3: 'Spok. klientů'
+                },
+                detailLabels: {
+                    label1: 'Kategorie',
+                    label2: 'Rok',
+                    label3: 'Rozsah',
+                    label4: 'Platformy'
+                },
+                tags: ['Vizuální strategie', 'Design', 'CTR optimalizace']
             }
         };
 
@@ -4177,6 +4232,30 @@
             // Update other modal content
             modal.querySelector('.portfolio-modal-category').textContent = data.category;
             modal.querySelector('.portfolio-modal-title').textContent = data.title;
+            
+            // Update stat labels
+            const statLabels = modal.querySelectorAll('.modal-stat-label');
+            statLabels[0].textContent = data.statsLabels.label1;
+            statLabels[1].textContent = data.statsLabels.label2;
+            statLabels[2].textContent = data.statsLabels.label3;
+
+            // Update detail labels
+            const detailLabels = modal.querySelectorAll('.detail-label');
+            detailLabels[0].textContent = data.detailLabels.label1;
+            detailLabels[1].textContent = data.detailLabels.label2;
+            detailLabels[2].textContent = data.detailLabels.label3;
+            detailLabels[3].textContent = data.detailLabels.label4;
+
+            // Update tags
+            const tagsContainer = modal.querySelector('.portfolio-modal-tags');
+            tagsContainer.innerHTML = '';
+            data.tags.forEach(tag => {
+                const tagElement = document.createElement('span');
+                tagElement.className = 'modal-tag';
+                tagElement.textContent = tag;
+                tagsContainer.appendChild(tagElement);
+            });
+            
             modal.querySelector('.portfolio-modal-description p').textContent = data.description;
             
             const details = modal.querySelectorAll('.detail-value');
@@ -4212,51 +4291,15 @@
                     iframe.src = '';
                 });
             }, 500); // 500ms je dostatečná doba pro dokončení animace zavření
-        }
-        
-        // --- KONEC: OPRAVENÉ FUNKCE ---
-        
-        // Helper function for number animation
-        function animateValue(element, start, end, duration, formatter) {
-            const startTime = Date.now();
-            
-            function update() {
-                const currentTime = Date.now();
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                
-                // EaseOutQuart timing function
-                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-                const current = start + (end - start) * easeOutQuart;
-                
-                let displayValue;
-                 if (formatter === 'M+') {
-                    displayValue = (current / 1000000).toFixed(1) + 'M+';
-                } else if (formatter === 'K') {
-                    displayValue = Math.round(current / 1000) + 'K';
-                } else if (formatter === '%') {
-                    displayValue = Math.round(current) + '%';
-                } else {
-                    displayValue = Math.round(current);
-                }
-
-                element.textContent = displayValue;
-                
-                if (progress < 1) {
-                    requestAnimationFrame(update);
-                }
-            }
-            
-            update();
-        }
+        }       
 
         // Corrected stat animation function
         function animateModalStats(stats) {
             const statElements = document.querySelectorAll('.modal-stat-value');
-            if (stats && statElements.length === 3) {
-                animateValue(statElements[0], 0, stats.views, 1500, 'M+');
-                animateValue(statElements[1], 0, stats.engagement, 1500, 'K');
-                animateValue(statElements[2], 0, stats.roi, 1500, '%');
+            if (stats && statElements.length === 3) {        
+		statElements[0].textContent = stats.stat1;
+        	statElements[1].textContent = stats.stat2;
+        	statElements[2].textContent = stats.stat3;
             }
         }
 
